@@ -7,31 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		711A34301DC3539000F5B5D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A342F1DC3539000F5B5D2 /* AppDelegate.m */; };
-		711A34331DC3539000F5B5D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A34321DC3539000F5B5D2 /* main.m */; };
 		711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711A34371DC3539000F5B5D2 /* Assets.xcassets */; };
 		711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711A34391DC3539000F5B5D2 /* Main.storyboard */; };
-		BA10437C25EB63320066BA1B /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10437A25EB63320066BA1B /* WindowVC.m */; };
-		BA1D97722631CFBA0066545F /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D97712631CFBA0066545F /* CwGeneralManagerFrameWork.framework */; };
-		BA1D97732631CFBA0066545F /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D97712631CFBA0066545F /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA1D97772631D8730066545F /* sublimeText.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97762631D8730066545F /* sublimeText.png */; };
-		BA1D977D2631DF460066545F /* TextWrangler.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1D977C2631DF460066545F /* TextWrangler.png */; };
-		BA1D977F263539420066545F /* SublimeText.app in Resources */ = {isa = PBXBuildFile; fileRef = BA1D977E263539420066545F /* SublimeText.app */; };
-		BA1D97812635394C0066545F /* TextWrangler.app in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97802635394C0066545F /* TextWrangler.app */; };
-		BA1D97852636FBBA0066545F /* FailOnlyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97832636FBBA0066545F /* FailOnlyItems.m */; };
-		BA1D97862636FBBA0066545F /* FailOnlyItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97842636FBBA0066545F /* FailOnlyItems.xib */; };
-		BA1D97892637070F0066545F /* startAtlas2.command in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97872637070F0066545F /* startAtlas2.command */; };
-		BA1D978A2637070F0066545F /* stopAtlas2.command in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97882637070F0066545F /* stopAtlas2.command */; };
-		BA7F9970262F2BB80016F975 /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F996E262F2BB80016F975 /* CatchFwVc.m */; };
-		BA7F9971262F2BB80016F975 /* CatchFwVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA7F996F262F2BB80016F975 /* CatchFwVc.xib */; };
-		BA7F9973262F31E30016F975 /* DFU_Station_CatchFW.py in Resources */ = {isa = PBXBuildFile; fileRef = BA7F9972262F31E30016F975 /* DFU_Station_CatchFW.py */; };
-		BA8E4C8C25EBE7810056F67F /* SnVauleMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8E4C8B25EBE7810056F67F /* SnVauleMode.m */; };
+		BA1D9792263AF3500066545F /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D9791263AF34F0066545F /* CwGeneralManagerFrameWork.framework */; };
+		BA1D97AC263AFA310066545F /* ItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97A6263AFA310066545F /* ItemMode.m */; };
+		BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97A7263AFA310066545F /* AtlasLogVC.xib */; };
+		BA1D97AF263AFA310066545F /* AtlasLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97AB263AFA310066545F /* AtlasLogVC.m */; };
+		BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B3263AFADF0066545F /* WindowVC.m */; };
+		BA1D97B7263AFAE00066545F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B4263AFADF0066545F /* main.m */; };
+		BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.m */; };
+		BA1D97BA263AFC4C0066545F /* Atlas2_Cmds in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */; };
+		BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BD263AFCF90066545F /* CatchFwVc.xib */; };
+		BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */; };
+		BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97BF263AFCF90066545F /* CatchFwVc.m */; };
+		BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* FailOnlyItems.m */; };
+		BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* FailOnlyItems.xib */; };
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
-		BAE84F33262DBEEB00C42696 /* AtlasLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE84F30262DBEEA00C42696 /* AtlasLogVC.m */; };
-		BAE84F34262DBEEB00C42696 /* AtlasLogVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE84F31262DBEEB00C42696 /* AtlasLogVC.xib */; };
-		BAE84F3A262DBEFE00C42696 /* ItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE84F38262DBEFD00C42696 /* ItemMode.m */; };
-		BAE84F3D262DC0F800C42696 /* AtlasMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE84F3C262DC0F800C42696 /* AtlasMode.m */; };
-		BAE84F40262DE86500C42696 /* FileDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE84F3F262DE86500C42696 /* FileDragView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BA1D97732631CFBA0066545F /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,41 +40,30 @@
 
 /* Begin PBXFileReference section */
 		711A342B1DC3539000F5B5D2 /* Atlas2_Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas2_Tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		711A342E1DC3539000F5B5D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		711A342F1DC3539000F5B5D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		711A34321DC3539000F5B5D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		711A34371DC3539000F5B5D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711A343A1DC3539000F5B5D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		711A343C1DC3539000F5B5D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA10437925EB63320066BA1B /* WindowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowVC.h; sourceTree = "<group>"; };
-		BA10437A25EB63320066BA1B /* WindowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
-		BA1D97712631CFBA0066545F /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
-		BA1D97762631D8730066545F /* sublimeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sublimeText.png; sourceTree = "<group>"; };
-		BA1D977C2631DF460066545F /* TextWrangler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextWrangler.png; sourceTree = "<group>"; };
-		BA1D977E263539420066545F /* SublimeText.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = SublimeText.app; sourceTree = "<group>"; };
-		BA1D97802635394C0066545F /* TextWrangler.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = TextWrangler.app; sourceTree = "<group>"; };
-		BA1D97822636FBBA0066545F /* FailOnlyItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailOnlyItems.h; sourceTree = "<group>"; };
-		BA1D97832636FBBA0066545F /* FailOnlyItems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FailOnlyItems.m; sourceTree = "<group>"; };
-		BA1D97842636FBBA0066545F /* FailOnlyItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailOnlyItems.xib; sourceTree = "<group>"; };
-		BA1D97872637070F0066545F /* startAtlas2.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = startAtlas2.command; sourceTree = "<group>"; };
-		BA1D97882637070F0066545F /* stopAtlas2.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stopAtlas2.command; sourceTree = "<group>"; };
-		BA7F996D262F2BB80016F975 /* CatchFwVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatchFwVc.h; sourceTree = "<group>"; };
-		BA7F996E262F2BB80016F975 /* CatchFwVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatchFwVc.m; sourceTree = "<group>"; };
-		BA7F996F262F2BB80016F975 /* CatchFwVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatchFwVc.xib; sourceTree = "<group>"; };
-		BA7F9972262F31E30016F975 /* DFU_Station_CatchFW.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = DFU_Station_CatchFW.py; sourceTree = "<group>"; };
-		BA8E4C8A25EBE7810056F67F /* SnVauleMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnVauleMode.h; sourceTree = "<group>"; };
-		BA8E4C8B25EBE7810056F67F /* SnVauleMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnVauleMode.m; sourceTree = "<group>"; };
+		BA1D9791263AF34F0066545F /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwGeneralManagerFrameWork.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
+		BA1D97A6263AFA310066545F /* ItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemMode.m; sourceTree = "<group>"; };
+		BA1D97A7263AFA310066545F /* AtlasLogVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasLogVC.xib; sourceTree = "<group>"; };
+		BA1D97A8263AFA310066545F /* AtlasLogVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasLogVC.h; sourceTree = "<group>"; };
+		BA1D97AA263AFA310066545F /* ItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemMode.h; sourceTree = "<group>"; };
+		BA1D97AB263AFA310066545F /* AtlasLogVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasLogVC.m; sourceTree = "<group>"; };
+		BA1D97B1263AFADF0066545F /* WindowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowVC.h; sourceTree = "<group>"; };
+		BA1D97B2263AFADF0066545F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA1D97B3263AFADF0066545F /* WindowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
+		BA1D97B4263AFADF0066545F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA1D97B5263AFADF0066545F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Atlas2_Cmds; sourceTree = "<group>"; };
+		BA1D97BC263AFCF90066545F /* CatchFwVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchFwVc.h; sourceTree = "<group>"; };
+		BA1D97BD263AFCF90066545F /* CatchFwVc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatchFwVc.xib; sourceTree = "<group>"; };
+		BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = DFU_Station_CatchFW.py; sourceTree = "<group>"; };
+		BA1D97BF263AFCF90066545F /* CatchFwVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchFwVc.m; sourceTree = "<group>"; };
+		BA1D97C4263AFD270066545F /* FailOnlyItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailOnlyItems.h; sourceTree = "<group>"; };
+		BA1D97C5263AFD270066545F /* FailOnlyItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnlyItems.m; sourceTree = "<group>"; };
+		BA1D97C6263AFD270066545F /* FailOnlyItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailOnlyItems.xib; sourceTree = "<group>"; };
 		BAB4315025B32A38003F0AFB /* ExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionConst.m; sourceTree = "<group>"; };
 		BAB4315125B32A38003F0AFB /* ExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionConst.h; sourceTree = "<group>"; };
-		BAE84F30262DBEEA00C42696 /* AtlasLogVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasLogVC.m; sourceTree = "<group>"; };
-		BAE84F31262DBEEB00C42696 /* AtlasLogVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasLogVC.xib; sourceTree = "<group>"; };
-		BAE84F32262DBEEB00C42696 /* AtlasLogVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasLogVC.h; sourceTree = "<group>"; };
-		BAE84F38262DBEFD00C42696 /* ItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemMode.m; sourceTree = "<group>"; };
-		BAE84F39262DBEFE00C42696 /* ItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemMode.h; sourceTree = "<group>"; };
-		BAE84F3B262DC0F800C42696 /* AtlasMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtlasMode.h; sourceTree = "<group>"; };
-		BAE84F3C262DC0F800C42696 /* AtlasMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtlasMode.m; sourceTree = "<group>"; };
-		BAE84F3E262DE86400C42696 /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
-		BAE84F3F262DE86500C42696 /* FileDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDragView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA1D97722631CFBA0066545F /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BA1D9792263AF3500066545F /* CwGeneralManagerFrameWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +81,6 @@
 		711A34221DC3539000F5B5D2 = {
 			isa = PBXGroup;
 			children = (
-				BA1D97712631CFBA0066545F /* CwGeneralManagerFrameWork.framework */,
 				711A342D1DC3539000F5B5D2 /* Atlas2_Tool */,
 				711A342C1DC3539000F5B5D2 /* Products */,
 				BAB4314625B328C1003F0AFB /* Frameworks */,
@@ -120,36 +98,12 @@
 		711A342D1DC3539000F5B5D2 /* Atlas2_Tool */ = {
 			isa = PBXGroup;
 			children = (
-				711A342E1DC3539000F5B5D2 /* AppDelegate.h */,
-				711A342F1DC3539000F5B5D2 /* AppDelegate.m */,
-				BAE84F39262DBEFE00C42696 /* ItemMode.h */,
-				BAE84F38262DBEFD00C42696 /* ItemMode.m */,
-				BA8E4C8A25EBE7810056F67F /* SnVauleMode.h */,
-				BA8E4C8B25EBE7810056F67F /* SnVauleMode.m */,
-				BAE84F32262DBEEB00C42696 /* AtlasLogVC.h */,
-				BAE84F30262DBEEA00C42696 /* AtlasLogVC.m */,
-				BAE84F31262DBEEB00C42696 /* AtlasLogVC.xib */,
-				BAE84F3B262DC0F800C42696 /* AtlasMode.h */,
-				BAE84F3C262DC0F800C42696 /* AtlasMode.m */,
-				BAE84F3E262DE86400C42696 /* FileDragView.h */,
-				BAE84F3F262DE86500C42696 /* FileDragView.m */,
-				BA10437925EB63320066BA1B /* WindowVC.h */,
-				BA10437A25EB63320066BA1B /* WindowVC.m */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
 				BAB4315025B32A38003F0AFB /* ExtensionConst.m */,
-				BA1D97822636FBBA0066545F /* FailOnlyItems.h */,
-				BA1D97832636FBBA0066545F /* FailOnlyItems.m */,
-				BA1D97842636FBBA0066545F /* FailOnlyItems.xib */,
-				BA7F996D262F2BB80016F975 /* CatchFwVc.h */,
-				BA7F996E262F2BB80016F975 /* CatchFwVc.m */,
-				BA7F996F262F2BB80016F975 /* CatchFwVc.xib */,
-				BA1D97872637070F0066545F /* startAtlas2.command */,
-				BA1D97882637070F0066545F /* stopAtlas2.command */,
-				BA7F9972262F31E30016F975 /* DFU_Station_CatchFW.py */,
-				BA1D97802635394C0066545F /* TextWrangler.app */,
-				BA1D977E263539420066545F /* SublimeText.app */,
-				BA1D977C2631DF460066545F /* TextWrangler.png */,
-				BA1D97762631D8730066545F /* sublimeText.png */,
+				BA1D97C3263AFD270066545F /* FailOnlyItems */,
+				BA1D97BB263AFCF90066545F /* CatchFwVc */,
+				BA1D97B0263AFADF0066545F /* Main */,
+				BA1D97A4263AFA310066545F /* AtlasLogVC */,
 				711A34371DC3539000F5B5D2 /* Assets.xcassets */,
 				711A34391DC3539000F5B5D2 /* Main.storyboard */,
 				711A343C1DC3539000F5B5D2 /* Info.plist */,
@@ -161,14 +115,60 @@
 		711A34311DC3539000F5B5D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				711A34321DC3539000F5B5D2 /* main.m */,
+				BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA1D97A4263AFA310066545F /* AtlasLogVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA1D97A8263AFA310066545F /* AtlasLogVC.h */,
+				BA1D97AB263AFA310066545F /* AtlasLogVC.m */,
+				BA1D97A7263AFA310066545F /* AtlasLogVC.xib */,
+				BA1D97AA263AFA310066545F /* ItemMode.h */,
+				BA1D97A6263AFA310066545F /* ItemMode.m */,
+			);
+			path = AtlasLogVC;
+			sourceTree = "<group>";
+		};
+		BA1D97B0263AFADF0066545F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BA1D97B1263AFADF0066545F /* WindowVC.h */,
+				BA1D97B2263AFADF0066545F /* AppDelegate.h */,
+				BA1D97B3263AFADF0066545F /* WindowVC.m */,
+				BA1D97B4263AFADF0066545F /* main.m */,
+				BA1D97B5263AFADF0066545F /* AppDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BA1D97BB263AFCF90066545F /* CatchFwVc */ = {
+			isa = PBXGroup;
+			children = (
+				BA1D97BC263AFCF90066545F /* CatchFwVc.h */,
+				BA1D97BF263AFCF90066545F /* CatchFwVc.m */,
+				BA1D97BD263AFCF90066545F /* CatchFwVc.xib */,
+				BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */,
+			);
+			path = CatchFwVc;
+			sourceTree = "<group>";
+		};
+		BA1D97C3263AFD270066545F /* FailOnlyItems */ = {
+			isa = PBXGroup;
+			children = (
+				BA1D97C4263AFD270066545F /* FailOnlyItems.h */,
+				BA1D97C5263AFD270066545F /* FailOnlyItems.m */,
+				BA1D97C6263AFD270066545F /* FailOnlyItems.xib */,
+			);
+			path = FailOnlyItems;
 			sourceTree = "<group>";
 		};
 		BAB4314625B328C1003F0AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA1D9791263AF34F0066545F /* CwGeneralManagerFrameWork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,18 +233,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA1D978A2637070F0066545F /* stopAtlas2.command in Resources */,
-				BA1D97772631D8730066545F /* sublimeText.png in Resources */,
-				BA1D97812635394C0066545F /* TextWrangler.app in Resources */,
-				BA1D97862636FBBA0066545F /* FailOnlyItems.xib in Resources */,
-				BA7F9973262F31E30016F975 /* DFU_Station_CatchFW.py in Resources */,
+				BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */,
+				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
+				BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */,
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
-				BAE84F34262DBEEB00C42696 /* AtlasLogVC.xib in Resources */,
-				BA1D977F263539420066545F /* SublimeText.app in Resources */,
-				BA1D97892637070F0066545F /* startAtlas2.command in Resources */,
-				BA1D977D2631DF460066545F /* TextWrangler.png in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
-				BA7F9971262F2BB80016F975 /* CatchFwVc.xib in Resources */,
+				BA1D97BA263AFC4C0066545F /* Atlas2_Cmds in Resources */,
+				BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,17 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE84F33262DBEEB00C42696 /* AtlasLogVC.m in Sources */,
-				BA1D97852636FBBA0066545F /* FailOnlyItems.m in Sources */,
-				BA7F9970262F2BB80016F975 /* CatchFwVc.m in Sources */,
-				BAE84F40262DE86500C42696 /* FileDragView.m in Sources */,
-				BAE84F3A262DBEFE00C42696 /* ItemMode.m in Sources */,
-				BAE84F3D262DC0F800C42696 /* AtlasMode.m in Sources */,
-				711A34331DC3539000F5B5D2 /* main.m in Sources */,
-				BA8E4C8C25EBE7810056F67F /* SnVauleMode.m in Sources */,
+				BA1D97AF263AFA310066545F /* AtlasLogVC.m in Sources */,
+				BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */,
+				BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */,
+				BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */,
+				BA1D97AC263AFA310066545F /* ItemMode.m in Sources */,
+				BA1D97B7263AFAE00066545F /* main.m in Sources */,
 				BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */,
-				711A34301DC3539000F5B5D2 /* AppDelegate.m in Sources */,
-				BA10437C25EB63320066BA1B /* WindowVC.m in Sources */,
+				BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

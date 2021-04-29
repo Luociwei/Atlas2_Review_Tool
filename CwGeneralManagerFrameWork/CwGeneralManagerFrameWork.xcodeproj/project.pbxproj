@@ -10,7 +10,9 @@
 		BA10438725EBBA310066BA1B /* TabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA10438525EBBA310066BA1B /* TabViewController.h */; };
 		BA10438825EBBA310066BA1B /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10438625EBBA310066BA1B /* TabViewController.m */; };
 		BA12830325B7C365000AE325 /* CwGeneralManagerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */; };
-		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; };
+		BA1D979C263AF7240066545F /* FileDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D979B263AF7240066545F /* FileDragView.m */; };
+		BA1D97A2263AF7D40066545F /* FileDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D97A1263AF7D40066545F /* FileDragView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE725B3F17A0063A886 /* FileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFE25B3F17A0063A886 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE825B3F17A0063A886 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFF25B3F17A0063A886 /* JXArcCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */; };
@@ -42,6 +44,8 @@
 		BA10438525EBBA310066BA1B /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		BA10438625EBBA310066BA1B /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CwGeneralManagerBundle.bundle; sourceTree = "<group>"; };
+		BA1D979B263AF7240066545F /* FileDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDragView.m; sourceTree = "<group>"; };
+		BA1D97A1263AF7D40066545F /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
 		BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CwGeneralManager.h; sourceTree = "<group>"; };
 		BAE02CE725B3F17A0063A886 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BAE02CE825B3F17A0063A886 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				BAE02CF525B3F17A0063A886 /* PresentViewController.m */,
 				BAE02CEB25B3F17A0063A886 /* NSString+Extension.h */,
 				BAE02CF425B3F17A0063A886 /* NSString+Extension.m */,
+				BA1D97A1263AF7D40066545F /* FileDragView.h */,
+				BA1D979B263AF7240066545F /* FileDragView.m */,
 				BAE02CFA25B3F17A0063A886 /* OutlineView.h */,
 				BAE02CED25B3F17A0063A886 /* OutlineView.m */,
 				BAE02CF925B3F17A0063A886 /* Alert.h */,
@@ -153,16 +159,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */,
 				BAE02D1125B3F17A0063A886 /* TextView.h in Headers */,
 				BAE02D0625B3F17A0063A886 /* CSVParser.h in Headers */,
 				BAE02D0525B3F17A0063A886 /* TableView.h in Headers */,
 				BAE02D0125B3F17A0063A886 /* NSString+Extension.h in Headers */,
 				BAE02D0F25B3F17A0063A886 /* Alert.h in Headers */,
-				BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */,
 				BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */,
 				BAE02D0725B3F17A0063A886 /* WindowController.h in Headers */,
 				BAE02D0025B3F17A0063A886 /* PresentViewController.h in Headers */,
 				BAE02D1025B3F17A0063A886 /* OutlineView.h in Headers */,
+				BA1D97A2263AF7D40066545F /* FileDragView.h in Headers */,
 				BAE02D3025B406B30063A886 /* Image.h in Headers */,
 				BAE02CFE25B3F17A0063A886 /* Task.h in Headers */,
 				BA10438725EBBA310066BA1B /* TabViewController.h in Headers */,
@@ -211,6 +218,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 71B0A17C1DCDCD46004165A8;
@@ -249,6 +257,7 @@
 				BAE02D0225B3F17A0063A886 /* TextView.m in Sources */,
 				BAE02D0B25B3F17A0063A886 /* PresentViewController.m in Sources */,
 				BAE02D3125B406B30063A886 /* Image.m in Sources */,
+				BA1D979C263AF7240066545F /* FileDragView.m in Sources */,
 				BAE02D0925B3F17A0063A886 /* FileManager.m in Sources */,
 				BAE02D0325B3F17A0063A886 /* OutlineView.m in Sources */,
 			);
