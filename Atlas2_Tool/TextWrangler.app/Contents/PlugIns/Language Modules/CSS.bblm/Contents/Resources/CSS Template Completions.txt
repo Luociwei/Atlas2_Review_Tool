@@ -1,0 +1,90 @@
+:active	:active	:active
+::after	::after	::after
+:after	::after	::after
+attr	attr	attr(<# attribute_name #>)
+::before	::before	::before
+:before	::before	::before
+block	block	block
+bold	bold	bold
+calc	calc	calc(<# calculation #>)
+center	center	center
+@charset	@charset	@charset "<# UTF-8 #>"
+:checked	:checked	:checked
+collapse	collapse	collapse
+cubic-bezier	cubic-bezier timing function	cubic-bezier(<# x1 #>, <# y1 #>, <# x2 #>, <# y2 #>)
+:disabled	:disabled	:disabled
+:empty	:empty	:empty
+:enabled	:enabled	:enabled
+even	even	even
+:first-child	:first-child	:first-child
+::first-letter	::first-letter	::first-letter
+:first-letter	::first-letter	::first-letter
+::first-line	::first-line	::first-line
+:first-line	::first-line	::first-line
+:first-of-type	:first-of-type	:first-of-type
+:focus	:focus	:focus
+@font-face	@font-face	@font-face {\r\tfont-family: "<# fontfamily #>";\r\tsrc: url("<# srcurl #>");\r}
+grad	grad	grad
+:hover	:hover	:hover
+@import	@import	@import url("<# url #>")
+@import	@import with media types	@import url(<# url #>) <# media_type_list #>
+!important	!important	!important
+:in-range	:in-range	:in-range
+inherit	inherit	inherit
+inline	inline	inline
+inline-block	inline-block	inline-block
+inline-table	inline-table	inline-table
+:invalid	:invalid	:invalid
+italic	italic	italic
+:lang	:lang	:lang(<# language_code #>)
+:last-child	:last-child	:last-child
+:last-of-type	:last-of-type	:last-of-type
+:link	:link	:link
+list-item	list-item	list-item
+@media	@media	@media <# mediaQuery #> {\r\t<# mediaRules #>\r}
+none	none	none
+normal	normal	normal
+:not	:not	:not(<# selector #>)
+:nth-child	:nth-child (aN+b)	:nth-child(<# A #>n + <# B #>)
+:nth-child	:nth-child (odd or even)	:nth-child(<# odd_or_even #>)
+:nth-last-child	:nth-last-child (aN+b of <selectors>)	:nth-last-child(<# A #>n + <# B #> of <# selector_list #>)
+:nth-last-child	:nth-last-child (aN+b)	:nth-last-child(<# A #>n + <# B #>)
+:nth-last-child	:nth-last-child (odd or even of <selectors>)	:nth-last-child(<# odd_or_even #> of <# selector_list #>)
+:nth-last-child	:nth-last-child (odd or even)	:nth-last-child(<# odd_or_even #>)
+:nth-last-of-type	:nth-last-of-type(aN+b)	:nth-last-of-type(<# A #>n + <# B #>)
+:nth-last-of-type	:nth-last-of-type(odd or even)	:nth-last-of-type(<# odd_or_even #>)
+:nth-of-type	:nth-of-type (aN+b)	:nth-of-type(<# A #>n + <# B #>)
+:nth-of-type	:nth-of-type (odd or even)	:nth-of-type(<# odd_or_even #>)
+oblique	oblique	oblique
+:only-child	:only-child	:only-child
+:only-of-type	:only-of-type	:only-of-type
+:optional	:optional	:optional
+:out-of-range	:out-of-range	:out-of-range
+@page	@page	@page <# pagePseudoClass #> {\r\t<# pageRules #>\r}
+:read-only	:read-only	:read-only
+:read-write	:read-write	:read-write
+rect	rect	rect
+rect	rect	rect(<# top #>, <# right #>, <# bottom #>, <# left #>)
+:required	:required	:required
+rgb	rgb	rgb(<# red #>, <# green #>, <# blue #>)
+rgba	rgba	rgba(<# red #>, <# green #>, <# blue #>, <# alpha #>)
+:root	:root	:root
+run-in	run-in	run-in
+::selection	::selection	::selection
+:selection	::selection	::selection
+separate	separate	separate
+steps	steps timing function	steps(<# number_of_steps #>, <# start_or_end #>)
+table	table	table
+table-cell	table-cell	table-cell
+table-column	table-column	table-column
+table-column-group	table-column-group	table-column-group
+table-footer-group	table-footer-group	table-footer-group
+table-header-group	table-header-group	table-header-group
+table-row	table-row	table-row
+table-row-group	table-row-group	table-row-group
+:target	:target	:target
+url	url	url("<# url_string #>")
+:valid	:valid	:valid
+:visited	:visited	:visited
+vmax	vmax	vmax
+vmin	vmin	vmin
