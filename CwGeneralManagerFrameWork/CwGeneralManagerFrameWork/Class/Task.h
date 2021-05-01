@@ -22,8 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString*)cw_read;
 -(instancetype)initWithShellPath:(NSString*)filePath parArr:(NSArray *)parArr pythonPath:(NSString *)pythonPath;
 @property (nonatomic,strong) NSFileHandle *writeHandle;
-+(NSString *)termialWithCmd:(NSString *)cmd;
-+(NSString *)termialWithCmd:(NSString *)cmd delay:(int)delay;
++(NSString *)cw_termialWithCmd:(NSString *)cmd;
++(NSString *)cw_termialWithCmd:(NSString *)cmd delay:(int)delay;
++(NSString *)cw_openFileWithPath:(NSString *)path;
 @end
 
 NS_ASSUME_NONNULL_END

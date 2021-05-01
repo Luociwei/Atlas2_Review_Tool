@@ -335,7 +335,7 @@
     for (int i =0; i<ipRangeCount; i++) {
         NSString *ip =[NSString stringWithFormat:@"%@%ld",ipPingSegments,ipSegmentEnd+i];
         NSString *pingIP =[NSString stringWithFormat:@"ping %@ -t1",ip];
-        NSString *read  = [Task termialWithCmd:pingIP];
+        NSString *read  = [Task cw_termialWithCmd:pingIP];
         if ([read containsString:@"icmp_seq="]&&[read containsString:@"ttl="]) {
             [self showLog:[NSString stringWithFormat:@"Connect IP:%@",ip]];
             isSearch = YES;

@@ -20,6 +20,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 @implementation TableDataDelegate{
     
     BOOL _isDargData;
+    NSInteger _clickColumnIndex;
 }
 
 - (void)dealloc {
@@ -38,11 +39,17 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 -(id)initWithTaleView:(NSTableView *)tableView isDargData:(BOOL)isDargData{
     self = [super init];
     if(self){
+        _clickColumnIndex = 0;
         _isDargData = isDargData;
         _items = [[NSMutableArray alloc]initWithCapacity:4];
         if (tableView!=nil) {
             tableView.delegate = self;
             tableView.dataSource = self;
+            tableView.headerView.hidden=NO;
+            tableView.usesAlternatingRowBackgroundColors=YES;
+            tableView.rowHeight = 20;
+            tableView.gridStyleMask = NSTableViewSolidHorizontalGridLineMask |NSTableViewSolidVerticalGridLineMask ;
+//            [tableView setDoubleAction:@selector(doubleClick:)];
             if (_isDargData) {
                 [tableView registerForDraggedTypes:[NSArray arrayWithObject:TableViewDragDataTypeName]];
             }
@@ -58,6 +65,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 - (id)init {
     self = [super init];
     if(self){
+        _clickColumnIndex = 0;
         _items = [[NSMutableArray alloc]initWithCapacity:4];
     }
     return  self;
@@ -170,6 +178,18 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return [self.items count];
 }
+- (IBAction)doubleClick:(id)sender{
+
+    NSInteger row = [self.owner selectedRow];
+    if(row>=self.items.count){
+        return;
+    }
+    id data = [self.items objectAtIndex:row];
+    NSLog(@"tableViewRow double click data=%@",data);
+    if(self.tableViewRowDoubleClickCallback){
+        self.tableViewRowDoubleClickCallback(row,data);
+    }
+}
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     NSInteger row = [notification.object selectedRow];
@@ -183,6 +203,33 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     }
 }
 
+- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
+
+    NSString *identifier = tableColumn.identifier;
+    if (!self.items.count) {
+        return;
+    }
+    _clickColumnIndex = _clickColumnIndex + 1;
+    if(self.tableViewdidClickColumnCallback){
+        self.tableViewdidClickColumnCallback(identifier,_clickColumnIndex);
+    }
+
+//    if ([identifier isEqualToString:@"FailList"]) {
+//        clickIndexTableColumn = clickIndexTableColumn + 1;
+//        self.items_datas = nil;
+//        if (clickIndexTableColumn % 2 == 1) {
+//
+//            self.items_datas = self.fail_items_datas;
+//        }else{
+//
+//            self.items_datas = self.origin_items_datas;
+//        }
+//        [self.itemsTableView reloadData];
+//        self.data
+
+    
+}
+
 - (void)tableView:(NSTableView *)aTableView sortDescriptorsDidChange:(NSArray *)oldDescriptors {
     NSArray *sortDescriptors = [aTableView sortDescriptors];
     self.items =[NSMutableArray arrayWithArray:[self.items sortedArrayUsingDescriptors:sortDescriptors]];
@@ -191,6 +238,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 
 
 #pragma mark - NSTableViewDelegate
+
 
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     //获取row数据
@@ -236,7 +284,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
                 button = (NSButton*)view;
             }
             [button setTarget:self];
-            [button setAction:@selector(checkBoxChick:)];
+            [button setAction:@selector(buttonChick:)];
             if(value){
 //                button.state = [value integerValue];
                 button.image = (NSImage*)value;
@@ -337,7 +385,8 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
                     NSButton *btn= subviews[0];
                     btn.tag=row;
                     btn.wantsLayer=YES;
-                    
+                    [btn setTarget:self];
+                    [btn setAction:@selector(buttonChick:)];
                     
                 }else if([view isKindOfClass:[NSTextField class]]){
                     NSTextField *textf= subviews[0];
@@ -372,6 +421,10 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 
         }
             break;
+    }
+    
+    if(self.tableViewForTableColumnCallback){
+        self.tableViewForTableColumnCallback(view,row,data,identifier);
     }
     
     return view;
@@ -429,7 +482,20 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     }
 }
 
+- (IBAction)buttonChick:(id)sender {
+    NSButton *button = (NSButton *)sender;
+//    NSLog(@"Form checkBoxChick=%ld",button.state);
+    NSString *identifier = button.identifier;
+    NSInteger row = button.tag;
+    NSMutableDictionary *data = [self itemOfRow:row];
 
+    
+//    data[identifier]    = @(button.state);
+    
+    if(self.buttonClickCallback){
+        self.buttonClickCallback(row,data);
+    }
+}
 
 #pragma mark -- Drag/Drop
 

@@ -42,7 +42,7 @@
     if (recordPath.length) {
         _recordPath = recordPath;
         NSString *cmd = [NSString stringWithFormat:@"grep \",FAIL,\" %@",recordPath];
-        NSString *log = [Task termialWithCmd:cmd];
+        NSString *log = [Task cw_termialWithCmd:cmd];
         [self.textView showLog:[NSString stringWithFormat:@"%@\n%@",recordPath,log]];
     }
 }

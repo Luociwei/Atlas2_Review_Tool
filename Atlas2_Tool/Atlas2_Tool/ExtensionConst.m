@@ -18,7 +18,7 @@ NSString *const id_index = @"Index";//@"N/A"
 NSString *const id_sn = @"Sn";//@"N/A"
 NSString *const id_record = @"Record";//@"N/A"
 NSString *const id_fail_list = @"FailList ↑↓";//@"N/A"
-
-
+NSString *const key_is_fail = @"isFail";//@"N/A"
+NSString *const key_record_path = @"recordPath";
 
 @end

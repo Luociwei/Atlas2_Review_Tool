@@ -14,9 +14,9 @@
 @interface AtlasLogVC ()
 @property (unsafe_unretained) IBOutlet NSTextView *logview;
     
-@property (nonatomic,strong) NSArray<ItemMode *> *items_datas;
-@property (nonatomic,strong) NSMutableArray<ItemMode *> *origin_items_datas;
-@property (nonatomic,strong) NSMutableArray<ItemMode *> *fail_items_datas;
+//@property (nonatomic,strong) NSArray<NSDictionary *> *items_datas;
+@property (nonatomic,strong) NSMutableArray<NSDictionary *> *origin_items_datas;
+@property (nonatomic,strong) NSMutableArray<NSDictionary *> *fail_items_datas;
 //@property (nonatomic,strong) NSMutableArray<SnVauleMode *> *sn_datas;
 @property (weak) IBOutlet NSTableView *itemsTableView;
 //@property (weak) IBOutlet NSTableView *snTableView;
@@ -47,7 +47,9 @@
 //    self.items_datas = [[NSMutableArray alloc]init];
     self.origin_items_datas = [[NSMutableArray alloc]init];
     self.fail_items_datas = [[NSMutableArray alloc]init];
-    [self initTableView:self.itemsTableView];
+    [self.itemsTableView setDoubleAction:@selector(doubleClick:)];
+    self.tableDataDelegate.owner = self.itemsTableView;
+    
 
 }
 
@@ -145,19 +147,6 @@
 //
 //    return @[field_index,field_sn,field_startTime,btn_record,field_failList];
 //}
--(void)initTableView:(NSTableView *)tableView{
-    
-    self.tableDataDelegate = [[TableDataDelegate alloc]initWithTaleView:tableView];
-//    tableView.dataSource =self.tableDataDelegate;
-//    tableView.delegate = self.tableDataDelegate;
-//    [tableView setDoubleAction:@selector(doubleClick:)];
-    tableView.headerView.hidden=NO;
-    tableView.usesAlternatingRowBackgroundColors=YES;
-    tableView.rowHeight = 20;
-    tableView.gridStyleMask = NSTableViewSolidHorizontalGridLineMask |NSTableViewSolidVerticalGridLineMask ;
-    
-}
-
 
 
 - (IBAction)add_csv_click:(NSButton *)sender {
@@ -165,9 +154,10 @@
     NSString *path =self.logDropView.stringValue;
     [self.fail_items_datas removeAllObjects];
     [self.origin_items_datas removeAllObjects];
-    self.items_datas =nil;
+
     self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
     if (!path.length) {
+        [self.tableDataDelegate setData:nil];
         [self.itemsTableView reloadData];
         return;
     }
@@ -178,6 +168,7 @@
 //    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath:path]) {
+        [self.tableDataDelegate setData:nil];
         [self.itemsTableView reloadData];
         return;
     }
@@ -243,13 +234,13 @@
         [item_mode_arr addObject:item_mode];
     }
     
-    [self.origin_items_datas addObjectsFromArray:item_mode_arr];
+//    [self.origin_items_datas addObjectsFromArray:item_mode_arr];
+//
+//
+//    self.items_datas =item_mode_arr;
     
     
-    self.items_datas =item_mode_arr;
-    
-    
-    [self.fail_items_datas addObjectsFromArray:item_mode_fail_arr];
+//    [self.fail_items_datas addObjectsFromArray:item_mode_fail_arr];
 //    [self.fail_items_datas addObjectsFromArray:item_mode_pass_arr];
     NSInteger total_count = item_mode_arr.count ? item_mode_arr.count : 0;
     NSInteger fail_count = item_mode_fail_arr.count ? item_mode_fail_arr.count : 0;
@@ -261,34 +252,128 @@
     self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
     
     
-    NSMutableArray *tableData = [[NSMutableArray alloc]init];
-    for (ItemMode *mode in self.items_datas) {
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
-        [dict setObject:mode.startTime forKey:id_start_time];
-        [dict setObject:mode.sn forKey:id_sn];
-        [dict setObject:mode.failList forKey:id_fail_list];
-        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
-        [tableData addObject:dict];
-
-    }
-    [self.tableDataDelegate setData:tableData];
+//    NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
+//    for (ItemMode *mode in item_mode_arr) {
+//        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
+//        [dict setObject:mode.startTime forKey:id_start_time];
+//        [dict setObject:mode.sn forKey:id_sn];
+//        [dict setObject:mode.failList forKey:id_fail_list];
+//        [dict setObject:@(mode.isFail) forKey:key_is_fail];
+//        [dict setObject:mode.recordPath forKey:key_record_path];
+//        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
+//        [self.origin_items_datas addObject:dict];
+//
+//    }
+    
+    self.origin_items_datas = [ItemMode getDicArrayWithItemModeArr:item_mode_arr];
+    self.fail_items_datas = [ItemMode getDicArrayWithItemModeArr:item_mode_fail_arr];
+    
+//    for (ItemMode *mode in item_mode_fail_arr) {
+//        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
+//        [dict setObject:mode.startTime forKey:id_start_time];
+//        [dict setObject:mode.sn forKey:id_sn];
+//        [dict setObject:mode.failList forKey:id_fail_list];
+//        [dict setObject:@(mode.isFail) forKey:key_is_fail];
+//        [dict setObject:mode.recordPath forKey:key_record_path];
+//        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
+//        [self.fail_items_datas addObject:dict];
+//
+//    }
+//
+    [self.tableDataDelegate setData:self.origin_items_datas];
     [self.itemsTableView reloadData];
     //    }];
     
 //    [self save:nil];
 }
-
-
-
-#pragma mark-  NSTableViewDataSource
-
-//[_dataList count]?[[[_dataList objectAtIndex:section] objectForKey:@"subs"] count]:0;
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    //返回表格共有多少行数据
-
-    return [self.items_datas count];
+#pragma mark-  laze load
+-(FailOnlyItems *)failOnlyItems{
+    if (!_failOnlyItems) {
+        _failOnlyItems =[[FailOnlyItems alloc]init];
+    }
+    return _failOnlyItems;
 }
+
+-(TableDataDelegate *)tableDataDelegate{
+    if (!_tableDataDelegate) {
+        __weak __typeof(self)weakSelf = self;
+        _tableDataDelegate = [[TableDataDelegate alloc]initWithTaleView:_itemsTableView];
+        _tableDataDelegate.tableViewForTableColumnCallback = ^(id view, NSInteger row, NSDictionary *data,NSString *idfix) {
+            if ([idfix isEqualToString:id_record]) {
+                BOOL isfail = [[data objectForKey:key_is_fail] boolValue];
+                NSButton *btn = (NSButton *)view;
+                if (isfail) {
+                    
+                    btn.layer.backgroundColor = [NSColor systemRedColor].CGColor;
+                }else{
+                    btn.layer.backgroundColor = [NSColor systemGreenColor].CGColor;
+                }
+                
+            }
+            
+        };
+        //        __weak __typeof(self)weakSelf = self;
+        //        _tableDataDelegate.selectionChangedCallback = ^(NSInteger index, NSDictionary *item_data) {
+        //
+        //            //            __strong __typeof(weakSelf)strongSelf = weakSelf;
+        //            NSString *record_path = [item_data objectForKey:key_record_path];
+        //            BOOL isfail = [[item_data objectForKey:key_is_fail] boolValue];
+        //            if (isfail) {
+        //
+        //                [weakSelf.failOnlyItems showViewOnViewController:weakSelf];
+        //                weakSelf.failOnlyItems.recordPath = record_path;
+        //            }
+        //        };
+        
+        
+        _tableDataDelegate.tableViewRowDoubleClickCallback = ^(NSInteger index, NSDictionary *item_data) {
+            
+            //            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            NSString *record_path = [item_data objectForKey:key_record_path];
+            BOOL isfail = [[item_data objectForKey:key_is_fail] boolValue];
+            if (isfail) {
+                //        self.failOnlyItems.title =mode.recordPath;
+                [weakSelf.failOnlyItems showViewOnViewController:weakSelf];
+                weakSelf.failOnlyItems.recordPath = record_path;
+            }
+        };
+        
+        
+        
+        _tableDataDelegate.buttonClickCallback = ^(NSInteger index, NSDictionary *item_data) {
+            
+            //            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            NSString *record_path = [item_data objectForKey:key_record_path];
+            [Task cw_openFileWithPath:record_path.stringByDeletingLastPathComponent];
+        };
+        
+        _tableDataDelegate.tableViewdidClickColumnCallback = ^(NSString *identifier, NSInteger clickIndex) {
+            if ([identifier isEqualToString:id_fail_list]) {
+                if (weakSelf.fail_items_datas.count != weakSelf.origin_items_datas.count) {
+//                    weakSelf.items_datas = nil;
+                    if (clickIndex % 2 == 1) {
+                        
+//                        weakSelf.items_datas = weakSelf.fail_items_datas;
+                        [weakSelf.tableDataDelegate setData:weakSelf.fail_items_datas];
+                    }else{
+                        
+//                        weakSelf.items_datas = weakSelf.origin_items_datas;
+                        [weakSelf.tableDataDelegate setData:weakSelf.origin_items_datas];
+                    }
+                    [weakSelf.itemsTableView reloadData];
+                }
+            }
+            
+            
+        };
+        
+    }
+    return _tableDataDelegate;
+}
+
+
 -(void)doubleClick:(NSTableView *)tableview{
     NSInteger row = [tableview selectedRow];
     if (row == -1 || !self.fail_items_datas.count)
@@ -296,113 +381,18 @@
         return;
     }
 
-    ItemMode *mode = self.items_datas[row];
-    if (mode.isFail) {
+    NSDictionary *dict = self.origin_items_datas[row];
+    NSString *recordPath = [dict objectForKey:id_record];
+    BOOL isFail = [[dict objectForKey:key_is_fail] boolValue];
+    if (isFail) {
 //        self.failOnlyItems.title =mode.recordPath;
         [self.failOnlyItems showViewOnViewController:self];
-        self.failOnlyItems.recordPath = mode.recordPath;
+        self.failOnlyItems.recordPath = recordPath;
     }
 
 }
 //
-//#pragma mark-  NSTableViewDelegate
-//- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-//
-//
-//    NSString *identifier = tableColumn.identifier;
-//    NSString *value = @"";
-////    id textField;
-//
-//
-//        ItemMode *item_data = self.items_datas[row];
-//        item_data= self.items_datas[row];
-////        item_data.index = row +1;
-//        value=[item_data getVauleWithKey:identifier];
-//
-//
-//
-//
-//    id view = [tableView makeViewWithIdentifier:identifier owner:self];
-//
-//    if(!view){
-//
-//
-//        if ([[view class] isKindOfClass:[NSTextField class]]) {
-//            NSTextField *textField =  [[NSTextField alloc]init];
-//
-//            textField.identifier = identifier;
-//            textField = (NSTextField *)textField;
-//            textField.wantsLayer=YES;
-//            [textField setBezeled:NO];
-//            [textField setDrawsBackground:NO];
-//            view = textField ;
-//
-//        }else{
-//            NSButton *checkBoxField =  [[NSButton alloc]init];
-//            checkBoxField = (NSButton*)view;
-//            checkBoxField.tag=row;
-//            [checkBoxField setTarget:self];
-//            [checkBoxField setAction:@selector(recordBtnClick:)];
-//        }
-//
-//
-//
-//    }
-//    else{
-//
-////        textField = (NSTextField*)view;
-//        NSArray *subviews = [view subviews];
-//
-//        view = subviews[0];
-//        if ([identifier isEqualToString:@"record"]){
-//            NSButton *btn= subviews[0];
-//            btn.tag=row;
-//            btn.wantsLayer=YES;
-//
-//            if (item_data.isFail) {
-//
-//                btn.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-//            }else{
-//                btn.layer.backgroundColor = [NSColor systemGreenColor].CGColor;
-//            }
-//        }else{
-//            NSTextField *textf= subviews[0];
-//            if(value.length){
-////                textf.wantsLayer=YES;
-////                if ([identifier isEqualToString:@"FailList"]) {
-//////                    [textf setTextColor:[NSColor blueColor]];
-////
-////                    textf.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-////                }
-//                //更新单元格的文本
-//                [textf setStringValue: value];
-//            }else{
-////                if ([identifier isEqualToString:@"FailList"]) {
-////                textf.layer.backgroundColor = [NSColor clearColor].CGColor;
-////                }
-//            }
-//            textf.wantsLayer=YES;
-//
-////            if (item_data.isFail) {
-////
-////                textf.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-////            }else{
-////                textf.layer.backgroundColor = [NSColor clearColor].CGColor;
-////            }
-//
-//
-//
-//        }
-//
-//
-//
-//    }
-//
-//    return view;
-//}
-//
-//
-//
+
 //
 //- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
 //
@@ -463,38 +453,6 @@
 //    }
 //}
 //
-//-(FailOnlyItems *)failOnlyItems{
-//    if (!_failOnlyItems) {
-//        _failOnlyItems =[[FailOnlyItems alloc]init];
-//    }
-//    return _failOnlyItems;
-//}
-//
-//-(TableDataDelegate *)tableDataDelegate{
-//    if (!_tableDataDelegate) {
-//        _tableDataDelegate =[[TableDataDelegate alloc]init];
-//    }
-//    return _tableDataDelegate;
-//}
-//-(void)test{
-//    //    self.sn_datas =[[NSMutableArray alloc]init];
-//    //    for (int i =0; i<5; i++) {
-//    //        ItemMode *mode = [[ItemMode alloc]init];
-//    //        mode.sn= [NSString stringWithFormat:@"item_%d",i];
-//    //        mode.startTime = [NSString stringWithFormat:@"%d",i+5];
-//    //        mode.failList = [NSString stringWithFormat:@"%d",i-5];
-//    //        [self.items_datas addObject:mode];
-//    //    }
-//
-//    //    for (int i =0; i<5; i++) {
-//    //        SnVauleMode *mode = [[SnVauleMode alloc]init];
-//    //        mode.sn= [NSString stringWithFormat:@"sn_%d",i];
-//    //        mode.value = [NSString stringWithFormat:@"%d",i+5];
-//    //        [self.sn_datas addObject:mode];
-//    //    }
-//    //
-//
-//    //    [self initTableView:self.snTableView];
-//}
+
 
 @end

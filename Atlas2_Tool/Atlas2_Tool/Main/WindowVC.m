@@ -27,7 +27,7 @@
     
     NSString *user_path = [NSString cw_getUserPath];
     
-    [Task termialWithCmd:[NSString stringWithFormat:@"open %@/Library/Atlas2/Assets/",user_path]];
+    [Task cw_openFileWithPath:[NSString stringWithFormat:@"%@/Library/Atlas2/Assets/",user_path]];
 }
 
 - (IBAction)stop:(NSButton *)sender {
@@ -46,7 +46,7 @@
 //        return [input stringValue];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"stopAtlas2.command" ofType:nil];
         
-        [Task termialWithCmd:[NSString stringWithFormat:@"open %@",path]];
+        [Task cw_openFileWithPath:path];
     } else {
 //        return nil;
     }
@@ -57,13 +57,13 @@
 - (IBAction)start:(NSButton *)sender {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"startAtlas2.command" ofType:nil];
     
-    [Task termialWithCmd:[NSString stringWithFormat:@"open %@",path]];
+    [Task cw_openFileWithPath:path];
 }
 
 - (IBAction)sublime:(id)sender {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"SublimeText.app" ofType:nil];
 
-    [Task termialWithCmd:[NSString stringWithFormat:@"open %@",path]];
+    [Task cw_openFileWithPath:path];
 
     
 }
@@ -71,7 +71,7 @@
 - (IBAction)textWranglerClick:(id)sender {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"TextWrangler.app" ofType:nil];
     
-    [Task termialWithCmd:[NSString stringWithFormat:@"open %@",path]];
+    [Task cw_openFileWithPath:path];
 }
 
 

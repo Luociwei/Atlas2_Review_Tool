@@ -29,7 +29,7 @@
     
     NSString *pyPath = [[NSBundle mainBundle] pathForResource:@"DFU_Station_CatchFW.py" ofType:nil];
     NSString *cmd = [NSString stringWithFormat:@"python %@",pyPath];
-   NSString *log = [Task termialWithCmd:cmd];
+   NSString *log = [Task cw_termialWithCmd:cmd];
     [self.textView showLog:[NSString stringWithFormat:@"\n\n\n%@",log]];
 }
 

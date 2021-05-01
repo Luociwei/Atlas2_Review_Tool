@@ -7,7 +7,7 @@
 //
 
 #import "ItemMode.h"
-
+#import "ExtensionConst.h"
 
 @implementation ItemMode
 
@@ -46,6 +46,24 @@
     
     
     
+}
+
++(NSMutableArray *)getDicArrayWithItemModeArr:(NSArray *)item_mode_arr{
+    NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
+ 
+    for (ItemMode *mode in item_mode_arr) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
+        [dict setObject:mode.startTime forKey:id_start_time];
+        [dict setObject:mode.sn forKey:id_sn];
+        [dict setObject:mode.failList forKey:id_fail_list];
+        [dict setObject:@(mode.isFail) forKey:key_is_fail];
+        [dict setObject:mode.recordPath forKey:key_record_path];
+        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
+        [tableData_dic addObject:dict];
+        
+    }
+    return tableData_dic;
 }
 
 @end

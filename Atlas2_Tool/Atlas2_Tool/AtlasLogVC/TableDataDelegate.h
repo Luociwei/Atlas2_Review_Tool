@@ -13,20 +13,36 @@
 
 //Row Selection Changed Callback.
 typedef void(^SelectionChangedCallbackBlock)(NSInteger index,  id obj);
+typedef void(^TableViewRowDoubleClickCallbackBlock)(NSInteger index,  id obj);
 
+typedef void(^ButtonClickCallbackBlock)(NSInteger row,  id obj);
+//didClickTableColumn
+//
+typedef void(^TableViewdidClickColumnCallbackBlock)(NSString *identifier,NSInteger clickIndex);
 //Row Drag Callback.
 typedef void(^TableViewRowDragCallbackBlock)(NSInteger sourceRow,NSInteger targetRow);
-
+typedef void(^TableViewForTableColumnCallbackBlock)(id view,NSInteger row,NSDictionary *item_data,NSString *identifier);
 //Row Edit Object Changed Callback.
 typedef void(^RowObjectValueChangedCallbackBlock)(id obj,id oldObj,NSInteger row,NSString *fieldName);
 -(id)initWithTaleView:(NSTableView *)tableView;
 -(id)initWithTaleView:(NSTableView *)tableView isDargData:(BOOL)isDargData;
 @property(nonatomic,weak)NSTableView *owner;
+//
+@property(nonatomic,copy)TableViewdidClickColumnCallbackBlock tableViewdidClickColumnCallback;
+
+@property(nonatomic,copy)ButtonClickCallbackBlock buttonClickCallback;//didClickTableColumn
+
+@property(nonatomic,copy)TableViewForTableColumnCallbackBlock tableViewForTableColumnCallback;
+
 @property(nonatomic,copy)SelectionChangedCallbackBlock selectionChangedCallback;
+
+@property(nonatomic,copy)TableViewRowDoubleClickCallbackBlock tableViewRowDoubleClickCallback;
 
 @property(nonatomic,copy)TableViewRowDragCallbackBlock rowDragCallback;
 
 @property(nonatomic,copy)RowObjectValueChangedCallbackBlock rowObjectValueChangedCallback;
+
+//rowObjectValueChangedCallback
 
 - (void)setData:(id)data;
 

@@ -21,7 +21,8 @@ extern NSString *const id_index;
 extern NSString *const id_sn;
 extern NSString *const id_record;
 extern NSString *const id_fail_list;
-
+extern NSString *const key_is_fail;
+extern NSString *const key_record_path;
 @end
 
 NS_ASSUME_NONNULL_END
