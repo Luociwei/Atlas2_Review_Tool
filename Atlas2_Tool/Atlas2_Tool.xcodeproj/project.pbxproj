@@ -22,6 +22,7 @@
 		BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97BF263AFCF90066545F /* CatchFwVc.m */; };
 		BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* FailOnlyItems.m */; };
 		BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* FailOnlyItems.xib */; };
+		BA1D993A263D29A50066545F /* TableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D9939263D29A50066545F /* TableDataDelegate.m */; };
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		BA1D97C4263AFD270066545F /* FailOnlyItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailOnlyItems.h; sourceTree = "<group>"; };
 		BA1D97C5263AFD270066545F /* FailOnlyItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnlyItems.m; sourceTree = "<group>"; };
 		BA1D97C6263AFD270066545F /* FailOnlyItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailOnlyItems.xib; sourceTree = "<group>"; };
+		BA1D9938263D29A50066545F /* TableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDataDelegate.h; sourceTree = "<group>"; };
+		BA1D9939263D29A50066545F /* TableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDataDelegate.m; sourceTree = "<group>"; };
 		BAB4315025B32A38003F0AFB /* ExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionConst.m; sourceTree = "<group>"; };
 		BAB4315125B32A38003F0AFB /* ExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionConst.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,8 +101,6 @@
 		711A342D1DC3539000F5B5D2 /* Atlas2_Tool */ = {
 			isa = PBXGroup;
 			children = (
-				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
-				BAB4315025B32A38003F0AFB /* ExtensionConst.m */,
 				BA1D97C3263AFD270066545F /* FailOnlyItems */,
 				BA1D97BB263AFCF90066545F /* CatchFwVc */,
 				BA1D97B0263AFADF0066545F /* Main */,
@@ -115,6 +116,8 @@
 		711A34311DC3539000F5B5D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
+				BAB4315025B32A38003F0AFB /* ExtensionConst.m */,
 				BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */,
 			);
 			name = "Supporting Files";
@@ -123,6 +126,8 @@
 		BA1D97A4263AFA310066545F /* AtlasLogVC */ = {
 			isa = PBXGroup;
 			children = (
+				BA1D9938263D29A50066545F /* TableDataDelegate.h */,
+				BA1D9939263D29A50066545F /* TableDataDelegate.m */,
 				BA1D97A8263AFA310066545F /* AtlasLogVC.h */,
 				BA1D97AB263AFA310066545F /* AtlasLogVC.m */,
 				BA1D97A7263AFA310066545F /* AtlasLogVC.xib */,
@@ -135,10 +140,10 @@
 		BA1D97B0263AFADF0066545F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				BA1D97B1263AFADF0066545F /* WindowVC.h */,
-				BA1D97B2263AFADF0066545F /* AppDelegate.h */,
-				BA1D97B3263AFADF0066545F /* WindowVC.m */,
 				BA1D97B4263AFADF0066545F /* main.m */,
+				BA1D97B1263AFADF0066545F /* WindowVC.h */,
+				BA1D97B3263AFADF0066545F /* WindowVC.m */,
+				BA1D97B2263AFADF0066545F /* AppDelegate.h */,
 				BA1D97B5263AFADF0066545F /* AppDelegate.m */,
 			);
 			path = Main;
@@ -201,7 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = macdev;
+				ORGANIZATIONNAME = Suncode;
 				TargetAttributes = {
 					711A342A1DC3539000F5B5D2 = {
 						CreatedOnToolsVersion = 8.0;
@@ -251,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1D97AF263AFA310066545F /* AtlasLogVC.m in Sources */,
+				BA1D993A263D29A50066545F /* TableDataDelegate.m in Sources */,
 				BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */,
 				BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */,
 				BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */,

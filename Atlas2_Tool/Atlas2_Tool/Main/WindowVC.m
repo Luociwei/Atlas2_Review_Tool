@@ -3,13 +3,13 @@
 //  DfuDebugTool
 //
 //  Created by ciwei luo on 2021/2/28.
-//  Copyright © 2021 macdev. All rights reserved.
+//  Copyright © 2021 Suncode. All rights reserved.
 //
 
 #import "WindowVC.h"
 #import "AtlasLogVC.h"
 #import "CatchFwVc.h"
-
+#import "FailOnlyItems.h"
 @interface WindowVC ()
 
 @property (weak) IBOutlet NSImageView *isMixReadyImage;
@@ -86,12 +86,13 @@
    
     _atlasCsvLogVC =  [[AtlasLogVC alloc] init];
     _atlasCsvLogVC.title = @"AtlasLog";
-    
-    
-//    _catchFwVc =[[CatchFwVc alloc]init];
-//    _catchFwVc.title = @"DFU_CatchFW";
+
     [self cw_addViewControllers:@[_atlasCsvLogVC]];
-    
+//    FailOnlyItems *item =  [[FailOnlyItems alloc] init];
+//    item.title = @"AtlasLog";
+//
+//    [self cw_addViewControllers:@[item]];
+   
 //    [self getMixSate];
 }
 

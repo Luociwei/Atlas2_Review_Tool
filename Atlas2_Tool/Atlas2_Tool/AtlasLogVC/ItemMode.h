@@ -3,7 +3,7 @@
 //  OPP_Tool
 //
 //  Created by ciwei luo on 2020/5/26.
-//  Copyright © 2020 macdev. All rights reserved.
+//  Copyright © 2020 Suncode. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

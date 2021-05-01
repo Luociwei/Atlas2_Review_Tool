@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)cw_allocInitWithFrame:(NSRect)frame;
 -(void)showLog:(NSString *)log;
 -(void)setPingIpAddress:(NSString *)ip;
-
+-(void)clean;
 -(void)searchIpFrom:(NSString *)ip to:(NSInteger)ipRangeCount;
+- (void)addItemsToView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Suncode. All rights reserved.
 //
 #import "Task.h"
+#import "Masonry.h"
 #import "TextView.h"
 //#import "CWGeneralManager.h"
 #import "NSString+Extension.h"
@@ -30,86 +31,187 @@
 }
 
 
-+(instancetype)cw_allocInitWithFrame:(NSRect)frame{
-    TextView *view = [[self alloc]initWithFrame:frame];
-    
-    return view;
-}
-
-
--(void)layout{
-    [super layout];
-    
-    self.scrollView.frame = self.bounds;
-    self.logTextView.frame = self.scrollView.bounds;
-    
-}
-
-
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if  (self) {
-        // Initialization code here
-        
-        self.scrollView = [[NSScrollView alloc]initWithFrame:frame];
-        self.scrollView.wantsLayer = YES;
-        self.scrollView.layer.backgroundColor = [NSColor redColor].CGColor;
-        [self.scrollView setBorderType:NSNoBorder];
-        [self.scrollView setHasVerticalScroller:YES];
-        [self.scrollView setHasHorizontalScroller:YES];
-        [self.scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-        
-        [self addSubview:self.scrollView];
-
-        
-        self.logTextView = [[NSTextView alloc]initWithFrame:self.scrollView.bounds];
-//        [self.logTextView setMinSize:NSMakeSize(0.0, frame.size.height - 80)];
-//        [self.logTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-//        [self.logTextView setVerticallyResizable:YES];
-//        [self.logTextView setHorizontallyResizable:NO];
-//        [self.logTextView setAutoresizingMask:NSViewWidthSizable];
-//        [[self.logTextView textContainer]setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-//        [[self.logTextView textContainer]setWidthTracksTextView:YES];
-//        [self.logTextView setFont:[NSFont fontWithName:@"PingFang-SC-Regular" size:12.0]];
-        [self.logTextView setEditable:YES];
-        self.logTextView.usesFindBar = YES;
-        
-        [self.scrollView setDocumentView:self.logTextView];
-      
-//        NSString *resorcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-//        NSString *pic_path = [resorcePath stringByAppendingPathComponent:@"CwGeneralManagerBundle.bundle/Contents/Resources/recycle.png"];
-//        NSImage *image = [[NSImage alloc]initWithContentsOfFile:pic_path];
-        NSImage *image = [Image cw_getRecycleImage];
-        NSButton *btn = nil;
-        if (image == nil) {
-            btn = [NSButton buttonWithTitle:@"Clean" target:self action:@selector(clean:)];
-        }else{
-            btn = [NSButton buttonWithImage:image target:self action:@selector(clean:)];
-        }
-        
+//+(instancetype)cw_allocInitWithFrame:(NSRect)frame{
+//    TextView *view = [[self alloc]initWithFrame:frame];
 //
-        
-        btn.bezelStyle = NSBezelStyleRegularSquare;
-        btn.bordered = NO;
-//        btn.frame = NSMakeRect(0, 0, 20, 20);
-        [self addSubview:btn];
-        
-        
-//        self.logTextView.string = @"1111111";
+//    return view;
+//}
+
+-(id)init{
+    self = [super init];
+    if (self) {
+        [self addItemsToView];
+        [self layoutNavigationView];
+    }
+    return self;
+}
+//- (id)initWithFrame:(NSRect)frame{
+//    self = [super initWithFrame:frame];
+//    if  (self) {
+//        [self addItemsToView];
+//        [self layoutNavigationView];
+//    }
+//    return self;
+//}
+
+//-(void)layout{
+//    [super layout];
+//
+////    self.scrollView.frame = self.bounds;
+////    self.logTextView.frame = self.scrollView.bounds;
+//
+//}
+- (void)addItemsToView {
+    for(NSView *view in self.subviews) {
+        [view removeFromSuperview];
     }
     
-    return  self;
+    
+    self.scrollView = [[NSScrollView alloc]init];
+    self.scrollView.wantsLayer = YES;
+    self.scrollView.layer.backgroundColor = [NSColor redColor].CGColor;
+    [self.scrollView setBorderType:NSNoBorder];
+    [self.scrollView setHasVerticalScroller:YES];
+    [self.scrollView setHasHorizontalScroller:YES];
+    [self.scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+    
+    [self addSubview:self.scrollView];
+    
+    
+    self.logTextView = [[NSTextView alloc]initWithFrame:self.scrollView.bounds];
+    //        [self.logTextView setMinSize:NSMakeSize(0.0, frame.size.height - 80)];
+    //        [self.logTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+    //        [self.logTextView setVerticallyResizable:YES];
+    //        [self.logTextView setHorizontallyResizable:NO];
+    //        [self.logTextView setAutoresizingMask:NSViewWidthSizable];
+    //        [[self.logTextView textContainer]setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+    //        [[self.logTextView textContainer]setWidthTracksTextView:YES];
+    //        [self.logTextView setFont:[NSFont fontWithName:@"PingFang-SC-Regular" size:12.0]];
+    [self.logTextView setEditable:YES];
+    self.logTextView.usesFindBar = YES;
+    
+    [self.scrollView setDocumentView:self.logTextView];
+    
+    //        NSString *resorcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
+    //        NSString *pic_path = [resorcePath stringByAppendingPathComponent:@"CwGeneralManagerBundle.bundle/Contents/Resources/recycle.png"];
+    //        NSImage *image = [[NSImage alloc]initWithContentsOfFile:pic_path];
+    NSImage *image = [Image cw_getRecycleImage];
+    NSButton *btn = nil;
+    if (image == nil) {
+        btn = [NSButton buttonWithTitle:@"Clean" target:self action:@selector(clean:)];
+    }else{
+        btn = [NSButton buttonWithImage:image target:self action:@selector(clean:)];
+    }
+    
+    //
+    
+    btn.bezelStyle = NSBezelStyleRegularSquare;
+    btn.bordered = NO;
+    //        btn.frame = NSMakeRect(0, 0, 20, 20);
+    [self addSubview:btn];
+    
+    
+    [self layoutNavigationView];
 }
+-(void)layoutNavigationView{
+    [self.logTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.mas_left).with.offset(0);
+//        make.right.equalTo(self.mas_right).with.offset(0);
+//        make.top.equalTo(self.mas_bottom).with.offset(0);
+//        make.bottom.equalTo(self.mas_bottom).with.offset(0);
+        make.left.and.top.and.bottom.and.right.mas_equalTo(0);
+    }];
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.mas_left).with.offset(0);
+//        make.right.equalTo(self.mas_right).with.offset(0);
+//        make.top.equalTo(self.mas_bottom).with.offset(0);
+//        make.bottom.equalTo(self.mas_bottom).with.offset(0);
+        make.left.and.top.and.bottom.and.right.mas_equalTo(0);
+    }];
+    
+}
+
+//- (id)initWithFrame:(NSRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if  (self) {
+//        // Initialization code here
+//
+//        self.scrollView = [[NSScrollView alloc]initWithFrame:frame];
+//        self.scrollView.wantsLayer = YES;
+//        self.scrollView.layer.backgroundColor = [NSColor redColor].CGColor;
+//        [self.scrollView setBorderType:NSNoBorder];
+//        [self.scrollView setHasVerticalScroller:YES];
+//        [self.scrollView setHasHorizontalScroller:YES];
+//        [self.scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+//
+//        [self addSubview:self.scrollView];
+//
+//
+//        self.logTextView = [[NSTextView alloc]initWithFrame:self.scrollView.bounds];
+////        [self.logTextView setMinSize:NSMakeSize(0.0, frame.size.height - 80)];
+////        [self.logTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+////        [self.logTextView setVerticallyResizable:YES];
+////        [self.logTextView setHorizontallyResizable:NO];
+////        [self.logTextView setAutoresizingMask:NSViewWidthSizable];
+////        [[self.logTextView textContainer]setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+////        [[self.logTextView textContainer]setWidthTracksTextView:YES];
+////        [self.logTextView setFont:[NSFont fontWithName:@"PingFang-SC-Regular" size:12.0]];
+//        [self.logTextView setEditable:YES];
+//        self.logTextView.usesFindBar = YES;
+//
+//        [self.scrollView setDocumentView:self.logTextView];
+//
+////        NSString *resorcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
+////        NSString *pic_path = [resorcePath stringByAppendingPathComponent:@"CwGeneralManagerBundle.bundle/Contents/Resources/recycle.png"];
+////        NSImage *image = [[NSImage alloc]initWithContentsOfFile:pic_path];
+//        NSImage *image = [Image cw_getRecycleImage];
+//        NSButton *btn = nil;
+//        if (image == nil) {
+//            btn = [NSButton buttonWithTitle:@"Clean" target:self action:@selector(clean:)];
+//        }else{
+//            btn = [NSButton buttonWithImage:image target:self action:@selector(clean:)];
+//        }
+//
+////
+//
+//        btn.bezelStyle = NSBezelStyleRegularSquare;
+//        btn.bordered = NO;
+////        btn.frame = NSMakeRect(0, 0, 20, 20);
+//        [self addSubview:btn];
+//
+//        [self.logTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.mas_left).with.offset(0);
+//            make.right.equalTo(self.mas_right).with.offset(0);
+//            make.top.equalTo(self.mas_bottom).with.offset(0);
+//            make.bottom.equalTo(self.mas_bottom).with.offset(0);
+//        }];
+//        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.mas_left).with.offset(0);
+//            make.right.equalTo(self.mas_right).with.offset(0);
+//            make.top.equalTo(self.mas_bottom).with.offset(0);
+//            make.bottom.equalTo(self.mas_bottom).with.offset(0);
+//        }];
+//
+//
+//
+////        self.logTextView.string = @"1111111";
+//    }
+//
+//    return  self;
+//}
 
 
 
 - (void)clean:(NSButton *)sender {
+    [self clean];
+    
+}
+
+-(void)clean{
     self.mutLogString=nil;
     [self.mutLogString appendString:@"Clean..................\n"];
     self.logTextView.string = @"";
-    
 }
 
 

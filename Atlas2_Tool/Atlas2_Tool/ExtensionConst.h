@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <CwGeneralManagerFrameWork/CwGeneralManager.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ExtensionConst : NSObject
 
 extern int const snLength;
 extern NSString *const plistName;
+
+extern NSString *const id_start_time;
+extern NSString *const id_index;
+extern NSString *const id_sn;
+extern NSString *const id_record;
+extern NSString *const id_fail_list;
 
 @end
 

@@ -3,7 +3,7 @@
 //  Atlas2_Tool
 //
 //  Created by ciwei luo on 2021/4/26.
-//  Copyright © 2021 macdev. All rights reserved.
+//  Copyright © 2021 Suncode. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
