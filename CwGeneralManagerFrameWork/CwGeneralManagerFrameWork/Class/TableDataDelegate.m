@@ -87,6 +87,14 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     self.items = [NSMutableArray arrayWithArray:data];
 }
 
+- (void)reloadTableViewWithData:(id)data {
+    [self setData:data];
+    if (self.owner) {
+        [self.owner reloadData];
+    }
+    
+}
+
 -(id)getData{
     return self.items;
 }
@@ -156,6 +164,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 
 - (void)clearData {
     self.items =  [[NSMutableArray alloc]initWithCapacity:4];
+    [self.owner reloadData];
 }
 
 - (id)itemOfRow:(NSInteger)row {
@@ -221,6 +230,26 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
         return;
     }
     _clickColumnIndex = _clickColumnIndex + 1;
+    
+    if ([identifier.lowercaseString isEqualToString:@"index"]) {
+        for (int i =0; i<self.items.count; i++) {
+            NSMutableDictionary *rowDict = self.items[i];
+            
+            [rowDict setObject:[NSString stringWithFormat:@"%d",i+1] forKey:identifier];
+            
+        }
+        __block NSInteger row = 0;
+        [self.owner.tableColumns enumerateObjectsUsingBlock:^(NSTableColumn * _Nonnull tableColumn, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([tableColumn.identifier isEqualToString:identifier]) {
+                row = idx;
+                *stop = YES;
+            }
+        }];
+        
+        [self.owner reloadDataForRowIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.items.count)] columnIndexes:[NSIndexSet indexSetWithIndex:row]];
+ 
+    }
+
     
     if(self.tableViewdidClickColumnCallback){
         self.tableViewdidClickColumnCallback(identifier,_clickColumnIndex);

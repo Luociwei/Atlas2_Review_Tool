@@ -33,6 +33,7 @@ extern NSString *const id_Function;
 extern NSString *const id_LowLimit;
 extern NSString *const id_UpperLimit;
 extern NSString *const id_Unit;//id_Unit
+extern NSString *const key_IsSearch;
 //extern NSString *const id_TestName;
 
 @end

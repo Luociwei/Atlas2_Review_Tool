@@ -30,4 +30,6 @@ NSString *const id_Function = @"Function";
 NSString *const id_LowLimit = @"Low";
 NSString *const id_UpperLimit = @"Upper";//
 NSString *const id_Unit = @"Unit";//Unit
+NSString *const key_IsSearch = @"IsSearch";//Unit
+
 @end

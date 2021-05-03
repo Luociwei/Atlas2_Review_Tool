@@ -61,8 +61,8 @@
 
     self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
     if (!path.length) {
-        [self.tableDataDelegate setData:nil];
-        [self.itemsTableView reloadData];
+
+        [self.tableDataDelegate reloadTableViewWithData:nil];
         return;
     }
 //    NSString *path = @"/Users/ciweiluo/Desktop/atlas_log/unit-archive";
@@ -72,8 +72,8 @@
 //    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath:path]) {
-        [self.tableDataDelegate setData:nil];
-        [self.itemsTableView reloadData];
+        
+        [self.tableDataDelegate reloadTableViewWithData:nil];
         return;
     }
 //    NSString *home = [@"~" stringByExpandingTildeInPath];
@@ -186,8 +186,7 @@
 //
 //    }
 //
-    [self.tableDataDelegate setData:self.origin_items_datas];
-    [self.itemsTableView reloadData];
+    [self.tableDataDelegate reloadTableViewWithData:self.origin_items_datas];
     //    }];
     
 //    [self save:nil];

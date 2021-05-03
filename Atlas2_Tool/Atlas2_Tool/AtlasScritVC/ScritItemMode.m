@@ -49,6 +49,7 @@
         [dict setObject:mode.lowLimit forKey:id_LowLimit];
         [dict setObject:mode.upperLimit forKey:id_UpperLimit];
         [dict setObject:mode.unit forKey:id_Unit];
+        [dict setObject:mode.searchKeyWord forKey:key_IsSearch];
         [tableData_dic addObject:dict];
         
     }

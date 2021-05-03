@@ -153,6 +153,7 @@
                 scritItemMode.lowLimit = limitArr[0];
                 scritItemMode.upperLimit = limitArr[1];
                 scritItemMode.unit =limitArr[2];
+                scritItemMode.searchKeyWord =@"";
 //                scritItemMode.function = arr[1];
                 [item_mode_arr addObject:scritItemMode];
             }
@@ -191,6 +192,25 @@
     
     return limitsArr;
 }
+
+- (IBAction)search:(NSSearchField *)searchField {
+    
+    NSString *content = searchField.stringValue.length ? searchField.stringValue : @"";
+    
+    NSMutableArray *itemsArr = [self.tableDataDelegate getData];
+    
+    NSMutableArray *itemsArr_copy = [itemsArr mutableCopy];
+    [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [itemDict setObject:content forKey:key_IsSearch];
+        
+    }];
+    [self.tableDataDelegate reloadTableViewWithData:itemsArr];
+    
+    
+}
+
+
 
 - (IBAction)save:(id)sender {
 
@@ -262,23 +282,22 @@
     if (!_tableDataDelegate) {
         __weak __typeof(self)weakSelf = self;
         _tableDataDelegate = [[TableDataDelegate alloc]initWithTaleView:_itemsTableView isDargData:YES];
-        _tableDataDelegate.tableViewForTableColumnCallback = ^(id view, NSInteger row, NSDictionary *data,NSString *idfix) {
-            if ([idfix isEqualToString:id_record]) {
-                BOOL isfail = [[data objectForKey:key_is_fail] boolValue];
-                NSButton *btn = (NSButton *)view;
-                if (isfail) {
-                    
-                    btn.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-                }else{
-                    btn.layer.backgroundColor = [NSColor systemGreenColor].CGColor;
-                }
+        _tableDataDelegate.tableViewForTableColumnCallback = ^(id view, NSInteger row, NSDictionary *data,NSString *identifier) {
+            NSString *value = [data valueForKey:identifier];
+            NSString *search_keyword =[data valueForKey:key_IsSearch];
+            BOOL is_search = [value.lowercaseString containsString:search_keyword.lowercaseString];
+            NSTextField *textField = (NSTextField *)view;
+            if (is_search) {
                 
-            }
+                    textField.layer.backgroundColor = [NSColor systemOrangeColor].CGColor;
+                }else{
+                    textField.layer.backgroundColor = [NSColor clearColor].CGColor;
+                }
+            
             
         };
         
         _tableDataDelegate.tableViewdidClickColumnCallback = ^(NSString *identifier, NSInteger clickIndex) {
-            NSArray *dataArr = [weakSelf.tableDataDelegate getData];
             
         };
         

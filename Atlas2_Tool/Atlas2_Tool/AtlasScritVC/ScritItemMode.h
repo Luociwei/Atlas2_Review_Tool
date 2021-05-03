@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *lowLimit;
 @property (nonatomic,copy)NSString *upperLimit;
 @property (nonatomic,copy)NSString *unit;
+
+//@property BOOL isSearch;
+@property (nonatomic,copy)NSString *searchKeyWord;
 //@property (nonatomic,copy)NSString *desc;
 
 //@property (readonly)BOOL isFail;

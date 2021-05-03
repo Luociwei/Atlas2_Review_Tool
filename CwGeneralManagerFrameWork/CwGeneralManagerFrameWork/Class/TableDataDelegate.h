@@ -43,6 +43,7 @@ typedef void(^RowObjectValueChangedCallbackBlock)(id obj,id oldObj,NSInteger row
 @property(nonatomic,copy)RowObjectValueChangedCallbackBlock rowObjectValueChangedCallback;
 
 //rowObjectValueChangedCallback
+- (void)reloadTableViewWithData:(id)data;
 
 - (void)setData:(id)data;
 
