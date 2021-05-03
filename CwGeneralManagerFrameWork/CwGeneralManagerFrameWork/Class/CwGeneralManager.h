@@ -24,7 +24,7 @@
 #import "NSTextField+Category.h"
 #import "NSButton+Category.h"
 #import "NSTableView+Category.h"
-
+#import "TableDataDelegate.h"
 #import "NSComboBox+Category.h"
 #import "NSTableColumn+Category.h"
 #import "NSImageView+Category.h"

@@ -51,6 +51,8 @@
 		BA1D9935263C368A0066545F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D991E263C368A0066545F /* MASConstraint.m */; };
 		BA1D9936263C368A0066545F /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D991F263C368A0066545F /* MASViewConstraint.m */; };
 		BA1D9937263C368A0066545F /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D9920263C368A0066545F /* MASViewAttribute.m */; };
+		BA7828B5263FA6E400D1CF33 /* TableDataDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA7828B6263FA6E400D1CF33 /* TableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */; };
 		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE725B3F17A0063A886 /* FileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFE25B3F17A0063A886 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE825B3F17A0063A886 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,6 +122,8 @@
 		BA1D991E263C368A0066545F /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
 		BA1D991F263C368A0066545F /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		BA1D9920263C368A0066545F /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDataDelegate.h; sourceTree = "<group>"; };
+		BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDataDelegate.m; sourceTree = "<group>"; };
 		BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CwGeneralManager.h; sourceTree = "<group>"; };
 		BAE02CE725B3F17A0063A886 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BAE02CE825B3F17A0063A886 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				BAE02CF725B3F17A0063A886 /* CSVParser.m */,
 				BA10438525EBBA310066BA1B /* TabViewController.h */,
 				BA10438625EBBA310066BA1B /* TabViewController.m */,
+				BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */,
+				BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */,
 				BAE02CF125B3F17A0063A886 /* WindowController.h */,
 				BAE02CF625B3F17A0063A886 /* WindowController.m */,
 				BAE02D2E25B406B30063A886 /* Image.h */,
@@ -312,6 +318,7 @@
 				BAE02D1025B3F17A0063A886 /* OutlineView.h in Headers */,
 				BA1D97A2263AF7D40066545F /* FileDragView.h in Headers */,
 				BAE02D3025B406B30063A886 /* Image.h in Headers */,
+				BA7828B5263FA6E400D1CF33 /* TableDataDelegate.h in Headers */,
 				BAE02CFE25B3F17A0063A886 /* Task.h in Headers */,
 				BA10438725EBBA310066BA1B /* TabViewController.h in Headers */,
 				BAE02CFF25B3F17A0063A886 /* JXArcCompatibilityMacros.h in Headers */,
@@ -408,6 +415,7 @@
 				BA1D9851263C14960066545F /* NSTableColumn+Category.m in Sources */,
 				BA1D984D263C14960066545F /* NSImageView+Category.m in Sources */,
 				BA1D9847263C14960066545F /* NSButton+Category.m in Sources */,
+				BA7828B6263FA6E400D1CF33 /* TableDataDelegate.m in Sources */,
 				BAE02D0B25B3F17A0063A886 /* PresentViewController.m in Sources */,
 				BA1D9935263C368A0066545F /* MASConstraint.m in Sources */,
 				BA1D992E263C368A0066545F /* MASCompositeConstraint.m in Sources */,

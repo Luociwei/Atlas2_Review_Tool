@@ -21,4 +21,13 @@ NSString *const id_fail_list = @"FailList ↑↓";//@"N/A"
 NSString *const key_is_fail = @"isFail";//@"N/A"
 NSString *const key_record_path = @"recordPath";
 
+NSString *const id_TestName = @"TestName";//@"N/A"
+NSString *const id_SubTestName = @"SubTestName";
+NSString *const id_SubSubTestName = @"SubSubTestName";//@"N/A"
+NSString *const id_Command = @"Command";
+NSString *const id_AdditionalParameters = @"AdditionalParameters";
+NSString *const id_Function = @"Function";
+NSString *const id_LowLimit = @"Low";
+NSString *const id_UpperLimit = @"Upper";//
+NSString *const id_Unit = @"Unit";//Unit
 @end

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)cw_removeItemAtPath:(NSString *)filePath;
 
 +(id)cw_serializationWithJsonFilePath:(NSString *)filePath;
-
++ (id)cw_serializationWithJsonString:(NSString *)jsonString;
 + (id)cw_serializationInMainBundleFile:(NSString *)fileName;
 +(void)cw_openFileWithPath:(NSString *)path;
 

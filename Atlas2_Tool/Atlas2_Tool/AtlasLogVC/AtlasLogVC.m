@@ -9,7 +9,7 @@
 #import "AtlasLogVC.h"
 #import "ItemMode.h"
 #import "FailOnlyItems.h"
-#import "TableDataDelegate.h"
+
 
 @interface AtlasLogVC ()
 @property (unsafe_unretained) IBOutlet NSTextView *logview;
@@ -32,13 +32,13 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
-    NSInteger clickIndexTableColumn;
+ 
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    clickIndexTableColumn = 0;
+//    clickIndexTableColumn = 0;
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
     dfuLogPath =[deskPath stringByAppendingPathComponent:@"DFU_Tool_Log"];
@@ -52,102 +52,6 @@
     
 
 }
-
-//- (void)tableViewColumnConfig {
-//    NSArray *items =[self tableColumnItems];
-//    if(items){
-//        [self.itemsTableView.tableView cw_updateColumnsWithItems:items];
-//    }
-//}
-//- (NSArray*)tableColumnItems {
-//
-//    TableColumnItem *field_index = [[TableColumnItem alloc]init];
-//    field_index.title      = @"Index";
-//    field_index.identifier = id_index;
-//    field_index.width      = 35;
-//    field_index.minWidth   = 25;
-//    field_index.maxWidth   = 60;
-//    field_index.editable   = NO;
-//    field_index.headerAlignment = NSLeftTextAlignment;
-//    field_index.cellType = TableColumnCellTypeTextField;
-//
-//    TableColumnItem *field_sn = [[TableColumnItem alloc]init];
-//    field_sn.title      = @"Sn";
-//    field_sn.identifier = id_sn;
-//    field_sn.width      = 150;
-//    field_sn.minWidth   = 100;
-//    field_sn.maxWidth   = 220;
-//    field_sn.editable   = NO;
-//    field_sn.headerAlignment = NSLeftTextAlignment;
-//    field_sn.cellType = TableColumnCellTypeTextField;
-//
-//
-//    TableColumnItem *field_startTime = [[TableColumnItem alloc]init];
-//    field_startTime.title      = @"StartTime";
-//    field_startTime.identifier = id_start_time;
-//    field_startTime.width      = 220;
-//    field_startTime.minWidth   = 160;
-//    field_startTime.maxWidth   = 260;
-//    field_startTime.editable   = NO;
-//    field_startTime.headerAlignment = NSLeftTextAlignment;
-//    field_startTime.cellType = TableColumnCellTypeTextField;
-//
-//
-////    TableColumnItem *type = [[TableColumnItem alloc]init];
-////    type.title      = @"Type";
-////    type.identifier = @"type";
-////    type.width      = 120;
-////    type.minWidth   = 120;
-////    type.maxWidth   = 160;
-////    type.editable   = YES;
-////    type.headerAlignment = NSLeftTextAlignment;
-////    type.cellType = TableColumnCellTypeComboBox;
-////    type.items = @[@"int",@"varchar",@"bool"];
-//
-//
-////    TableColumnItem *length = [[TableColumnItem alloc]init];
-////    length.title      = @"Size";
-////    length.identifier = @"size";
-////    length.width      = 120;
-////    length.minWidth   = 120;
-////    length.maxWidth   = 120;
-////    length.editable   = YES;
-////    length.headerAlignment = NSLeftTextAlignment;
-////    length.cellType = TableColumnCellTypeTextField;
-//
-//
-////    TableColumnItem *primary = [[TableColumnItem alloc]init];
-////    primary.title      = @"Primary";
-////    primary.identifier = @"primary";
-////    primary.width      = 80;
-////    primary.minWidth   = 80;
-////    primary.maxWidth   = 120;
-////    primary.editable   = YES;
-////    primary.headerAlignment = NSLeftTextAlignment;
-////    primary.cellType = TableColumnCellTypeCheckBox;
-//
-//
-//    TableColumnItem *btn_record = [[TableColumnItem alloc]init];
-//    btn_record.title      = @"Record";
-//    btn_record.identifier = id_record;
-//    btn_record.width      = 40;
-//    btn_record.minWidth   = 30;
-//    btn_record.maxWidth   = 60;
-//    btn_record.cellType = TableColumnCellTypeImageView;
-//
-//    TableColumnItem *field_failList = [[TableColumnItem alloc]init];
-//    field_failList.title      = @"FailList ↑↓";
-//    field_failList.identifier = id_fail_list;
-//    field_failList.width      = 2000;
-//    field_failList.minWidth   = 300;
-//    field_failList.maxWidth   = 8000;
-//    field_failList.editable   = YES;
-//    field_failList.headerAlignment = NSLeftTextAlignment;
-//    field_failList.cellType = TableColumnCellTypeTextField;
-//
-//    return @[field_index,field_sn,field_startTime,btn_record,field_failList];
-//}
-
 
 - (IBAction)add_csv_click:(NSButton *)sender {
     //    [FileManager openPanel:^(NSString * _Nonnull path) {
@@ -288,6 +192,65 @@
     
 //    [self save:nil];
 }
+
+
+- (IBAction)save:(id)sender {
+    if (!self.origin_items_datas.count) {
+        return;
+    }
+    
+    NSString *path = [dfuLogPath stringByAppendingPathComponent:@"Atlas2_AllLog.csv"];
+    NSMutableString *text = [[NSMutableString alloc] init];
+    NSArray *columns = self.itemsTableView.tableColumns;
+    for (NSTableColumn *column in columns) {
+        [text appendString:column.identifier];
+        [text appendString:@","];
+    }
+    [text appendString:@"\n"];
+    
+    for (int m =0;m<self.origin_items_datas.count;m++) {
+        
+        NSDictionary *item_dic = self.origin_items_datas[m];
+        //        NSString *key = [columns[m] identifier];
+        //        [text appendString:[item_mode getVauleWithKey:key]];
+        
+        for (int i =0; i<columns.count; i++) {
+            
+            NSString *key = [columns[i] identifier];
+            if ([key isEqualToString:id_record]) {
+                [text appendString:[item_dic objectForKey:key_record_path]];
+            }else{
+                [text appendString:[item_dic objectForKey:key]];
+            }
+            
+            if (i!=columns.count-1) {
+                [text appendString:@","];
+            }else{
+                [text appendString:@"\n"];
+            }
+        }
+        
+    }
+    
+    NSError *error;
+    [text writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    //[text writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    //    if (sender==nil) {
+    //        return;
+    //    }
+    if(error){
+        NSLog(@"save file error %@",error);
+        [Alert cw_RemindException:@"Save Fail" Information:[NSString stringWithFormat:@"Error Info:%@",error]];
+        
+    }else{
+        //        [Alert cw_RemindException:@"Save Success" Information:[NSString stringWithFormat:@"File Path:%@",path]];
+        
+        [Task cw_openFileWithPath:dfuLogPath];
+        
+    }
+}
+
+
 #pragma mark-  laze load
 -(FailOnlyItems *)failOnlyItems{
     if (!_failOnlyItems) {
@@ -382,7 +345,8 @@
     }
 
     NSDictionary *dict = self.origin_items_datas[row];
-    NSString *recordPath = [dict objectForKey:id_record];
+
+    NSString *recordPath = [dict objectForKey:key_record_path];
     BOOL isFail = [[dict objectForKey:key_is_fail] boolValue];
     if (isFail) {
 //        self.failOnlyItems.title =mode.recordPath;

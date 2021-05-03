@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
-#import "ExtensionConst.h"
+
 @interface TableDataDelegate : NSObject<NSTableViewDataSource,NSTableViewDelegate,NSTextFieldDelegate,NSComboBoxDelegate>
 
 //Row Selection Changed Callback.
@@ -45,6 +45,8 @@ typedef void(^RowObjectValueChangedCallbackBlock)(id obj,id oldObj,NSInteger row
 //rowObjectValueChangedCallback
 
 - (void)setData:(id)data;
+
+- (id)getData;
 
 - (void)updateData:(id)item row:(NSInteger)row;
 

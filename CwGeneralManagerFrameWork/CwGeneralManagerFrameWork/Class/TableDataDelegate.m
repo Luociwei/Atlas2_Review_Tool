@@ -7,8 +7,15 @@
 //
 
 #import "TableDataDelegate.h"
-
-
+//#import "CwGeneralManager.h"
+#import "TableColumnItem.h"
+#import "NSTableView+Category.h"
+#import "NSComboBox+Category.h"
+#import "NSButton+Category.h"
+#import "Masonry.h"
+#import "NSImageView+Category.h"
+#import "NSComboBox+Category.h"
+#import "NSTextField+Category.h"
 #import <Cocoa/Cocoa.h>
 
 NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
@@ -78,6 +85,10 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     }
     assert([data isKindOfClass:[NSArray class]]);
     self.items = [NSMutableArray arrayWithArray:data];
+}
+
+-(id)getData{
+    return self.items;
 }
 
 - (void)updateData:(id)item row:(NSInteger)row {
@@ -210,6 +221,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
         return;
     }
     _clickColumnIndex = _clickColumnIndex + 1;
+    
     if(self.tableViewdidClickColumnCallback){
         self.tableViewdidClickColumnCallback(identifier,_clickColumnIndex);
     }
@@ -369,7 +381,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
             //        textField = (NSTextField*)view;
             if (!view) {
                 NSTextField *textField =  [[NSTextField alloc]init];
-                
+                textField.delegate = self;
                 textField.identifier = identifier;
                 textField = (NSTextField *)textField;
                 textField.wantsLayer=YES;
@@ -389,32 +401,18 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
                     [btn setAction:@selector(buttonChick:)];
                     
                 }else if([view isKindOfClass:[NSTextField class]]){
-                    NSTextField *textf= subviews[0];
+                    NSTextField *textField= subviews[0];
+                    textField.delegate = self;
+                    textField.wantsLayer=YES;
+                    [textField setBezeled:NO];
+                    [textField setDrawsBackground:NO];
                     if(value.length){
-                        //                textf.wantsLayer=YES;
-                        //                if ([identifier isEqualToString:@"FailList"]) {
-                        ////                    [textf setTextColor:[NSColor blueColor]];
-                        //
-                        //                    textf.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-                        //                }
+                        
                         //更新单元格的文本
-                        [textf setStringValue: value];
-                    }else{
-                        //                if ([identifier isEqualToString:@"FailList"]) {
-                        //                textf.layer.backgroundColor = [NSColor clearColor].CGColor;
-                        //                }
+                        [textField setStringValue: value];
                     }
-                    textf.wantsLayer=YES;
                     
-                    //            if (item_data.isFail) {
-                    //
-                    //                textf.layer.backgroundColor = [NSColor systemRedColor].CGColor;
-                    //            }else{
-                    //                textf.layer.backgroundColor = [NSColor clearColor].CGColor;
-                    //            }
-                    
-                    
-                    
+         
                 }
                 
             }
@@ -433,9 +431,11 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 #pragma mark - Action
 
 //文本输入框变化处理事件
-- (void)controlTextDidChange:(NSNotification *)aNotification{
+- (void)controlTextDidEndEditing:(NSNotification *)aNotification{
+    NSLog(@"controlTextDidEndEditing");
     NSTextField *field = aNotification.object;
-    NSString *identifier = field.identifier;
+    NSInteger col = [self.owner columnForView:field];
+    NSString *identifier = self.owner.tableColumns[col].identifier;
     NSInteger row = [self.owner selectedRow];
     NSLog(@"field text = %@",field.stringValue);
     NSMutableDictionary *data = [self itemOfRow:row];
@@ -454,7 +454,8 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 //comboBox选择框处理事件
 - (void)comboBoxSelectionDidChange:(NSNotification *)aNotification {
     NSComboBox *field = aNotification.object;
-    NSString *identifier = field.identifier;
+    NSInteger col = [self.owner columnForView:field];
+    NSString *identifier = self.owner.tableColumns[col].identifier;
     NSInteger row = [self.owner selectedRow];
     NSLog(@"field text = %@",field.stringValue);
     NSMutableDictionary *data = [self itemOfRow:row];
@@ -471,7 +472,9 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 - (IBAction)checkBoxChick:(id)sender {
     NSButton *button = (NSButton *)sender;
     NSLog(@"Form checkBoxChick=%ld",button.state);
-    NSString *identifier = button.identifier;
+//    NSString *identifier = button.identifier;
+    NSInteger col = [self.owner columnForView:button];
+    NSString *identifier = self.owner.tableColumns[col].identifier;
     NSInteger row = [self.owner selectedRow];
     NSMutableDictionary *data = [self itemOfRow:row];
     NSMutableDictionary *oldData = [data mutableCopy];
@@ -485,7 +488,8 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 - (IBAction)buttonChick:(id)sender {
     NSButton *button = (NSButton *)sender;
 //    NSLog(@"Form checkBoxChick=%ld",button.state);
-    NSString *identifier = button.identifier;
+    NSInteger col = [self.owner columnForView:button];
+    NSString *identifier = self.owner.tableColumns[col].identifier;
     NSInteger row = button.tag;
     NSMutableDictionary *data = [self itemOfRow:row];
 
@@ -510,7 +514,7 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 
 - (NSDragOperation)tableView:(NSTableView*)tv validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)op {
 
-    return NSDragOperationEvery;
+    return NSDragOperationMove;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id <NSDraggingInfo>)info
@@ -528,28 +532,36 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     NSLog(@"dragRow = %ld row=%ld count=%ld",dragRow,row,count);
     /*drag row inside table cell row*/
     if(row<=count-1){
-        [self exchangeObjectAtIndex:dragRow withObjectAtIndex:row];
-        [tableView noteNumberOfRowsChanged];
-        [tableView reloadData];
-        if(self.rowDragCallback){
-            self.rowDragCallback(row,dragRow);
-        }
-        return YES;
-    }
-    else{
+        
+//        [self exchangeObjectAtIndex:dragRow withObjectAtIndex:row];
+//        [tableView noteNumberOfRowsChanged];
+//        [tableView reloadData];
+//        if(self.rowDragCallback){
+//            self.rowDragCallback(row,dragRow);
+//        }
+//        return YES;
+//    }
+//    else{
         /*drag row index out of row count*/
         id zData = [[self itemOfRow:dragRow]mutableCopy];
         [self insertObject:zData atIndex:row];
         count = [self itemCount];
-        [self deleteDataAtIndex:dragRow];
-        count = [self itemCount];
+        if (dragRow>row) {
+            [self deleteDataAtIndex:dragRow+1];
+        }else if (dragRow<row){
+
+            [self deleteDataAtIndex:dragRow];
+        }
+
+
         [tableView noteNumberOfRowsChanged];
         [tableView reloadData];
         if(self.rowDragCallback){
             self.rowDragCallback(row,dragRow);
         }
-        return YES;
+//        return YES;
     }
+    return YES;
 }
 
 

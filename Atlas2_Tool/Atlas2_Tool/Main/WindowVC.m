@@ -9,13 +9,16 @@
 #import "WindowVC.h"
 #import "AtlasLogVC.h"
 #import "CatchFwVc.h"
+#import "AtlasScritVC.h"
+
 #import "FailOnlyItems.h"
+
 @interface WindowVC ()
 
 @property (weak) IBOutlet NSImageView *isMixReadyImage;
 
 @property (strong,nonatomic)CatchFwVc *catchFwVc;
-
+@property (strong,nonatomic)AtlasScritVC *atlasScritVC;
 @property (strong,nonatomic)AtlasLogVC *atlasCsvLogVC;
 
 @end
@@ -83,11 +86,14 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-   
+    
     _atlasCsvLogVC =  [[AtlasLogVC alloc] init];
     _atlasCsvLogVC.title = @"AtlasLog";
+    
+    _atlasScritVC =  [[AtlasScritVC alloc] init];
+    _atlasScritVC.title = @"AtlasScript";
 
-    [self cw_addViewControllers:@[_atlasCsvLogVC]];
+    [self cw_addViewControllers:@[_atlasScritVC,_atlasCsvLogVC]];
 //    FailOnlyItems *item =  [[FailOnlyItems alloc] init];
 //    item.title = @"AtlasLog";
 //
