@@ -33,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSArray *)cw_getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath;
 
 +(void)cw_copyBundleFileToDestPath:(NSString *)fullName destDir:(NSString *)destDir;
++(void)cw_copyFlolderFrom:(NSString *)filePath to:(NSString *)toPath;
 
-+(void)cw_copySourceFileToDestPath:(NSString *)sourcePath destDir:(NSString *)destDir;
 +(void)openPanel:(void(^)(NSString * path))callBack;
 +(void)savePanel:(void(^)(NSString * path))callBack;
 @end

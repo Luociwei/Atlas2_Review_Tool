@@ -210,7 +210,7 @@
 
 -(void)clean{
     self.mutLogString=nil;
-    [self.mutLogString appendString:@"Clean..................\n"];
+//    [self.mutLogString appendString:@"Clean..................\n"];
     self.logTextView.string = @"";
 }
 

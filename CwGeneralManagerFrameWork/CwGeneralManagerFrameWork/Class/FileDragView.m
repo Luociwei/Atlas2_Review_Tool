@@ -24,6 +24,18 @@
     
 }
 
+-(instancetype)init{
+    self =[super init];
+    if (self) {
+//        [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+    }
+    return self;
+}
+
+- (NSDragOperation)draggingUpdated:(id <NSDraggingInfo>)sender {
+    self.stringValue = @"";
+    return NSDragOperationNone;
+}
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender {
     
     NSLog(@"drag operation entered");
@@ -31,6 +43,7 @@
     NSDragOperation sourceDragMask = [sender draggingSourceOperationMask];
     
     NSPasteboard *pboard = [sender draggingPasteboard];
+    self.stringValue = @"";
     
     if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
         

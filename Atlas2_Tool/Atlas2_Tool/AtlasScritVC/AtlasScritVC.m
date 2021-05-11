@@ -8,7 +8,7 @@
 
 #import "AtlasScritVC.h"
 #import "ScritItemMode.h"
-#import "FailOnlyItems.h"
+#import "LuaFunction.h"
 
 
 @interface AtlasScritVC ()
@@ -25,12 +25,13 @@
 //@property (weak) IBOutlet NSTextField *labelCount;
 //@property (strong,nonatomic)FailOnlyItems *failOnlyItems;
 @property(nonatomic,strong)TableDataDelegate *tableDataDelegate;
-
+@property(nonatomic,strong)LuaFunction *luaFunction;
 
 @end
 
 @implementation AtlasScritVC{
     NSString *dfuLogPath;
+    NSString *local_path;
   
 }
 
@@ -48,7 +49,7 @@
 //    self.fail_items_datas = [[NSMutableArray alloc]init];
     [self.itemsTableView setDoubleAction:@selector(doubleClick:)];
     self.tableDataDelegate.owner = self.itemsTableView;
-    
+    self.luaFunction = [[LuaFunction alloc]init];
 
 }
 
@@ -86,7 +87,7 @@
     //    [FileManager openPanel:^(NSString * _Nonnull path) {
     NSString *path =self.logDropView.stringValue;
     
-   
+    local_path = @"";
     [self.origin_items_datas removeAllObjects];
 
 //    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
@@ -106,14 +107,20 @@
         [self.itemsTableView reloadData];
         return;
     }
-    NSString *mainCsvPath = [path stringByAppendingPathComponent:@"Main.csv"];
+
+    NSString *mainCsvPath = [path stringByAppendingPathComponent:@"Assets/Main.csv"];
     if (![manager fileExistsAtPath:mainCsvPath]) {
         [self.tableDataDelegate setData:nil];
         [self.itemsTableView reloadData];
         return;
     }
+
+    local_path =[NSString stringWithFormat:@"%@/Atlas2",dfuLogPath];
+    [FileManager cw_copyFlolderFrom:path to:local_path];
+    path = local_path;
     
-    NSString *limitCsvPath = [path stringByAppendingPathComponent:@"Limits.csv"];
+    mainCsvPath =[path stringByAppendingPathComponent:@"Assets/Main.csv"];
+    NSString *limitCsvPath = [path stringByAppendingPathComponent:@"Assets/Limits.csv"];
     NSString *limitsContent = [FileManager cw_readFromFile:limitCsvPath];
 
     NSArray *csvMainArray =[self getArrWithPath:mainCsvPath];
@@ -127,7 +134,7 @@
         
         NSArray *techCsvArr = nil;
 
-        NSString *techCsvPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Tech/%@.csv",testName]];
+        NSString *techCsvPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Assets/Tech/%@.csv",testName]];
         if (![manager fileExistsAtPath:techCsvPath]) {
             continue;
         }
@@ -144,10 +151,26 @@
                 ScritItemMode *scritItemMode = [[ScritItemMode alloc]init];
                 scritItemMode.testName = csvMainArray[i][1];
                 scritItemMode.subTestName = csvMainArray[i][0];
+                scritItemMode.mainDisable = csvMainArray[i][2];
+                scritItemMode.production = csvMainArray[i][3];
+                scritItemMode.audit = csvMainArray[i][4];
+                scritItemMode.thread = csvMainArray[i][5];
+                scritItemMode.loop = csvMainArray[i][6];
+                scritItemMode.sample = csvMainArray[i][7];
+                scritItemMode.cof = csvMainArray[i][8];
+                scritItemMode.mainCondition = csvMainArray[i][9];
+               
                 scritItemMode.index = item_mode_arr.count+1;
+                scritItemMode.function = arr[1];
+                scritItemMode.Disable = arr[2];
+                scritItemMode.Input = arr[3];
+                scritItemMode.Output = arr[4];
+                scritItemMode.Timeout = arr[5];
+                scritItemMode.Retries = arr[6];
+                scritItemMode.ExitEarly = arr[8];
                 scritItemMode.subSubTestName = arr[7];
                 scritItemMode.params = arr[7];
-                scritItemMode.function = arr[1];
+                scritItemMode.SetPoison = arr[9];
                 scritItemMode.command = arr[10];
                 NSArray *limitArr = [self getLimitWithSubTestName:scritItemMode.subTestName subSubTestName:scritItemMode.subSubTestName limitsContent:limitsContent];
                 scritItemMode.lowLimit = limitArr[0];
@@ -268,6 +291,237 @@
         [Task cw_openFileWithPath:dfuLogPath];
         
     }
+    
+    
+    [self creatMainCsv:dataArr];
+    [self creatTechCsv:dataArr];
+    [self creatLimitCsv:dataArr];
+    
+   
+    
+ 
+    
+}
+-(void)creatLimitCsv:(NSArray *)dataArr{
+    NSString *limitCsvPath =[local_path stringByAppendingPathComponent:@"Assets/Limits.csv"];
+    NSMutableString *text = [[NSMutableString alloc] initWithString:@"TestItem,ParameterName,units,upperLimit,lowerLimit,relaxedUpperLimit,relaxedLowerLimit,Condition\n"];
+
+    
+    for (int i = 0; i<dataArr.count; i++) {
+        NSDictionary *dict = dataArr[i];
+        NSString *upper = [dict objectForKey:id_UpperLimit];;
+        NSString *low = [dict objectForKey:id_LowLimit];;
+        if (!upper.length && !low.length) {
+            continue;
+        }
+        NSString *subTestName = [dict objectForKey:id_SubTestName];
+        NSString *subSubTestName = [dict objectForKey:id_SubSubTestName];
+      
+        
+        for (int k = 0; k<8; k++) {
+            if (k == 0) {
+                [text appendString:subTestName];
+            }else if (k == 1){
+                
+                [text appendString:subSubTestName];
+            }else if (k == 2){
+                
+                [text appendString:[dict objectForKey:id_Unit]];
+            }else if (k == 3){
+
+                [text appendString:[dict objectForKey:id_LowLimit]];
+            }else if (k == 4){
+                
+                [text appendString:[dict objectForKey:id_UpperLimit]];
+            }else if (k == 5){
+                
+                [text appendString:@""];
+            }else if (k == 6){
+                
+                [text appendString:@""];
+            }else if (k == 7){
+                
+                [text appendString:@""];
+            }
+            
+            if (k == 7) {
+                [text appendString:@"\n"];
+            }else{
+                [text appendString:@","];
+            }
+            
+        }
+        
+        NSError *error;
+        //    [FileManager cw_writeToFile:path content:text];
+        [text writeToFile:limitCsvPath atomically:NO encoding:NSUTF8StringEncoding error:&error];
+        
+    }
+    
+    
+}
+-(void)creatTechCsv:(NSArray *)dataArr{
+
+//    NSString *lastName = @"";
+    NSMutableSet *testNameSet = [[NSMutableSet alloc] init];
+    for (int i = 0; i<dataArr.count; i++) {
+        NSDictionary *dict = dataArr[i];
+        NSString *TestName = [dict objectForKey:id_TestName];
+        [testNameSet addObject:TestName];
+    }
+    
+    NSArray *arr = [testNameSet.objectEnumerator allObjects];
+    
+    for (int i = 0; i<arr.count; i++) {
+        NSString *TestName = arr[i];
+        NSString *techCsvPath =[local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Assets/Tech/%@.csv",TestName]];
+
+        NSMutableString *text = [[NSMutableString alloc] initWithString:@"TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition\n"];
+        for (int j = 0; j<dataArr.count; j++) {
+            NSDictionary *dict = dataArr[j];
+            NSString *dict_testName = [dict objectForKey:id_TestName];
+            if (![TestName isEqualToString:dict_testName]) {
+                continue;
+            }
+            NSString *lastTestName = @"";
+            for (int k = 0; k<13; k++) {
+                if (k == 0) {
+                    NSString *testName = [dict objectForKey:id_SubTestName];
+//                    if ([lastTestName isEqualToString:testName]) {
+//                        testName = @"";
+//                    }else{
+//                        lastTestName = testName;
+//                    }
+                    [text appendString:testName];
+                }else if (k == 1){
+                    NSString *TestActions = [dict objectForKey:id_Function];
+                    [text appendString:TestActions];
+                }else if (k == 2){
+                    NSString *Disable = [dict objectForKey:id_Disable];
+                    [text appendString:Disable];
+                }else if (k == 3){
+                    NSString *input = [dict objectForKey:id_Input];
+                    [text appendString:input];
+                }else if (k == 4){
+                    NSString *output = [dict objectForKey:id_Output];
+                    [text appendString:output];
+                }else if (k == 5){
+                    NSString *timeout = [dict objectForKey:id_Timeout];
+                    [text appendString:timeout];
+                }else if (k == 6){
+                    NSString *retries = [dict objectForKey:id_Retries];
+                    [text appendString:retries];
+                }else if (k == 7){
+                    NSString *pars = [dict objectForKey:id_AdditionalParameters];
+                    pars = [pars stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""];
+                 
+                    pars = [pars stringByReplacingOccurrencesOfString:@"}" withString:@"}\""];
+                    pars = [pars stringByReplacingOccurrencesOfString:@"{" withString:@"\"{"];
+                    
+                    [text appendString:pars];
+                }else if (k == 8){
+                    NSString *exitearly = [dict objectForKey:id_ExitEarly];
+                    [text appendString:exitearly];
+                }else if (k == 9){
+                    NSString *setpos = [dict objectForKey:id_SetPoison];
+                    [text appendString:setpos];
+                }else if (k == 10){
+                    NSString *cmds = [dict objectForKey:id_Command];
+                    [text appendString:cmds];
+                }else if (k ==11){
+                    NSString *fa = [dict objectForKey:id_FA];
+                    [text appendString:fa];
+                }else if (k == 12){
+                    NSString *conditon = [dict objectForKey:id_Condition];
+                    [text appendString:conditon];
+                }
+                
+                if (k == 12) {
+                    [text appendString:@"\n"];
+                }else{
+                    [text appendString:@","];
+                }
+                
+            }
+            
+            
+            
+            NSError *error;
+            //    [FileManager cw_writeToFile:path content:text];
+            [text writeToFile:techCsvPath atomically:NO encoding:NSUTF8StringEncoding error:&error];
+
+            
+        }
+        
+    }
+
+    
+}
+-(void)creatMainCsv:(NSArray *)dataArr{
+    NSString *mainCsvPath =[local_path stringByAppendingPathComponent:@"Assets/Main.csv"];
+    NSMutableString *text = [[NSMutableString alloc] initWithString:@"TestName,Technology,Disable,Production,Audit,Thread,Loop,Sample,CoF,Condition\n"];
+    NSString *lastName = @"";
+    
+    for (int i = 0; i<dataArr.count; i++) {
+        NSDictionary *dict = dataArr[i];
+
+        NSString *subTestName = [dict objectForKey:id_SubTestName];
+        NSString *TestName = [dict objectForKey:id_TestName];
+        NSString *temp_name = [NSString stringWithFormat:@"%@,%@",TestName,subTestName];
+    
+        if ([lastName isEqualToString:temp_name]) {
+            continue;
+        }else{
+            lastName = temp_name;
+        }
+        
+        for (int k = 0; k<10; k++) {
+            if (k == 0) {
+                [text appendString:subTestName];
+            }else if (k == 1){
+                
+                [text appendString:TestName];
+            }else if (k == 2){
+                NSString *main_Disable = [dict objectForKey:id_Main_Disable];
+                [text appendString:main_Disable];
+            }else if (k == 3){
+                NSString *Production = [dict objectForKey:id_Production];
+                [text appendString:Production];
+            }else if (k == 4){
+                NSString *Audit = [dict objectForKey:id_Audit];
+                [text appendString:Audit];
+            }else if (k == 5){
+                NSString *Thread = [dict objectForKey:id_Thread];
+                [text appendString:Thread];
+            }else if (k == 6){
+                NSString *Loop = [dict objectForKey:id_Loop];
+                [text appendString:Loop];
+            }else if (k == 7){
+                NSString *Sample = [dict objectForKey:id_Sample];
+                [text appendString:Sample];
+            }else if (k == 8){
+                NSString *CoF = [dict objectForKey:id_CoF];
+                [text appendString:CoF];
+            }else if (k == 9){
+                NSString *Condition = [dict objectForKey:id_Main_Condition];
+                [text appendString:Condition];
+            }
+            
+            if (k == 9) {
+                [text appendString:@"\n"];
+            }else{
+                [text appendString:@","];
+            }
+            
+        }
+        
+        NSError *error;
+        //    [FileManager cw_writeToFile:path content:text];
+        [text writeToFile:mainCsvPath atomically:NO encoding:NSUTF8StringEncoding error:&error];
+        
+    }
+
+    
 }
 
 #pragma mark-  laze load
@@ -314,8 +568,46 @@
 
 
 -(void)doubleClick:(NSTableView *)tableview{
-    NSInteger row = [tableview selectedRow];
-
+    
+    NSArray *dataArr = [self.tableDataDelegate getData];
+    if (!dataArr.count) {
+        return;
+    }
+    NSInteger row = [self.itemsTableView selectedRow];
+    if (row == -1)
+    {
+        return;
+    }
+    
+    NSDictionary *dict = dataArr[row];
+    
+    NSString *TestActions = [dict objectForKey:id_Function];
+    NSArray *arr = [TestActions cw_componentsSeparatedByString:@":"];
+    if (arr.count != 2) {
+        return;
+    }
+    NSString *TestName = [dict objectForKey:id_TestName];
+    NSString *fuctionCsvPath =@"";
+    NSString *functionName = arr[0];
+    if ([functionName isEqualToString:@"Tech"]) {
+        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",TestName]];
+    }else{
+        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",functionName]];
+    }
+    
+    [self.luaFunction showViewOnViewController:self];
+    self.luaFunction.luaFunctionPath = fuctionCsvPath;
+    
+//    NSDictionary *dict = self.origin_items_datas[row];
+//
+//    NSString *recordPath = [dict objectForKey:key_record_path];
+//    BOOL isFail = [[dict objectForKey:key_is_fail] boolValue];
+//    if (isFail) {
+//        //        self.failOnlyItems.title =mode.recordPath;
+//        [self.failOnlyItems showViewOnViewController:self];
+//        self.failOnlyItems.recordPath = recordPath;
+//    }
+    
 }
 //
 

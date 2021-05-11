@@ -34,7 +34,28 @@ extern NSString *const id_LowLimit;
 extern NSString *const id_UpperLimit;
 extern NSString *const id_Unit;//id_Unit
 extern NSString *const key_IsSearch;
+
+
+extern NSString *const id_Disable;
+extern NSString *const id_Input;
+extern NSString *const id_Output;
+extern NSString *const id_Timeout;
+extern NSString *const id_Retries;
+extern NSString *const id_ExitEarly;
+extern NSString *const id_SetPoison;
+extern NSString *const id_FA;
+extern NSString *const id_Condition;
+
 //extern NSString *const id_TestName;
+extern NSString *const id_Main_Disable;
+extern NSString *const id_Production;
+extern NSString *const id_Audit;
+extern NSString *const id_Thread;
+extern NSString *const id_Loop;
+extern NSString *const id_Sample;
+extern NSString *const id_CoF;
+extern NSString *const id_Main_Condition;
+
 
 @end
 

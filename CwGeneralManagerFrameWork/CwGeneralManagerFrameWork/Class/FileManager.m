@@ -198,16 +198,19 @@
 
 +(void)cw_copyBundleFileToDestPath:(NSString *)fullName destDir:(NSString *)destDir{
     NSString *file = [[NSBundle mainBundle] pathForResource:fullName ofType:nil];
-    [self cw_copySourceFileToDestPath:file destDir:destDir];
+    [self cw_copyFlolderFrom:file to:destDir];
     
 }
-+(void)cw_copySourceFileToDestPath:(NSString *)sourcePath destDir:(NSString *)destDir{
-   
-    NSString *localFile =[destDir stringByAppendingPathComponent:sourcePath.lastPathComponent];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:localFile]) {
-        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:localFile error:nil];
-    }
+
++(void)cw_copyFlolderFrom:(NSString *)filePath to:(NSString *)toPath {
+    NSError *error;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
+    if ([fileManager fileExistsAtPath:toPath])
+    {
+        [fileManager removeItemAtPath:toPath error:&error];
+    }
+    [fileManager copyItemAtPath:filePath toPath:toPath error:&error];
 }
 
 

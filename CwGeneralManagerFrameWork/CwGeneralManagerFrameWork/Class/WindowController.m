@@ -127,7 +127,7 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app名称
     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleName"];
-    if (obj == [NSApp mainWindow] && [title isEqualToString:app_Name]) {
+    if (obj == [NSApp mainWindow] && [title containsString:app_Name]) {
         [NSApp terminate:nil];
     }
 //    if ([title length]) {

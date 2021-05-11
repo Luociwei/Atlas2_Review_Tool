@@ -20,7 +20,7 @@
 #import "Image.h"
 #import "FileDragView.h"
 #import "TableColumnItem.h"
-
+#import "NSMutableDictionary+Category.h"
 #import "NSTextField+Category.h"
 #import "NSButton+Category.h"
 #import "NSTableView+Category.h"

@@ -53,12 +53,12 @@
  
     for (ItemMode *mode in item_mode_arr) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
-        [dict setObject:mode.startTime forKey:id_start_time];
-        [dict setObject:mode.sn forKey:id_sn];
-        [dict setObject:mode.failList forKey:id_fail_list];
+        [dict cw_safetySetObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
+        [dict cw_safetySetObject:mode.startTime forKey:id_start_time];
+        [dict cw_safetySetObject:mode.sn forKey:id_sn];
+        [dict cw_safetySetObject:mode.failList forKey:id_fail_list];
         [dict setObject:@(mode.isFail) forKey:key_is_fail];
-        [dict setObject:mode.recordPath forKey:key_record_path];
+        [dict cw_safetySetObject:mode.recordPath forKey:key_record_path];
         [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
         [tableData_dic addObject:dict];
         

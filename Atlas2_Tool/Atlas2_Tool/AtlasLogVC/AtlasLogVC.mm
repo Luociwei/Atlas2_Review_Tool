@@ -9,6 +9,7 @@
 #import "AtlasLogVC.h"
 #import "ItemMode.h"
 #import "FailOnlyItems.h"
+//#import "RedisInterface.hpp"
 
 
 @interface AtlasLogVC ()
@@ -32,13 +33,54 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
+//    RedisInterface *myRedis;
  
 }
+//- (void)redis_set
+//{
+//    myRedis->SetString("csv_all", "0.01,0.03\n0.02,0.05,0.8\n");
+//    myRedis->SetString("Audio HP_MIC_China_Mode_Loopback China_Mode_HP_Left_Loopback_@-5dB_Frequency", "0.01,0.03");
+//    myRedis->SetString("row1", "0.01,0.03,0.02");
+//    myRedis->SetString("row2", "0.01,0.03,0.02");
+//    myRedis->SetString("one_item", "0.01,0.03,0.02");
+//
+//    myRedis->SetString("Audio HP_MIC_China_Mode_Loopback China_Mode_HP_Left_Loopback_@-5dB_Peak_Power", "0.05,0.04,0.06");
+//    myRedis->SetString("test_item_3", "350");
+//
+//    myRedis->SetString("test_item_1", "0.01,0.03,0.02");
+//    myRedis->SetString("test_item_2", "1.01,1.03,0.02");
+//    myRedis->SetString("test_item_3", "2.01,3.03,0.02");
+//}
 
-
+//- (void)redis_get
+//{
+//
+//    const char *str_char = myRedis->GetString("csv_all");
+////    NSString *str = [NSString stringWithUTF8String:str_char];
+//    NSString *string = [[NSString alloc] initWithCString:str_char encoding:NSUTF8StringEncoding];
+//    NSLog(@"1");
+//
+//}
+//-(BOOL)OpenRedisServer
+//{
+//    NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
+//    system([killRedis UTF8String]);
+//
+//    NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+//
+//    system([file UTF8String]);
+//    return true;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 //    clickIndexTableColumn = 0;
+//    system("/usr/bin/ulimit -n 8192");
+//    [self OpenRedisServer];
+//    myRedis = new RedisInterface;  // redis client connect
+//    myRedis->Connect();
+    
+   
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
     dfuLogPath =[deskPath stringByAppendingPathComponent:@"DFU_Tool_Log"];
@@ -55,6 +97,9 @@
 
 - (IBAction)add_csv_click:(NSButton *)sender {
     //    [FileManager openPanel:^(NSString * _Nonnull path) {
+//    [self redis_set];
+    
+    
     NSString *path =self.logDropView.stringValue;
     [self.fail_items_datas removeAllObjects];
     [self.origin_items_datas removeAllObjects];
@@ -194,6 +239,7 @@
 
 
 - (IBAction)save:(id)sender {
+//    [self redis_get];
     if (!self.origin_items_datas.count) {
         return;
     }
@@ -260,7 +306,8 @@
 
 -(TableDataDelegate *)tableDataDelegate{
     if (!_tableDataDelegate) {
-        __weak __typeof(self)weakSelf = self;
+//        __weak __typeof(self)weakSelf = self;
+        __weak __typeof(&*self)weakSelf = self;
         _tableDataDelegate = [[TableDataDelegate alloc]initWithTaleView:_itemsTableView];
         _tableDataDelegate.tableViewForTableColumnCallback = ^(id view, NSInteger row, NSDictionary *data,NSString *idfix) {
             if ([idfix isEqualToString:id_record]) {
@@ -292,13 +339,16 @@
         
         _tableDataDelegate.tableViewRowDoubleClickCallback = ^(NSInteger index, NSDictionary *item_data) {
             
-            //            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            __strong __typeof(&*weakSelf)strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
             NSString *record_path = [item_data objectForKey:key_record_path];
             BOOL isfail = [[item_data objectForKey:key_is_fail] boolValue];
             if (isfail) {
                 //        self.failOnlyItems.title =mode.recordPath;
-                [weakSelf.failOnlyItems showViewOnViewController:weakSelf];
-                weakSelf.failOnlyItems.recordPath = record_path;
+                [strongSelf.failOnlyItems showViewOnViewController:weakSelf];
+                strongSelf.failOnlyItems.recordPath = record_path;
             }
         };
         
@@ -312,19 +362,23 @@
         };
         
         _tableDataDelegate.tableViewdidClickColumnCallback = ^(NSString *identifier, NSInteger clickIndex) {
+            __strong __typeof(&*weakSelf)strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
             if ([identifier isEqualToString:id_fail_list]) {
-                if (weakSelf.fail_items_datas.count != weakSelf.origin_items_datas.count) {
+                if (strongSelf.fail_items_datas.count != strongSelf.origin_items_datas.count) {
 //                    weakSelf.items_datas = nil;
                     if (clickIndex % 2 == 1) {
                         
 //                        weakSelf.items_datas = weakSelf.fail_items_datas;
-                        [weakSelf.tableDataDelegate setData:weakSelf.fail_items_datas];
+                        [strongSelf.tableDataDelegate setData:strongSelf.fail_items_datas];
                     }else{
                         
 //                        weakSelf.items_datas = weakSelf.origin_items_datas;
-                        [weakSelf.tableDataDelegate setData:weakSelf.origin_items_datas];
+                        [strongSelf.tableDataDelegate setData:strongSelf.origin_items_datas];
                     }
-                    [weakSelf.itemsTableView reloadData];
+                    [strongSelf.itemsTableView reloadData];
                 }
             }
             

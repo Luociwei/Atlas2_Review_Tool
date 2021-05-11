@@ -33,23 +33,47 @@
     
 }
 
+
+
 +(NSMutableArray *)getDicArrayWithScritItemModeArr:(NSArray *)item_mode_arr{
     NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
  
     for (ScritItemMode *mode in item_mode_arr) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
-        [dict setObject:mode.testName forKey:id_TestName];
-        [dict setObject:mode.subTestName forKey:id_SubTestName];
-        [dict setObject:mode.subSubTestName forKey:id_SubSubTestName];
-        [dict setObject:mode.subSubTestName forKey:id_SubSubTestName];
-        [dict setObject:mode.params forKey:id_AdditionalParameters];
-        [dict setObject:mode.function forKey:id_Function];
-        [dict setObject:mode.command forKey:id_Command];
-        [dict setObject:mode.lowLimit forKey:id_LowLimit];
-        [dict setObject:mode.upperLimit forKey:id_UpperLimit];
-        [dict setObject:mode.unit forKey:id_Unit];
-        [dict setObject:mode.searchKeyWord forKey:key_IsSearch];
+        [dict cw_safetySetObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
+        [dict cw_safetySetObject:mode.testName forKey:id_TestName];
+        [dict cw_safetySetObject:mode.subTestName forKey:id_SubTestName];
+        [dict cw_safetySetObject:mode.subSubTestName forKey:id_SubSubTestName];
+        [dict cw_safetySetObject:mode.subSubTestName forKey:id_SubSubTestName];
+        [dict cw_safetySetObject:mode.params forKey:id_AdditionalParameters];
+        [dict cw_safetySetObject:mode.function forKey:id_Function];
+        [dict cw_safetySetObject:mode.command forKey:id_Command];
+        [dict cw_safetySetObject:mode.lowLimit forKey:id_LowLimit];
+        [dict cw_safetySetObject:mode.upperLimit forKey:id_UpperLimit];
+        [dict cw_safetySetObject:mode.unit forKey:id_Unit];
+        [dict cw_safetySetObject:mode.searchKeyWord forKey:key_IsSearch];
+        
+        [dict cw_safetySetObject:mode.Disable forKey:id_Disable];
+        [dict cw_safetySetObject:mode.Input forKey:id_Input];
+        [dict cw_safetySetObject:mode.Output forKey:id_Output];
+        [dict cw_safetySetObject:mode.Timeout forKey:id_Timeout];
+        [dict cw_safetySetObject:mode.Retries forKey:id_Retries];
+        [dict cw_safetySetObject:mode.ExitEarly forKey:id_ExitEarly];
+        [dict cw_safetySetObject:mode.SetPoison forKey:id_SetPoison];
+        [dict cw_safetySetObject:mode.FA forKey:id_FA];
+        [dict cw_safetySetObject:mode.Condition forKey:id_Condition];
+        
+        
+        [dict cw_safetySetObject:mode.mainDisable forKey:id_Main_Disable];
+        [dict cw_safetySetObject:mode.production forKey:id_Production];
+        [dict cw_safetySetObject:mode.audit forKey:id_Audit];
+        [dict cw_safetySetObject:mode.thread forKey:id_Thread];
+        [dict cw_safetySetObject:mode.loop forKey:id_Loop];
+        [dict cw_safetySetObject:mode.sample forKey:id_Sample];
+        
+        [dict cw_safetySetObject:mode.cof forKey:id_CoF];
+        [dict cw_safetySetObject:mode.mainCondition forKey:id_Main_Condition];
+        
         [tableData_dic addObject:dict];
         
     }

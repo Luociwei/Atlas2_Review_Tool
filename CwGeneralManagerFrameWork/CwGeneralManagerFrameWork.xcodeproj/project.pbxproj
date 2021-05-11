@@ -10,8 +10,6 @@
 		BA10438725EBBA310066BA1B /* TabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA10438525EBBA310066BA1B /* TabViewController.h */; };
 		BA10438825EBBA310066BA1B /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10438625EBBA310066BA1B /* TabViewController.m */; };
 		BA12830325B7C365000AE325 /* CwGeneralManagerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */; };
-		BA1D979C263AF7240066545F /* FileDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D979B263AF7240066545F /* FileDragView.m */; };
-		BA1D97A2263AF7D40066545F /* FileDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D97A1263AF7D40066545F /* FileDragView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA1D9846263C14960066545F /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D9836263C14960066545F /* NSString+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA1D9847263C14960066545F /* NSButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D9837263C14960066545F /* NSButton+Category.m */; };
 		BA1D9848263C14960066545F /* NSTextField+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D9838263C14960066545F /* NSTextField+Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,8 +49,12 @@
 		BA1D9935263C368A0066545F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D991E263C368A0066545F /* MASConstraint.m */; };
 		BA1D9936263C368A0066545F /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D991F263C368A0066545F /* MASViewConstraint.m */; };
 		BA1D9937263C368A0066545F /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D9920263C368A0066545F /* MASViewAttribute.m */; };
-		BA7828B5263FA6E400D1CF33 /* TableDataDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA7828B6263FA6E400D1CF33 /* TableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */; };
+		BA8BD6D4264154220024B100 /* TableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD6D2264154220024B100 /* TableDataDelegate.m */; };
+		BA8BD6D5264154220024B100 /* TableDataDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8BD6D3264154220024B100 /* TableDataDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA8BD6DC26419DA60024B100 /* NSMutableDictionary+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8BD6DA26419DA60024B100 /* NSMutableDictionary+Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA8BD6DD26419DA60024B100 /* NSMutableDictionary+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD6DB26419DA60024B100 /* NSMutableDictionary+Category.m */; };
+		BA8BD6EC264799090024B100 /* FileDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD6EA264799090024B100 /* FileDragView.m */; };
+		BA8BD6EE264799B40024B100 /* FileDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8BD6EB264799090024B100 /* FileDragView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE725B3F17A0063A886 /* FileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFE25B3F17A0063A886 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE825B3F17A0063A886 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,8 +83,6 @@
 		BA10438525EBBA310066BA1B /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		BA10438625EBBA310066BA1B /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CwGeneralManagerBundle.bundle; sourceTree = "<group>"; };
-		BA1D979B263AF7240066545F /* FileDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDragView.m; sourceTree = "<group>"; };
-		BA1D97A1263AF7D40066545F /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
 		BA1D9836263C14960066545F /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		BA1D9837263C14960066545F /* NSButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSButton+Category.m"; sourceTree = "<group>"; };
 		BA1D9838263C14960066545F /* NSTextField+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextField+Category.h"; sourceTree = "<group>"; };
@@ -122,8 +122,12 @@
 		BA1D991E263C368A0066545F /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
 		BA1D991F263C368A0066545F /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		BA1D9920263C368A0066545F /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDataDelegate.h; sourceTree = "<group>"; };
-		BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDataDelegate.m; sourceTree = "<group>"; };
+		BA8BD6D2264154220024B100 /* TableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDataDelegate.m; sourceTree = "<group>"; };
+		BA8BD6D3264154220024B100 /* TableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDataDelegate.h; sourceTree = "<group>"; };
+		BA8BD6DA26419DA60024B100 /* NSMutableDictionary+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Category.h"; sourceTree = "<group>"; };
+		BA8BD6DB26419DA60024B100 /* NSMutableDictionary+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Category.m"; sourceTree = "<group>"; };
+		BA8BD6EA264799090024B100 /* FileDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDragView.m; sourceTree = "<group>"; };
+		BA8BD6EB264799090024B100 /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
 		BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CwGeneralManager.h; sourceTree = "<group>"; };
 		BAE02CE725B3F17A0063A886 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BAE02CE825B3F17A0063A886 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				BA1D9843263C14960066545F /* NSComboBox+Category.m */,
 				BA1D9845263C14960066545F /* NSImageView+Category.h */,
 				BA1D983D263C14960066545F /* NSImageView+Category.m */,
+				BA8BD6DA26419DA60024B100 /* NSMutableDictionary+Category.h */,
+				BA8BD6DB26419DA60024B100 /* NSMutableDictionary+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -252,20 +258,20 @@
 				BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */,
 				BAE02CEA25B3F17A0063A886 /* PresentViewController.h */,
 				BAE02CF525B3F17A0063A886 /* PresentViewController.m */,
-				BA1D97A1263AF7D40066545F /* FileDragView.h */,
-				BA1D979B263AF7240066545F /* FileDragView.m */,
 				BAE02CFA25B3F17A0063A886 /* OutlineView.h */,
 				BAE02CED25B3F17A0063A886 /* OutlineView.m */,
 				BAE02CF925B3F17A0063A886 /* Alert.h */,
 				BAE02CEE25B3F17A0063A886 /* Alert.m */,
+				BA8BD6D3264154220024B100 /* TableDataDelegate.h */,
+				BA8BD6D2264154220024B100 /* TableDataDelegate.m */,
 				BAE02CF025B3F17A0063A886 /* CSVParser.h */,
 				BAE02CF725B3F17A0063A886 /* CSVParser.m */,
 				BA10438525EBBA310066BA1B /* TabViewController.h */,
 				BA10438625EBBA310066BA1B /* TabViewController.m */,
-				BA7828B3263FA6E400D1CF33 /* TableDataDelegate.h */,
-				BA7828B4263FA6E400D1CF33 /* TableDataDelegate.m */,
 				BAE02CF125B3F17A0063A886 /* WindowController.h */,
 				BAE02CF625B3F17A0063A886 /* WindowController.m */,
+				BA8BD6EB264799090024B100 /* FileDragView.h */,
+				BA8BD6EA264799090024B100 /* FileDragView.m */,
 				BAE02D2E25B406B30063A886 /* Image.h */,
 				BAE02D2F25B406B30063A886 /* Image.m */,
 			);
@@ -290,7 +296,6 @@
 				BAE02D1125B3F17A0063A886 /* TextView.h in Headers */,
 				BAE02D0625B3F17A0063A886 /* CSVParser.h in Headers */,
 				BAE02D0F25B3F17A0063A886 /* Alert.h in Headers */,
-				BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */,
 				BAE02D0725B3F17A0063A886 /* WindowController.h in Headers */,
 				BAE02D0025B3F17A0063A886 /* PresentViewController.h in Headers */,
 				BA1D984F263C14960066545F /* NSButton+Category.h in Headers */,
@@ -298,6 +303,7 @@
 				BA1D984B263C14960066545F /* NSComboBox+Category.h in Headers */,
 				BA1D9854263C14960066545F /* TableColumnItem.h in Headers */,
 				BA1D9924263C368A0066545F /* MASLayoutConstraint.h in Headers */,
+				BA8BD6EE264799B40024B100 /* FileDragView.h in Headers */,
 				BA1D992C263C368A0066545F /* MASConstraint.h in Headers */,
 				BA1D9928263C368A0066545F /* NSArray+MASAdditions.h in Headers */,
 				BA1D9933263C368A0066545F /* View+MASShorthandAdditions.h in Headers */,
@@ -316,9 +322,10 @@
 				BA1D984C263C14960066545F /* NSTableColumn+Category.h in Headers */,
 				BA1D9848263C14960066545F /* NSTextField+Category.h in Headers */,
 				BAE02D1025B3F17A0063A886 /* OutlineView.h in Headers */,
-				BA1D97A2263AF7D40066545F /* FileDragView.h in Headers */,
 				BAE02D3025B406B30063A886 /* Image.h in Headers */,
-				BA7828B5263FA6E400D1CF33 /* TableDataDelegate.h in Headers */,
+				BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */,
+				BA8BD6D5264154220024B100 /* TableDataDelegate.h in Headers */,
+				BA8BD6DC26419DA60024B100 /* NSMutableDictionary+Category.h in Headers */,
 				BAE02CFE25B3F17A0063A886 /* Task.h in Headers */,
 				BA10438725EBBA310066BA1B /* TabViewController.h in Headers */,
 				BAE02CFF25B3F17A0063A886 /* JXArcCompatibilityMacros.h in Headers */,
@@ -397,6 +404,7 @@
 			files = (
 				BA10438825EBBA310066BA1B /* TabViewController.m in Sources */,
 				BAE02D0825B3F17A0063A886 /* Task.m in Sources */,
+				BA8BD6EC264799090024B100 /* FileDragView.m in Sources */,
 				BA1D9937263C368A0066545F /* MASViewAttribute.m in Sources */,
 				BA1D9922263C368A0066545F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BAE02D0D25B3F17A0063A886 /* CSVParser.m in Sources */,
@@ -415,12 +423,12 @@
 				BA1D9851263C14960066545F /* NSTableColumn+Category.m in Sources */,
 				BA1D984D263C14960066545F /* NSImageView+Category.m in Sources */,
 				BA1D9847263C14960066545F /* NSButton+Category.m in Sources */,
-				BA7828B6263FA6E400D1CF33 /* TableDataDelegate.m in Sources */,
+				BA8BD6DD26419DA60024B100 /* NSMutableDictionary+Category.m in Sources */,
+				BA8BD6D4264154220024B100 /* TableDataDelegate.m in Sources */,
 				BAE02D0B25B3F17A0063A886 /* PresentViewController.m in Sources */,
 				BA1D9935263C368A0066545F /* MASConstraint.m in Sources */,
 				BA1D992E263C368A0066545F /* MASCompositeConstraint.m in Sources */,
 				BAE02D3125B406B30063A886 /* Image.m in Sources */,
-				BA1D979C263AF7240066545F /* FileDragView.m in Sources */,
 				BAE02D0925B3F17A0063A886 /* FileManager.m in Sources */,
 				BA1D984A263C14960066545F /* NSTableView+Category.m in Sources */,
 				BAE02D0325B3F17A0063A886 /* OutlineView.m in Sources */,
