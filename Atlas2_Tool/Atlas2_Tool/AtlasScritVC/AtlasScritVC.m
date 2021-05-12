@@ -38,6 +38,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    NSString *str= [FileManager cw_readFromFile:@"/Users/ciweiluo/Desktop/test/test_bk.csv"];
+//    NSArray *arr = [str cw_componentsSeparatedByString:@","];
+//    NSMutableString *mutstr = [[NSMutableString alloc]init];
+//    for (int i=0; i<arr.count; i++) {
+//        NSString *s=arr[i];
+//        [mutstr appendString:s];
+//        [mutstr appendString:@","];
+//    }
+//    [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test/test.csv" content:mutstr];
 
 //    self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *userPath = [NSString cw_getUserPath];
@@ -147,6 +157,7 @@
         
         for (int j = 1; j<techCsvArr.count; j++) {
             NSArray *arr = techCsvArr[j];
+          
             if ([arr[0] isEqualToString:subTestName]) {
                 ScritItemMode *scritItemMode = [[ScritItemMode alloc]init];
                 scritItemMode.testName = csvMainArray[i][1];
@@ -171,7 +182,17 @@
                 scritItemMode.subSubTestName = arr[7];
                 scritItemMode.params = arr[7];
                 scritItemMode.SetPoison = arr[9];
+  
+                
                 scritItemMode.command = arr[10];
+                if (scritItemMode.command.length) {
+                    scritItemMode.command = [NSString stringWithFormat:@"\"%@\"",arr[10]];
+                }
+//                if ([scritItemMode.command containsString:@"smokey --run TouchShortsTest"]) {
+//                    NSLog(@"1");
+//                }
+                scritItemMode.FA = arr[11];
+                scritItemMode.Condition = arr[12];
                 NSArray *limitArr = [self getLimitWithSubTestName:scritItemMode.subTestName subSubTestName:scritItemMode.subSubTestName limitsContent:limitsContent];
                 scritItemMode.lowLimit = limitArr[0];
                 scritItemMode.upperLimit = limitArr[1];
@@ -297,10 +318,7 @@
     [self creatTechCsv:dataArr];
     [self creatLimitCsv:dataArr];
     
-   
-    
- 
-    
+
 }
 -(void)creatLimitCsv:(NSArray *)dataArr{
     NSString *limitCsvPath =[local_path stringByAppendingPathComponent:@"Assets/Limits.csv"];
@@ -357,9 +375,11 @@
         [text writeToFile:limitCsvPath atomically:NO encoding:NSUTF8StringEncoding error:&error];
         
     }
-    
-    
+
 }
+
+
+
 -(void)creatTechCsv:(NSArray *)dataArr{
 
 //    NSString *lastName = @"";
@@ -377,21 +397,22 @@
         NSString *techCsvPath =[local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Assets/Tech/%@.csv",TestName]];
 
         NSMutableString *text = [[NSMutableString alloc] initWithString:@"TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition\n"];
+        NSString *lastTestName = @"";
         for (int j = 0; j<dataArr.count; j++) {
             NSDictionary *dict = dataArr[j];
             NSString *dict_testName = [dict objectForKey:id_TestName];
             if (![TestName isEqualToString:dict_testName]) {
                 continue;
             }
-            NSString *lastTestName = @"";
+            
             for (int k = 0; k<13; k++) {
                 if (k == 0) {
                     NSString *testName = [dict objectForKey:id_SubTestName];
-//                    if ([lastTestName isEqualToString:testName]) {
-//                        testName = @"";
-//                    }else{
-//                        lastTestName = testName;
-//                    }
+                    if ([lastTestName isEqualToString:testName]) {
+                        testName = @"";
+                    }else{
+                        lastTestName = testName;
+                    }
                     [text appendString:testName];
                 }else if (k == 1){
                     NSString *TestActions = [dict objectForKey:id_Function];
@@ -414,10 +435,11 @@
                 }else if (k == 7){
                     NSString *pars = [dict objectForKey:id_AdditionalParameters];
                     pars = [pars stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""];
+//                    pars = [pars stringByReplacingOccurrencesOfString:@"\"\"{" withString:@"\"{"];
+//                    pars = [pars stringByReplacingOccurrencesOfString:@"}\"\"" withString:@"}\""];
                  
-                    pars = [pars stringByReplacingOccurrencesOfString:@"}" withString:@"}\""];
-                    pars = [pars stringByReplacingOccurrencesOfString:@"{" withString:@"\"{"];
-                    
+                    pars = [NSString stringWithFormat:@"\"%@\"",pars];
+           
                     [text appendString:pars];
                 }else if (k == 8){
                     NSString *exitearly = [dict objectForKey:id_ExitEarly];
@@ -428,6 +450,7 @@
                 }else if (k == 10){
                     NSString *cmds = [dict objectForKey:id_Command];
                     [text appendString:cmds];
+//                    [text appendString:[NSString stringWithFormat:@"\"%@\"",cmds]];
                 }else if (k ==11){
                     NSString *fa = [dict objectForKey:id_FA];
                     [text appendString:fa];
@@ -596,6 +619,7 @@
     }
     
     [self.luaFunction showViewOnViewController:self];
+    self.luaFunction.title = fuctionCsvPath.lastPathComponent;
     self.luaFunction.luaFunctionPath = fuctionCsvPath;
     
 //    NSDictionary *dict = self.origin_items_datas[row];

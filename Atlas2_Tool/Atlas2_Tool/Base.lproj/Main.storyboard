@@ -665,7 +665,7 @@
             <objects>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <windowController id="B8D-0N-5wS" customClass="WindowVC" sceneMemberID="viewController">
-                    <window key="window" title="Atlas2_Tool V0.2" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Atlas2_Tool V0.5" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="Atlas2_Tool V0.5">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="408" y="228" width="1000" height="664"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -690,7 +690,7 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="CA050C40-B0DB-488E-A778-F26D5FBACE01" label="" paletteLabel="" image="TextWrangler" sizingBehavior="auto" id="DMi-GP-TCC">
+                                <toolbarItem implicitItemIdentifier="CA050C40-B0DB-488E-A778-F26D5FBACE01" label="" paletteLabel="" image="TextWrangler" sizingBehavior="auto" id="DMi-GP-TCC" userLabel="TextWrangler">
                                     <nil key="toolTip"/>
                                     <button key="view" id="76Q-cM-AhN">
                                         <rect key="frame" x="0.0" y="14" width="48" height="48"/>
@@ -704,7 +704,7 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="65ED3C64-1E08-4463-9668-53D0B66B5BCD" label="" paletteLabel="" image="NSTouchBarFolderTemplate" sizingBehavior="auto" id="ELR-Pi-DAl">
+                                <toolbarItem implicitItemIdentifier="65ED3C64-1E08-4463-9668-53D0B66B5BCD" label="" paletteLabel="" image="NSTouchBarFolderTemplate" sizingBehavior="auto" id="ELR-Pi-DAl" userLabel="logfile">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="duf-R7-wew">
                                         <rect key="frame" x="0.0" y="14" width="41" height="24"/>
@@ -718,7 +718,7 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="EFFD7315-1B31-4369-A00E-DCC255597071" label="" paletteLabel="" image="NSTouchBarRecordStopTemplate" sizingBehavior="auto" id="EsA-ud-qZA">
+                                <toolbarItem implicitItemIdentifier="EFFD7315-1B31-4369-A00E-DCC255597071" label="" paletteLabel="" image="NSTouchBarRecordStopTemplate" sizingBehavior="auto" id="EsA-ud-qZA" userLabel="stop">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="amD-T3-yBZ">
                                         <rect key="frame" x="0.0" y="14" width="41" height="24"/>
@@ -732,7 +732,7 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="BF7243D1-9ADF-44C7-9E82-77B434CBE7A0" label="" paletteLabel="" image="NSTouchBarPlayTemplate" sizingBehavior="auto" id="cLx-vS-MTc">
+                                <toolbarItem implicitItemIdentifier="BF7243D1-9ADF-44C7-9E82-77B434CBE7A0" label="" paletteLabel="" image="NSTouchBarPlayTemplate" sizingBehavior="auto" id="cLx-vS-MTc" userLabel="start">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="ws9-ce-lEK" userLabel="startAtlas2Btn">
                                         <rect key="frame" x="0.0" y="14" width="41" height="24"/>

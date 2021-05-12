@@ -9,7 +9,8 @@
 #import "LuaFunction.h"
 
 @interface LuaFunction ()
-@property (nonatomic,strong)TextView *textView;
+//@property (nonatomic,strong)TextView *textView;
+@property (unsafe_unretained) IBOutlet NSTextView *textFuncView;
 
 @end
 
@@ -18,19 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.textView = [[TextView alloc]init];
+    //self.textView = [[TextView alloc]init];
     //    self.textView = [TextView cw_allocInitWithFrame:self.view.bounds];
-    [self.view addSubview:self.textView];
+    //[self.view addSubview:self.textView];
     //    self.textView1.frame = self.view.bounds;
-    [self setupAutolayout];
+    //[self setupAutolayout];
 }
 
 -(void)setLuaFunctionPath:(NSString *)luaFuncPath{
-    [self.textView clean];
+    self.textFuncView.string = @"";
     if (luaFuncPath.length) {
         _luaFunctionPath = luaFuncPath;
         NSString *content = [FileManager cw_readFromFile:luaFuncPath];
-        [self.textView showLog:content];
+        [self.textFuncView setString:content];
         
 //        NSString *cmd = [NSString stringWithFormat:@"grep \",FAIL,\" %@",recordPath];
 //        NSString *log = [Task cw_termialWithCmd:cmd];
@@ -38,12 +39,20 @@
     }
 }
 
-- (void)setupAutolayout {
-    
-    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        // 添加大小约束
-        make.left.and.top.and.bottom.and.right.mas_equalTo(0);
-        
-    }];
+//- (void)setupAutolayout {
+//
+//    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        // 添加大小约束
+//        make.left.and.top.and.bottom.and.right.mas_equalTo(0);
+//
+//    }];
+//}
+
+- (IBAction)performChanges:(NSButton *)btn {
+    [FileManager cw_removeItemAtPath:_luaFunctionPath];
+    NSString *content = self.textFuncView.string;
+    [FileManager cw_writeToFile:_luaFunctionPath content:content];
 }
+
+
 @end

@@ -15,7 +15,6 @@
 		BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B3263AFADF0066545F /* WindowVC.m */; };
 		BA1D97B7263AFAE00066545F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B4263AFADF0066545F /* main.m */; };
 		BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.m */; };
-		BA1D97BA263AFC4C0066545F /* Atlas2_Cmds in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */; };
 		BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BD263AFCF90066545F /* CatchFwVc.xib */; };
 		BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */; };
 		BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97BF263AFCF90066545F /* CatchFwVc.m */; };
@@ -24,9 +23,12 @@
 		BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993D263E58B00066545F /* ScritItemMode.m */; };
 		BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D993E263E58B10066545F /* AtlasScritVC.xib */; };
 		BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993F263E58B10066545F /* AtlasScritVC.m */; };
-		BA8BD6E6264793560024B100 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8BD6E5264793560024B100 /* CwGeneralManagerFrameWork.framework */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
+		BA8BD731264AC39E0024B100 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8BD730264AC39E0024B100 /* CwGeneralManagerFrameWork.framework */; };
+		BA8BD732264AC39E0024B100 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA8BD730264AC39E0024B100 /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD733264B5E3F0024B100 /* 2_off.command */; };
+		BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD734264B5E3F0024B100 /* 1_on.command */; };
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BA8BD732264AC39E0024B100 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +61,6 @@
 		BA1D97B3263AFADF0066545F /* WindowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
 		BA1D97B4263AFADF0066545F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA1D97B5263AFADF0066545F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Atlas2_Cmds; sourceTree = "<group>"; };
 		BA1D97BC263AFCF90066545F /* CatchFwVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchFwVc.h; sourceTree = "<group>"; };
 		BA1D97BD263AFCF90066545F /* CatchFwVc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatchFwVc.xib; sourceTree = "<group>"; };
 		BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = DFU_Station_CatchFW.py; sourceTree = "<group>"; };
@@ -75,6 +77,9 @@
 		BA8BD72B264A5F650024B100 /* LuaFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaFunction.h; sourceTree = "<group>"; };
 		BA8BD72C264A5F650024B100 /* LuaFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaFunction.m; sourceTree = "<group>"; };
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
+		BA8BD730264AC39E0024B100 /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
+		BA8BD733264B5E3F0024B100 /* 2_off.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 2_off.command; sourceTree = "<group>"; };
+		BA8BD734264B5E3F0024B100 /* 1_on.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 1_on.command; sourceTree = "<group>"; };
 		BAB4315025B32A38003F0AFB /* ExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionConst.m; sourceTree = "<group>"; };
 		BAB4315125B32A38003F0AFB /* ExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionConst.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8BD6E6264793560024B100 /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BA8BD731264AC39E0024B100 /* CwGeneralManagerFrameWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,7 @@
 		711A34221DC3539000F5B5D2 = {
 			isa = PBXGroup;
 			children = (
+				BA8BD730264AC39E0024B100 /* CwGeneralManagerFrameWork.framework */,
 				711A342D1DC3539000F5B5D2 /* Atlas2_Tool */,
 				711A342C1DC3539000F5B5D2 /* Products */,
 				BAB4314625B328C1003F0AFB /* Frameworks */,
@@ -128,9 +134,10 @@
 		711A34311DC3539000F5B5D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA8BD734264B5E3F0024B100 /* 1_on.command */,
+				BA8BD733264B5E3F0024B100 /* 2_off.command */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
 				BAB4315025B32A38003F0AFB /* ExtensionConst.m */,
-				BA1D97B9263AFC4B0066545F /* Atlas2_Cmds */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -273,11 +280,12 @@
 				BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */,
 				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
 				BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */,
+				BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */,
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
 				BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
-				BA1D97BA263AFC4C0066545F /* Atlas2_Cmds in Resources */,
 				BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */,
+				BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */,
 				BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

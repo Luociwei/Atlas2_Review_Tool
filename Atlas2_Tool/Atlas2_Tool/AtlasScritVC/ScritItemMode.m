@@ -45,7 +45,7 @@
         [dict cw_safetySetObject:mode.subTestName forKey:id_SubTestName];
         [dict cw_safetySetObject:mode.subSubTestName forKey:id_SubSubTestName];
         [dict cw_safetySetObject:mode.subSubTestName forKey:id_SubSubTestName];
-        [dict cw_safetySetObject:mode.params forKey:id_AdditionalParameters];
+        [dict setObject:mode.params forKey:id_AdditionalParameters];
         [dict cw_safetySetObject:mode.function forKey:id_Function];
         [dict cw_safetySetObject:mode.command forKey:id_Command];
         [dict cw_safetySetObject:mode.lowLimit forKey:id_LowLimit];

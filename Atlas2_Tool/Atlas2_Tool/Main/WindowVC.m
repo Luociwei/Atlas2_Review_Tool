@@ -47,7 +47,7 @@
     if (button == NSAlertFirstButtonReturn) {
 //        [input validateEditing];
 //        return [input stringValue];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"stopAtlas2.command" ofType:nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"2_off.command" ofType:nil];
         
         [Task cw_openFileWithPath:path];
     } else {
@@ -58,9 +58,27 @@
 }
 
 - (IBAction)start:(NSButton *)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"startAtlas2.command" ofType:nil];
-    
-    [Task cw_openFileWithPath:path];
+    NSAlert *alert = [[NSAlert alloc]init];
+    [alert setInformativeText:@"Are you sure start atlas2."];
+    //    [alert setMessageText:prompt];
+    [alert addButtonWithTitle:@"YES"];
+    [alert addButtonWithTitle:@"NO"];
+    //    NSSecureTextField *input = [[NSSecureTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    //    [input setStringValue:defaultValue];
+    //    [alert setAccessoryView:input];
+    NSInteger button = [alert runModal];
+    if (button == NSAlertFirstButtonReturn) {
+        //        [input validateEditing];
+        //        return [input stringValue];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"1_on.command" ofType:nil];
+        
+        [Task cw_openFileWithPath:path];
+    } else {
+        //        return nil;
+    }
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"1_on.command" ofType:nil];
+//    
+//    [Task cw_openFileWithPath:path];
 }
 
 - (IBAction)sublime:(id)sender {
