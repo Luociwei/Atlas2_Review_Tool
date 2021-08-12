@@ -1,0 +1,16 @@
+ConditionName,Values,ConditionType
+isDisplayOn,TRUE;FALSE,Dynamic
+isCmdSentSuccess,TRUE;FALSE,Dynamic
+isValGotFromResponse,TRUE;FALSE,Dynamic
+SITE,APPL;FXLH;GHDEV;PGKS,Static
+mlb_type,MLB_A;MLB_B;UnSet,Dynamic
+RFEM_HAS_ADDED,TRUE;FALSE,Dynamic
+WSKU_HAS_ADDED,TRUE;FALSE,Dynamic
+accel_selftest_result,PASS;FAIL;UnSet,Dynamic
+Hang,TRUE;FALSE,Dynamic
+third,YES;NO,Dynamic
+isSNValid,true;false,Dynamic
+FACondition,aConditionValue,Dynamic
+aCondition,X;Y,Dynamic
+board_type,MLB_A;MLB_B,Dynamic
+SafetySOF,TRUE;FALSE,Dynamic

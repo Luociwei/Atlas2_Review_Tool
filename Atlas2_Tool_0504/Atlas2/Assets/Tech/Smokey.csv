@@ -1,0 +1,34 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+Smokey_Test-Pad_DFU,Tech:smokey_parse,,,[smokey_WDFU_resp],1000,,"{""subsubtestname"":""Smokey_Run"",""testname"":""System"",""hangTimeout"":25}",,,"smokey WDFU --run --clean",,
+Smokey_PCIe_EYE,Tech:smokey_pcie_run,,,(PCIeEyeScan_resp),400,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE"",""subsubtestname"":""Smokey_PCIe_Run"",""hangTimeout"":10}",Y,,"smokey --run PCIeEyeScan ResultsBehavior=NoFile",,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BBEye_Width""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BBi_Width""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BBEye_Height""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BBi_Height""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BB_Vertical_Opening""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_BB"",""subsubtestname"":""BB_Horizontal_Opening""}",,,,,mlb_type==MLB_B
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFIEye_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFIi_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFIEye_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFIi_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFI_Vertical_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_WiFi"",""subsubtestname"":""WIFI_Horizontal_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_Eye_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_i_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_Eye_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_i_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_Vertical_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_AP"",""subsubtestname"":""S5EtoAP_Horizontal_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_Eye_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_i_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_Eye_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_i_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_Vertical_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(PCIeEyeScan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_Nand_S5E"",""subsubtestname"":""APtoS5E_Horizontal_Opening""}",,,,,
+Smokey_PCIe_EYE_Sec,Tech:smokey_pcie_run,,,(FL1100Eyescan_resp),15,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE"",""subsubtestname"":""Smokey_PCIe_Run_Sec"",""hangTimeout"":5}",Y,,"smokey --run FL1100 --clean --test FL1100Eyescan",,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100Eye_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100i_Width""}",,,,,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100Eye_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100i_Height""}",,,,,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100_Vertical_Opening""}",,,,,
+,Tech:smokey_pcie_parse,,(FL1100Eyescan_resp),,,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"":""FL1100_Horizontal_Opening""}",,,,,

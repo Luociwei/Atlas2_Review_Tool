@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- <dict>
+	<key>Log</key>
+	<dict>
+		<key>LoggingLevel</key>
+		<string>INFO</string>
+	</dict>
+</dict> -->
+<dict>
+	<key>Debug</key>
+	<dict>
+		<key>Enable</key>
+		<false/>
+		<key>DebugPortBase</key>
+		<integer>10000</integer>
+	</dict>
+	<key>Log</key>
+	<dict>
+		<key>LoggingLevel</key>
+		<string>DEBUG</string>
+	</dict>
+	<key>Sequence</key>
+	<array>
+		<dict>
+			<key>Enable</key>
+			<true/>
+			<key>Path</key>
+			<string>$ASSETS_PATH</string>
+			<key>Concurrency</key>
+			<true/>
+			<key>Identifier</key>
+			<string>FCT</string>
+		</dict>
+	</array>
+</dict>
+</plist>

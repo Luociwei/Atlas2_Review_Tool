@@ -1,0 +1,11 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+LOAD,Common:sendCmdAndCreateRecord,,,,5,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"": ""BT_OFF"",""expect"":""OK""}",,,"bluetooth --off",,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"": ""WIFI_OFF"",""expect"":""OK""}",,,"wifi --off",,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""testname"":""PCIE"",""subtestname"":""Smokey_PCIe_EYE_FL1100"",""subsubtestname"": ""SH_OFF"",""expect"":""OK""}",,,"stockholm --off",,
+,Common:relay_switch,,,,,,"{""subsubtestname"": ""USB_SOC_Connected_DMN"",""netname"":""USB_SOC"",""state"":""connect""}",,,,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""LOAD CORE 1"",""expect"":""OK""}",,,"efidmns load --core 1 --memory 1024",,
+,Common:delay,,,,,,"{""subsubtestname"": ""DELAY_1000MS"",""delay"":""1000""}",,,,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""START CORE 1"",""expect"":""OK""}",,,"efidmns start --core 1",,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""PICK CORE 1""}",,,"egpio --pick aop -n 31 -w 0",,
+,Tech:openDimensionSerialport,,,,5,,"{""subsubtestname"": ""ENABLE PORT 1""}",,,"efidmns send --core 1 'usb --select cdc --on --serial efidmns1'",,
+Connect,Tech:connectDimensionPort,,,,30,,"{""subtestname"":""LOAD"",""subsubtestname"": ""CONNECT PORT 1"",""dutPluginName"":""dimension_dut""}",,,,,

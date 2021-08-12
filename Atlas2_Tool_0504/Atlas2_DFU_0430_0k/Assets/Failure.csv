@@ -1,0 +1,30 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition
+SN,M:createCommandRecord,,,,,,,sn,
+,M:createParametricRecord,,,,,,"{""Input"":""DLXX0000AAAA""}",,
+Battery_Level1,M:createCommandRecord,,,,,,,"device -k GasGauge -g charge-percentage",
+,M:createParametricRecord,,,,,,"{""Input"":""75""}",,
+FA_RBM,Common:failureBucket,,,,,,"{""subsubtestname"":""FA for Failure Bucket_RBM""}",,
+,Common:checkHang,,,{Hang},,,"{""subsubtestname"":""FA for Check Hang_RBM""}",,
+,Common:checkUSBDisconnect,,,,,,"{""subsubtestname"":""FA for USB disconnection check_RBM""}",,
+,Common:getFanStatus,,,,,,"{""subsubtestname"":""FA for get Fan status_RBM""}",,
+,Common:checkUnitPanicForRBM,,{didSOF},,,,"{""subsubtestname"":""FA for Unit Panic check_RBM""}",,
+,Common:checkResponseError,,,,,,"{""subsubtestname"":""FA for Response Error Check_RBM""}",,
+FA_RTOS,Common:failureBucket,,,,,,"{""subsubtestname"":""FA for Failure Bucket""}",,
+,Common:checkHang,,,{Hang},,,"{""subsubtestname"":""FA for Check Hang""}",,
+,Common:checkUSBDisconnect,,,,,,"{""subsubtestname"":""FA for USB disconnection check_RTOS""}",,
+,Common:getFanStatus,,,,,,"{""subsubtestname"":""FA for get Fan status_RTOS""}",,
+,Common:checkUnitPanicForRTOS,,{didSOF},,,,"{""subsubtestname"":""FA for Unit Panic check_RTOS""}",,
+,Common:checkResponseError,,,,,,"{""subsubtestname"":""FA for Response Error Check_RTOS""}",,
+FA_ProcessControl,Common:checkUSBDisconnect,,,,,,"{""subsubtestname"":""FA for Process Control check USB""}",,
+,Common:zipLog,,,,,,"{""subsubtestname"": ""Zip fixture log and Upload to PDCA""}",,"testMode == Production"
+,Common:enterEnv,,,,,,"{""subsubtestname"": ""Enter Diags Finish Test""}",diags,"testMode == Production"
+,Common:setRTC,,,,,,"{""subsubtestname"": ""Set RTC Finish""}",,"testMode == Production"
+,M:finishCB,,,,,,"{""subsubtestname"": ""Finish Process Control"",""dutPluginName"":""dut""}",,"testMode == Production"
+,Common:sendData,,,,,,"{""subsubtestname"": ""shutdown_Finish""}",shutdown,"testMode == Production"
+,Common:sleep,,,,,,"{""subsubtestname"": ""sleep 10s"",""time"":10}",,"testMode == Production"
+,Common:sendFixtureSlotCommand,,,,,,"{""subsubtestname"": ""Turn on Green LED ""}",led_green_on,"testMode == Production && didFail == TRUE"
+,Common:sendFixtureSlotCommand,,,,,,"{""subsubtestname"": ""Red LED ON ""}",led_red_on,"testMode == Production && didFail != TRUE"
+,Common:enterEnv,,,,,,"{""subsubtestname"": ""Enter Diags Finish2""}",diags,
+,Common:sendData,,,,,,"{""subsubtestname"": ""shutdown_Finish2""}",shutdown,
+,Common:sendFixtureSlotCommand,,,,,,"{""subsubtestname"": ""Red LED ON ""}",led_red_on,
+DFU_SOF_FA,Common:dfu_sof,,,,,,"{""subsubtestname"":""FAIL_ON_STOP_POWER OFF""}",dut_power_off,

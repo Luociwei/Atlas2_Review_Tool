@@ -1,0 +1,4 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+Initial-Test,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_INIT"", ""expect"": ""OK""}",,,"sep --init",,
+,Common:sendCmdAndCreateRecord,,,,70,,"{""subsubtestname"": ""SEP_LYNX"", ""expect"": ""OK""}",,,"sep -e lynx lynt --timeout 60000000 -A",,
+Initial-Test_End,Common:sendCmdAndCreateRecord,,,,5,,"{""subtestname"":""Initial-Test"",""subsubtestname"": ""SEP_C"", ""expect"": ""Lynx self-test successful""}",,,"sep -c",,

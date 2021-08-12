@@ -1,0 +1,5 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+UI_Test,Tech:readSN,Y,,,30,,"{""subsubtestname"": ""Read SN from InteractivePlugin""}",,,,,
+,Tech:showScan,Y,,,30,,"{""subsubtestname"": ""Scan Config"", ""input"": ""['Config']"", ""length"": 3}",,,,,
+,Tech:showPassFailPrompt,,,,30,,"{""subsubtestname"": ""Show PassFailPrompt"", ""message"": ""Is display normal?"", ""button"": ""['No', 'Yes']""}",,,,,
+,Tech:showAlert,,,,30,,"{""subsubtestname"": ""Show Alert"", ""message"": ""Hang detected, please contact EE.""}",,,,,

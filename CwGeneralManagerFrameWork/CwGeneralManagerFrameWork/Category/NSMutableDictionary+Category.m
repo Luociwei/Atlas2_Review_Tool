@@ -19,7 +19,7 @@
 }
 
 -(NSString *)addDoubleQuotationWithString:(NSString *)str{
-    if ([str containsString:@","]&& ![str hasSuffix:@"\""]) {
+    if ([str containsString:@","] || [str containsString:@" "]) {
         if (![str hasPrefix:@"\""]) {
             str = [NSString stringWithFormat:@"\"%@",str];
         }

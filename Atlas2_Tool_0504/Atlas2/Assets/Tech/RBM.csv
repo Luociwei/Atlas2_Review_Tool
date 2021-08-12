@@ -1,0 +1,353 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+B-DUMP,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_DVFM""}",,,show dvfm,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_SOC-PERF""}",,,show socperfstate,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_DCS-PERF""}",,,show dcsperfstate,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_PMU""}",,,show pmu,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_CLOCKS""}",,,show clocks,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_COMMON-SRAM""}",,,show common_sram,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_PHIGH""}",,,phigh-state . cr,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_EHIGH""}",,,ehigh-state . cr,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_TEMPS""}",,,.temps,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_PDVFM""}",,,calc-pdvfms,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_EDVFM""}",,,calc-edvfms,FA_RBM,Hang !=TRUE
+B-REG,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_REG_TURNON-ANEGFX_1""}",,,0xFF 0x23b7003c8 l!,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_REG_TURNON-ANEGFX_2""}",,,0xFF 0x23b700318 l!,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_REG_TURNON-ANEGFX_3""}",,,0x20FF 0x23b7003f0 l!,FA_RBM,Hang !=TRUE
+B-DUMP-1,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_ANE-PERF""}",,,show aneperfstate,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DUMP_GFX-PERF""}",,,show gfxperfstate,FA_RBM,Hang !=TRUE
+B-NOM,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,600,,"{ ""subsubtestname"": ""RBM_TEST_NOM_run""}",,,rbm-nom -tout 500,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_rndMove""}",,,.PerCore_rnd_move,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_TEL""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-DVFM,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,600,,"{ ""subsubtestname"": ""RBM_TEST_DVFM_run""}",,,rbm-dvfm-soc-dcs -tout 500,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_DVFM_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_DVFM_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-BBQ,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_BBQ_run""}",,,rbm-bbq -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_BBQ_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_BBQ_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-AMX-PV1,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV2_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV3_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_AMX-PV1_run""}",,,rbm-amx-pv1 -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX-PV1_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX-PV1_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-PGT,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_PGT_run""}",,,rbm-pgt-test -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PGT_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PGT_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-ROW-HAMMER,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_ROW-HAMMER_run""}",,,rbm-row-hammer-test -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_ROW-HAMMER_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_ROW-HAMMER_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-NOM-UC,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_NOM-UC_run""}",,,rbm-nom-uc -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_NOM-UC_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_NOM-UC_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-AMX,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_AMX_run""}",,,rbm-amx -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_AMX_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_AMX_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-PV1-PCORE,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_PV1-PCORE_run""}",,,rbm-pv1-pcore -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PV1-PCORE_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PV1-PCORE_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-SRAM,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_SRAM_run""}",,,rbm-sram-virus -tout 200,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_SRAM_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_SRAM_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-PHIGH,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_PHIGH_run""}",,,rbm-phigh -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE
+B-PHIGH-ALL,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_Pa2ddr""}",,,true to dumppa2ddr?,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-TEST-EN1""}",,,cfe pmuop -write -reg=0xbe00 -val=0x61,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-TEST-EN2""}",,,cfe pmuop -write -reg=0xbe01 -val=0x45,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-TEST-EN3""}",,,cfe pmuop -write -reg=0xbe02 -val=0x72,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-TEST-EN4""}",,,cfe pmuop -write -reg=0xbe03 -val=0x4f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-BUCK10-WA1""}",,,cfe pmuop -write -reg=0x4a4e -val=0x3f,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_PMU-BUCK10-WA2""}",,,cfe pmuop -write -reg=0x4a48 -val=0x07,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,400,,"{ ""subsubtestname"": ""RBM_TEST_PHIGH-ALL_run""}",,,rbm-phigh-all -tout 300,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_SET_PHIGH-ALL_P3E3""}",,,3 do-eapsc 3 do-papsc,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_die_temp""}",,,.templog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_ADCLOG""}",,,.adclog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_L2_decode""}",,,.rfl,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_MAX_TEMP""}",,,.sns-maxtemp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_TEL-OCCP""}",,,.tel-occp,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_tel""}",,,.tel,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_RBMLOG""}",,,.rbmlog,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_AP""}",,,.apsc_log,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_MTQ""}",,,.mtq,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_RBMS""}",,,.rbm_s,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_CORE0""}",,,core0,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OV1""}",,,cfe pmuop -read -reg=0x6005,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OV2""}",,,cfe pmuop -read -reg=0x6006,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OC1""}",,,cfe pmuop -read -reg=0x6007,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OC2""}",,,cfe pmuop -read -reg=0x6008,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OV1-CLR""}",,,cfe pmuop -write -reg=0x6005 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OV2-CLR""}",,,cfe pmuop -write -reg=0x6006 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OC1-CLR""}",,,cfe pmuop -write -reg=0x6007 -val=0xFF,FA_RBM,Hang !=TRUE
+,Common:sendAndParseCommandWithPlugin,,,,5,,"{ ""subsubtestname"": ""RBM_INFO_PHIGH-ALL_OC2-CLR""}",,,cfe pmuop -write -reg=0x6008 -val=0xFF,FA_RBM,Hang !=TRUE

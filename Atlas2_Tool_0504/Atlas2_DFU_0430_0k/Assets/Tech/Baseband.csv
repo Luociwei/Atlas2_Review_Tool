@@ -1,0 +1,10 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+Baseband_Firmware_Load-Diags,Common:sendCmdAndCreateRecord,,,(BB_Load_Firmware_resp),40,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Load_Firmware_CMD"", ""expect"": ""Passed"",""passnoshow"":""YES""}",,,"time baseband --off --on --load_firmware",,
+,Common:regexParseString,,(BB_Load_Firmware_resp),,,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Load_Firmware"", ""pattern"": ""firmware-load=\""(\\w+)\""""}",,,,,
+,Common:regexParseNumber,,(BB_Load_Firmware_resp),,,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Time"", ""pattern"": ""time:\\s+(\\d+)\\s+ms""}",,,,,
+,Common:sendCmdAndCreateRecord,,,,20,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Wait_For_Ready"", ""expect"": ""OK""}",,,"time baseband --wait_for_ready ",,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_PING"", ""expect"": ""PASS""}",,,"baseband --ping",,
+,Common:sendCmdAndCreateRecord,,,(BB_Properties_resp),10,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Properties"", ""expect"": ""OK"",""passnoshow"":""YES""}",,,"baseband --properties",,
+,Common:regexParseString,,(BB_Properties_resp),[BB_FIRMWARE],,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_Firmware_Version"", ""comparekey"":""BBFW"",""attribute"": ""BB_FIRMWARE"", ""pattern"": ""firmware-version:\\s+\""([0-9A-Za-z-_.]+debug)""}",,,,,
+,Common:regexParseString,,(BB_Properties_resp),[BB_SN],,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_SN"",""attribute"": ""BB_SN"",""pattern"": ""\\ssn:\\s+\""(0x[0-9A-F]+)\""""}",,,,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BB_OFF"", ""expect"": ""OK""}",,,"baseband --off",,

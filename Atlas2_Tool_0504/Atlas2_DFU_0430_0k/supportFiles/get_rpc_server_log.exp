@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+set timeout 15
+set SLOT [ lindex $argv 0 ]
+set DESTFILE [ lindex $argv 1 ]
+
+spawn scp -r root@169.254.1.32:/var/log/rpc_log/rpc_server_dut$SLOT*.log $DESTFILE
+
+expect {
+"*yes/no*"        { send "yes\n";exp_continue }
+"*password*"    { send "123456\n";exp_continue }
+}
+
+# sleep 3
+
+# interact
+
+# sleep 0.5

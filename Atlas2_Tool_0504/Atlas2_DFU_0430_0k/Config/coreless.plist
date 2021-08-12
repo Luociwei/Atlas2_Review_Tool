@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Device</key>
+	<dict>
+		<key>slot0</key>
+		<string>uart://tmp/dev/DUT10</string>
+		<key>slot1</key>
+		<string>uart://tmp/dev/DUT11</string>
+		<key>slot2</key>
+		<string>uart://tmp/dev/DUT12</string>
+		<key>slot3</key>
+		<string>uart://tmp/dev/DUT13</string>
+	</dict>
+</dict>
+</plist>

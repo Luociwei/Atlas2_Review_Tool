@@ -1,0 +1,9 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+Enter_DIAGS,Tech:enterEnv,,,,30,,"{""subsubtestname"": ""Enter DIAGS""}",,,diags,FA_RTOS,
+Enter_IBoot,Tech:enterEnv,,,,20,,"{""subsubtestname"": ""Enter IBOOT""}",,,iboot,FA_RTOS,
+Enter_RTOS,Tech:setHangStatus,,,{Hang},,,"{""subsubtestname"": ""RTOS Hang Status init""}",,,,,
+,Tech:enterEnv,,,,100,,"{""subsubtestname"": ""RTOS_SET_Boot""}",,,rtos,FA_RTOS,
+Enter_RBM,Tech:setHangStatus,,,{Hang},,,"{""subsubtestname"": ""RBM Hang Status init""}",,,,,
+,Tech:enterEnv,,,,120,,"{""subsubtestname"": ""RBM_SET_Boot""}",,,rbm,FA_RBM,
+Get_RTOS_ENV,Tech:getEnvVersion,,,,,,"{""subsubtestname"": ""Enter IBOOT_RTOS"", ""env"": ""rtos""}",,,,,
+Get_RBM_ENV,Tech:getEnvVersion,,,,,,"{""subsubtestname"": ""Enter IBOOT_RBM"", ""env"": ""rbm""}",,,,,

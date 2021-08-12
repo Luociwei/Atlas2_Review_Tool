@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSString *)cw_stringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat;
 
-
++(NSDate *)cw_getDateFrom:(NSString *)dateStr dateFormat:(NSString *)dateFormat;
 + (NSString *)cw_dictionaryToJSONString:(NSDictionary *)dictionary;
 + (NSString *)cw_arrayToJSONString:(NSArray *)array;
 

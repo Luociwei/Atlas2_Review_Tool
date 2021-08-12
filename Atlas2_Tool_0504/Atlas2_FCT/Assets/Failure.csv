@@ -1,0 +1,2 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition,Notes
+Reset,Tech:resetXavier,,,,,,"{""subsubtestname"":""Fixture_Reset""}",,,

@@ -1,0 +1,5 @@
+TestName,Technology,Disable,Production,Audit,Thread,Loop,Sample,CoF,Condition
+Fixture_SetUp,Fixture,,Y,,,,,,
+LED_INPROGRESS_ON,Fixture,,Y,,,,,,
+SET_FAN_SPEED_100,Fixture,,Y,,,,,,
+

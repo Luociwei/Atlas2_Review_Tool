@@ -300,6 +300,18 @@
     return tempTime;
 }
 
++(NSDate *)cw_getDateFrom:(NSString *)dateStr dateFormat:(NSString *)dateFormat{
+    if (!dateFormat.length) {
+        dateFormat = @"yyyy-MM-dd hh:mm:ss";
+    }
+    //20210416_15-57-50.001-A772CC
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //需要设置为和字符串相同的格式
+    [dateFormatter setDateFormat:dateFormat];
+    NSDate *localDate = [dateFormatter dateFromString:dateStr];
+    return localDate;
+}
+
 +(NSString *)cw_stringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat
 {
     if (!dateFormat.length) {
@@ -357,10 +369,117 @@
     
     return aucKey[len/2];
 }
+//16进制转10进制
+- (NSString *)ToDecimalWithHex:(NSString *)hex_str{
+    NSString * temp10 = [NSString stringWithFormat:@"%lu",strtoul([hex_str UTF8String],0,16)];
+    NSLog(@"心跳数字 10进制 %@",temp10);
+    return temp10;
+}
+
+//  十进制转十六进制
+- (NSString *)ToHexWithDecimalSystem:(uint16_t)decimal
+{
+    NSString *nLetterValue;
+    NSString *str =@"";
+    uint16_t ttmpig;
+    NSString *n1;
+    
+    //    for (int i = 0; i<9; i++) {
+    ttmpig=decimal%16;
+    decimal=decimal/16;
+    switch (ttmpig)
+    {
+        case 10:
+            nLetterValue =@"A";break;
+        case 11:
+            nLetterValue =@"B";break;
+        case 12:
+            nLetterValue =@"C";break;
+        case 13:
+            nLetterValue =@"D";break;
+        case 14:
+            nLetterValue =@"E";break;
+        case 15:
+            nLetterValue =@"F";break;
+        default:
+            nLetterValue = [NSString stringWithFormat:@"%u",ttmpig];
+            
+    }
+    //        str = [nLetterValue stringByAppendingString:str];
+    
+    if (decimal ==0) {
+        str=[str stringByAppendingString:[NSString stringWithFormat:@"0%@",nLetterValue]];
+        return str;
+    }
+    
+    if(decimal >0 && decimal<=16){
+        switch (decimal)
+        {
+            case 10:
+                n1 =@"A";break;
+            case 11:
+                n1 =@"B";break;
+            case 12:
+                n1 =@"C";break;
+            case 13:
+                n1 =@"D";break;
+            case 14:
+                n1 =@"E";break;
+            case 15:
+                n1 =@"F";break;
+            default:
+                n1 = [NSString stringWithFormat:@"%u",decimal];
+                
+        }
+        
+        str = [n1 stringByAppendingString:nLetterValue];
+    }
+    
+    return str;
+}
+
+//  十进制转二进制
++ (NSString *)toBinarySystemWithDecimalSystem:(NSString *)decimal{
+    int num = [decimal intValue];
+    int remainder = 0;      //余数
+    int divisor = 0;        //除数
+    NSString * prepare = @"";
+    while (true){
+        remainder = num%2;
+        divisor = num/2;
+        num = divisor;
+        prepare = [prepare stringByAppendingFormat:@"%d",remainder];
+        if (divisor == 0){
+            break;
+        }
+    }
+    NSString * result = @"";
+    for (NSInteger i = prepare.length - 1; i >= 0; i --){
+        result = [result stringByAppendingFormat:@"%@",
+                  [prepare substringWithRange:NSMakeRange(i , 1)]];
+        
+    }
+    
+    return result;
+    
+}
+
+//  二进制转十进制
++ (NSString *)toDecimalSystemWithBinarySystem:(NSString *)binary{
+    int ll = 0 ;
+    int  temp = 0 ;
+    for (int i = 0; i < binary.length; i ++){
+        temp = [[binary substringWithRange:NSMakeRange(i, 1)] intValue];
+        temp = temp * powf(2, binary.length - i - 1);
+        ll += temp;
+    }
+    
+    NSString * result = [NSString stringWithFormat:@"%d",ll];
+    return result;
+}
 
 
 //strtoul([add_str UTF8String],0,16)
-
 -(unsigned char)cw_cStringToHex{
     return strtoul([self UTF8String],0,16);
 }

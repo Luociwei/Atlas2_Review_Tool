@@ -104,10 +104,7 @@
     
 }
 
-
-
-- (void)windowDidLoad {
-    [super windowDidLoad];
+-(void)awakeFromNib{
     NSDate *date = [NSDate date];
     NSDate * buildTime = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
     NSTimeInterval timeInterval = [buildTime timeIntervalSinceNow];
@@ -118,9 +115,17 @@
                                              selector:@selector(windowWillClose:)
                                                  name:NSWindowWillCloseNotification
                                                object:nil];
+}
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+
+
+
 - (void)windowWillClose:(NSNotification *)notification {
     id obj = notification.object;
     NSString *title =[obj title];

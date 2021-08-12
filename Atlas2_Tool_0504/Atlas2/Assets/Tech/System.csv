@@ -1,0 +1,23 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
+Enter_Diags-Initial,Common:enterEnvMode,,,[enter_iboot_log],30,,"{""subsubtestname"": ""Enter_Iboot_Check"",""hangTimeout"":20,""expect"":""%[m"",""delimiter"":""%[m"",""env"":""iboot"",""passnoshow"":""YES""}",,,,,
+,Common:enterEnvMode,,,[enter_diags_log],100,,"{""subsubtestname"": ""Enter_Diag_Check"",""hangTimeout"":25,""expect"":""%] %:%-%)"",""delimiter"":""%] %:%-%)"",""env"":""diags""}",,,diags,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""Diags_version"", ""attribute"": ""Diags_Version"", ""comparekey"": ""Diags"", ""pattern"": ""Version\\s+-\\s+([0-9A-Za_-z-. ]+)""}",,,version,,
+Syscfg_Check-RFEM_sanity_check,Tech:setAddedCondition,,[smokey_WDFU_resp],{RFEM_HAS_ADDED},,,"{""subsubtestname"": ""RFEM_read"", ""expect"": ""RFEM has already been added""}",,,,,
+,Common:sendCmdAndCreateRecord,,,(RFEM_print_resp),10,,"{""subsubtestname"": ""RFEM_print""}",,,"syscfg printbyte RFEM",,
+,Tech:parseByte,,(RFEM_print_resp),(RFEM_print_value),,,"{""subsubtestname"": ""RFEM_key"", ""attribute"": ""RFEMKey"", ""pattern"": ""Hex:\\s+([0-9A-F\\s]+)""}",,,,,
+,Tech:compare,,"(RFEM_print_value),[smokey_WDFU_resp]",,,,"{""subsubtestname"": ""Readback_compare"", ""pattern"": ""syscfg addbyte RFEM ([0-9A-F]+)""}",,,,,RFEM_HAS_ADDED==FALSE
+,Tech:getByteLen,,(RFEM_print_value),,,,"{""subsubtestname"": ""Length""}",,,,,
+,Tech:parse,,(RFEM_print_value),,,,"{""subsubtestname"": ""Version"", ""pattern"": ""([0-9A-F]{8})[0-9A-F]{8}[0-9A-F]+"", ""target"": ""01000000""}",,,,,
+,Tech:parse,,(RFEM_print_value),,,,"{""subsubtestname"": ""Expected_value"", ""pattern"": ""[0-9A-F]{8}([0-9A-F]{8})[0-9A-F]+"", ""target"": ""00000000""}",,,,,
+,Tech:versionCompare,,(RFEM_print_value),,,,"{""subsubtestname"": ""RFEM_Compare"", ""key"": ""RFEM""}",,,,,
+Syscfg_Check-WSKU_sanity_check,Tech:setAddedCondition,,[smokey_WDFU_resp],{WSKU_HAS_ADDED},,,"{""subsubtestname"": ""WSKU_read"", ""expect"": ""WSKU has already been added""}",,,,,
+,Common:sendCmdAndCreateRecord,,,(WSKU_print_resp),10,,"{""subsubtestname"": ""WSKU_print""}",,,"syscfg print WSKU",,
+,Tech:parseByte,,(WSKU_print_resp),(WSKU_print_value),,,"{""subsubtestname"": ""WSKU_key"", ""attribute"": ""WSKUKey"", ""pattern"": ""syscfg print WSKU\\s+([0-9A-Fx ]+)""}",,,,,
+,Tech:compare,,"(WSKU_print_value),[smokey_WDFU_resp]",,,,"{""subsubtestname"": ""Readback_compare"", ""pattern"": ""syscfg add WSKU ([0-9A-Fx ]+)""}",,,,,WSKU_HAS_ADDED==FALSE
+,Tech:getByteLen,,(WSKU_print_value),,,,"{""subsubtestname"": ""Length""}",,,,,
+,Tech:parse,,(WSKU_print_value),,,,"{""subsubtestname"": ""Version"", ""pattern"": ""(0x[0-9A-F]{8}) 0x[0-9A-F]{8} [0-9A-Fx ]+"", ""target"": ""0x00000001""}",,,,,
+,Tech:parse,,(WSKU_print_value),,,,"{""subsubtestname"": ""Expected_value"", ""pattern"": ""0x[0-9A-F]{8} (0x[0-9A-F]{8}) [0-9A-Fx ]+"", ""target"": ""0x00000000""}",,,,,
+,Tech:versionCompare,,"(WSKU_print_value),[sn]",,,,"{""subsubtestname"": ""WSKU_Compare"", ""key"": ""WSKU"", ""pattern"": ""(SKU\\s+[0-9]+)\\s+""}",,,,,
+Enter_DFU-Initial,Common:restore_dfu_mode_check,,,[Location_ID],,,"{""subsubtestname"": ""DFU_Mode""}",,,,,
+Syscfg_Delete_RFEM_and_WSKU,Common:sendCmdAndCreateRecord,,,,10,,,,,"syscfg delete RFEMKey",,
+,Common:sendCmdAndCreateRecord,,,,10,,,,,"syscfg delete WSKUKey",,mlb_type==MLB_B
