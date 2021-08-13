@@ -370,14 +370,14 @@
     return aucKey[len/2];
 }
 //16进制转10进制
-- (NSString *)ToDecimalWithHex:(NSString *)hex_str{
++(NSString *)cw_toDecimalWithHex:(NSString *)hex_str{
     NSString * temp10 = [NSString stringWithFormat:@"%lu",strtoul([hex_str UTF8String],0,16)];
     NSLog(@"心跳数字 10进制 %@",temp10);
     return temp10;
 }
 
 //  十进制转十六进制
-- (NSString *)ToHexWithDecimalSystem:(uint16_t)decimal
++ (NSString *)cw_toHexWithDecimalSystem:(uint16_t)decimal
 {
     NSString *nLetterValue;
     NSString *str =@"";
@@ -439,7 +439,7 @@
 }
 
 //  十进制转二进制
-+ (NSString *)toBinarySystemWithDecimalSystem:(NSString *)decimal{
++ (NSString *)cw_toBinarySystemWithDecimalSystem:(NSString *)decimal{
     int num = [decimal intValue];
     int remainder = 0;      //余数
     int divisor = 0;        //除数
@@ -465,7 +465,7 @@
 }
 
 //  二进制转十进制
-+ (NSString *)toDecimalSystemWithBinarySystem:(NSString *)binary{
++ (NSString *)cw_toDecimalSystemWithBinarySystem:(NSString *)binary{
     int ll = 0 ;
     int  temp = 0 ;
     for (int i = 0; i < binary.length; i ++){

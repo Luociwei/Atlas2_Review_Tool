@@ -49,7 +49,7 @@
 
 
 +(NSString *)cw_termialWithCmd:(NSString *)cmd{
-    return [self cw_termialWithCmd:cmd delay:0.1];
+    return [self cw_termialWithCmd:cmd delay:0.05];
     
 }
 

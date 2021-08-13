@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CwGeneralManagerFrameWork/CwGeneralManagerFrameWork.xcodeproj">
+      location = "group:Atlas2_Analysis_Tool/Atlas2_Analysis_Tool.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Atlas2_Tool/Atlas2_Tool.xcodeproj">
+      location = "group:CwGeneralManagerFrameWork/CwGeneralManagerFrameWork.xcodeproj">
    </FileRef>
 </Workspace>

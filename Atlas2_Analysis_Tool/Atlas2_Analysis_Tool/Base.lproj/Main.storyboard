@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,11 +11,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Atlas2Csv_Tool" id="1Xt-HY-uBw">
+                            <menuItem title="Atlas2_Analysis_Tool" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Atlas2Csv_Tool" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Atlas2_Analysis_Tool" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Atlas2Csv_Tool" id="5kV-Vb-QxS">
+                                        <menuItem title="About Atlas2_Analysis_Tool" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -30,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Atlas2Csv_Tool" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Atlas2_Analysis_Tool" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -48,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Atlas2Csv_Tool" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Atlas2_Analysis_Tool" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -641,7 +640,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Atlas2Csv_Tool Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Atlas2_Analysis_Tool Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -665,7 +664,7 @@
             <objects>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <windowController id="B8D-0N-5wS" customClass="WindowVC" sceneMemberID="viewController">
-                    <window key="window" title="Atlas2_Analysis_Tool V0.7" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Atlas2_Analysis_Tool V0.8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="408" y="228" width="1000" height="664"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -687,6 +686,20 @@
                                         </buttonCell>
                                         <connections>
                                             <action selector="sublime:" target="B8D-0N-5wS" id="MSC-xq-Fme"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="90D3EA2B-06BE-43B8-93FB-7F5B7B270D9C" label="" paletteLabel="" image="CSV_Converter" sizingBehavior="auto" id="6hH-IS-0h3" userLabel="CSV_Converter">
+                                    <nil key="toolTip"/>
+                                    <button key="view" id="GpJ-Sz-CQB">
+                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CSV_Converter" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="eNM-B0-mru">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="converter:" target="B8D-0N-5wS" id="hg4-U3-Xs2"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>
@@ -796,6 +809,8 @@
                                 <toolbarItem reference="2Vt-wW-726"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
                                 <toolbarItem reference="DMi-GP-TCC"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="6hH-IS-0h3"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
@@ -813,6 +828,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CSV_Converter" width="526" height="510"/>
         <image name="Log" width="25" height="25"/>
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSTouchBarFolderTemplate" width="22" height="30"/>

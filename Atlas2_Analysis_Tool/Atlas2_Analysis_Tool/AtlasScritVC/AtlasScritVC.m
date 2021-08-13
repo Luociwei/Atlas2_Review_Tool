@@ -157,7 +157,13 @@
         
         for (int j = 1; j<techCsvArr.count; j++) {
             NSArray *arr = techCsvArr[j];
-          
+            if (arr.count<=12) {
+                continue;
+            }
+//            NSLog(@"i---%d--j--%d",i,j);
+//            if (i==39&&j==25) {
+//                NSLog(@"111");
+//            }
             if ([arr[0] isEqualToString:subTestName]) {
                 ScritItemMode *scritItemMode = [[ScritItemMode alloc]init];
                 scritItemMode.testName = csvMainArray[i][1];

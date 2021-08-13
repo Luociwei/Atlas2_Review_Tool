@@ -12,7 +12,9 @@
 #import "AtlasScritVC.h"
 
 #import "FailOnlyItems.h"
+//#import "RegularVC.h"
 
+#import "RegularTabVC.h"
 @interface WindowVC ()
 @property (weak) IBOutlet NSButton *atlasPathBtn;
 @property (weak) IBOutlet NSButton *stopBtn;
@@ -25,6 +27,8 @@
 @property (strong,nonatomic)CatchFwVc *catchFwVc;
 @property (strong,nonatomic)AtlasScritVC *atlasScritVC;
 @property (strong,nonatomic)AtlasLogVC *atlasCsvLogVC;
+//@property (strong,nonatomic)RegularVC *regularVC;
+
 
 @end
 
@@ -45,7 +49,7 @@
 - (IBAction)atlasLog:(id)sender {
     NSString *user_path = [NSString cw_getUserPath];
     
-    [Task cw_openFileWithPath:[NSString stringWithFormat:@"%@/Library/Logs/Atlas2/",user_path]];
+    [Task cw_openFileWithPath:[NSString stringWithFormat:@"%@/Library/Logs/Atlas/",user_path]];
 }
 
 - (IBAction)stop:(NSButton *)sender {
@@ -95,6 +99,11 @@
 //    
 //    [Task cw_openFileWithPath:path];
 }
+- (IBAction)converter:(NSButton *)sender {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"CSV_Converter.app" ofType:nil];
+    
+    [Task cw_openFileWithPath:path];
+}
 
 - (IBAction)sublime:(id)sender {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"SublimeText.app" ofType:nil];
@@ -103,6 +112,9 @@
 
     
 }
+
+
+
 
 - (IBAction)textWranglerClick:(id)sender {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"TextWrangler.app" ofType:nil];
@@ -121,13 +133,16 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
+    RegularTabVC *regularVC =  [[RegularTabVC alloc] init];
+    regularVC.title = @"Regular";
+    
     _atlasCsvLogVC =  [[AtlasLogVC alloc] init];
     _atlasCsvLogVC.title = @"AtlasLog";
     
     _atlasScritVC =  [[AtlasScritVC alloc] init];
     _atlasScritVC.title = @"AtlasScript";
 
-    [self cw_addViewControllers:@[_atlasCsvLogVC,_atlasScritVC]];
+    [self cw_addViewControllers:@[_atlasCsvLogVC,_atlasScritVC,regularVC]];
 //    FailOnlyItems *item =  [[FailOnlyItems alloc] init];
 //    item.title = @"AtlasLog";
 //
@@ -138,7 +153,7 @@
     self.startBtn.toolTip = @"1_on.command";
     self.stopBtn.toolTip = @"2_off.command";
     self.atlasPathBtn.toolTip = @"/Users/gdlocal/Library/Atlas2/Assets/";
-    self.atlasLogBtn.toolTip = @"/Users/gdlocal/Library/Atlas2/Logs/Atlas/";
+    self.atlasLogBtn.toolTip = @"/Users/gdlocal/Library/Logs/Atlas/";
     self.mixLogBtn.toolTip = @"/vault/Atlas/FixtureLog/";
     
     
