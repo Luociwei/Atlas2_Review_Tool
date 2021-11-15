@@ -13,7 +13,11 @@
 int const snLength = 12;
 NSString *const plistName = @"datas";//@"N/A"
 
+NSString *const id_sub_dir_name = @"SubDirName";//@"N/A"
+NSString *const key_test_time_s = @"test_time_s";//@"N/A"
 NSString *const id_start_time = @"StartTime ↑↓";//@"N/A"
+NSString *const id_end_time = @"EndTime";//@"N/A"
+NSString *const id_test_time = @"TestTime(s)";//@"N/A"
 NSString *const id_index = @"Index";//@"N/A"
 NSString *const id_sn = @"Sn";//@"N/A"
 NSString *const id_slot = @"Slot";//@"N/A"

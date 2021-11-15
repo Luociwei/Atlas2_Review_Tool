@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "ExtensionConst.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RegularTabVC : NSTabViewController
+@interface RegularTabVC : TabViewController
 
 @end
 

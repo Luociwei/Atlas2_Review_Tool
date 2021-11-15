@@ -15,8 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern int const snLength;
 extern NSString *const plistName;
-
+extern NSString *const id_sub_dir_name;
+extern NSString *const id_end_time;
 extern NSString *const id_start_time;
+extern NSString *const id_test_time;
+extern NSString *const key_test_time_s;
 extern NSString *const id_index;
 extern NSString *const id_sn;
 extern NSString *const id_slot;

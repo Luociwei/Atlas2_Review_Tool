@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711A34371DC3539000F5B5D2 /* Assets.xcassets */; };
 		711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711A34391DC3539000F5B5D2 /* Main.storyboard */; };
-		BA0FEEC22680C6F4006C31F5 /* TEST.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA0FEEC12680C6F4006C31F5 /* TEST.txt */; };
 		BA1D97AC263AFA310066545F /* ItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97A6263AFA310066545F /* ItemMode.m */; };
 		BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97A7263AFA310066545F /* AtlasLogVC.xib */; };
 		BA1D97AF263AFA310066545F /* AtlasLogVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97AB263AFA310066545F /* AtlasLogVC.mm */; };
@@ -26,16 +25,13 @@
 		BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993F263E58B10066545F /* AtlasScritVC.m */; };
 		BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA273321268235AF00C1F6F7 /* RegularVC.m */; };
 		BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA273322268235AF00C1F6F7 /* RegularVC.xib */; };
+		BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */; };
+		BA491CD72701F458008EF366 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
 		BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD733264B5E3F0024B100 /* 2_off.command */; };
 		BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD734264B5E3F0024B100 /* 1_on.command */; };
 		BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */; };
-		BA9ACEA526C57D9E004F6F72 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = BA9ACE2226C57D9E004F6F72 /* main.lua */; };
-		BA9ACEA626C57D9E004F6F72 /* todo.lua in Resources */ = {isa = PBXBuildFile; fileRef = BA9ACE2326C57D9E004F6F72 /* todo.lua */; };
-		BA9ACEA726C57D9E004F6F72 /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = BA9ACE2426C57D9E004F6F72 /* test.lua */; };
-		BA9ACEA826C57D9E004F6F72 /* hello.lua in Resources */ = {isa = PBXBuildFile; fileRef = BA9ACE2526C57D9E004F6F72 /* hello.lua */; };
-		BA9ACEA926C57D9E004F6F72 /* dkjson.lua in Resources */ = {isa = PBXBuildFile; fileRef = BA9ACE2626C57D9E004F6F72 /* dkjson.lua */; };
 		BA9ACEAA26C57D9E004F6F72 /* LSCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACE2A26C57D9E004F6F72 /* LSCConfig.m */; };
 		BA9ACEAB26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACE2B26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m */; };
 		BA9ACEAC26C57D9E004F6F72 /* LSCTmpValue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACE2F26C57D9E004F6F72 /* LSCTmpValue.m */; };
@@ -98,11 +94,11 @@
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 		BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = BAB90A6526C59827004853E2 /* LuaRegularTest.lua */; };
 		BAB90A6F26C689D0004853E2 /* CycleTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */; };
-		BAB90A7026C6A724004853E2 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */; };
+		BAD8597126FB77160019A69B /* sn.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAD8597026FB77160019A69B /* sn.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BA8BD6E12641A21F0024B100 /* Embed Frameworks */ = {
+		BA491CD327015188008EF366 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -119,7 +115,6 @@
 		711A34371DC3539000F5B5D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711A343A1DC3539000F5B5D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		711A343C1DC3539000F5B5D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA0FEEC12680C6F4006C31F5 /* TEST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TEST.txt; sourceTree = "<group>"; };
 		BA1D97A6263AFA310066545F /* ItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemMode.m; sourceTree = "<group>"; };
 		BA1D97A7263AFA310066545F /* AtlasLogVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasLogVC.xib; sourceTree = "<group>"; };
 		BA1D97A8263AFA310066545F /* AtlasLogVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasLogVC.h; sourceTree = "<group>"; };
@@ -145,6 +140,7 @@
 		BA273320268235AF00C1F6F7 /* RegularVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularVC.h; sourceTree = "<group>"; };
 		BA273321268235AF00C1F6F7 /* RegularVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularVC.m; sourceTree = "<group>"; };
 		BA273322268235AF00C1F6F7 /* RegularVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegularVC.xib; sourceTree = "<group>"; };
+		BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sudo_cmd.txt; path = CatchFwVc/sudo_cmd.txt; sourceTree = "<group>"; };
 		BA8BD72B264A5F650024B100 /* LuaFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaFunction.h; sourceTree = "<group>"; };
 		BA8BD72C264A5F650024B100 /* LuaFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaFunction.m; sourceTree = "<group>"; };
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
@@ -153,11 +149,6 @@
 		BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwGeneralManagerFrameWork.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
 		BA9ACD4F26C561B4004F6F72 /* RegularTabVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularTabVC.h; sourceTree = "<group>"; };
 		BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularTabVC.m; sourceTree = "<group>"; };
-		BA9ACE2226C57D9E004F6F72 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
-		BA9ACE2326C57D9E004F6F72 /* todo.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.lua; sourceTree = "<group>"; };
-		BA9ACE2426C57D9E004F6F72 /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
-		BA9ACE2526C57D9E004F6F72 /* hello.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hello.lua; sourceTree = "<group>"; };
-		BA9ACE2626C57D9E004F6F72 /* dkjson.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dkjson.lua; sourceTree = "<group>"; };
 		BA9ACE2826C57D9E004F6F72 /* LSCContext_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCContext_Private.h; sourceTree = "<group>"; };
 		BA9ACE2926C57D9E004F6F72 /* LSCSession_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCSession_Private.h; sourceTree = "<group>"; };
 		BA9ACE2A26C57D9E004F6F72 /* LSCConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCConfig.m; sourceTree = "<group>"; };
@@ -285,6 +276,7 @@
 		BAB90A6526C59827004853E2 /* LuaRegularTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LuaRegularTest.lua; sourceTree = "<group>"; };
 		BAB90A6D26C689D0004853E2 /* CycleTimeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleTimeModel.h; sourceTree = "<group>"; };
 		BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTimeModel.m; sourceTree = "<group>"; };
+		BAD8597026FB77160019A69B /* sn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sn.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB90A7026C6A724004853E2 /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BA491CD72701F458008EF366 /* CwGeneralManagerFrameWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +329,8 @@
 		711A34311DC3539000F5B5D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAD8597026FB77160019A69B /* sn.txt */,
+				BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */,
 				BA8BD734264B5E3F0024B100 /* 1_on.command */,
 				BA8BD733264B5E3F0024B100 /* 2_off.command */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
@@ -375,7 +369,6 @@
 				BA1D97BC263AFCF90066545F /* CatchFwVc.h */,
 				BA1D97BF263AFCF90066545F /* CatchFwVc.m */,
 				BA1D97BD263AFCF90066545F /* CatchFwVc.xib */,
-				BA0FEEC12680C6F4006C31F5 /* TEST.txt */,
 				BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */,
 			);
 			path = CatchFwVc;
@@ -406,7 +399,7 @@
 		BA27331F2682356800C1F6F7 /* RegularVC */ = {
 			isa = PBXGroup;
 			children = (
-				BA9ACE2026C57D9E004F6F72 /* LuaScriptCore */,
+				BA9ACE2026C57D9E004F6F72 /* LuaCore */,
 				BA273320268235AF00C1F6F7 /* RegularVC.h */,
 				BA273321268235AF00C1F6F7 /* RegularVC.m */,
 				BA273322268235AF00C1F6F7 /* RegularVC.xib */,
@@ -429,24 +422,19 @@
 			path = LuaFunction;
 			sourceTree = "<group>";
 		};
-		BA9ACE2026C57D9E004F6F72 /* LuaScriptCore */ = {
+		BA9ACE2026C57D9E004F6F72 /* LuaCore */ = {
 			isa = PBXGroup;
 			children = (
 				BA9ACE2126C57D9E004F6F72 /* LuaScript */,
 				BA9ACE2726C57D9E004F6F72 /* Code */,
 				BA9ACE6126C57D9E004F6F72 /* lua-core */,
 			);
-			path = LuaScriptCore;
+			path = LuaCore;
 			sourceTree = "<group>";
 		};
 		BA9ACE2126C57D9E004F6F72 /* LuaScript */ = {
 			isa = PBXGroup;
 			children = (
-				BA9ACE2226C57D9E004F6F72 /* main.lua */,
-				BA9ACE2326C57D9E004F6F72 /* todo.lua */,
-				BA9ACE2426C57D9E004F6F72 /* test.lua */,
-				BA9ACE2526C57D9E004F6F72 /* hello.lua */,
-				BA9ACE2626C57D9E004F6F72 /* dkjson.lua */,
 			);
 			path = LuaScript;
 			sourceTree = "<group>";
@@ -621,7 +609,7 @@
 				711A34271DC3539000F5B5D2 /* Sources */,
 				711A34281DC3539000F5B5D2 /* Frameworks */,
 				711A34291DC3539000F5B5D2 /* Resources */,
-				BA8BD6E12641A21F0024B100 /* Embed Frameworks */,
+				BA491CD327015188008EF366 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -671,25 +659,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA9ACEA826C57D9E004F6F72 /* hello.lua in Resources */,
-				BA9ACEA926C57D9E004F6F72 /* dkjson.lua in Resources */,
 				BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */,
-				BA0FEEC22680C6F4006C31F5 /* TEST.txt in Resources */,
 				BA9ACEC226C57D9E004F6F72 /* osi-certified-72x60.png in Resources */,
 				BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */,
 				BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */,
-				BA9ACEA526C57D9E004F6F72 /* main.lua in Resources */,
 				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
 				BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */,
+				BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */,
 				BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */,
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
-				BA9ACEA726C57D9E004F6F72 /* test.lua in Resources */,
 				BA9ACEC026C57D9E004F6F72 /* manual.css in Resources */,
 				BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */,
+				BAD8597126FB77160019A69B /* sn.txt in Resources */,
 				BA9ACEC126C57D9E004F6F72 /* luac.1 in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
 				BA9ACEBF26C57D9E004F6F72 /* index.css in Resources */,
-				BA9ACEA626C57D9E004F6F72 /* todo.lua in Resources */,
 				BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */,
 				BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */,
 				BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */,

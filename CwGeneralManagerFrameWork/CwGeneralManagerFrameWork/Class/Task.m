@@ -2,7 +2,7 @@
 //  PythonTask.m
 //  TestDemo
 //
-//  Created by Louis Luo on 2020/4/20.
+//  Created by Louis Luo on 2021/4/20.
 //  Copyright © 2017 Innorev. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
     NSPipe *readPipe;
     NSFileHandle *readHandle;
     NSPipe *writePipe;
-    NSFileHandle *writeHandle;
+    NSFileHandle *_writeHandle;
 }
 
 -(instancetype)initWithLauchPath:(NSString *)lauchPath  cmd:(NSString *)cmd{
@@ -49,7 +49,7 @@
 
 
 +(NSString *)cw_termialWithCmd:(NSString *)cmd{
-    return [self cw_termialWithCmd:cmd delay:0.05];
+    return [self cw_termialWithCmd:cmd delay:0.1];
     
 }
 
@@ -73,7 +73,7 @@
     NSFileHandle *readHandle = [readPipe fileHandleForReading];
     
     [task setStandardOutput:readPipe];
-//    [task waitUntilExit];
+    [task waitUntilExit];
     [task launch];
     
     
@@ -127,7 +127,7 @@
             readPipe = [NSPipe pipe];
             readHandle = [readPipe fileHandleForReading];
             writePipe = [NSPipe pipe];
-            writeHandle = [writePipe fileHandleForWriting];
+            _writeHandle = [writePipe fileHandleForWriting];
             [task setStandardInput:writePipe];
             [task setStandardOutput:readPipe];
             [task launch];
@@ -180,7 +180,7 @@
         readPipe = [NSPipe pipe];
         readHandle = [readPipe fileHandleForReading];
         writePipe = [NSPipe pipe];
-        writeHandle = [writePipe fileHandleForWriting];
+        _writeHandle = [writePipe fileHandleForWriting];
         [task setStandardInput:writePipe];
         [task setStandardOutput:readPipe];
         [task launch];
@@ -199,7 +199,7 @@
     [readHandle availableData];;
     NSString *cmd = [NSString stringWithFormat:@"%@\n",command];
     NSData * in_data = [cmd dataUsingEncoding:(NSStringEncoding)NSUTF8StringEncoding];
-    [writeHandle writeData:in_data];
+    [_writeHandle writeData:in_data];
     usleep(200000);
     //[QThread usleep: 100];
     NSData *readData = [readHandle availableData];

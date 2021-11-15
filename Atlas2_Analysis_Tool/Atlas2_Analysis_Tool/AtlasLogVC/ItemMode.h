@@ -16,7 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic)NSInteger index;
 @property (nonatomic,copy)NSString *sn;
 @property (nonatomic,copy)NSString *slot;
-@property (nonatomic,copy)NSString *startTime;
+@property (nonatomic,copy)NSString *subDirName;
+@property (nonatomic,copy,readonly)NSString *startTime;
+@property (nonatomic,copy,readonly)NSString *endTime;
+@property (nonatomic,copy,readonly)NSString *testTime;
+@property (readonly)NSTimeInterval testTime_s;
 @property (nonatomic,copy)NSString *recordPath;
 @property (nonatomic,copy)NSString *failList;
 @property (readonly)BOOL isFail;

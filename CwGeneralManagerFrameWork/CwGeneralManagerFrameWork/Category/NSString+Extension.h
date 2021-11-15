@@ -76,6 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 //frame
 +(NSString *)cw_NSStringFromRect:(NSRect)frame;
 
+-(NSMutableArray *)cw_regularWithPattern:(NSString *)pattern;
+
 @end
 
 NS_ASSUME_NONNULL_END

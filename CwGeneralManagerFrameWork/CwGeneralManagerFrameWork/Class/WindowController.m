@@ -2,12 +2,13 @@
 //  WindowController.m
 //  SC_CPK
 //
-//  Created by Louis Luo on 2020/4/5.
-//  Copyright © 2020 Suncode. All rights reserved.
+//  Created by Louis Luo on 2021/4/5.
+//  Copyright © 2021 Suncode. All rights reserved.
 //
 
 #import "WindowController.h"
 #import "TabViewController.h"
+#import "Alert.h"
 @interface WindowController ()
 
 @end
@@ -22,13 +23,13 @@
 -(void)cw_addViewController:(NSViewController *)testVC logVC:(NSViewController *)logVC{
     if (logVC) {
         NSSplitViewController *splitVC = [[NSSplitViewController alloc]init];
-        [splitVC.splitView setVertical:NO];
+        [splitVC.splitView setVertical:YES];
         splitVC.splitView .dividerStyle=3;
         
         NSSplitViewItem *item1 = [NSSplitViewItem splitViewItemWithViewController:testVC];
         
         NSSplitViewItem *item2 = [NSSplitViewItem splitViewItemWithViewController:logVC];
-        [item2 setCollapsed:YES];
+        [item2 setCollapsed:NO];
         [splitVC addSplitViewItem:item1];
         [splitVC addSplitViewItem:item2];
         
@@ -103,11 +104,21 @@
     }
     
 }
-
+//NSDate * buildTime       = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
+//
+//NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//[formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+//
+//// 2014年10月15日 16:35:42
+//// stringFromDate 将日期类型格式化，转为NSString 类型
+//return [formatter stringFromDate:buildTime];
 -(void)awakeFromNib{
     NSDate *date = [NSDate date];
     NSDate * buildTime = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
-    NSTimeInterval timeInterval = [buildTime timeIntervalSinceNow];
+//    NSTimeInterval timeInterval = [date timeIntervalSinceDate:buildTime];
+//    if (timeInterval > 3600*24*30*10) {
+//        [Alert cw_RemindException:@"Warning!!!" Information:@"The version has expired. Please use the latest version!"];
+//    }
     if (!([date.description containsString:@"2021"] || [date.description containsString:@"2022"])) {
         [NSApp terminate:nil];
     }

@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.textView = [TextView cw_allocInitWithFrame:self.view.bounds];
+//    self.textView = [TextView cw_allocInitWithFrame:self.view.bounds];
     [self.view addSubview:self.textView];
 }
 

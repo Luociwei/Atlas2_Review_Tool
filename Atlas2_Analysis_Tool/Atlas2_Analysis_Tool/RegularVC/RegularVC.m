@@ -80,21 +80,8 @@
         }
         
     }else{
-        NSError *err = nil;
-        NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&err];
-        NSArray *results = [regular matchesInString:content options:0 range:NSMakeRange(0,content.length)];
-        NSMutableArray *resultsArr = [[NSMutableArray alloc]init];
-        for (NSTextCheckingResult *result in results) {
-            NSMutableArray *resultArr = [[NSMutableArray alloc]init];
-            NSInteger rangesCount = result.numberOfRanges;
-            for (int i =0; i<rangesCount; i++) {
-                NSRange range = [result rangeAtIndex:i];
-                NSString *resultString =[content substringWithRange:range];
-                [resultArr addObject:resultString];
-            }
-            [resultsArr addObject:resultArr];
-            
-        }
+     
+        NSMutableArray *resultsArr = [content cw_regularWithPattern:pattern];
         NSMutableString *resultMutStr = [[NSMutableString alloc]initWithString:@""];
         if (resultsArr.count) {
             for (int i =0; i<resultsArr.count; i++) {
@@ -117,28 +104,20 @@
     
     NSLog(@"11");
 }
+- (IBAction)clean2:(id)sender {
+    self.contentView.string = @"";
+}
 
+- (IBAction)cleanl:(NSButton *)sender {
+    
+    self.resultView.string = @"";
+}
 
 
 -(void)test1{
     NSString *content = @"\\J407\\diag-pallas-44.06.81.bin----\\J408\\diag-pallas-48.05.82.bin--\\J409\\diag-pallas-41.02.84.bin";
     NSString *pattern = @"diag-pallas-([\\d.]+)bin";
-    //    NSString *pattern = @"a";
-    NSError *err = nil;
-    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&err];
-    NSArray *results = [regular matchesInString:content options:0 range:NSMakeRange(0,content.length)];
-    NSMutableArray *resultsArr = [[NSMutableArray alloc]init];
-    for (NSTextCheckingResult *result in results) {
-        NSMutableArray *resultArr = [[NSMutableArray alloc]init];
-        NSInteger rangesCount = result.numberOfRanges;
-        for (int i =0; i<rangesCount; i++) {
-            NSRange range = [result rangeAtIndex:i];
-            NSString *resultString =[content substringWithRange:range];
-            [resultArr addObject:resultString];
-        }
-        [resultsArr addObject:resultArr];
-        
-    }
+    [content cw_regularWithPattern:pattern];
 }
 
 @end

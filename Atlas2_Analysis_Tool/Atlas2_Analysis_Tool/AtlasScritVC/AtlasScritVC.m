@@ -16,7 +16,6 @@
 
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *origin_items_data;
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *fail_items_data;
-
 @property (weak) IBOutlet NSTableView *itemsTableView;
 
 @property (weak) IBOutlet NSTextField *labelPath;
@@ -188,6 +187,7 @@
                 scritItemMode.subSubTestName = arr[7];
                 NSString *pars = arr[7];
                 if (pars.length) {
+       
                     pars = [pars stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""];
                     pars = [NSString stringWithFormat:@"\"%@\"",pars];
                 }
@@ -195,10 +195,14 @@
                 scritItemMode.SetPoison = arr[9];
   
                 
-                scritItemMode.command = arr[10];
-//                if (scritItemMode.command.length) {
-//                    scritItemMode.command = [NSString stringWithFormat:@"\"%@\"",arr[10]];
-//                }
+                NSString *cmd = arr[10];
+                if (cmd.length) {
+                    cmd = [cmd stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""];
+                    scritItemMode.command = [NSString stringWithFormat:@"\"%@\"",cmd];
+                    
+                }
+                
+
 //                if ([scritItemMode.command containsString:@"smokey --run TouchShortsTest"]) {
 //                    NSLog(@"1");
 //                }

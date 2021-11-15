@@ -15,6 +15,10 @@
 //    self.view.frame = CGRectMake(0, 0, 668, 694);
 }
 
-
+-(void)addViewControllers:(NSArray<NSViewController *> *)viewControllerArr{
+    for (NSViewController *vc in viewControllerArr) {
+        [self addChildViewController:vc];
+    }
+}
 
 @end

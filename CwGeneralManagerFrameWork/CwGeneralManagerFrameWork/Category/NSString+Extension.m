@@ -14,7 +14,7 @@
 -(NSString *)cw_getSubstringFromIndex:(NSInteger)fromIndex toLength:(NSInteger)length
 {
     if (self.length<(fromIndex+length)) {
-        [Alert cw_RemindException:@"Error" Information:@"length beyond bounds"];
+        //[Alert cw_RemindException:@"Error" Information:@"length beyond bounds"];
         NSLog(@"length beyond bounds");
         return @"";
     }
@@ -35,11 +35,11 @@
             returnString = [self substringWithRange:range2];
         }else{
             NSLog(@"length beyond bounds");
-            [Alert cw_RemindException:@"Error" Information:@"length beyond bounds"];
+//            [Alert cw_RemindException:@"Error" Information:@"length beyond bounds"];
         }
         
     }else{
-        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,from]];
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,from]];
         NSLog(@"%@ not found %@",self,from);
     }
     
@@ -55,7 +55,7 @@
         NSRange range = [self rangeOfString:from];
         returnString = [self substringFromIndex:range.location+range.length];
     }else{
-        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,from]];
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,from]];
         NSLog(@"%@ not found %@",self,from);
     }
     
@@ -115,7 +115,7 @@
     {
         mutArray = [self componentsSeparatedByString:separate];
     }else{
-        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,separate]];
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",self,separate]];
         NSLog(@"%@ not found %@",self,separate);
     }
     return mutArray;
@@ -129,14 +129,14 @@
     {
         mutArray = [mutString componentsSeparatedByString:separate];
     }else{
-        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",mutString,separate]];
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"%@ not found %@",mutString,separate]];
         NSLog(@"%@ not found %@",mutString,separate);
     }
     NSString *returnString;
     if (mutArray.count>index) {
         returnString = [mutArray objectAtIndex:index];
     }else{
-        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"index %ld beyond bounds,NSArray:%@",index,self]];
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"index %ld beyond bounds,NSArray:%@",index,self]];
         NSLog(@"index %ld beyond bounds,NSArray:%@",index,self);
     }
     return returnString;
@@ -183,12 +183,12 @@
     if ([fileName containsString:@"."]) {
         array = [fileName componentsSeparatedByString:@"."];
         if (array.count!=2) {
-            [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
+//            [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
             NSLog(@"wrong file name");
             return @"";
         }
     }else{
-        [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
+//        [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
         NSLog(@"wrong file name");
         return @"";
     }
@@ -299,6 +299,20 @@
     time(&tempTime);
     return tempTime;
 }
+
+//-(NSDate *)getDateFrom:(NSString *)str{
+//    //20210416_15-57-50.001-A772CC
+//    //    NSArray *arr = [str cw_componentsSeparatedByString:@"."];
+//    //    NSString *timeStr = arr[0];
+//    NSString *time_str = [NSString stringWithFormat:@"%@",str];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    //需要设置为和字符串相同的格式
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd H:mm:ss"];
+//    NSDate *localDate = [dateFormatter dateFromString:time_str];
+//
+//    return localDate;
+//}
+
 
 +(NSDate *)cw_getDateFrom:(NSString *)dateStr dateFormat:(NSString *)dateFormat{
     if (!dateFormat.length) {
@@ -580,6 +594,30 @@
         }
     }
     return hex;
+}
+
+
+
+-(NSMutableArray *)cw_regularWithPattern:(NSString *)pattern{
+    if (!self.length || !pattern.length) {
+        return nil;
+    }
+    NSError *err = nil;
+    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&err];
+    NSArray *results = [regular matchesInString:self options:0 range:NSMakeRange(0,self.length)];
+    NSMutableArray *resultsArr = [[NSMutableArray alloc]init];
+    for (NSTextCheckingResult *result in results) {
+        NSMutableArray *resultArr = [[NSMutableArray alloc]init];
+        NSInteger rangesCount = result.numberOfRanges;
+        for (int i =0; i<rangesCount; i++) {
+            NSRange range = [result rangeAtIndex:i];
+            NSString *resultString =[self substringWithRange:range];
+            [resultArr addObject:resultString];
+        }
+        [resultsArr addObject:resultArr];
+        
+    }
+    return resultsArr;
 }
 
 

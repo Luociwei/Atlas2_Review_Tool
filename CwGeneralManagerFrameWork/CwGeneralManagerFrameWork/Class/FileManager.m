@@ -177,6 +177,41 @@
     system([[NSString stringWithFormat:@"open %@",path] UTF8String]);
 }
 
+//NSFileManager *manager = [NSFileManager defaultManager];
+//NSString *flow_file = [systemFile stringByAppendingPathComponent:@"device.log"];
+//for (NSString *file in [manager enumeratorAtPath:systemFile]) {
+//
+//    if ([file containsString:@"flow.log"]) {
+//        flow_file = [systemFile stringByAppendingPathComponent:file];
+//        break;
+//    }
+//}
+
++(NSArray *)cw_findPathWithfFileName:(NSString *)fileName dirPath:(NSString *)dirPath deepFind:(BOOL)isDeedFind{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSMutableArray *mutPathArr = [[NSMutableArray alloc]init];
+    if (isDeedFind) {
+        for (NSString *name in [manager enumeratorAtPath:dirPath]) {
+            
+            if ([name containsString:fileName]) {
+                //flow_file = [systemFile stringByAppendingPathComponent:file];
+                NSString *file_path = [dirPath stringByAppendingPathComponent:name];
+                [mutPathArr addObject:file_path];
+                
+            }
+        }
+    }else{
+        NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
+        for (NSString *name in tmplist) {
+            if ([name containsString:fileName]) {
+                NSString *file_path = [dirPath stringByAppendingPathComponent:name];
+                [mutPathArr addObject:file_path];
+            }
+        }
+    }
+
+    return mutPathArr;
+}
 +(NSArray *)cw_getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath
 {
     NSMutableArray *filenamelist = [[NSMutableArray alloc]init];
@@ -254,7 +289,7 @@
     NSSavePanel *saveDlg = [[NSSavePanel alloc]init];
     saveDlg.title = @"Save File";
     saveDlg.message = @"Save File";
-    saveDlg.allowedFileTypes = @[@"png"];
+//    saveDlg.allowedFileTypes = @[@"png"];
     saveDlg.nameFieldStringValue = @"xxxx";
     [saveDlg beginWithCompletionHandler: ^(NSInteger result){
         

@@ -24,8 +24,9 @@
     ocRegularVC.title = @"Objective-C";
     RegularVC *luaRegularVC = [[RegularVC alloc]init];
     luaRegularVC.title = @"Lua";
-    [self addChildViewController:ocRegularVC];
-    [self addChildViewController:luaRegularVC];
+
+    [self addViewControllers:@[ocRegularVC,luaRegularVC]];
+    
     
     
 //    [self cycleTimeCompare];

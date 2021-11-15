@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TabViewController : NSTabViewController
 
+-(void)addViewControllers:(NSArray<NSViewController *> *)viewControllerArr;
+
 @end
 
 NS_ASSUME_NONNULL_END

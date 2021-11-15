@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -664,7 +665,7 @@
             <objects>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <windowController id="B8D-0N-5wS" customClass="WindowVC" sceneMemberID="viewController">
-                    <window key="window" title="Atlas2_Analysis_Tool V0.8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Atlas2_Analysis_Tool V1.0" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="Atlas2_Analysis_Tool V1.0">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="408" y="228" width="1000" height="664"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -773,6 +774,20 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="935D162B-E509-406C-BDCF-B6F654171C09" label="" paletteLabel="" sizingBehavior="auto" id="rmx-Lh-kfR" userLabel="sn">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="Mha-S8-Lj8" userLabel="mixLogPath">
+                                        <rect key="frame" x="0.0" y="14" width="78" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" title="BK_TXT" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jI5-xP-B5E">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="debugSn:" target="B8D-0N-5wS" id="IKU-kZ-Why"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="BF7243D1-9ADF-44C7-9E82-77B434CBE7A0" label="" paletteLabel="" image="NSTouchBarPlayTemplate" sizingBehavior="auto" id="cLx-vS-MTc" userLabel="start">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="ws9-ce-lEK" userLabel="startAtlas2Btn">
@@ -800,11 +815,9 @@
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="cLx-vS-MTc"/>
-                                <toolbarItem reference="EsA-ud-qZA"/>
                                 <toolbarItem reference="ELR-Pi-DAl"/>
                                 <toolbarItem reference="xqe-HT-xf5"/>
-                                <toolbarItem reference="AJX-aX-wWV"/>
+                                <toolbarItem reference="rmx-Lh-kfR"/>
                                 <toolbarItem reference="k1d-lO-r5T"/>
                                 <toolbarItem reference="2Vt-wW-726"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
@@ -828,7 +841,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CSV_Converter" width="526" height="510"/>
+        <image name="CSV_Converter" width="25" height="24"/>
         <image name="Log" width="25" height="25"/>
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSTouchBarFolderTemplate" width="22" height="30"/>

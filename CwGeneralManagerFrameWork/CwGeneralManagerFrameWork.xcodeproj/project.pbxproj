@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA10438725EBBA310066BA1B /* TabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA10438525EBBA310066BA1B /* TabViewController.h */; };
+		BA10438725EBBA310066BA1B /* TabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA10438525EBBA310066BA1B /* TabViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA10438825EBBA310066BA1B /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10438625EBBA310066BA1B /* TabViewController.m */; };
-		BA12830325B7C365000AE325 /* CwGeneralManagerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */; };
 		BA1D9846263C14960066545F /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D9836263C14960066545F /* NSString+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA1D9847263C14960066545F /* NSButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D9837263C14960066545F /* NSButton+Category.m */; };
 		BA1D9848263C14960066545F /* NSTextField+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1D9838263C14960066545F /* NSTextField+Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +55,7 @@
 		BA8BD6EC264799090024B100 /* FileDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD6EA264799090024B100 /* FileDragView.m */; };
 		BA8BD6EE264799B40024B100 /* FileDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8BD6EB264799090024B100 /* FileDragView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAB90AA326DFBB22004853E2 /* CwGeneralManagerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB90AA226DFBB22004853E2 /* CwGeneralManagerBundle.bundle */; };
 		BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE725B3F17A0063A886 /* FileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFE25B3F17A0063A886 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE825B3F17A0063A886 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFF25B3F17A0063A886 /* JXArcCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */; };
@@ -82,7 +82,6 @@
 		71B0A18A1DCDCD46004165A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA10438525EBBA310066BA1B /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		BA10438625EBBA310066BA1B /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
-		BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CwGeneralManagerBundle.bundle; sourceTree = "<group>"; };
 		BA1D9836263C14960066545F /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		BA1D9837263C14960066545F /* NSButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSButton+Category.m"; sourceTree = "<group>"; };
 		BA1D9838263C14960066545F /* NSTextField+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextField+Category.h"; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		BA8BD6EA264799090024B100 /* FileDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDragView.m; sourceTree = "<group>"; };
 		BA8BD6EB264799090024B100 /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
 		BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CwGeneralManager.h; sourceTree = "<group>"; };
+		BAB90AA226DFBB22004853E2 /* CwGeneralManagerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CwGeneralManagerBundle.bundle; sourceTree = "<group>"; };
 		BAE02CE725B3F17A0063A886 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BAE02CE825B3F17A0063A886 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXArcCompatibilityMacros.h; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 		71B0A17C1DCDCD46004165A8 = {
 			isa = PBXGroup;
 			children = (
+				BAB90AA226DFBB22004853E2 /* CwGeneralManagerBundle.bundle */,
 				71B0A1881DCDCD46004165A8 /* CwGeneralManagerFrameWork */,
 				71B0A1871DCDCD46004165A8 /* Products */,
 				BAF189FA255558490000306D /* Frameworks */,
@@ -247,7 +248,6 @@
 		BAE02CE625B3F17A0063A886 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				BA12830225B7C365000AE325 /* CwGeneralManagerBundle.bundle */,
 				BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */,
 				BAE02CE725B3F17A0063A886 /* FileManager.h */,
 				BAE02CF325B3F17A0063A886 /* FileManager.m */,
@@ -391,7 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA12830325B7C365000AE325 /* CwGeneralManagerBundle.bundle in Resources */,
+				BAB90AA326DFBB22004853E2 /* CwGeneralManagerBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

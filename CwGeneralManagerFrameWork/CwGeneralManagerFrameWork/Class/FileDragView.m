@@ -2,8 +2,8 @@
 //  FileDragView.m
 //  DragDropDemo
 //
-//  Created by Louis Luo on 2020/6/24.
-//  Copyright © 2020 Suncode. All rights reserved.
+//  Created by Louis Luo on 2021/6/24.
+//  Copyright © 2021 Suncode. All rights reserved.
 
 #import "FileDragView.h"
 

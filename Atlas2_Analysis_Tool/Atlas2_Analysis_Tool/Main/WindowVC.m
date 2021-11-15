@@ -113,6 +113,11 @@
     
 }
 
+- (IBAction)debugSn:(NSButton *)sender {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"sn.txt" ofType:nil];
+    
+    [Task cw_openFileWithPath:path];
+}
 
 
 
@@ -133,6 +138,9 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
+//    NSString *s1 =@"Regular";
+//    NSString *s2 =@"2021-09-22 09:47:46";
+//    
     RegularTabVC *regularVC =  [[RegularTabVC alloc] init];
     regularVC.title = @"Regular";
     
