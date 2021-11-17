@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACE_FW</key>
+	<dict>
+		<key>BIN_FILE_NAME</key>
+		<string>J407-USBC-2.116.0.3-P0_R-AP-S.bin</string>
+		<key>MD5</key>
+		<string>7578a2f984e661b813326ee82662e2e4</string>
+		<key>SHA1</key>
+		<string>7851c80a503e37b8c5cdefb0d24531ac676faf13</string>
+	</dict>
+</dict>
+</plist>

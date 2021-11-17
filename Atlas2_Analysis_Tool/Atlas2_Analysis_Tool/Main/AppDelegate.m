@@ -18,14 +18,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    
-    NSString *systemFile =@"/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/Atlas2_Tool_0504";
-
-    NSArray *pathArr1= [FileManager cw_findPathWithfFileName:@"demo1.jpg" dirPath:systemFile deepFind:YES];
-    
-        NSArray *pathArr2 = [FileManager cw_findPathWithfFileName:@"demo1.jpg" dirPath:systemFile deepFind:NO];
-    
-    NSLog(@"11");
+//    NSString * record_path = @"/Users/ciweiluo/Downloads/ALL_LOG/DLX1383000K1KXX11/20210922_18-40-16.651-D0E083/system/device.log";
+//    NSString *logPath = record_path.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent;
+//    NSLog(@"11");
 }
 
 

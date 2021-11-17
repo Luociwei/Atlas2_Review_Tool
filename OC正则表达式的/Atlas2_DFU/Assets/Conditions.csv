@@ -1,0 +1,8 @@
+ConditionName,Values,Dynamic
+SITE,APPL;FXLH;FXCD,N
+Slot_Num,1;2;3;4,N
+mlb_type,MLB_A;MLB_B,Y
+RFEM_HAS_ADDED,TRUE;FALSE,Y
+WSKU_HAS_ADDED,TRUE;FALSE,Y
+accel_selftest_result,TRUE;FALSE,Y
+SafetyCheck,PASS;FAIL,Y

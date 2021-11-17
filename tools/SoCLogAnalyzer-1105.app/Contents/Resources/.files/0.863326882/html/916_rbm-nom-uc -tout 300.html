@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta author='Carlos'>
+        <title>916: rbm-nom-uc -tout 300</title>
+        <script src="/Applications/SoCLogAnalyzer-1105.app/Contents/MacOS/.files/js/echarts.min.js"></script>
+    </head>
+    <style>
+        body {
+        overflow-x:hidden;
+        overflow-y:hidden;
+        background-color: #F5F5F5;
+        }
+        #main {
+            width: 100%;
+            height:380px;
+            background: #FFF;
+            border-radius: 20px;
+        }
+    </style>
+    <body style="margin:0; border:0;">
+        <div>
+            <div id="main"></div>
+        </div>
+        <script>
+            let time = [2, 3, 5, 6, 7, 8, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 31, 32, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 50, 51, 53, 54, 55, 58, 59, 60, 62, 63, 65, 66, 67, 69, 70, 71, 72, 73, 74, 76, 77, 78, 79, 81, 82, 83, 84, 85, 86, 89, 90, 91, 93, 94, 95, 96, 97, 98, 100, 101, 102, 103, 104, 105, 106, 108, 109, 110, 111, 112, 114, 115, 117, 119, 121, 122, 125, 126, 127, 128, 129, 131, 132, 133, 134, 135, 136, 138, 139, 141, 142, 143, 145, 147, 150, 151, 152, 153, 154, 157, 159, 160, 161, 162, 163, 164, 166, 167, 168, 169, 170, 171, 172, 174, 175, 176, 177, 178, 179, 181, 182, 183, 184, 185, 187, 188, 190, 191, 192, 193, 195, 196, 197, 198, 200, 203, 204, 205, 207, 208, 209, 210, 211, 213, 214, 215, 217, 218, 219, 221, 222, 223, 224, 226, 227, 228, 229, 230, 232, 233, 235, 236, 237, 238, 239, 241, 242, 245, 246, 247, 248, 251, 252, 253, 254, 255, 256, 258, 259, 260, 261, 262, 263, 264, 265, 266, 268, 269, 270, 271, 272, 274, 275, 276, 277, 278, 280, 281, 283, 285, 286, 287, 288, 289, 290, 291, 292, 294, 295, 296];
+            let times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+            let temperature = [84.07, 83.02, 82.26, 82.51, 84.02, 84.43, 82.4, 81.57, 85.05, 84.27, 84.14, 83.29, 82.53, 83.28, 83.1, 83.54, 83.14, 85.06, 85.26, 86.52, 86.14, 85.23, 84.54, 82.49, 85.22, 84.03, 84.23, 84.0, 86.43, 85.3, 83.37, 83.08, 84.38, 84.06, 84.12, 84.46, 83.61, 82.49, 84.26, 85.09, 83.54, 85.38, 84.53, 85.15, 83.29, 85.12, 85.41, 85.35, 84.33, 87.53, 86.52, 89.24, 86.31, 84.59, 86.05, 86.1, 84.59, 85.52, 86.0, 86.1, 86.3, 85.58, 84.59, 85.35, 85.09, 87.57, 87.08, 87.15, 85.12, 85.58, 84.45, 85.47, 85.32, 86.25, 85.62, 85.35, 84.54, 85.09, 85.47, 86.3, 85.58, 85.38, 87.24, 86.06, 85.35, 85.22, 89.07, 88.61, 87.32, 88.2, 87.51, 85.43, 84.2, 86.58, 85.09, 86.47, 87.32, 87.11, 86.46, 86.52, 87.15, 88.19, 89.41, 87.56, 86.3, 86.2, 86.46, 86.53, 87.13, 91.06, 88.29, 86.06, 86.53, 87.32, 87.41, 84.45, 88.19, 88.51, 88.42, 89.34, 85.33, 87.15, 87.62, 86.58, 85.47, 86.52, 87.45, 87.41, 91.63, 87.62, 86.44, 88.58, 88.03, 89.11, 88.29, 87.34, 90.1, 87.15, 88.03, 89.09, 89.34, 87.08, 87.15, 88.29, 86.26, 87.15, 87.56, 87.57, 87.57, 88.03, 87.41, 87.56, 89.56, 90.32, 90.01, 88.51, 88.24, 90.28, 88.11, 86.52, 87.57, 89.05, 89.24, 88.4, 87.27, 91.32, 88.46, 90.28, 89.55, 89.05, 90.22, 89.05, 88.15, 90.28, 89.39, 89.39, 91.08, 90.01, 88.24, 89.61, 88.34, 89.34, 88.08, 87.56, 88.19, 88.55, 89.24, 90.31, 92.2, 89.6, 90.39, 89.6, 87.57, 88.34, 89.39, 89.34, 89.05, 90.22, 91.11, 89.47, 90.57, 89.02, 88.46, 89.58, 89.01, 90.17, 91.45, 89.16, 88.16, 89.34, 89.13, 89.39, 90.13, 91.01, 87.1, 89.09, 90.22, 89.6, 90.4, 88.46, 88.24, 89.61, 89.6, 91.1, 91.45, 93.33];
+            let pmu_times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let show_pmu_temp=((Math.max(...pmu_times)==0) & (Math.min(...pmu_times)==0))?false:true;
+            let show_soc_count=((Math.max(...times)==0) & (Math.min(...times)==0))?false:true;
+            function beishu10(num1, num2=[0], model='max'){
+                if (model=='max'){
+                    let d1 = Math.max(...num1);
+                    let d2 = Math.max(...num2);
+                    let d3 = Math.max(d1, d2);
+                    return Math.floor(d3+10-d3%10)
+                }
+                if (model=='min'){
+                    let d1 = Math.min(...num1);
+                    let d2 = Math.min(...num2);
+                    var d3;
+                    if (d1 == 0){
+                        d3 = Math.min(...num2)
+                    }else if (d2 == 0){
+                        d3 = Math.min(...num1)
+                    }else{
+                        d3 = Math.min(d1, d2)
+                    }
+                    d3 = Math.floor(d3+10-d3%10)
+                    if (d3>10)
+                        d3 = d3-10
+                    return d3
+                }
+            }
+            var myChart = echarts.init(document.getElementById('main'), 'light');
+            var color_line_change_Temp = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 0.8,
+                colorStops: [
+                    {offset: 0, color: '#FF5722'},
+                    {offset: 1, color: '#FFAB91'}
+                ],
+                global: false
+            }
+            var color_bar_change_Times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#00a1f1'},
+                    {offset: 1, color: '#BBDEFB'}
+                ],
+                global: false
+            }
+            var color_bar_change_Pmu_times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#C0CA33'},
+                    {offset: 1, color: '#91CC75'}
+                ],
+                global: false
+            }
+            option = {
+                animationDuration: 0,
+                title: {
+                    text: '916: rbm-nom-uc -tout 300',
+                    textStyle: {
+                        color: '#17AEFA',
+                        fontWeight: 400,
+                        fontSize: 12,
+                    },
+                    left: 30,
+                    top: '3%',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        snap: true,
+                    },
+                },
+                grid: {
+                    top: '15%',
+                    right: 65,
+                    left: 65,
+                    containLabel: false,
+                },
+                toolbox: {
+                    itemSize: 10,
+                    right: 40,
+                    top: '3%',
+                    feature: {
+                        dataZoom: { show: true, yAxisIndex: false },
+                        restore: { show: true },
+                        myTool1: {
+                            show: true,
+                            title: 'Save csv',
+                            icon: 'M17.5,17.3H33 M17.5,17.3H33 M45.4,29.5h-28 M11.5,2v56H51V14.8L38.4,2H11.5z M38.4,2.2v12.7H51 M45.4,41.7h-28',
+                            onclick: ExportCsv
+                        },
+                        myTool2: {
+                            show: true,
+                            title: 'Save image',
+                            icon: 'M4.7,22.9L29.3,45.5L54.7,23.4M4.6,43.6L4.6,58L53.8,58L53.8,43.6M29.2,45.1L29.2,0',
+                            onclick: ExportImage
+                        },
+                    },
+                    showTitle: false,
+                    tooltip: {
+                        show: true,
+                        formatter: function (param) {
+                            return '<div>' + param.title + '</div>';
+                        },
+                        backgroundColor: '#1E88E5',
+                        textStyle: {
+                            fontSize: 10,
+                        },
+                        extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
+                    }
+                },
+                legend: {
+                    data: ['SoC Temp', 'SoC Hot count', 'PMU Temp'],
+                    top: '3%',
+                    right: 155,
+                    backgroundColor: '#fff',
+                    z: 99,
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    selected: {'SoC Hot count': show_soc_count, 'PMU Temp':show_pmu_temp} // 不需要显示的设置为false
+                },
+                xAxis: {
+                    name: 'Second',
+                    nameLocation: 'end',
+                    type: 'category',
+                    minInterval: 1,
+                    splitNumber: 5,
+                    nameTextStyle: {
+                        align: 'left',
+                        verticalAlign: 'top',
+                        lineHeight: 25,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        snap: true,
+                        label: {
+                            backgroundColor: 'black',
+                        },
+                    },
+                    data: time,
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        min: 0,
+                        max: beishu10(times),
+                        position: 'right',
+                        axisLine: {lineStyle: {color: '#00a1f1'}},
+                        axisLabel: {formatter: '{value}'},
+                        splitLine: {show: false}
+                    },
+                    {
+                        type: 'value',
+                        min: beishu10(temperature, pmu_times, 'min'),
+                        max: beishu10(temperature, pmu_times),
+                        position: 'left',
+                        minInterval: 0.1,
+                        axisLine: {lineStyle: {color: '#FF5722'}},
+                        axisLabel: {formatter: '{value} °C'}
+                    },
+                ],
+                series: [
+                    {
+                        name: 'PMU Temp',
+                        type: 'line',
+                        color: color_bar_change_Pmu_times,
+                        yAxisIndex: 1,
+                        data: pmu_times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                    },
+                    {
+                        name: 'SoC Hot count',
+                        type: 'line',
+                        color: color_bar_change_Times,
+                        yAxisIndex: 0,
+                        data: times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                        markLine: {
+                            data: [
+                                { type: 'average', name: 'Average count' },
+                            ],
+                            label: {
+                                position: 'insideEndTop',
+                                formatter: '{b}: {c}'
+                            },
+                            itemStyle: {
+                                color: '#0D47A1',
+                            }
+                        }
+                    },
+                    {
+                        name: 'SoC Temp',
+                        type: 'line',
+                        color: color_line_change_Temp,
+                        yAxisIndex: 1,
+                        data: temperature,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            symbol: 'pin',
+                            symbolSize: 45,
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            itemStyle: {
+                                color: color_line_change_Temp,
+                            }
+                        },
+                    }
+                ]
+            };
+            myChart.setOption(option);
+            window.onresize = function () {
+                myChart.resize();
+            };
+            function ExportImage(e) {
+                var img = myChart.getDataURL({
+                    type: 'png',
+                    pixelRatio: 2,
+                    backgroundColor: '#fff',
+                    excludeComponents: ['toolbox']
+                });
+                window.location.assign(img);
+            }
+            function ExportCsv(e) {
+                window.location.assign('/donwcsv-carlos');
+            };
+            if (window.innerHeight > 410){
+                setTimeout(ExportImage , 10),
+                console.log('click')
+            }else{
+                console.log('do nothing')
+            }
+        </script>
+    </body>
+</html>

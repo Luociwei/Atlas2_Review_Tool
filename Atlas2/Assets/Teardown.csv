@@ -1,0 +1,4 @@
+TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
+GeneralAction_4,Fixture,,Y,,,,,,,,
+GetRpcServerLog,Common,,Y,,,,,,,testFail == TRUE,
+addLogToInsight,Common,,Y,,,,,,,,

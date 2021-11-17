@@ -1,0 +1,15 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+GetSlotNum,Common:getSlotNum,,,{Slot_Num},,,,,,,,,"get slot number(base 1)"
+GetCMSite,Common:getSiteFromGHJson,,,{SITE},,,,,,,,,"get site from gh_station_config.json"
+getScannedSN,Common:getScannedSerialNumber,,,[MLB_Num],,,,,,,,,"get the scanned SN"
+dataReportSetup,Common:dataReportSetup,,[MLB_Num],,,,"{""limitsVersion"":""v1.0.0""}",,,,,,"data Report setup with the sn(enable PDCA)"
+UOPCheck,Common:UOPCheck,,,,,,"{""subsubtestname"":""UOPCheck""}",,,,,,UOPCheck
+GetRpcServerLog,Common:getRpcServerLog,,,,,,,,,,,,"Get rpc server log from xavier"
+addLogToInsight,Common:addLogToInsight,,[MLB_Num],,,,,,,,,,"Add fixture log to PDCA"
+VariableInit,M:setVariable,,UnSet,{otp_program_words_flag},,,,,,,,,
+,M:setVariable,,UnSet,{otp_customer_Data_size},,,,,,,,,
+,M:setVariable,,UnSet,{otp_program_keydata_Size},,,,,,,,,
+,M:setVariable,,UnSet,{otp_key_Data_flag},,,,,,,,,
+,M:setVariable,,UnSet,{otp_key_Data_value},,,,,,,,,
+,M:setVariable,,UnSet,{production_mode},,,,,,,,,
+,M:setVariable,,UnSet,{otp_check_crc_flag},,,,,,,,,

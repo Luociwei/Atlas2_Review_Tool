@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta author='Carlos'>
+        <title>960: rbm-amx-pv1 -tout 300</title>
+        <script src="/Applications/SoCLogAnalyzer-1105.app/Contents/MacOS/.files/js/echarts.min.js"></script>
+    </head>
+    <style>
+        body {
+        overflow-x:hidden;
+        overflow-y:hidden;
+        background-color: #F5F5F5;
+        }
+        #main {
+            width: 100%;
+            height:380px;
+            background: #FFF;
+            border-radius: 20px;
+        }
+    </style>
+    <body style="margin:0; border:0;">
+        <div>
+            <div id="main"></div>
+        </div>
+        <script>
+            let time = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53, 55, 56, 57, 58, 59, 64, 65, 67, 68, 69, 70, 71, 72, 73, 75, 76, 77, 78, 79, 80, 81, 83, 84, 85, 86, 87, 89, 90, 91, 92, 93, 94, 96, 97, 98, 100, 101, 102, 103, 104, 105, 106, 107, 109, 110, 111, 112, 113, 114, 115, 117, 118, 119, 120, 121, 122, 128, 129, 130, 132, 133, 134, 135, 136, 137, 139, 140, 141, 142, 143, 145, 146, 147, 148, 149, 150, 151, 152, 153, 155, 156, 157, 158, 161, 163, 164, 165, 166, 167, 169, 170, 171, 172, 173, 175, 176, 177, 178, 179, 180, 181, 183, 184, 185, 186, 191, 195, 196, 197, 198, 199, 200, 202, 203, 204, 205, 206, 207, 209, 210, 211, 212, 213, 214, 216, 217, 218, 219, 220, 222, 223, 224, 226, 227, 228, 229, 230, 232, 233, 234, 235, 236, 237, 239, 240, 241, 242, 244, 245, 246, 247, 248, 249, 254, 255, 257, 258, 259, 260, 262, 263, 264, 265, 266, 268, 269, 270, 271, 272, 273, 275, 276, 277, 278, 279, 280, 282, 283, 284, 285, 286, 289, 290, 291, 292, 294, 295];
+            let times = [105, 228, 349, 450, 561, 673, 779, 889, 995, 1109, 1214, 1319, 1425, 1538, 1644, 1750, 1856, 1959, 2061, 2163, 2280, 2400, 2512, 2627, 2739, 2861, 2983, 3106, 3229, 3336, 3451, 3578, 3688, 3792, 3903, 4029, 4152, 4280, 4389, 4505, 4615, 4720, 4834, 4941, 5053, 5185, 5317, 5441, 5566, 5677, 5803, 5925, 6429, 6546, 6656, 6780, 6885, 7010, 7128, 7237, 7346, 7480, 7610, 7716, 7847, 7971, 8087, 8206, 8338, 8458, 8584, 8702, 8827, 8954, 9071, 9203, 9328, 9445, 9557, 9766, 9883, 10016, 10145, 10273, 10389, 10526, 10638, 10761, 10878, 11003, 11124, 11249, 11361, 11480, 11599, 11728, 11859, 11981, 12102, 12222, 12357, 12484, 12592, 13188, 13328, 13446, 13565, 13680, 13803, 13922, 14038, 14178, 14330, 14456, 14585, 14716, 14848, 14980, 15105, 15218, 15338, 15467, 15581, 15700, 15836, 15947, 16072, 16199, 16333, 16451, 16875, 17010, 17144, 17275, 17412, 17542, 17674, 17801, 17944, 18065, 18198, 18330, 18454, 18586, 18716, 18845, 18968, 19087, 19222, 19337, 19469, 19599, 20062, 20562, 20705, 20818, 20948, 21081, 21210, 21339, 21466, 21583, 21695, 21831, 21964, 22113, 22246, 22376, 22511, 22638, 22764, 22907, 23054, 23176, 23313, 23444, 23568, 23695, 23821, 24050, 24184, 24311, 24437, 24556, 24680, 24804, 24927, 25060, 25201, 25337, 25468, 25603, 25743, 25873, 26022, 26172, 26310, 26450, 26571, 26693, 27211, 27334, 27528, 27660, 27777, 27912, 28052, 28182, 28313, 28431, 28584, 28734, 28870, 29000, 29117, 29260, 29384, 29506, 29648, 29789, 29919, 30052, 30168, 30323, 30462, 30594, 30729, 30855, 31111, 31252, 31381, 31526, 31681, 31834];
+            let temperature = [99.04, 107.26, 104.55, 98.28, 98.01, 108.08, 105.19, 107.37, 104.21, 97.63, 99.53, 103.1, 103.6, 105.41, 101.28, 108.24, 105.05, 103.17, 97.16, 107.25, 101.16, 98.05, 101.45, 107.21, 108.56, 104.55, 103.61, 108.06, 108.06, 99.41, 101.16, 98.31, 99.51, 104.05, 105.04, 108.0, 107.63, 109.24, 100.54, 98.57, 105.02, 104.04, 108.49, 98.53, 101.06, 105.05, 108.32, 105.41, 110.27, 108.28, 102.34, 103.32, 107.06, 106.01, 111.17, 107.25, 106.02, 108.06, 105.28, 110.55, 105.41, 108.28, 100.28, 105.23, 104.3, 110.23, 98.05, 108.32, 110.54, 101.42, 103.13, 105.16, 105.52, 105.05, 103.32, 110.01, 99.23, 106.0, 106.02, 108.49, 108.28, 98.59, 106.51, 99.15, 100.15, 108.24, 108.33, 105.31, 101.11, 106.02, 104.26, 100.28, 102.59, 104.0, 106.02, 104.14, 99.28, 103.61, 108.55, 102.51, 108.08, 109.39, 105.05, 99.18, 100.51, 103.23, 102.51, 105.16, 107.63, 104.47, 99.33, 108.07, 108.49, 106.14, 100.13, 108.25, 105.21, 104.17, 109.36, 109.12, 103.42, 106.27, 101.53, 104.55, 101.42, 105.46, 102.59, 106.27, 100.46, 108.57, 108.24, 108.25, 105.31, 100.5, 100.16, 103.6, 104.59, 110.53, 101.06, 108.24, 105.27, 108.3, 104.52, 100.02, 105.41, 99.18, 103.39, 102.55, 99.49, 100.18, 106.51, 108.3, 106.06, 104.0, 101.4, 109.39, 104.17, 103.13, 102.34, 106.27, 100.51, 107.46, 99.54, 106.37, 104.26, 105.54, 105.16, 101.37, 100.02, 106.43, 109.12, 107.63, 103.49, 107.02, 105.41, 107.06, 108.49, 109.1, 102.26, 100.54, 105.16, 101.03, 106.02, 106.27, 107.02, 105.41, 102.34, 100.09, 100.18, 108.49, 101.06, 107.13, 99.47, 100.41, 103.32, 109.12, 100.28, 105.14, 103.28, 101.45, 106.26, 109.4, 108.11, 102.34, 103.13, 101.06, 104.14, 100.5, 100.54, 104.14, 105.44, 103.41, 99.41, 102.1, 106.14, 103.03, 108.49, 109.35, 102.31, 101.03, 104.51, 103.24, 106.51, 109.35, 102.63, 104.22, 107.63, 106.09, 100.5, 104.22, 105.08, 104.22, 100.51, 109.37];
+            let pmu_times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let show_pmu_temp=((Math.max(...pmu_times)==0) & (Math.min(...pmu_times)==0))?false:true;
+            let show_soc_count=((Math.max(...times)==0) & (Math.min(...times)==0))?false:true;
+            function beishu10(num1, num2=[0], model='max'){
+                if (model=='max'){
+                    let d1 = Math.max(...num1);
+                    let d2 = Math.max(...num2);
+                    let d3 = Math.max(d1, d2);
+                    return Math.floor(d3+10-d3%10)
+                }
+                if (model=='min'){
+                    let d1 = Math.min(...num1);
+                    let d2 = Math.min(...num2);
+                    var d3;
+                    if (d1 == 0){
+                        d3 = Math.min(...num2)
+                    }else if (d2 == 0){
+                        d3 = Math.min(...num1)
+                    }else{
+                        d3 = Math.min(d1, d2)
+                    }
+                    d3 = Math.floor(d3+10-d3%10)
+                    if (d3>10)
+                        d3 = d3-10
+                    return d3
+                }
+            }
+            var myChart = echarts.init(document.getElementById('main'), 'light');
+            var color_line_change_Temp = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 0.8,
+                colorStops: [
+                    {offset: 0, color: '#FF5722'},
+                    {offset: 1, color: '#FFAB91'}
+                ],
+                global: false
+            }
+            var color_bar_change_Times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#00a1f1'},
+                    {offset: 1, color: '#BBDEFB'}
+                ],
+                global: false
+            }
+            var color_bar_change_Pmu_times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#C0CA33'},
+                    {offset: 1, color: '#91CC75'}
+                ],
+                global: false
+            }
+            option = {
+                animationDuration: 0,
+                title: {
+                    text: '960: rbm-amx-pv1 -tout 300',
+                    textStyle: {
+                        color: '#17AEFA',
+                        fontWeight: 400,
+                        fontSize: 12,
+                    },
+                    left: 30,
+                    top: '3%',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        snap: true,
+                    },
+                },
+                grid: {
+                    top: '15%',
+                    right: 65,
+                    left: 65,
+                    containLabel: false,
+                },
+                toolbox: {
+                    itemSize: 10,
+                    right: 40,
+                    top: '3%',
+                    feature: {
+                        dataZoom: { show: true, yAxisIndex: false },
+                        restore: { show: true },
+                        myTool1: {
+                            show: true,
+                            title: 'Save csv',
+                            icon: 'M17.5,17.3H33 M17.5,17.3H33 M45.4,29.5h-28 M11.5,2v56H51V14.8L38.4,2H11.5z M38.4,2.2v12.7H51 M45.4,41.7h-28',
+                            onclick: ExportCsv
+                        },
+                        myTool2: {
+                            show: true,
+                            title: 'Save image',
+                            icon: 'M4.7,22.9L29.3,45.5L54.7,23.4M4.6,43.6L4.6,58L53.8,58L53.8,43.6M29.2,45.1L29.2,0',
+                            onclick: ExportImage
+                        },
+                    },
+                    showTitle: false,
+                    tooltip: {
+                        show: true,
+                        formatter: function (param) {
+                            return '<div>' + param.title + '</div>';
+                        },
+                        backgroundColor: '#1E88E5',
+                        textStyle: {
+                            fontSize: 10,
+                        },
+                        extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
+                    }
+                },
+                legend: {
+                    data: ['SoC Temp', 'SoC Hot count', 'PMU Temp'],
+                    top: '3%',
+                    right: 155,
+                    backgroundColor: '#fff',
+                    z: 99,
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    selected: {'SoC Hot count': show_soc_count, 'PMU Temp':show_pmu_temp} // 不需要显示的设置为false
+                },
+                xAxis: {
+                    name: 'Second',
+                    nameLocation: 'end',
+                    type: 'category',
+                    minInterval: 1,
+                    splitNumber: 5,
+                    nameTextStyle: {
+                        align: 'left',
+                        verticalAlign: 'top',
+                        lineHeight: 25,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        snap: true,
+                        label: {
+                            backgroundColor: 'black',
+                        },
+                    },
+                    data: time,
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        min: 0,
+                        max: beishu10(times),
+                        position: 'right',
+                        axisLine: {lineStyle: {color: '#00a1f1'}},
+                        axisLabel: {formatter: '{value}'},
+                        splitLine: {show: false}
+                    },
+                    {
+                        type: 'value',
+                        min: beishu10(temperature, pmu_times, 'min'),
+                        max: beishu10(temperature, pmu_times),
+                        position: 'left',
+                        minInterval: 0.1,
+                        axisLine: {lineStyle: {color: '#FF5722'}},
+                        axisLabel: {formatter: '{value} °C'}
+                    },
+                ],
+                series: [
+                    {
+                        name: 'PMU Temp',
+                        type: 'line',
+                        color: color_bar_change_Pmu_times,
+                        yAxisIndex: 1,
+                        data: pmu_times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                    },
+                    {
+                        name: 'SoC Hot count',
+                        type: 'line',
+                        color: color_bar_change_Times,
+                        yAxisIndex: 0,
+                        data: times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                        markLine: {
+                            data: [
+                                { type: 'average', name: 'Average count' },
+                            ],
+                            label: {
+                                position: 'insideEndTop',
+                                formatter: '{b}: {c}'
+                            },
+                            itemStyle: {
+                                color: '#0D47A1',
+                            }
+                        }
+                    },
+                    {
+                        name: 'SoC Temp',
+                        type: 'line',
+                        color: color_line_change_Temp,
+                        yAxisIndex: 1,
+                        data: temperature,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            symbol: 'pin',
+                            symbolSize: 45,
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            itemStyle: {
+                                color: color_line_change_Temp,
+                            }
+                        },
+                    }
+                ]
+            };
+            myChart.setOption(option);
+            window.onresize = function () {
+                myChart.resize();
+            };
+            function ExportImage(e) {
+                var img = myChart.getDataURL({
+                    type: 'png',
+                    pixelRatio: 2,
+                    backgroundColor: '#fff',
+                    excludeComponents: ['toolbox']
+                });
+                window.location.assign(img);
+            }
+            function ExportCsv(e) {
+                window.location.assign('/donwcsv-carlos');
+            };
+            if (window.innerHeight > 410){
+                setTimeout(ExportImage , 10),
+                console.log('click')
+            }else{
+                console.log('do nothing')
+            }
+        </script>
+    </body>
+</html>

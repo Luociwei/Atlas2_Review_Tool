@@ -1,0 +1,33 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+Smokey_PCIe_EYE,Common:smokeyPcieRun,,,[PCIeEyeScan_resp],400,,"{""subsubtestname"":""Smokey_PCIe_Run"",""hangTimeout"":10}",Y,,smokey --run PCIeEyeScan ResultsBehavior=NoFile,FA_POWER_OFF,,Run PCIeEyeScan smokey command and check hang
+Smokey_PCIe_EYE_BB,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BBEye_Width""}",,,,,,BBEye_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BBi_Width""}",,,,,,BBi_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BBEye_Height""}",,,,,,BBEye_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BBi_Height""}",,,,,,BBEye_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BB_Vertical_Opening""}",,,,,,BB_Vertical_Opening
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""BB_Horizontal_Opening""}",,,,,,BB_Horizontal_Opening
+Smokey_PCIe_EYE_WiFi,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFIEye_Width""}",,,,,,WIFIEye_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFIi_Width""}",,,,,,WIFIi_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFIEye_Height""}",,,,,,WIFIEye_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFIi_Height""}",,,,,,WIFIi_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFI_Vertical_Opening""}",,,,,,WIFI_Vertical_Opening
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""WIFI_Horizontal_Opening""}",,,,,,WIFI_Horizontal_Opening
+Smokey_PCIe_EYE_Nand_AP,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_Eye_Width""}",,,,,,S5EtoAP_Eye_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_i_Width""}",,,,,,S5EtoAP_i_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_Eye_Height""}",,,,,,S5EtoAP_Eye_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_i_Height""}",,,,,,S5EtoAP_i_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_Vertical_Opening""}",,,,,,S5EtoAP_Vertical_Opening
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""S5EtoAP_Horizontal_Opening""}",,,,,,S5EtoAP_Horizontal_Opening
+Smokey_PCIe_EYE_Nand_S5E,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_Eye_Width""}",,,,,,APtoS5E_Eye_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_i_Width""}",,,,,,APtoS5E_i_Width
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_Eye_Height""}",,,,,,APtoS5E_Eye_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_i_Height""}",,,,,,APtoS5E_i_Height
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_Vertical_Opening""}",,,,,,APtoS5E_Vertical_Opening
+,Common:smokeyPcieParse,,[PCIeEyeScan_resp],,,,"{""subsubtestname"":""APtoS5E_Horizontal_Opening""}",,,,,,APtoS5E_Horizontal_Opening
+Smokey_PCIe_EYE_Sec,Common:smokeyPcieRun,,,[FL1100Eyescan_resp],15,,"{""subsubtestname"":""Smokey_PCIe_Run_Sec"",""hangTimeout"":5}",Y,,smokey --run FL1100 --test FL1100Eyescan,FA_POWER_OFF,,Run FL1100 smokey command and check hang
+Smokey_PCIe_EYE_FL1100,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100Eye_Width""}",,,,,,FL1100Eye_Width
+,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100i_Width""}",,,,,,FL1100i_Width
+,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100Eye_Height""}",,,,,,FL1100Eye_Height
+,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100i_Height""}",,,,,,FL1100i_Height
+,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100_Vertical_Opening""}",,,,,,FL1100_Vertical_Opening
+,Common:smokeyPcieParse,,[FL1100Eyescan_resp],,,,"{""subsubtestname"":""FL1100_Horizontal_Opening""}",,,,,,FL1100_Horizontal_Opening

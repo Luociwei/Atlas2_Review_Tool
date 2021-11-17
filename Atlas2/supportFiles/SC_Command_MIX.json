@@ -1,0 +1,686 @@
+{
+  "VBAT_UVP_Fault_Flag" : "io.get(bit12)",
+  "psu_7v5" : {
+    "connect" : [
+      ""
+    ],
+    "disconnect" : [
+      ""
+    ]
+  },
+  "VBATT_UVP_0V8" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(2,800)"
+    ]
+  },
+  "ACE_TO_PARROT_RESET_L" : {
+    "connect" : [
+      "io.set(bit35=1)",
+      "delay:0.3"
+    ],
+    "disconnect" : [
+      "io.set(bit35=0)"
+    ]
+  },
+  "uut4_led_red" : "io.set(bit68=0;bit69=1;bit70=1)",
+  "PPVBUS_14V_off" : [
+    "io.set(bit21=0;bit41=0)"
+  ],
+  "ace_programmer_only_mx25v16" : "ace_fwdl.programmer_only(ch1,mx25v16,\/mix\/addon\/dut_firmware\/ch1\/J407-USBC-2.116.0.3-P0_R-AP-S.bin)",
+  "VBUS_UVP_CTRL" : {
+    "connect" : [
+      "io.set(bit8=1)"
+    ],
+    "OFF" : [
+      "io.set(bit8=0)"
+    ],
+    "ON" : [
+      "io.set(bit8=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit8=0)"
+    ]
+  },
+  "Power_OCP_Reset" : [
+    "io.set(bit24=1)",
+    "delay:1",
+    "io.set(bit24=0)"
+  ],
+  "usb_signal_on" : [
+    ""
+  ],
+  "force_diags_off" : [
+    "io.set(bit26=0;bit22=0;bit42=1)",
+    "Delay:0.5",
+    "batt.volt_set(0)",
+    "io.set(bit40=0;bit30=1)",
+    "io.set(bit30=1;bit42=1;bit43=1)",
+    "Delay:2",
+    "reset_all.reset()"
+  ],
+  "Fixture_Control_Port" : {
+    "UUT2" : "169.254.1.32:7803",
+    "UUT0" : "169.254.1.32:7801",
+    "UUT3" : "169.254.1.32:7804",
+    "UUT1" : "169.254.1.32:7802"
+  },
+  "force_diags_on" : [
+    "batt.volt_set(0)",
+    "reset_all.reset()",
+    "io.set(bit39=0;bit24=0;bit40=0;bit34=0;bit22=0;bit26=0;bit30=1;bit42=1;bit43=1)",
+    "Delay:2",
+    "io.set(bit30=0;bit42=0;bit43=0)",
+    "batt.volt_set(4200)",
+    "io.set(bit39=1;bit24=1;bit40=1;bit34=1;bit26=1;bit22=1)"
+  ],
+  "Fixture_Fan_Speed_Set_IO" : "io.set(bit29=1)",
+  "VBATT_UVP_2V" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(2,2000)"
+    ]
+  },
+  "conn_det_grounded_off" : [
+    ""
+  ],
+  "usb_location" : {
+    "UUT3" : "",
+    "UUT0" : "",
+    "UUT7" : "",
+    "UUT4" : "",
+    "UUT1" : "",
+    "UUT5" : "",
+    "UUT2" : "",
+    "UUT6" : ""
+  },
+  "uut3_led_off" : "io.set(bit65=1;bit66=1;bit67=1)",
+  "dut_power_on" : [
+    "io.set(bit26=0;bit22=0;bit42=1)",
+    "Delay:0.3",
+    "batt.volt_set(0)",
+    "io.set(bit40=0)",
+    "io.set(bit30=1;bit42=1;bit43=1)",
+    "Delay:3",
+    "reset_all.reset()",
+    "io.set(bit30=0;bit42=0;bit43=0)",
+    "batt.volt_set(4200)",
+    "io.set(bit39=1;bit24=1;bit40=1;bit34=1;bit26=1;bit22=1)"
+  ],
+  "power_led_blue" : "io.set(bit49=1;bit50=1;bit51=0)",
+  "hi5_bs_grounded_off" : [
+    ""
+  ],
+  "PPVBUS_PROT" : [
+    "adc.read_volt(CH7)",
+    "delay:0.03"
+  ],
+  "Fixture_UUT_Detect" : "uut_detect.read_Volt",
+  "GPIO_FORCE_DFU" : {
+    "connect" : [
+      "io.set(bit32=1)",
+      "delay:0.3"
+    ],
+    "disconnect" : [
+      "io.set(bit32=0)"
+    ]
+  },
+  "uut1_led_red" : "io.set(bit52=0;bit53=1;bit54=1)",
+  "uart_path" : {
+    "UUT0" : "",
+    "UUT1" : ""
+  },
+  "VBATT_OVP_4V6" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(3,4600)"
+    ],
+    "disconnect" : [
+      ""
+    ]
+  },
+  "ppvcc_high_discharge" : {
+    "connect" : [
+      "io.set(bit44=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit44=0)"
+    ]
+  },
+  "VBUS_UVP_NORMAL" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(5,2000)"
+    ]
+  },
+  "ace_program_readverify" : "ace_fwdl.program_readverify(ch1,w25q128,\/mix\/addon\/dut_firmware\/ch1\/ACE_FW,0x00000000,0x7d780)",
+  "GPIO_1V2_ACE2RT13_FORCE_DFU" : {
+    "connect" : [
+      "io.set(bit36=1)"
+    ],
+    "OFF" : [
+      "io.set(bit36=0)"
+    ],
+    "ON" : [
+      "io.set(bit36=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit36=0)"
+    ]
+  },
+  "VBATT_OCP_8A5" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(1,2125)",
+      "delay:0.03"
+    ]
+  },
+  "ppvbus_1V2" : {
+    "off" : [
+      "io.set(bit3=0)",
+      "io.set(bit42=1)",
+      "delay:0.2"
+    ],
+    "on" : [
+      "io.set(bit3=1)",
+      "delay:0.3"
+    ]
+  },
+  "Fixture_Open" : [
+    "fixturecontrol.release()"
+  ],
+  "VCCMAIN_UVP_2V" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(7,2000)"
+    ]
+  },
+  "VBAT_OVP_Fault_Flag" : "io.get(bit11)",
+  "DylibVersion" : "Lib_v21.10.29",
+  "VBUS_UVP_Fault_Flag" : "io.get(bit15)",
+  "VCCMAIN_UVP_NORMAL" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(7,2000)"
+    ]
+  },
+  "Fixture_Slots" : "4",
+  "SAFETY_DAC" : {
+    "INIT" : [
+      ""
+    ]
+  },
+  "VBATT_OCP_MIDDLE_8A" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(1,2000)",
+      "delay:0.03"
+    ]
+  },
+  "vbatt_discharge" : {
+    "connect" : [
+      "io.set(bit30=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit30=0)"
+    ]
+  },
+  "vbus_discharge" : {
+    "connect" : [
+      "io.set(bit42=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit42=0)"
+    ]
+  },
+  "Fixture_Status" : "fixturecontrol.get_fixture_status()",
+  "battery_power_on" : [
+    ""
+  ],
+  "VBATT_UVP_CTRL" : {
+    "connect" : [
+      "io.set(bit7=1)"
+    ],
+    "OFF" : [
+      "io.set(bit7=0)"
+    ],
+    "ON" : [
+      "io.set(bit7=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit7=0)"
+    ]
+  },
+  "PPVCCMAIN_UVP_Fault_Flag" : "io.get(bit16)",
+  "ace_spi_to_zynq" : {
+    "connect" : [
+      "io.set(bit28=1)"
+    ],
+    "OFF" : [
+      "io.set(bit28=0)"
+    ],
+    "ON" : [
+      "io.set(bit28=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit28=0)"
+    ]
+  },
+  "ace_programmer_erase_w25q128" : "ace_fwdl.programmer_erase(ch1,w25q128)",
+  "led_state" : {
+    "inprocess" : [
+      "",
+      ""
+    ],
+    "panic" : [
+      "",
+      ""
+    ],
+    "fail_goto_fa" : [
+      "",
+      ""
+    ],
+    "fail" : [
+      "",
+      ""
+    ],
+    "pass" : [
+      "",
+      ""
+    ],
+    "off" : [
+      "",
+      ""
+    ]
+  },
+  "ppvbatt_reload" : {
+    "connect" : [
+      "io.set(bit1=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit1=0)"
+    ]
+  },
+  "power_led_off" : "io.set(bit49=1;bit50=1;bit51=1)",
+  "ace_programmer_only_w25q128" : "ace_fwdl.programmer_only(ch1,w25q128,\/mix\/addon\/dut_firmware\/ch1\/J407-USBC-2.116.0.3-P0_R-AP-S.bin)",
+  "UART_TX" : {
+    "connect" : [
+      "io.set(bit34=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit34=0)"
+    ]
+  },
+  "Fixture_Fan_Speed_Get" : "fan.speed_get",
+  "ppvbus5v" : {
+    "off" : [
+      "io.set(bit3=0)",
+      "io.set(bit42=1)",
+      "delay:0.2"
+    ],
+    "on" : [
+      "io.set(bit3=1)",
+      "delay:0.3"
+    ]
+  },
+  "PPVBUS_14V_on" : [
+    "io.set(bit22=0;bit26=0;bit20=0)",
+    "io.set(bit21=1;bit41=1)"
+  ],
+  "Safety_Trigger_Fault_Flag" : "ocp_status.get_level()",
+  "apple_id_off" : [
+    ""
+  ],
+  "ppvbus14v" : {
+    "off" : [
+      "io.set(bit21=0)"
+    ],
+    "on" : [
+      "io.set(bit22=0;bit26=0;bit20=0)",
+      "io.set(bit21=1)"
+    ]
+  },
+  "VBATT_UVP_NORMAL" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(2,2000)"
+    ]
+  },
+  "VBUS_OVP_6V" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(6,3000)"
+    ]
+  },
+  "PPVBUS" : [
+    "adc.read_volt(CH1)",
+    "delay:0.03"
+  ],
+  "BATT_0V" : {
+    "disconnect" : [
+      ""
+    ],
+    "ON" : [
+      "batt.volt_set(0)",
+      "delay:0.03",
+      "io.set(bit30=1)",
+      "io.set(bit40=0)",
+      "delay:0.3"
+    ]
+  },
+  "uut3_led_red" : "io.set(bit65=0;bit66=1;bit67=1)",
+  "force_iboot_off" : [
+    "io.set(bit26=0;bit22=0;bit42=1)",
+    "Delay:0.5",
+    "batt.volt_set(0)",
+    "reset_all.reset()",
+    "io.set(bit26=0;bit22=0;bit40=0)",
+    "io.set(bit30=1;bit42=1;bit43=1)",
+    "Delay:2",
+    "reset_all.reset()"
+  ],
+  "force_dfu_off" : [
+    "io.set(bit26=0;bit22=0;bit42=1)",
+    "Delay:0.3",
+    "batt.volt_set(0)",
+    "io.set(bit40=0;bit30=1)",
+    "io.set(bit30=1;bit42=1;bit43=1)",
+    "Delay:2",
+    "reset_all.reset()"
+  ],
+  "ace_programmer_erase_mx25v16" : "ace_fwdl.programmer_erase(ch1,mx25v16)",
+  "battery_power_off" : [
+    ""
+  ],
+  "power_led_red" : "io.set(bit49=0;bit50=1;bit51=1)",
+  "uut1_led_blue" : "io.set(bit52=1;bit53=1;bit54=0)",
+  "VCCMAIN_UVP_CTRL" : {
+    "connect" : [
+      "io.set(bit9=1)"
+    ],
+    "OFF" : [
+      "io.set(bit9=0)"
+    ],
+    "ON" : [
+      "io.set(bit9=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit9=0)"
+    ]
+  },
+  "vender" : "Suncode",
+  "uut2_led_off" : "io.set(bit55=1;bit56=1;bit57=1)",
+  "IBAT_OCP_Fault_Flag" : "io.get(bit10)",
+  "reset" : [
+    "io.set(bit24=1)",
+    "Delay:0.05",
+    "batt.volt_set(0)",
+    "reset_all.reset()",
+    "io.set(bit49=0;bit50=1;bit51=1)",
+    "io.set(bit27=0;bit28=0;bit29=0)",
+    "fan.speed_set(4000,0)"
+  ],
+  "vbatt" : {
+    "off" : [
+      "io.set(bit24=1)",
+      "batt.volt_set(0)",
+      "io.set(bit40=0;bit30=1)",
+      "io.set(bit42=1;bit43=1)",
+      "delay:1"
+    ],
+    "on" : [
+      "batt.volt_set(4200)",
+      "io.set(bit30=0)",
+      "delay:0.1",
+      "io.set(bit40=1)"
+    ]
+  },
+  "uut1_led_green" : "io.set(bit52=1;bit53=0;bit54=1)",
+  "uut3_led_green" : "io.set(bit65=1;bit66=0;bit67=1)",
+  "uart_signal_off" : [
+    ""
+  ],
+  "uut2_led_blue" : "io.set(bit55=1;bit56=1;bit57=0)",
+  "conn_det_grounded_on" : [
+    ""
+  ],
+  "PPVBAT" : [
+    "adc.read_volt(CH0)",
+    "delay:0.03"
+  ],
+  "init" : [
+    "io.set(bit24=1)",
+    "Delay:0.05",
+    "batt.volt_set(0)",
+    "reset_all.reset()",
+    "io.set(bit49=0;bit50=1;bit51=1)",
+    "io.set(bit52=1;bit53=1;bit54=1)",
+    "io.set(bit55=1;bit56=1;bit57=1)",
+    "io.set(bit65=1;bit66=1;bit67=1)",
+    "io.set(bit68=1;bit69=1;bit70=1)",
+    "io.set(bit27=0;bit28=0;bit29=0)",
+    "fan.speed_set(4000,0)"
+  ],
+  "VBUS_UVP_1V" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(5,800)"
+    ]
+  },
+  "uart_signal_on" : [
+    ""
+  ],
+  "VBUS_OCP_Fault_Flag" : "io.get(bit14)",
+  "pdvbus" : {
+    "off" : [
+      "io.set(bit41=0;bit42=1;bit26=0;bit22=0)"
+    ],
+    "on" : [
+      "io.set(bit23=0;bit42=0;bit26=1;bit22=1)"
+    ]
+  },
+  "apple_id_on" : [
+    ""
+  ],
+  "PP3V3CE_LDO_ACE" : {
+    "connect" : [
+      "io.set(bit27=1)"
+    ],
+    "OFF" : [
+      "io.set(bit27=0)"
+    ],
+    "ON" : [
+      "io.set(bit27=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit27=0)"
+    ]
+  },
+  "uut3_led_blue" : "io.set(bit65=1;bit66=1;bit67=0)",
+  "Fixture_Close" : [
+    "fixturecontrol.press()"
+  ],
+  "usb_power_on" : [
+    ""
+  ],
+  "vbatt_vccmain" : {
+    "connect" : [
+      "io.set(bit47=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit47=0)"
+    ]
+  },
+  "ace_programmer_erase_gd25xxx" : "ace_fwdl.programmer_erase(ch1,gd25xxx)",
+  "dut_power_off" : [
+    "io.set(bit26=0;bit22=0;bit42=1)",
+    "Delay:0.3",
+    "batt.volt_set(0)",
+    "io.set(bit40=0)",
+    "io.set(bit30=1;bit42=1;bit43=1)",
+    "Delay:3",
+    "reset_all.reset()"
+  ],
+  "VBATT_OCP_3A" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(1,750)",
+      "delay:0.03"
+    ]
+  },
+  "uut2_led_green" : "io.set(bit55=1;bit56=0;bit57=1)",
+  "uut4_led_green" : "io.set(bit68=1;bit69=0;bit70=1)",
+  "BATT_0V8" : {
+    "disconnect" : [
+      ""
+    ],
+    "ON" : [
+      "batt.volt_set(800)",
+      "delay:0.03",
+      "io.set(bit30=0)",
+      "io.set(bit40=1)",
+      "delay:0.05"
+    ]
+  },
+  "dfu_reset" : [
+    "io.set(bit24=1)",
+    "delay:0.2",
+    "io.set(bit18=0;bit19=0;bit20=0;bit21=0;bit22=0;bit23=0;bit24=0;bit25=0)",
+    "io.set(bit26=0;bit27=0;bit28=0;bit29=0;bit30=0;bit31=0;bit32=0;bit33=0)",
+    "io.set(bit34=0;bit35=0;bit36=0;bit37=0;bit38=0;bit39=0;bit40=0;bit41=1)",
+    "io.set(bit42=0;bit43=0;bit44=0;bit45=0;bit47=0;bit48=0)",
+    "batt.volt_set(0)"
+  ],
+  "usb_power_off" : [
+    ""
+  ],
+  "psu_12v" : {
+    "connect" : [
+      ""
+    ],
+    "disconnect" : [
+      ""
+    ]
+  },
+  "usb_signal_off" : [
+    ""
+  ],
+  "VBATT_UVP_0V6" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(2,600)"
+    ]
+  },
+  "force_dfu_on" : [
+    "io.set(bit30=0;bit42=0;bit43=0)",
+    "batt.volt_set(0)",
+    "reset_all_reset()",
+    "Delay:0.1",
+    "batt.volt_set(4200)",
+    "io.set(bit30=0;bit42=0;bit43=0;bit34=1;bit39=1;bit40=1;bit32=1;bit35=1;bit26=1;bit22=1)"
+  ],
+  "uut4_led_blue" : "io.set(bit68=1;bit69=1;bit70=0)",
+  "ace_programmer_only_gd25xxx" : "ace_fwdl.programmer_only(ch1,gd25xxx,\/mix\/addon\/dut_firmware\/ch1\/J407-USBC-2.116.0.3-P0_R-AP-S.bin)",
+  "IBAT" : [
+    "adc.read_volt(CH3)",
+    "delay:0.03"
+  ],
+  "uut4_led_off" : "io.set(bit68=1;bit69=1;bit70=1)",
+  "serial_number" : "eeprom.read_string(0,19)",
+  "vbatt_on_and_set_ocp3A" : [
+    "batt.volt_set(4200)",
+    "io.set(bit30=0)",
+    "delay:0.05",
+    "io.set(bit40=1)",
+    "delay:0.05",
+    "mcp47fe.output_volt_dc(1,750)",
+    "delay:0.05"
+  ],
+  "ppvbus_reload" : {
+    "connect" : [
+      "io.set(bit2=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit2=0)"
+    ]
+  },
+  "VBUS_OCP_4A" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(4,2000)",
+      "delay:0.01"
+    ]
+  },
+  "force_iboot_on" : [
+    "batt.volt_set(0)",
+    "reset_all.reset()",
+    "io.set(bit28=0;bit39=0;bit24=0;bit40=0;bit34=0;bit22=0;bit26=0;bit30=1;bit42=1;bit43=1)",
+    "Delay:2",
+    "io.set(bit30=0;bit42=0;bit43=0)",
+    "batt.volt_set(4200)",
+    "io.set(bit39=1;bit24=1;bit40=1;bit34=1;bit26=1;bit22=1)"
+  ],
+  "uut2_led_red" : "io.set(bit55=0;bit56=1;bit57=1)",
+  "hi5_bs_grounded_on" : [
+    ""
+  ],
+  "VBUS_OVP_Fault_Flag" : "io.get(bit13)",
+  "GPIO_3V3_ACE2RT13_PARROT_RESET_L" : {
+    "connect" : [
+      "io.set(bit25=1)"
+    ],
+    "OFF" : [
+      "io.set(bit25=0)"
+    ],
+    "ON" : [
+      "io.set(bit25=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit25=0)"
+    ]
+  },
+  "Fixture_Fan_Speed_Off_IO" : "io.set(bit29=0)",
+  "VCCMAIN_UVP_0V6" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(7,400)"
+    ]
+  },
+  "Fixture_Fan_Speed_Get_IO" : "",
+  "USB_SOC" : {
+    "connect" : [
+      "io.set(bit39=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit39=0)"
+    ]
+  },
+  "ace_hrest" : {
+    "connect" : [
+      "io.set(bit18=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit18=0)"
+    ]
+  },
+  "uut1_led_off" : "io.set(bit52=1;bit53=1;bit54=1)",
+  "ppvcc_main_discharge" : {
+    "connect" : [
+      "io.set(bit43=1)"
+    ],
+    "disconnect" : [
+      "io.set(bit43=0)"
+    ]
+  },
+  "VBATT_OCP_16A" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(1,4000)",
+      "delay:0.03"
+    ]
+  },
+  "VBATT_OCP_5A5" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(1,1380)",
+      "delay:0.03"
+    ]
+  },
+  "power_led_green" : "io.set(bit49=1;bit50=0;bit51=1)",
+  "VCCMAIN_UVP_0V8" : {
+    "SET" : [
+      "mcp47fe.output_volt_dc(7,800)"
+    ]
+  },
+  "SIB_OCP_RESET" : [
+    "io.set(bit24=1)",
+    "delay:0.01",
+    "io.set(bit24=0)",
+    "delay:0.01"
+  ],
+  "ace_programmer_id" : "ace_fwdl.programmer_id(w25q128)",
+  "Fixture_Fan_Speed_Set" : "fan.speed_set"
+}

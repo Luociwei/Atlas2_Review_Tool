@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta author='Carlos'>
+        <title>837: rbm-bbq -tout 300</title>
+        <script src="/Applications/SoCLogAnalyzer-1105.app/Contents/MacOS/.files/js/echarts.min.js"></script>
+    </head>
+    <style>
+        body {
+        overflow-x:hidden;
+        overflow-y:hidden;
+        background-color: #F5F5F5;
+        }
+        #main {
+            width: 100%;
+            height:380px;
+            background: #FFF;
+            border-radius: 20px;
+        }
+    </style>
+    <body style="margin:0; border:0;">
+        <div>
+            <div id="main"></div>
+        </div>
+        <script>
+            let time = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 20, 23, 24, 28, 31, 33, 34, 35, 36, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298];
+            let times = [55, 119, 186, 259, 330, 401, 476, 551, 628, 703, 779, 857, 936, 1013, 1091, 1248, 1327, 1486, 1732, 1813, 2137, 2301, 2462, 2544, 2625, 2707, 2874, 2957, 3039, 3126, 3211, 3295, 3381, 3467, 3554, 3642, 3726, 3812, 3898, 3985, 4072, 4156, 4243, 4331, 4416, 4504, 4592, 4678, 4764, 4853, 4942, 5033, 5121, 5207, 5296, 5384, 5472, 5568, 5657, 5746, 5834, 5923, 6013, 6101, 6193, 6284, 6375, 6464, 6553, 6642, 6732, 6823, 6916, 7009, 7099, 7190, 7283, 7376, 7468, 7561, 7654, 7745, 7839, 7932, 8026, 8118, 8212, 8306, 8401, 8495, 8588, 8683, 8777, 8872, 8965, 9058, 9152, 9343, 9438, 9533, 9629, 9725, 9821, 9921, 10016, 10112, 10207, 10305, 10401, 10496, 10595, 10697, 10793, 10892, 10991, 11088, 11192, 11290, 11387, 11486, 11584, 11682, 11785, 11887, 11986, 12086, 12185, 12285, 12392, 12491, 12592, 12693, 12794, 12894, 12995, 13095, 13194, 13295, 13404, 13506, 13607, 13709, 13813, 13913, 14015, 14118, 14225, 14326, 14431, 14534, 14638, 14742, 14850, 14953, 15057, 15161, 15262, 15366, 15476, 15578, 15683, 15790, 15894, 15997, 16104, 16207, 16315, 16419, 16522, 16625, 16729, 16835, 16941, 17047, 17159, 17268, 17378, 17487, 17592, 17698, 17802, 17908, 18014, 18125, 18235, 18345, 18456, 18562, 18670, 18775, 18880, 18991, 19098, 19204, 19313, 19419, 19532, 19638, 19751, 19858, 19968, 20076, 20191, 20303, 20412, 20522, 20630, 20736, 20848, 20963, 21073, 21186, 21296, 21406, 21517, 21626, 21736, 21844, 21955, 22064, 22177, 22290, 22402, 22511, 22622, 22738, 22847, 22964, 23075, 23184, 23297, 23411, 23523, 23637, 23747, 23857, 23967, 24079, 24192, 24306, 24416, 24529, 24645, 24761, 24878, 24993, 25105, 25217, 25329, 25440, 25552, 25663, 25774, 25888, 25999, 26116, 26228, 26341, 26456, 26579, 26693, 26808, 26921, 27033, 27146, 27258, 27376, 27488, 27604, 27718, 27836, 27949, 28061, 28177, 28289, 28405, 28525];
+            let temperature = [92.53, 98.11, 97.26, 100.39, 98.15, 98.22, 94.55, 100.08, 96.61, 94.34, 98.36, 98.36, 93.31, 95.1, 95.53, 96.37, 101.28, 100.33, 95.51, 96.32, 102.56, 103.54, 98.61, 95.32, 95.07, 98.4, 94.49, 96.6, 101.44, 94.54, 88.54, 102.49, 98.14, 97.17, 95.3, 96.15, 100.33, 95.46, 96.36, 96.55, 90.26, 96.11, 96.08, 100.49, 99.21, 96.11, 88.24, 102.5, 90.27, 102.5, 96.11, 99.21, 89.16, 100.03, 101.52, 96.36, 91.35, 98.14, 95.07, 100.33, 95.63, 95.45, 97.63, 103.17, 96.15, 97.35, 97.33, 95.51, 103.33, 100.22, 103.26, 96.32, 98.22, 90.56, 103.42, 101.19, 91.18, 105.14, 100.58, 101.45, 96.55, 104.54, 96.37, 95.22, 101.19, 104.54, 106.17, 102.07, 96.23, 105.12, 97.42, 105.34, 106.17, 92.13, 104.04, 104.11, 92.42, 91.53, 104.03, 103.31, 105.32, 96.08, 96.54, 105.39, 91.39, 95.51, 96.08, 105.46, 106.14, 104.29, 93.62, 105.34, 103.42, 101.19, 96.32, 103.42, 96.58, 101.06, 104.11, 105.39, 107.13, 97.14, 104.55, 105.15, 93.11, 102.31, 96.59, 102.5, 102.06, 103.52, 93.07, 101.52, 92.27, 97.13, 106.38, 106.4, 101.44, 106.17, 102.06, 104.54, 104.11, 105.37, 104.55, 104.55, 107.39, 104.55, 98.55, 104.54, 97.34, 97.57, 105.39, 103.17, 98.28, 97.19, 103.17, 102.5, 102.5, 93.41, 93.15, 106.17, 93.39, 105.57, 97.57, 103.07, 102.28, 106.17, 92.42, 105.14, 93.36, 93.42, 105.37, 109.02, 108.43, 106.17, 95.16, 103.42, 104.29, 106.01, 103.42, 107.13, 104.04, 98.22, 105.57, 105.57, 104.29, 94.31, 106.01, 94.6, 107.62, 94.01, 104.29, 105.34, 94.01, 106.26, 108.24, 103.17, 107.17, 103.31, 105.12, 105.15, 103.17, 94.6, 104.37, 94.01, 103.42, 94.31, 106.01, 104.04, 107.38, 99.19, 94.01, 104.03, 106.26, 94.6, 99.03, 104.04, 109.09, 107.39, 103.18, 109.09, 106.17, 104.29, 106.38, 98.57, 94.31, 106.4, 104.29, 105.57, 106.38, 99.16, 103.42, 109.0, 109.11, 95.54, 109.46, 108.24, 108.24, 106.56, 94.36, 109.46, 95.54, 104.29, 104.29, 99.57, 103.54, 105.15, 108.49, 108.19, 105.14, 109.09, 105.15, 109.0, 104.28, 105.15, 104.34, 104.33, 95.42, 107.38, 109.43, 106.26, 105.34, 94.63, 107.13, 106.58, 95.38, 104.33, 107.62, 105.4, 94.63, 107.19, 96.19, 105.14, 106.61, 104.32, 95.42, 108.02, 105.4];
+            let pmu_times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let show_pmu_temp=((Math.max(...pmu_times)==0) & (Math.min(...pmu_times)==0))?false:true;
+            let show_soc_count=((Math.max(...times)==0) & (Math.min(...times)==0))?false:true;
+            function beishu10(num1, num2=[0], model='max'){
+                if (model=='max'){
+                    let d1 = Math.max(...num1);
+                    let d2 = Math.max(...num2);
+                    let d3 = Math.max(d1, d2);
+                    return Math.floor(d3+10-d3%10)
+                }
+                if (model=='min'){
+                    let d1 = Math.min(...num1);
+                    let d2 = Math.min(...num2);
+                    var d3;
+                    if (d1 == 0){
+                        d3 = Math.min(...num2)
+                    }else if (d2 == 0){
+                        d3 = Math.min(...num1)
+                    }else{
+                        d3 = Math.min(d1, d2)
+                    }
+                    d3 = Math.floor(d3+10-d3%10)
+                    if (d3>10)
+                        d3 = d3-10
+                    return d3
+                }
+            }
+            var myChart = echarts.init(document.getElementById('main'), 'light');
+            var color_line_change_Temp = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 0.8,
+                colorStops: [
+                    {offset: 0, color: '#FF5722'},
+                    {offset: 1, color: '#FFAB91'}
+                ],
+                global: false
+            }
+            var color_bar_change_Times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#00a1f1'},
+                    {offset: 1, color: '#BBDEFB'}
+                ],
+                global: false
+            }
+            var color_bar_change_Pmu_times = {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                    {offset: 0, color: '#C0CA33'},
+                    {offset: 1, color: '#91CC75'}
+                ],
+                global: false
+            }
+            option = {
+                animationDuration: 0,
+                title: {
+                    text: '837: rbm-bbq -tout 300',
+                    textStyle: {
+                        color: '#17AEFA',
+                        fontWeight: 400,
+                        fontSize: 12,
+                    },
+                    left: 30,
+                    top: '3%',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        snap: true,
+                    },
+                },
+                grid: {
+                    top: '15%',
+                    right: 65,
+                    left: 65,
+                    containLabel: false,
+                },
+                toolbox: {
+                    itemSize: 10,
+                    right: 40,
+                    top: '3%',
+                    feature: {
+                        dataZoom: { show: true, yAxisIndex: false },
+                        restore: { show: true },
+                        myTool1: {
+                            show: true,
+                            title: 'Save csv',
+                            icon: 'M17.5,17.3H33 M17.5,17.3H33 M45.4,29.5h-28 M11.5,2v56H51V14.8L38.4,2H11.5z M38.4,2.2v12.7H51 M45.4,41.7h-28',
+                            onclick: ExportCsv
+                        },
+                        myTool2: {
+                            show: true,
+                            title: 'Save image',
+                            icon: 'M4.7,22.9L29.3,45.5L54.7,23.4M4.6,43.6L4.6,58L53.8,58L53.8,43.6M29.2,45.1L29.2,0',
+                            onclick: ExportImage
+                        },
+                    },
+                    showTitle: false,
+                    tooltip: {
+                        show: true,
+                        formatter: function (param) {
+                            return '<div>' + param.title + '</div>';
+                        },
+                        backgroundColor: '#1E88E5',
+                        textStyle: {
+                            fontSize: 10,
+                        },
+                        extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
+                    }
+                },
+                legend: {
+                    data: ['SoC Temp', 'SoC Hot count', 'PMU Temp'],
+                    top: '3%',
+                    right: 155,
+                    backgroundColor: '#fff',
+                    z: 99,
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    selected: {'SoC Hot count': show_soc_count, 'PMU Temp':show_pmu_temp} // 不需要显示的设置为false
+                },
+                xAxis: {
+                    name: 'Second',
+                    nameLocation: 'end',
+                    type: 'category',
+                    minInterval: 1,
+                    splitNumber: 5,
+                    nameTextStyle: {
+                        align: 'left',
+                        verticalAlign: 'top',
+                        lineHeight: 25,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        snap: true,
+                        label: {
+                            backgroundColor: 'black',
+                        },
+                    },
+                    data: time,
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        min: 0,
+                        max: beishu10(times),
+                        position: 'right',
+                        axisLine: {lineStyle: {color: '#00a1f1'}},
+                        axisLabel: {formatter: '{value}'},
+                        splitLine: {show: false}
+                    },
+                    {
+                        type: 'value',
+                        min: beishu10(temperature, pmu_times, 'min'),
+                        max: beishu10(temperature, pmu_times),
+                        position: 'left',
+                        minInterval: 0.1,
+                        axisLine: {lineStyle: {color: '#FF5722'}},
+                        axisLabel: {formatter: '{value} °C'}
+                    },
+                ],
+                series: [
+                    {
+                        name: 'PMU Temp',
+                        type: 'line',
+                        color: color_bar_change_Pmu_times,
+                        yAxisIndex: 1,
+                        data: pmu_times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                    },
+                    {
+                        name: 'SoC Hot count',
+                        type: 'line',
+                        color: color_bar_change_Times,
+                        yAxisIndex: 0,
+                        data: times,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                            ],
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            symbol: 'pin',
+                            symbolSize: 45,
+                        },
+                        markLine: {
+                            data: [
+                                { type: 'average', name: 'Average count' },
+                            ],
+                            label: {
+                                position: 'insideEndTop',
+                                formatter: '{b}: {c}'
+                            },
+                            itemStyle: {
+                                color: '#0D47A1',
+                            }
+                        }
+                    },
+                    {
+                        name: 'SoC Temp',
+                        type: 'line',
+                        color: color_line_change_Temp,
+                        yAxisIndex: 1,
+                        data: temperature,
+                        itemStyle:{opacity: 0},
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            symbol: 'pin',
+                            symbolSize: 45,
+                            label:{
+                                color: 'white',
+                                fontFamily: 'Arial',
+                                fontSize: 10
+                            },
+                            itemStyle: {
+                                color: color_line_change_Temp,
+                            }
+                        },
+                    }
+                ]
+            };
+            myChart.setOption(option);
+            window.onresize = function () {
+                myChart.resize();
+            };
+            function ExportImage(e) {
+                var img = myChart.getDataURL({
+                    type: 'png',
+                    pixelRatio: 2,
+                    backgroundColor: '#fff',
+                    excludeComponents: ['toolbox']
+                });
+                window.location.assign(img);
+            }
+            function ExportCsv(e) {
+                window.location.assign('/donwcsv-carlos');
+            };
+            if (window.innerHeight > 410){
+                setTimeout(ExportImage , 10),
+                console.log('click')
+            }else{
+                console.log('do nothing')
+            }
+        </script>
+    </body>
+</html>

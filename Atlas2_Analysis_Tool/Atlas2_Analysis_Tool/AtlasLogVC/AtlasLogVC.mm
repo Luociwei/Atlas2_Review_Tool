@@ -15,6 +15,7 @@
 @interface AtlasLogVC ()
 @property (unsafe_unretained) IBOutlet NSTextView *logview;
 @property (strong) IBOutlet NSMenuItem *editMenu;
+//@property (weak) IBOutlet NSButton *showSlot;
 
 //@property (nonatomic,strong) NSArray<NSDictionary *> *items_datas;
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *testTimeSort_items_data;
@@ -167,12 +168,16 @@
             [self.itemsTableView reloadData];
             return;
         }
+        
+        
+        
         item_mode.recordPath = [NSString stringWithFormat:@"%@/%@",path,filename];
-//        ItemMode.s
+        //        ItemMode.s
+        NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
         
         NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
         item_mode.slot = @"Unkonw";
-        
+        //        if (self.showSlot.state) {
         NSString *device_content = [FileManager cw_readFromFile:device_path];
         if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
             item_mode.slot = @"1";
@@ -183,7 +188,7 @@
         }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
             item_mode.slot = @"4";
         }else{
-            NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
+
             if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
                 item_mode.slot = @"1";
             }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
@@ -194,17 +199,47 @@
                 item_mode.slot = @"4";
             }
         }
-//        for (NSString *ch_name in [manager enumeratorAtPath:device_path]) {
-//            NSString *ch_name1 = [ch_name stringByReplacingOccurrencesOfString:@"/server.log" withString:@""];
-//            if ([ch_name containsString:@"RPC_CH"]) {
-//                item_mode.slot = [ch_name1 stringByReplacingOccurrencesOfString:@"RPC_CH" withString:@"Slot"];
-//
-//            }
-//        }
+        
+        
+        item_mode.cfg = @"Unkonw";
+        item_mode.broadType = @"Unkonw";
+        NSArray *uartLogFiles = [FileManager cw_findPathWithfFileName:@".log" dirPath:userFile deepFind:NO];
+        if (uartLogFiles.count) {
+            NSString *uartLogPath = uartLogFiles[0];
+            NSString *uartLogContent = [FileManager cw_readFromFile:uartLogPath];
+            NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"boot, Board\\s+(.+\\))"];
+            NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#:\\s+(.+)"];
+            if (cfgArr.count) {
+                if ([cfgArr[0] count]>=2) {
+                    item_mode.cfg = cfgArr[0][1];
+                }
+                
+            }
+            if (typeArr.count) {
+                if ([typeArr[0] count]>=2) {
+                    item_mode.broadType = typeArr[0][1];
+                }
+                
+            }
+            
+            
+//            NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"Remote boot, (Board.+)\n"];
+        }
+        
+        
+        //        }
+        
+        //        for (NSString *ch_name in [manager enumeratorAtPath:device_path]) {
+        //            NSString *ch_name1 = [ch_name stringByReplacingOccurrencesOfString:@"/server.log" withString:@""];
+        //            if ([ch_name containsString:@"RPC_CH"]) {
+        //                item_mode.slot = [ch_name1 stringByReplacingOccurrencesOfString:@"RPC_CH" withString:@"Slot"];
+        //
+        //            }
+        //        }
         item_mode.sn = pathArr[0];
-//        item_mode.startTime = pathArr[1];
+        //        item_mode.startTime = pathArr[1];
         NSString *recordPath = [path stringByAppendingPathComponent:filename];
-//        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
+        //        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
         CSVParser *csv = [[CSVParser alloc]init];
         NSArray *csvArray = nil;
         if ([csv openFile:recordPath]) {
@@ -214,8 +249,8 @@
         NSEnumerator *enumer=[csvArray objectEnumerator];
         NSArray *itemInfo;
         while (itemInfo=[enumer nextObject]) {
-//            NSLog(@"%@----%@",itemInfo,[NSThread currentThread]);
-            if (itemInfo.count<12) {
+            //            NSLog(@"%@----%@",itemInfo,[NSThread currentThread]);
+            if (itemInfo.count<=12) {
                 continue;
             }
             if ([itemInfo[12] isEqualToString:@"FAIL"]) {

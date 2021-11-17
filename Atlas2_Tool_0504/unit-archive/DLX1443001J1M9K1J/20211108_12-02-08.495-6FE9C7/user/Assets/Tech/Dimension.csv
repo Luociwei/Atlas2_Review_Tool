@@ -1,0 +1,16 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+LOAD,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""BT_OFF"",""expect"":""OK""}",,,"bluetooth --off",,,"Bluetooth turn off"
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""WIFI_OFF"",""expect"":""OK""}",,,"wifi --off",,,"WIFI turn off"
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SH_OFF"",""expect"":""OK""}",,,"stockholm --off",,,"SH turn off"
+,Common:relaySwitch,,,,,,"{""subsubtestname"":""ACE_HRESET_Connect"",""netname"":""ace_hrest"",""state"":""connect""}",,,,,,"power on ACE_HRESET 1.2v"
+,Common:delay,,,,,,"{""subsubtestname"": ""DELAY_500MS"",""delay"":""500""}",,,,,,"delay 500ms"
+,Common:relaySwitch,,,,,,"{""subsubtestname"": ""USB_SOC_Connected_DMN"",""netname"":""USB_SOC"",""state"":""connect""}",,,,,,USB_SOC_Connected_DMN
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""LOAD_CORE_1"",""expect"":""OK""}",,,"efidmns load --core 1 --memory 1024",,,LOAD_CORE_1
+,Common:delay,,,,,,"{""subsubtestname"": ""DELAY_1000MS"",""delay"":""1000""}",,,,,,"delay 1000ms"
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""START_CORE_1"",""expect"":""OK""}",,,"efidmns start --core 1",,,START_CORE_1
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""PICK_CORE_1""}",,,"egpio --pick aop -n 31 -w 0",,,PICK_CORE_1
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""ENABLE_PORT_1""}",,,"efidmns send --core 1 'usb --select cdc --on --serial efidmnsA1'",,"Slot_Num == 1",ENABLE_PORT_1
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""ENABLE_PORT_1""}",,,"efidmns send --core 1 'usb --select cdc --on --serial efidmnsB1'",,"Slot_Num == 2",ENABLE_PORT_1
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""ENABLE_PORT_1""}",,,"efidmns send --core 1 'usb --select cdc --on --serial efidmnsC1'",,"Slot_Num == 3",ENABLE_PORT_1
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""ENABLE_PORT_1""}",,,"efidmns send --core 1 'usb --select cdc --on --serial efidmnsD1'",,"Slot_Num == 4",ENABLE_PORT_1
+Connect,Tech:connectDimensionPort,,,,30,,"{""subsubtestname"": ""CONNECT_PORT_1"",""dutPluginName"":""dimension_dut""}",,,,,,CONNECT_PORT_1

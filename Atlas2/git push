@@ -1,0 +1,214 @@
+Last login: Tue Nov  2 14:30:17 on ttys000
+git@towns-Mac-mini ~ % cd /Users/git/Jayson/git1102 
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % git clone https://hwtegit.apple.com/smt-test/DFU-NAND-INIT_J407.git
+Cloning into 'DFU-NAND-INIT_J407'...
+remote: Enumerating objects: 133, done.
+remote: Counting objects: 100% (133/133), done.
+remote: Compressing objects: 100% (85/85), done.
+remote: Total 2456 (delta 47), reused 105 (delta 33), pack-reused 2323
+Receiving objects: 100% (2456/2456), 22.06 MiB | 3.74 MiB/s, done.
+Resolving deltas: 100% (1012/1012), done.
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % git clone https://hwtegit.apple.com/ipad-smt-test/iPad-DFU-Common-Overlay.git
+Cloning into 'iPad-DFU-Common-Overlay'...
+remote: Enumerating objects: 27, done.
+remote: Counting objects: 100% (27/27), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 497 (delta 9), reused 22 (delta 8), pack-reused 470
+Receiving objects: 100% (497/497), 4.84 MiB | 924.00 KiB/s, done.
+Resolving deltas: 100% (170/170), done.
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % git clone https://hwtegit.apple.com/smt-test/Atlas2FixturePlugin.git
+Cloning into 'Atlas2FixturePlugin'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 225 (delta 3), reused 6 (delta 1), pack-reused 213
+Receiving objects: 100% (225/225), 2.16 MiB | 1.03 MiB/s, done.
+Resolving deltas: 100% (103/103), done.
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % git clone https://hwtegit.apple.com/ipad-smt-test/IPadDFUMCTFixtureDylib.git
+Cloning into 'IPadDFUMCTFixtureDylib'...
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 1030 (delta 3), reused 5 (delta 2), pack-reused 1017
+Receiving objects: 100% (1030/1030), 8.58 MiB | 2.01 MiB/s, done.
+Resolving deltas: 100% (436/436), done.
+git@towns-Mac-mini git1102 % cd /Users/git/Jayson/git1102/IPadDFUMCTFixtureDylib 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git checkout Add_Function_To_Support_ACEOTP_Download
+Branch 'Add_Function_To_Support_ACEOTP_Download' set up to track remote branch 'Add_Function_To_Support_ACEOTP_Download' from 'origin'.
+Switched to a new branch 'Add_Function_To_Support_ACEOTP_Download'
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % cd /Users/git/Jayson/git1102/Atlas2FixturePlugin
+git@towns-Mac-mini Atlas2FixturePlugin % git checkout Add_Function_To_Support_ACEOTP_Download
+Branch 'Add_Function_To_Support_ACEOTP_Download' set up to track remote branch 'Add_Function_To_Support_ACEOTP_Download' from 'origin'.
+Switched to a new branch 'Add_Function_To_Support_ACEOTP_Download'
+git@towns-Mac-mini Atlas2FixturePlugin % cd /Users/git/Jayson/git1102/IPadDFUMCTFixtureDylib
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % cd /Users/git/Jayson/git1102/IPadDFUMCTFixtureDylib
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git checkout -b "update_function_name"
+Switched to a new branch 'update_function_name'
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git status
+On branch update_function_name
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   DFUFixture.h
+	modified:   DFUFixture.m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git add .
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git commit -m "change the getAndWriteFile function name to get_and_write_file"
+[update_function_name deba97c] change the getAndWriteFile function name to get_and_write_file
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % git push origin "update_function_name"
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 430 bytes | 430.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+remote: 
+remote: Create a pull request for 'update_function_name' on GitHub by visiting:
+remote:      https://hwtegit.apple.com/ipad-smt-test/IPadDFUMCTFixtureDylib/pull/new/update_function_name
+remote: 
+To https://hwtegit.apple.com/ipad-smt-test/IPadDFUMCTFixtureDylib.git
+ * [new branch]      update_function_name -> update_function_name
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % 
+git@towns-Mac-mini IPadDFUMCTFixtureDylib % cd /Users/git/Jayson/git1102/Atlas2FixturePlugin 
+git@towns-Mac-mini Atlas2FixturePlugin % 
+git@towns-Mac-mini Atlas2FixturePlugin % git status
+On branch Add_Function_To_Support_ACEOTP_Download
+Your branch is up to date with 'origin/Add_Function_To_Support_ACEOTP_Download'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   FixturePlugin/CommonFixture.m
+	modified:   FixturePlugin/DFUFixture.h
+	modified:   FixturePlugin/libDFUFixture.dylib
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git@towns-Mac-mini Atlas2FixturePlugin % git add .
+git@towns-Mac-mini Atlas2FixturePlugin % git commit -m "change the getAndWriteFile function name to get_and_write_file"
+[Add_Function_To_Support_ACEOTP_Download 57a139f] change the getAndWriteFile function name to get_and_write_file
+ 3 files changed, 4 insertions(+), 5 deletions(-)
+ rewrite FixturePlugin/libDFUFixture.dylib (78%)
+git@towns-Mac-mini Atlas2FixturePlugin % 
+git@towns-Mac-mini Atlas2FixturePlugin % git push origin "Add_Function_To_Support_ACEOTP_Download"
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 89.77 KiB | 3.90 MiB/s, done.
+Total 6 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To https://hwtegit.apple.com/smt-test/Atlas2FixturePlugin.git
+   2c2d66b..57a139f  Add_Function_To_Support_ACEOTP_Download -> Add_Function_To_Support_ACEOTP_Download
+git@towns-Mac-mini Atlas2FixturePlugin % cd /Users/git/Jayson/git1102/iPad-DFU-Common-Overlay 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   OverlayRoot/USER_HOME/Library/Atlas2/CommonDFUChangeList.md
+	modified:   OverlayRoot/USER_HOME/Library/Atlas2/Modules/Tech/DUTCmd.lua
+	modified:   OverlayRoot/USER_HOME/Library/Atlas2/Modules/Tech/Process.lua
+	modified:   OverlayRoot/USER_HOME/Library/Atlas2/Modules/Tech/Smokey.lua
+	modified:   OverlayRoot/USER_HOME/Library/Atlas2/Modules/Tech/USBC.lua
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % git checkout -b "Add_Check_ACE_FW_Bin_file_Method"
+Switched to a new branch 'Add_Check_ACE_FW_Bin_file_Method'
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % git add .
+git@towns-Mac-mini iPad-DFU-Common-Overlay % git commit -m "Add_Check_ACE_FW_Bin_file_Method"
+[Add_Check_ACE_FW_Bin_file_Method 559e7ac] Add_Check_ACE_FW_Bin_file_Method
+ 5 files changed, 112 insertions(+), 10 deletions(-)
+git@towns-Mac-mini iPad-DFU-Common-Overlay % git push origin Add_Check_ACE_FW_Bin_file_Method
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (13/13), 2.33 KiB | 2.33 MiB/s, done.
+Total 13 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+remote: 
+remote: Create a pull request for 'Add_Check_ACE_FW_Bin_file_Method' on GitHub by visiting:
+remote:      https://hwtegit.apple.com/ipad-smt-test/iPad-DFU-Common-Overlay/pull/new/Add_Check_ACE_FW_Bin_file_Method
+remote: 
+To https://hwtegit.apple.com/ipad-smt-test/iPad-DFU-Common-Overlay.git
+ * [new branch]      Add_Check_ACE_FW_Bin_file_Method -> Add_Check_ACE_FW_Bin_file_Method
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % 
+git@towns-Mac-mini iPad-DFU-Common-Overlay % cd ..
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % 
+git@towns-Mac-mini git1102 % cd ~
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % git clone https://hwtegit.apple.com/ipad-smt-test/IPadDFUSCFixtureDylib.git
+Cloning into 'IPadDFUSCFixtureDylib'...
+remote: Enumerating objects: 61, done.
+remote: Counting objects: 100% (61/61), done.
+remote: Compressing objects: 100% (36/36), done.
+remote: Total 742 (delta 26), reused 52 (delta 25), pack-reused 681
+Receiving objects: 100% (742/742), 9.40 MiB | 2.08 MiB/s, done.
+Resolving deltas: 100% (229/229), done.
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % 
+git@towns-Mac-mini ~ % cd /Users/git/IPadDFUSCFixtureDylib 
+git@towns-Mac-mini IPadDFUSCFixtureDylib % 
+git@towns-Mac-mini IPadDFUSCFixtureDylib % 
+git@towns-Mac-mini IPadDFUSCFixtureDylib % 
+git@towns-Mac-mini IPadDFUSCFixtureDylib % git checkout -b "update_function_name"
+Switched to a new branch 'update_function_name'
+git@towns-Mac-mini IPadDFUSCFixtureDylib % git status
+On branch update_function_name
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   DFUFixture/DFUFixture.h
+	modified:   DFUFixture/DFUFixture.m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git@towns-Mac-mini IPadDFUSCFixtureDylib % 
+git@towns-Mac-mini IPadDFUSCFixtureDylib % git add .
+git@towns-Mac-mini IPadDFUSCFixtureDylib % git commit -m "change the getAndWriteFile function name to get_and_write_file"
+[update_function_name 0525d66] change the getAndWriteFile function name to get_and_write_file
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+git@towns-Mac-mini IPadDFUSCFixtureDylib % git push origin "update_function_name"
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 507 bytes | 507.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+remote: 
+remote: Create a pull request for 'update_function_name' on GitHub by visiting:
+remote:      https://hwtegit.apple.com/ipad-smt-test/IPadDFUSCFixtureDylib/pull/new/update_function_name
+remote: 
+To https://hwtegit.apple.com/ipad-smt-test/IPadDFUSCFixtureDylib.git
+ * [new branch]      update_function_name -> update_function_name
+git@towns-Mac-mini IPadDFUSCFixtureDylib % 

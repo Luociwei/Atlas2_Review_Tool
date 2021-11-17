@@ -26,7 +26,6 @@
 		BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA273321268235AF00C1F6F7 /* RegularVC.m */; };
 		BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA273322268235AF00C1F6F7 /* RegularVC.xib */; };
 		BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */; };
-		BA491CD72701F458008EF366 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
 		BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD733264B5E3F0024B100 /* 2_off.command */; };
@@ -94,6 +93,9 @@
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 		BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = BAB90A6526C59827004853E2 /* LuaRegularTest.lua */; };
 		BAB90A6F26C689D0004853E2 /* CycleTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */; };
+		BAC66D3227448CA30025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D3127448CA30025A91E /* CwGeneralManagerFrameWork.framework */; };
+		BAC66D3327448CA30025A91E /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D3127448CA30025A91E /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAC66D3827453F8E0025A91E /* MixPing.app in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D3727453F8E0025A91E /* MixPing.app */; };
 		BAD8597126FB77160019A69B /* sn.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAD8597026FB77160019A69B /* sn.txt */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BAC66D3327448CA30025A91E /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +149,6 @@
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
 		BA8BD733264B5E3F0024B100 /* 2_off.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 2_off.command; sourceTree = "<group>"; };
 		BA8BD734264B5E3F0024B100 /* 1_on.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 1_on.command; sourceTree = "<group>"; };
-		BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwGeneralManagerFrameWork.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
 		BA9ACD4F26C561B4004F6F72 /* RegularTabVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularTabVC.h; sourceTree = "<group>"; };
 		BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularTabVC.m; sourceTree = "<group>"; };
 		BA9ACE2826C57D9E004F6F72 /* LSCContext_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCContext_Private.h; sourceTree = "<group>"; };
@@ -276,6 +278,9 @@
 		BAB90A6526C59827004853E2 /* LuaRegularTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LuaRegularTest.lua; sourceTree = "<group>"; };
 		BAB90A6D26C689D0004853E2 /* CycleTimeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleTimeModel.h; sourceTree = "<group>"; };
 		BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTimeModel.m; sourceTree = "<group>"; };
+		BAC66D2E2743FC110025A91E /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwGeneralManagerFrameWork.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
+		BAC66D3127448CA30025A91E /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
+		BAC66D3727453F8E0025A91E /* MixPing.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = MixPing.app; sourceTree = "<group>"; };
 		BAD8597026FB77160019A69B /* sn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sn.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,7 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA491CD72701F458008EF366 /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BAC66D3227448CA30025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +299,7 @@
 		711A34221DC3539000F5B5D2 = {
 			isa = PBXGroup;
 			children = (
+				BAC66D3127448CA30025A91E /* CwGeneralManagerFrameWork.framework */,
 				711A342D1DC3539000F5B5D2 /* Atlas2_Analysis_Tool */,
 				711A342C1DC3539000F5B5D2 /* Products */,
 				BAB4314625B328C1003F0AFB /* Frameworks */,
@@ -331,6 +337,7 @@
 			children = (
 				BAD8597026FB77160019A69B /* sn.txt */,
 				BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */,
+				BAC66D3727453F8E0025A91E /* MixPing.app */,
 				BA8BD734264B5E3F0024B100 /* 1_on.command */,
 				BA8BD733264B5E3F0024B100 /* 2_off.command */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
@@ -594,7 +601,7 @@
 		BAB4314625B328C1003F0AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BA9ACD4D26C55753004F6F72 /* CwGeneralManagerFrameWork.framework */,
+				BAC66D2E2743FC110025A91E /* CwGeneralManagerFrameWork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -673,6 +680,7 @@
 				BAD8597126FB77160019A69B /* sn.txt in Resources */,
 				BA9ACEC126C57D9E004F6F72 /* luac.1 in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
+				BAC66D3827453F8E0025A91E /* MixPing.app in Resources */,
 				BA9ACEBF26C57D9E004F6F72 /* index.css in Resources */,
 				BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */,
 				BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */,

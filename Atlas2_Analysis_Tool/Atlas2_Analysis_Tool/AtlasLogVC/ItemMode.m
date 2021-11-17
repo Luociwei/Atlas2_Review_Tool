@@ -35,7 +35,7 @@
         }
     }
     NSString *content = [FileManager cw_readFromFile:flow_file];
-    NSString *pattern = @"\\d{4}[-/]\\d{2}[-/]\\d{2} \\d{2}:\\d{2}:\\d{2}";
+    NSString *pattern = @"\\d{4}[-/]\\d+[-/]\\d+ \\d+:\\d+:\\d+";
     NSMutableArray *resultsArr = [content cw_regularWithPattern:pattern];
 
     _startTime = [NSString stringWithFormat:@"%@", resultsArr.firstObject[0]];
@@ -104,7 +104,12 @@
         value = self.sn;
     }else if ([key.lowercaseString isEqualToString:@"slot"]) {
         value = self.slot;
-    }else if ([key.lowercaseString isEqualToString:@"endtime"]) {
+    }else if ([key.lowercaseString isEqualToString:@"cfg"]) {
+        value = self.cfg;
+    }else if ([key.lowercaseString isEqualToString:@"broadtype"]) {
+        value = self.broadType;
+    }
+    else if ([key.lowercaseString isEqualToString:@"endtime"]) {
         value = self.endTime;
     }else if ([key.lowercaseString isEqualToString:@"starttime"]) {
         value = self.startTime;
@@ -145,6 +150,8 @@
         [dict setObject:mode.startTime forKey:id_start_time];
         [dict setObject:mode.endTime forKey:id_end_time];
         [dict setObject:mode.testTime forKey:id_test_time];
+        [dict cw_safetySetObject:mode.broadType forKey:id_broad_type];
+        [dict cw_safetySetObject:mode.cfg forKey:id_cfg];
         [dict cw_safetySetObject:mode.sn forKey:id_sn];
         [dict cw_safetySetObject:mode.slot forKey:id_slot];
         [dict cw_safetySetObject:mode.failList forKey:id_fail_list];

@@ -223,6 +223,17 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
     }
 }
 
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
+//    tableViewHeightOfRowCallback
+    if(self.tableViewHeightOfRowCallback){
+        float h = self.tableViewHeightOfRowCallback(row);
+        if (h>0) {
+            return h;
+        }
+    }
+    return 20;
+}
+
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
 
     NSString *identifier = tableColumn.identifier;
@@ -529,6 +540,8 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
         self.buttonClickCallback(row,data);
     }
 }
+
+
 
 #pragma mark -- Drag/Drop
 

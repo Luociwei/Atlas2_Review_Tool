@@ -1,0 +1,7 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+GetCMSite,Common:getSiteFromGHJson,,,{SITE},,,,,,,,,"get site from gh_station_config.json"
+getScannedSN,Common:getScannedSerialNumber,,,[MLB_Num],,,,,,,,,"get the scanned SN"
+dataReportSetup,Common:dataReportSetup,,[MLB_Num],,,,"{""limitsVersion"":""v1.0.0""}",,,,,,"data Report setup with the sn(enable PDCA)"
+UOPCheck,Common:UOPCheck,,,,,,"{""subsubtestname"":""UOPCheck""}",,,,,,UOPCheck
+GetRpcServerLog,Common:getRpcServerLog,,,,,,,,,,,,"Get rpc server log from xavier"
+addLogToInsight,Common:addLogToInsight,,[MLB_Num],,,,,,,,,,"Add fixture log to PDCA"

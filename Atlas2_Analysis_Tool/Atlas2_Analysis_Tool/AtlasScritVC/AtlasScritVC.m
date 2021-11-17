@@ -618,13 +618,22 @@
     if (arr.count != 2) {
         return;
     }
-    NSString *TestName = [dict objectForKey:id_TestName];
-    NSString *fuctionCsvPath =@"";
-    NSString *functionName = arr[0];
-    if ([functionName isEqualToString:@"Tech"]) {
-        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",TestName]];
-    }else{
-        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",functionName]];
+//    NSString *TestName = [dict objectForKey:id_TestName];
+//    NSString *fuctionCsvPath =@"";
+//    NSString *functionName = arr[0];
+//    if ([functionName isEqualToString:@"Tech"]) {
+//        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",TestName]];
+//    }else{
+//        fuctionCsvPath = [local_path stringByAppendingPathComponent:[NSString stringWithFormat:@"Modules/Tech/%@.lua",functionName]];
+//    }
+    NSString *functionName = [NSString stringWithFormat:@".%@",arr[1]];
+    NSArray *luaFiles = [FileManager cw_findPathWithfFileName:@".lua" dirPath:[local_path stringByAppendingPathComponent:@"Modules/Tech"] deepFind:NO];
+    NSString *fuctionCsvPath = @"";
+    for (NSString *luaFile in luaFiles) {
+        NSString *luaContent = [FileManager cw_readFromFile:luaFile];
+        if ([luaContent containsString:functionName]) {
+            fuctionCsvPath = luaFile;
+        }
     }
     
     [self.luaFunction showViewOnViewController:self];

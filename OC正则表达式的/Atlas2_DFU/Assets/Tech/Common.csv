@@ -1,0 +1,8 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+GetSlotNum,Common:getSlotNum,,,{Slot_Num},,,,,,,,,"get slot number(base 1)"
+GetCMSite,Common:getSiteFromGHJson,,,{SITE},,,,,,,,,"get site from gh_station_config.json"
+getScannedSN,Common:getScannedSerialNumber,,,[sn],,,,,,,,,"get the scanned SN"
+dataReportSetup,Common:dataReportSetup,,[sn],,,,"{""subsubtestname"":""dataReportSetup"",""limitsVersion"":""v1.0.0""}",,,,,,"data Report setup with the sn(enable PDCA)"
+UOPCheck,Common:UOPCheck,,,,,,"{""subsubtestname"":""UOPCheck""}",,,,,,UOPCheck
+GetRpcServerLog,Common:getRpcServerLog,,,,,,,,,,,,"Get rpc server log from xavier"
+addLogToInsight,Common:addLogToInsight,,,,,,,,,,,,"Add fixture log to PDCA"

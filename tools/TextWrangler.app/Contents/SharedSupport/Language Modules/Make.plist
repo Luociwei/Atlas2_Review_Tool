@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMSuffixMap</key>
+	<array>
+		<dict>
+			<key>BBLMLanguageSuffix</key>
+			<string>.mk</string>
+		</dict>
+	</array>
+	<key>BBLMFileNamesToMatch</key>
+	<array>
+		<string>Makefile</string>
+		<string>Makefile.*</string>
+	</array>
+	<key>BBLMIsCaseSensitive</key>
+	<false/>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>.DEFAULT</string>
+		<string>.DELETE_ON_ERROR</string>
+		<string>.EXPORT_ALL_VARIABLES</string>
+		<string>.IGNORE</string>
+		<string>.INTERMEDIATE</string>
+		<string>.LIBPATTERNS</string>
+		<string>.NOTPARALLEL</string>
+		<string>.PHONY</string>
+		<string>.PRECIOUS</string>
+		<string>.SECONDARY</string>
+		<string>.SILENT</string>
+		<string>.SUFFIXES</string>
+		<string>addprefix</string>
+		<string>addsuffix</string>
+		<string>basename</string>
+		<string>call</string>
+		<string>CURDIR</string>
+		<string>define</string>
+		<string>dir</string>
+		<string>else</string>
+		<string>endef</string>
+		<string>endif</string>
+		<string>error</string>
+		<string>export</string>
+		<string>filter-out</string>
+		<string>filter</string>
+		<string>findstring</string>
+		<string>firstword</string>
+		<string>foreach</string>
+		<string>ifdef</string>
+		<string>ifeq</string>
+		<string>ifndef</string>
+		<string>ifneq</string>
+		<string>include</string>
+		<string>join</string>
+		<string>MAKE</string>
+		<string>MAKECMDGOALS</string>
+		<string>MAKEFILES</string>
+		<string>MAKEFLAGS</string>
+		<string>MAKELEVEL</string>
+		<string>MAKESHELL</string>
+		<string>notdir</string>
+		<string>origin</string>
+		<string>override</string>
+		<string>patsubst</string>
+		<string>shell</string>
+		<string>SHELL</string>
+		<string>sinclude</string>
+		<string>sort</string>
+		<string>strip</string>
+		<string>subst</string>
+		<string>suffix</string>
+		<string>SUFFIXES</string>
+		<string>unexport</string>
+		<string>vpath</string>
+		<string>VPATH</string>
+		<string>warning</string>
+		<string>wildcard</string>
+		<string>word</string>
+		<string>wordlist</string>
+		<string>words</string>
+	</array>
+	<key>BBLMLanguageCode</key>
+	<string>Make</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>Make</string>
+	<key>BBLMScansFunctions</key>
+	<true/>
+	<key>BBLMSupportsTextCompletion</key>
+	<true/>
+	<key>BBLMCommentLineDefault</key>
+	<string># </string>
+	<key>Language Features</key>
+	<dict>
+		<key>Comment Pattern</key>
+		<string>#.*$</string>
+		<key>Function Pattern</key>
+		<string>^(?P&lt;function&gt;(?P&lt;function_name&gt;[\S]+?):.*$(\r[ \t]+.*)*)</string>
+		<key>String Pattern</key>
+		<string>(?x:
+			(?&gt;	"	(?s: \\. | [^"] )*?		(?: " | $)	)	|
+			(?&gt;	'	(?s: \\. | [^'] )*?		(?: ' | $)	)   |
+			(?&gt;	`	(?s: \\. | [^`] )*?		(?: ` | $)	)
+		)</string>
+		<key>Identifier and Keyword Character Class</key>
+		<string>[:alnum:]_\.\-</string>
+	</dict>
+	<key>com.barebones.DocumentType</key>
+	<string>CodelessLanguageModule</string>
+</dict>
+</plist>

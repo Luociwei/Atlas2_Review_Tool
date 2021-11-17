@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "-init"
-            landmarkType = "7">
+            landmarkName = "@implementation TextView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -81,38 +81,6 @@
             endingLineNumber = "250"
             landmarkName = "-tableView:didClickTableColumn:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TableDataDelegate tableView:didClickTableColumn:]"
-                  moduleName = "CwGeneralManagerFrameWork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/CwGeneralManagerFrameWork/CwGeneralManagerFrameWork/Class/TableDataDelegate.m"
-                  timestampString = "658157913.746905"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "251"
-                  endingLineNumber = "251"
-                  offsetFromSymbolStart = "1604">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TableDataDelegate tableView:didClickTableColumn:]"
-                  moduleName = "CwGeneralManagerFrameWork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/CwGeneralManagerFrameWork/CwGeneralManagerFrameWork/Class/TableDataDelegate.m"
-                  timestampString = "658157913.749523"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "251"
-                  endingLineNumber = "251"
-                  offsetFromSymbolStart = "1636">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -201,22 +169,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
-            timestampString = "654356935.939786"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "-add_csv_click:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/RegularVC/RegularTabVC.m"
             timestampString = "654397846.295351"
             startingColumnNumber = "9223372036854775807"
@@ -234,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
-            timestampString = "654356935.93987"
+            timestampString = "658850462.411517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "315"
@@ -251,7 +203,7 @@
             condition = "m==412"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
-            timestampString = "654356935.939908"
+            timestampString = "658850462.411742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "291"
@@ -267,7 +219,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
-            timestampString = "654356935.939942"
+            timestampString = "658850462.411949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "295"
@@ -315,11 +267,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
-            timestampString = "654397846.296442"
+            timestampString = "658850462.412177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "563"
+            endingLineNumber = "563"
             landmarkName = "-tableDataDelegate"
             landmarkType = "7">
          </BreakpointContent>
@@ -331,27 +283,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
-            timestampString = "654397846.296542"
+            timestampString = "658850462.412222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "547"
-            endingLineNumber = "547"
-            landmarkName = "-tableDataDelegate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
-            timestampString = "654397846.2967989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "735"
-            endingLineNumber = "735"
+            startingLineNumber = "756"
+            endingLineNumber = "756"
             landmarkName = "-deleteRows:"
             landmarkType = "7">
          </BreakpointContent>
@@ -363,11 +299,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
-            timestampString = "654397846.296878"
+            timestampString = "658850462.412261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725"
+            startingLineNumber = "746"
+            endingLineNumber = "746"
             landmarkName = "-deleteRows:"
             landmarkType = "7">
          </BreakpointContent>
@@ -400,7 +336,87 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "-applicationDidFinishLaunching:"
+            landmarkName = "-applicationWillTerminate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
+            timestampString = "658850462.412324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-add_csv_click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
+            timestampString = "658850462.412365"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-add_csv_click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasLogVC/AtlasLogVC.mm"
+            timestampString = "658850462.4124039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "-add_csv_click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
+            timestampString = "658850518.2146029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
+            landmarkName = "-doubleClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Analysis_Tool/Atlas2_Analysis_Tool/AtlasScritVC/AtlasScritVC.m"
+            timestampString = "658850529.769794"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "640"
+            endingLineNumber = "640"
+            landmarkName = "-doubleClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

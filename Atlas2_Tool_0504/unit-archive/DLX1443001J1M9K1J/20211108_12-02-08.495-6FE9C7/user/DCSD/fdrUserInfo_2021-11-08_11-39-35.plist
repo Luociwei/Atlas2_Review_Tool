@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MissingDataInstances</key>
+	<array>
+		<string>bbcl-001720E1-A0822DEF</string>
+		<string>bbpv-001720E1-A0822DEF</string>
+		<string>bbpc-001720E1-A0822DEF</string>
+		<string>pcrt-00008112-000228842EC0011E</string>
+		<string>ADCL</string>
+		<string>GpC2</string>
+		<string>pcic</string>
+		<string>pcii</string>
+		<string>pcvc</string>
+		<string>pcvi</string>
+		<string>pcve</string>
+		<string>pbas</string>
+		<string>pmpc</string>
+		<string>pdcl</string>
+		<string>preg</string>
+		<string>prf1</string>
+		<string>prf2</string>
+		<string>psd1</string>
+		<string>psd2</string>
+		<string>pwcl</string>
+		<string>psnv</string>
+		<string>pfcl</string>
+		<string>pspc</string>
+		<string>eCfg</string>
+		<string>appv</string>
+		<string>jlex</string>
+		<string>jlin</string>
+		<string>jlnl</string>
+		<string>jlnm</string>
+		<string>jlnv</string>
+		<string>jlpq</string>
+		<string>jlps</string>
+		<string>jlsk</string>
+	</array>
+	<key>MissingLocalDataInstances</key>
+	<array>
+		<string>bbcl-001720E1-A0822DEF</string>
+		<string>bbpv-001720E1-A0822DEF</string>
+		<string>bbpc-001720E1-A0822DEF</string>
+		<string>scrt-00008112-000228842EC0011E</string>
+		<string>pcrt-00008112-000228842EC0011E</string>
+		<string>lcrt-C0340029D66AAD</string>
+		<string>fCfg-00008112-000228842EC0011E</string>
+	</array>
+	<key>UnverifiedDataInstances</key>
+	<dict>
+		<key>fCfg-00008112-000228842EC0011E</key>
+		<integer>35184372089088</integer>
+		<key>lcrt-C0340029D66AAD</key>
+		<integer>35184372089088</integer>
+		<key>scrt-00008112-000228842EC0011E</key>
+		<integer>256</integer>
+	</dict>
+	<key>UnverifiedLocalDataInstances</key>
+	<dict/>
+</dict>
+</plist>

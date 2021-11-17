@@ -1,0 +1,15 @@
+document_version, 1.0
+station_id,DFU-NAND-INIT
+station_sw,DCSDPlugin
+station_sw_version,505.4
+
+tag,start_time,duration
+Restore::DFU download, 1636342233.59, 1.51
+Restore::Connected to device, 1636342237.45, 1.96
+Restore::Booting, 1636342235.09, 28.43
+Restore::Sending device tree to device, 1636342263.53, 1.30
+Restore::Flashing firmware, 1636342443.85, 1.23
+Restore::Requesting FUD data, 1636342477.89, 3.14
+Restore::Updating Veridian, 1636342568.13, 0.07
+Restore::Updating AppleTCON, 1636342568.20, 0.08
+Restore::Unmounting filesystems, 1636342350.30, 414.71

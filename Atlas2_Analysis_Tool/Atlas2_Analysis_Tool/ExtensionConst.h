@@ -23,6 +23,9 @@ extern NSString *const key_test_time_s;
 extern NSString *const id_index;
 extern NSString *const id_sn;
 extern NSString *const id_slot;
+extern NSString *const id_broad_type;
+extern NSString *const id_cfg;
+
 extern NSString *const id_record;
 extern NSString *const id_fail_list;
 extern NSString *const key_is_fail;

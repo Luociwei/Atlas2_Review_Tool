@@ -1,0 +1,13 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+SmokeyTest_TouchInitial,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_Safe_Mode"", ""expect"": ""OK""}",,,touch --sel grape --set_param boot-safe-mode true,,,
+,Common:sendCmdAndCreateRecord,,,,300,,"{""subsubtestname"": ""TouchShortsTest"", ""expect"": ""Passed"",""pattern"":""Sequence done[\\s\\S]*(Passed|Failed)"",""hangTimeout"":10}",Y,,"smokey --run --clean Wildfire --test ""TouchShorts"" ControlBitAccess=ReadOnly ""SerialNumberSource='MLB#'""",FA_POWER_OFF,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""TouchShortsTest_Grape_Off"", ""expect"": ""OK""}",,,touch --off,,,
+LoadFW,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_On"", ""expect"": ""OK""}",,,touch --on,,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_Load_Firmware"", ""expect"": ""OK""}",,,touch --load_firmware,,,
+,Common:sendCmdAndCreateRecord,,,(Grape_Properties_resp),10,,"{""subsubtestname"": ""Grape_Properties"", ""expect"": ""OK""}",,,touch -p,,,
+,Common:regexParseString,,(Grape_Properties_resp),[TOUCH_FIRMWARE],,,"{""subsubtestname"": ""Grape_Firmware_Version"", ""attribute"": ""TOUCH_FIRMWARE"", ""pattern"": ""firmware-version:\\s+(0x[0-9A-Fa-f]+)""}",,,,,,
+,Common:versionCompare,,[TOUCH_FIRMWARE],,,,"{""subsubtestname"": ""Grape_Compare"",""comparekey"":""GrapeFW""}",,,,,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_Off"", ""expect"": ""OK""}",,,touch --off,,,
+GPIOCheck_SPI_ConnectivityTest,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_On_SPI"", ""expect"": ""OK""}",,,touch --on,,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""SOC_SPI_to_LANAI_Slave"", ""pattern"":""Received:\\s+([0-9A-Fx\\s]+)"", ""targetindex"": ""4"", ""expect"": ""0x4F 0x81 0x4F 0x81 0x4F 0x81""}",,,"spi -b 20000000 -m 2 -t 5 2 0x1A 0xA1;spi -b 20000000 -m 2 -t 5 8 0x1C 0x73 0x00 0x80 0x40 0x00 0x00 0xC0;spi -b 20000000 -m 2 -t 5 2 0x1A 0xA1;spi -b 20000000 -m 2 -t 5 6 0x1C 0x73 0x00 0x80 0x40 0x00",,,
+,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""Grape_Off_SPI"", ""expect"": ""OK""}",,,touch --off,,,

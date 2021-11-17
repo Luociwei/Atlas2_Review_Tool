@@ -114,7 +114,7 @@
 }
 
 - (IBAction)debugSn:(NSButton *)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"sn.txt" ofType:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"MixPing.app" ofType:nil];
     
     [Task cw_openFileWithPath:path];
 }

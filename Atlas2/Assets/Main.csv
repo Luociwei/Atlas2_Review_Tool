@@ -1,0 +1,77 @@
+TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
+Channel,Fixture,,Y,,,,,,,,Fixture_SetUp
+SoftwareCheck,Fixture,,Y,,,,,,,,Fixture_SetUp
+GeneralAction_1,Fixture,,Y,,,,,,,,Set fan speed to 100
+Discharge_Initial_1,Power,,Y,,,,,,,,Rail_Discharge-Initial
+GeneralAction_2,Fixture,,Y,,,,,,,,Fixture Reset
+VoltageCheck_Safety_VBAT0V8,Power,,Y,,,,,,Y,,VBATT_LV_Short_Check
+VoltageCheck_Safety_VBUS1V25,Power,,Y,,,,,,Y,,VBUS_Short_Check
+VoltageCheck_Safety_VBAT4V2,Power,,Y,,,,,,Y,,VBATT_RESET_CURRENT_Check
+On_Seq_3,Power,,Y,,,,,,,,On_Seq
+FWDL_ACEFlash_SPI_VBAT4V2_VBUS5V,USBC,,Y,,,,,,Y,SITE == FXLH,FWDL
+Discharge_Initial_3,Power,,Y,,,,,,,,Rail_Discharge-Initial
+On_Seq_1,Power,,Y,,,,,,,,On_Seq
+Restore_DFUMode,SOC,,Y,,,,,,Y,,Restore_DFUModeCheck
+Restore_NonUI_DCSD_1,SOC,,Y,,1a,,,,Y,,Do restore process
+Restore_NonUI_DCSD_2,SOC,,Y,,1b,,,,Y,,check for panic during restore
+Ace_Provisioning_Power,SOC,,Y,,1c,,,,Y,,Ace_Provisioning_Power
+Restore_NonUI_DCSD_3,SOC,,Y,,,,,,Y,,CheckPoint for the restore process
+Discharge_Initial_2,Power,,Y,,,,,,,,Rail_Discharge-Initial
+Reset_OCP,Power,,Y,,,,,,,,Reset_OCP
+On_Seq_2,Power,,Y,,,,,,,,Enter Diags initial
+Transition_Diags_1,Process,,Y,,,,,,Y,,Enter Diags check
+Syscfg_List_1,DUTInfo,,Y,,,,,,,,List syscfg
+DiagsFW_Version,DUTInfo,,Y,,,,,,,,Get Diags Version
+OTPProgram_ACE,USBC,,Y,,,,,,Y,,
+Temperature,SOC,,Y,,,,,,Y,,SOC_Thermal-OffOn
+Transition_RTOS_1,Process,,Y,,,,,,Y,,
+RTOSFW,DUTInfo,,Y,,,,,,,,Get RTOSFW_Version
+Transition_RTOS_2,Process,,Y,,,,,,,,
+Transition_RBM_1,Process,,Y,,,,,,Y,,
+RBMFW,DUTInfo,,Y,,,,,,,,Get RBMFW_Version
+Transition_RBM_2,Process,,Y,,,,,,,,
+Reset_Diags,Process,,Y,,,,,,Y,,
+Transition_Diags_2,Process,,Y,,,,,,Y,,
+Info_1,SOC,,Y,,,,,,,,Get the SOC Info
+CB_1,Process,,Y,,,,,,,,Write and Read RTC
+Syscfg,DUTInfo,,Y,,,,,,,,Write and Read Syscfg
+MLBSN,DUTInfo,,Y,,,,,,,,Write and Read SN
+CB_Start,Process,,Y,,,,,,,,startProcessControl
+MLBCFG,DUTInfo,,Y,,,,,,,SITE == FXLH,Write and Read CFG
+UnderVoltageWarning_Sera,PMU,,Y,,,,,,,,
+UnderVoltageWarning_Simetra,PMU,,Y,,,,,,,,
+Info_2,Storage,,Y,,,,,,,,
+Reset,Speaker,,Y,,,,,,Y,,
+Info_SEP,SOC,,Y,,,,,,,,
+SmokeyTest_WDFU,RF,,Y,,,,,,Y,,WDFU Smokey Test
+Syscfg_RFEM,RF,,Y,,,,,,,,RFEM_sanity_check
+Syscfg_WSKU,RF,,Y,,,,,,,mlb_type==MLB_B,WSKU_sanity_check
+Baseband,RF,,Y,,,,,,,mlb_type==MLB_B,BB_Firmware_Load-Diags
+Wifi,RF,,Y,,,,,,,,WiFi_Firmware_Load-Diags
+Bluetooth,RF,,Y,,,,,,,,BT_Firmware_Load-Diags
+NFC,RF,,Y,,,,,,,,Stockholm-General_Test
+Info_ISP,SOC,,Y,,,,,,,,
+SmokeyTest_TouchInitial,Touch,,Y,,,,,,Y,,
+LoadFW,Touch,,Y,,,,,,,,
+GPIOCheck_SPI_ConnectivityTest,Touch,,Y,,,,,,,,
+SensorData_VendorInfor,Accel,,Y,,,,,,,,Accel_Test
+SensorData_AccelOnly,Accel,,Y,,,,,,,,
+SensorData_FS8g_ODR100HZ_Zup,Accel,,Y,,,,,,,,
+SensorData_AccelNormal,Accel,,Y,,,,,,,,
+SensorData_FS8g_ODR200HZ_Zup,Accel,,Y,,,,,,,,
+SensorData_GyroNormal,Gyro,,Y,,,,,,,,Gyro_Test
+SensorData_IDInfor,Gyro,,Y,,,,,,,,
+SensorData_FS2000dps_ODR200HZ,Gyro,,Y,,,,,,,,
+SensorData,PressureSensor,,Y,,,,,,,,Phosphorus_Test
+Registers,PressureSensor,,Y,,,,,,,,Phosphorus_Test
+PCIeBIST_S5e,Storage,,Y,,,,,,,,
+PCIeBIST_Ans3,Storage,,Y,,,,,,,,
+PCIeBIST_Wifi,Storage,,Y,,,,,,,,
+PCIeBIST_Baseband,Storage,,Y,,,,,,,mlb_type==MLB_B,
+Info_GBBTest,Storage,,Y,,,,,,,,
+Info_ANS_HealthTest,Storage,,Y,,,,,,,,
+CB_2,Process,,Y,,,,,,,,
+Syscfg_List_2,DUTInfo,,Y,,,,,,,,List syscfg
+CB_Finish,Process,,Y,,,,,,,,
+Discharge_3,Power,,Y,,,,,,,,
+GeneralAction_3,Fixture,,Y,,,,,,,,Fixture Reset
