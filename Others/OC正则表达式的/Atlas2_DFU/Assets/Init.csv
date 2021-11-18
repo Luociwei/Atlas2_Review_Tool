@@ -1,0 +1,5 @@
+TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
+GetSlotNum,Common,,Y,,,,,,,,
+GetCMSite,Common,,Y,,,,,,,,
+getScannedSN,Common,,Y,,,,,,,,
+dataReportSetup,Common,,Y,,,,,,,,

@@ -1,0 +1,12 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+getScannedSN,Common:getScannedSerialNumber,,,[sn],,,,,,,,,
+dataReportSetup,Common:dataReportSetup,,[sn],,,,"{""subsubtestname"":""dataReportSetup"",""limitsVersion"":""v1.0.0""}",,,,,,
+VariableInit,M:setVariable,,UnSet,{mlb_type},,,,,,,,,
+,M:setVariable,,UnSet,{otp_program_words_flag},,,,,,,,,
+,M:setVariable,,UnSet,{otp_customer_Data_size},,,,,,,,,
+,M:setVariable,,UnSet,{otp_program_keydata_Size},,,,,,,,,
+,M:setVariable,,UnSet,{otp_key_Data_flag},,,,,,,,,
+,M:setVariable,,UnSet,{otp_key_Data_value},,,,,,,,,
+,M:setVariable,,UnSet,{production_mode},,,,,,,,,
+,M:setVariable,,UnSet,{otp_check_crc_flag},,,,,,,,,
+addLogToInsight,Common:addLogToInsight,,,,,,,,,,,,

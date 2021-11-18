@@ -667,7 +667,7 @@
                 <windowController id="B8D-0N-5wS" customClass="WindowVC" sceneMemberID="viewController">
                     <window key="window" title="Atlas2_Analysis_Tool V1.1" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="408" y="228" width="1000" height="664"/>
+                        <rect key="contentRect" x="408" y="228" width="1200" height="664"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="9EA698AB-AAFC-4C28-B36C-F6722E77CCFC" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="sB3-HL-4zf">
                             <allowedToolbarItems>

@@ -1,0 +1,4 @@
+TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
+getScannedSN,Common,,Y,,,,,,,,
+dataReportSetup,Common,,Y,,,,,,,,
+VariableInit,Common,,Y,,,,,,,,

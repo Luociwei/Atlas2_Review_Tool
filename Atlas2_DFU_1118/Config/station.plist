@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Sequence</key>
+	<string>Matchbox/group.lua</string>
+	<key>StationName</key>
+	<string>LA FCT</string>
+	<key>StationVersion</key>
+	<string>A_2.31.4.4-M_2.1.0-S0.0.22</string>
+	<key>InteractiveResourceName</key>
+	<string>InteractiveView</string>
+	<key>DetectionSequence</key>
+	<string>detect.lua</string>
+	<key>Audit</key>
+	<false/>
+	<key>GroupConfig</key>
+	<dict>
+		<key>Instances</key>
+		<integer>1</integer>
+		<key>SlotConfig</key>
+		<array>
+			<string>slot1</string>
+			<string>slot2</string>
+			<string>slot3</string>
+			<string>slot4</string>
+		</array>
+	</dict>
+	<key>ConsoleConfig</key>
+	<dict>
+		<key>AtlasUI</key>
+		<dict>
+			<key>RowColor</key>
+			<integer>1</integer>
+			<key>InteractiveViewPlugin</key>
+			<string>Assets/InteractiveView.bundle</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

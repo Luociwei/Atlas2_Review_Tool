@@ -1,0 +1,146 @@
+#!/bin/bash
+
+#date 20171207
+#Fix Toptest dylib dyploy
+
+#date 20170913
+#Add workaround for Toptest.
+
+#date 20170726
+#Link dylib from Atlas folder to /user/local/lib.
+
+#date 20170303
+#Use VID to deploy dylib.
+
+#date 20160817
+#Search for PID automatically to support different host.
+
+#date 20160728
+#Switch host to J64.
+
+#date 20160620
+#Auto detect project code.
+
+#date 20160527
+#Auto script to deploy fixture lib based on VID.
+#Change it to satisfy your settings.
+
+#Settings
+projectNames=("D10"   "D101"   "D10"    "D111"    "D12"   "D121"   "J120"   "J207"    "D21"    "D21")
+pids=(       "0x0001" "0x0002" "0x0003" "0x0004" "0x0005" "0x0006" "0x1002" "0x1004" "0x2514" "0x1007")
+
+vendors=( "BP"     "TRA"    "TOP"     "MT"     "IA"		 "SC")
+vids=(    "0x2d0c" "0x05e3" "0x2cef"  "0x2d23"  "0x2e13" "0x339e")
+
+
+#Script begins
+dylib="libDFUFixture.dylib"
+libFile="/usr/local/lib/${dylib}"
+libFolder="/Users/gdlocal/Library/Atlas2/supportFiles/"
+newLib=""
+projectName=""
+vid=""
+vendor=""
+pid=""
+
+if [ "${#projectNames[@]}" -ne "${#pids[@]}" ]; then 
+    echo "projectNames and pids array length mismatch, please check the definition."
+	exit 1	
+fi
+
+if [ "${#vendors[@]}" -ne "${#vids[@]}" ]; then 
+    echo "vendors and vids array length mismatch, please check the definition."
+	exit 1	
+fi
+
+usbData=`system_profiler SPUSBDataType`
+
+for i in "${!vids[@]}"; do
+    var=`echo "$usbData" | grep -iB 1 -m 1 "vendor id\W*${vids[$i]}"`
+    echo "$var"
+    if [ "${var}" != "" ]; then
+    	vid=`echo "$var" | grep -i "vendor id" | grep -io "0x[0-9a-z]\{4\}"`
+    	vendor="${vendors[$i]}"
+    	pid=`echo "$var" | grep -i "product id" | grep -io "0x[0-9a-z]\{4\}"`
+		break
+	fi
+done
+
+ln -sf "$libFolder$dylib" "$libFile"
+
+if [ "${vid}" != "" ]; then
+	echo "Found fixture vendor id: $vid."
+	if [ "${vendor}" != "" ]; then
+		echo "Found fixture vendor with id $vid: $vendor."
+	else
+		echo "Found no supported vendor with id $vid, please check the definition and USB connections."
+		exit 1
+	fi
+else
+	toptest=`echo "$usbData" | grep -i "TopTest"`
+	if [ "${toptest}" != "" ]; then
+		$vendor = "TOP"
+		echo "Found fixture vendor: $vendor."
+	else
+		echo "Found no supported vendor id, please check the definition and USB connections."
+		exit 1
+	fi
+fi
+
+if false; then
+if [ "${pid}" != "" ]; then
+	for i in "${!pids[@]}"; do
+    	if [ "${pid}" == "${pids[$i]}" ]; then
+    		projectName="${projectNames[$i]}"
+			break
+		fi
+	done
+else
+	echo "Found no product id with vid $vid, please check the definition and USB connections."
+	exit 1
+fi
+
+if  [ "$projectName" != "" ]; then
+	echo "Found project name with id $pid: $projectName."
+else 
+	echo "Found no corresponding project name for $pid."
+	exit 1
+fi
+fi
+
+newLib="libDFUFixture_${vendor}.dylib"
+
+if [ ! -e "$libFolder$newLib" -o "$newLib" == "" ]; then
+	echo "Found no matching lib for fixture $vid."
+	exit 1
+else 
+	echo "Found matching lib for fixture $vid: $newLib."
+fi
+
+ln -sf "$libFolder$newLib" "$libFolder$dylib"
+if [ $? -ne 0 ]; then
+	echo "Failed to copy new lib file: $libFolder$newLib to $libFolder$dylib."
+	exit 1
+else
+	echo "Copied new lib file: $libFolder$newLib to $libFolder$dylib."
+fi
+
+if [ -e "$libFile" ]; then
+	rm -rf "$libFile"
+	if [ $? -ne 0 ]; then
+		echo "Failed to remove orignal lib file: $libFile."
+		exit 1
+	else
+		echo "Removed orignal lib file: $libFile."
+	fi
+fi
+
+ln -sf "$libFolder$dylib" "$libFile"
+if [ $? -eq 0 ]; then
+	echo "Fxture lib linked: $libFolder$dylib to $libFile."
+else 
+	echo "Failed to link lib file: $libFolder$dylib to $libFile."
+	exit 1
+fi
+
+exit 0

@@ -1,0 +1,18 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+Transition_Diags_1,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_Iboot_Check""}",Y,,iboot,FA_POWER_OFF,,
+,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_Diag_Check""}",Y,,diags,FA_POWER_OFF,,
+Transition_RTOS_1,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_iBoot_Check""}",Y,,iboot,FA_POWER_OFF,,"catch key word to check if enter recoverymode"
+,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_RTOS""}",Y,,rtos,FA_POWER_OFF,,"Enter RTOS Mode"
+Transition_RTOS_2,Common:versionCompare,,[RTOS_Version],,,,"{""subsubtestname"": ""Rtos_Version_Compare"",""comparekey"":""RTOS""}",,,,,,"compare Rtos version"
+Transition_RBM_1,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_iBoot_Check""}",Y,,iboot,FA_POWER_OFF,,"catch key word to check if enter recoverymode"
+,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_RBM""}",Y,,rbm,FA_POWER_OFF,,"Enter RBM Mode"
+Transition_RBM_2,Common:versionCompare,,[RBM_Version],,,,"{""subsubtestname"": ""RBM_Version_Compare"",""comparekey"":""RBMVersionList""}",,,,,,"compare RBM version"
+Reset_Diags,Common:enterEnv,,,,25,,"{""subsubtestname"": ""RBM_Reset""}",Y,,iboot,FA_POWER_OFF,,Rbm_Reset
+Transition_Diags_2,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_Diag""}",Y,,diags,FA_POWER_OFF,,"re enter diags capture :-) characters"
+CB_2,Common:sendCmdAndCreateRecord,Y,,,5,,"{""subsubtestname"": ""CB_SKIP_SMT"",""expect"":""OK""}",,,"cbskip smt",,,"cbskip smt"
+,Common:writeICTCB,,[sn],,,,"{""subsubtestname"": ""Write_ICT_CB""}",,,,,,"ICT_CB write"
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""Read_ICT_CB"",""expect"":""Passed""}",,,"cbread 0x0a",,,"ICT_CB read"
+finishProcessControl,Common:finishCB,,,,,,"{""subsubtestname"": ""Finish_Process_Control"",""dutPluginName"":""dut""}",,,,,,Finish_Process_Control
+startProcessControl,Common:setRTC,,,,,,"{""subsubtestname"": ""Set_RTC_Start""}",,,,,,Set_RTC_Start
+,Common:startCB,,,,,,"{""subsubtestname"":""Start_Process_Control"",""dutPluginName"":""dut""}",,,,,,Start_Process_Control
+CB_1,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""Initial"",""expect"":""OK""}",,,cbinit,,,"cb init"

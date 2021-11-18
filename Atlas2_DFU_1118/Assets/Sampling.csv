@@ -1,0 +1,17 @@
+name,proposedRate
+Mic_PrivacyLogic,100
+Touch_Boost_PFM_PWM_VBAT3V7_VBUSOff,100
+Orion_ContactContamination,100
+Orion_ConsumerModeADCRead,100
+Orion_ProviderModeOCP_Boost5V_CCEload2000mA,100
+Orion_ProviderModeDCR_Boost5V_CCEload1500mA,100
+PMU_Button_Sera_PullDown,100
+SOC_PMU_Temperature,100
+BatteryCharger_BuckBoostEfficiency_VBAT4V35_PPVBUS_PROT_4V25,100
+BatteryCharger_BoostEfficiency_VBAT3V2_VBUS5V,100
+USBC_LDCM_Loopback,100
+Mic_FR_DmicC3_FHC_PDM1KHz,100
+USBC_USB2.0DataTransferSanity_PDSourceCC,100
+USBC_USB3.0_Pair1-PD_SRC_SS,100
+USBC_USB3.0_Pair2-PD_SRC_SS,100
+SOC_I2CConnectivity_I2C,100

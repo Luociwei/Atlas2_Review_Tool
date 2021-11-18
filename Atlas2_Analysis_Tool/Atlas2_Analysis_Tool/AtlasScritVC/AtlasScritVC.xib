@@ -17,18 +17,18 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="1000" height="672"/>
+            <rect key="frame" x="0.0" y="0.0" width="1200" height="672"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <box fixedFrame="YES" boxType="custom" borderType="none" translatesAutoresizingMaskIntoConstraints="NO" id="dMC-Sn-VoE">
-                    <rect key="frame" x="0.0" y="617" width="1000" height="55"/>
+                    <rect key="frame" x="0.0" y="617" width="1200" height="55"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <view key="contentView" ambiguous="YES" id="vsy-Ed-u1l">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="55"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="55"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uc-2H-788" customClass="FileDragView">
-                                <rect key="frame" x="10" y="9" width="783" height="37"/>
+                                <rect key="frame" x="10" y="9" width="983" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="/Users/gdlocal/Library/Atlas2/" placeholderString="Drop atlas log path here.(ex:/Users/gdlocal/Library/Atlas2)" drawsBackground="YES" id="kSZ-9G-VOT">
                                     <font key="font" metaFont="system"/>
@@ -37,7 +37,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6At-Ie-BTx">
-                                <rect key="frame" x="803" y="9" width="104" height="37"/>
+                                <rect key="frame" x="1003" y="9" width="104" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Generate" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JRo-Cz-fZq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiU-ht-bQ2">
-                                <rect key="frame" x="917" y="9" width="71" height="37"/>
+                                <rect key="frame" x="1117" y="9" width="71" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Save" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sFC-ec-dkB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-gp-xM7">
-                                <rect key="frame" x="837" y="-8" width="153" height="17"/>
+                                <rect key="frame" x="1037" y="-8" width="153" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" id="9Dr-De-NWP">
                                     <font key="font" metaFont="system"/>
@@ -71,10 +71,10 @@
                     </view>
                 </box>
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHL-rj-zOS" userLabel="items_tableview">
-                    <rect key="frame" x="0.0" y="0.0" width="1000" height="586"/>
+                    <rect key="frame" x="0.0" y="0.0" width="1200" height="586"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" ambiguous="YES" id="Q6a-xw-t5b">
-                        <rect key="frame" x="1" y="0.0" width="998" height="585"/>
+                        <rect key="frame" x="1" y="0.0" width="1198" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="IxF-kD-jJA" viewBased="YES" id="td0-8b-e2c">
@@ -977,7 +977,7 @@
                         </subviews>
                     </clipView>
                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Tje-F7-ktU">
-                        <rect key="frame" x="1" y="569" width="998" height="16"/>
+                        <rect key="frame" x="1" y="569" width="1198" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="vR1-wv-zyI">
@@ -990,7 +990,7 @@
                     </tableHeaderView>
                 </scrollView>
                 <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sIY-p0-o2c">
-                    <rect key="frame" x="10" y="594" width="537" height="22"/>
+                    <rect key="frame" x="10" y="594" width="737" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="GbC-WV-Gm1">
                         <font key="font" metaFont="system"/>

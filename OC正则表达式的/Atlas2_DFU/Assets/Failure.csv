@@ -1,2 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition,Notes
-FA_POWER_OFF,Common:sendFixtureSlotCommand,,,,,,"{""subsubtestname"":""POWER_OFF""}",dut_power_off,,"Power OFF"

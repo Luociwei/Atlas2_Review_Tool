@@ -1,0 +1,10 @@
+ConditionName,Values,Dynamic
+mlb_type,MLB_A;MLB_B;UnSet,Y
+production_mode,UnSet;dev_fuse_mode;prod_fuse_mode,Y
+otp_check_crc_flag,UnSet;Verify_Ace2_operating_state;Verify_False,Y
+otp_program_words_flag,UnSet;OTP_NEED_PROGRAM_CUSTOMER_WORDS;OTP_Already_PROGRAMMED;OTP_DONTNEED_PROGRAM;FAIL,Y
+otp_program_flag,UnSet;OTP_Need_Check_Key_Data_Size;OTP_DONTNEED_PROGRAM;OTP_Need_Check_Key_Data_Size_prod_fuse,Y
+otp_customer_Data_size,UnSet;PASS_0;FAIL_Size_Not_0,Y
+otp_program_keydata_Size,UnSet;0;OTP_Key_SIZE_NOT_0,Y
+otp_key_Data_flag,UnSet;TRUE;FALSE,Y
+otp_key_Data_value,UnSet;TRUE;FALSE,Y

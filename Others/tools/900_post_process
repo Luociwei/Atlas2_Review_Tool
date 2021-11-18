@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# create /vault/DMX folder
+mkdir -p "/vault/Atlas"
+#chown -R $(whoami) "/vault"
+chmod 777 "/vault"
+echo "created /vault/Atlas"
+
+ditto /Library/AtlasLibraries/ /Library/.
+
+#Grant access
+gh_station_info="/vault/data_collection/test_station_config/gh_station_info.json"
+BUILD_STAGE=`cat "$gh_station_info" | grep "\"BUILD_STAGE\""`
+if [[ $BUILD_STAGE = *"MP"* ]]; then
+	echo "MP, not adding permissions"
+else
+	echo "Not MP, add rw permissions"
+	find /AppleInternal/usr/local/bin -exec chmod a+rw {} \;
+	find /AppleInternal/usr/local/lib -exec chmod a+rw {} \;
+	find /AppleInternal/HWTE/Atlas/Plugins -exec chmod a+rw {} \;
+	find /AppleInternal/Library/Frameworks -exec chmod a+rw {} \;
+	find /usr/local/lib -exec chmod a+rw {} \;
+	find /usr/local/Atlas/Plugins -exec chmod a+rw {} \;
+fi
+
+#add alias for Atlas APP on desktop
+if [ ! -f /Users/gdlocal/Desktop/AtlasUI.app ]; then
+    ln -s /AppleInternal/Applications/AtlasUI.app /Users/gdlocal/Desktop/AtlasUI.app
+fi
+
+if [ ! -f /Users/gdlocal/Desktop/AtlasRecordsUI.app ]; then
+    ln -s /AppleInternal/Applications/AtlasRecordsUI.app /Users/gdlocal/Desktop/AtlasRecordsUI.app
+fi
+
+if [ ! -f /Users/gdlocal/Desktop/AtlasStatusMenu.app ]; then
+    ln -s /AppleInternal/Applications/AtlasStatusMenu.app /Users/gdlocal/Desktop/AtlasStatusMenu.app
+fi
+
+#remove network interface detection and the prompt
+mv /System/Library/UserEventPlugins/SCMonitor.plugin /System/Library/UserEventPlugins/SCMonitor.plugin-DISABLED
+# Chmod of Log Cleaning Script
+if [ -e /Library/LaunchDaemons/com.apple.hwte.atlas.logCleaner.plist ]; then
+    chmod -R 655 /private/etc/atlasLogCleaner.sh
+fi
+
+# Chown of Log Cleaning Script Launch Daemon plist
+if [ -e /Library/LaunchDaemons/com.apple.hwte.atlas.logCleaner.plist ]; then
+    chown -R root:wheel /Library/LaunchDaemons/com.apple.hwte.atlas.logCleaner.plist
+    chmod -R 644 /Library/LaunchDaemons/com.apple.hwte.atlas.logCleaner.plist
+    /bin/launchctl load /Library/LaunchDaemons/com.apple.hwte.atlas.logCleaner.plist
+fi
+
+
+# Xavier requirement
+/usr/sbin/ipconfig waitall
+networksetup -detectnewhardware
+/usr/sbin/ipconfig waitall
+
+networksetup -setmanual "USB Ethernet" 169.254.1.88 255.255.255.0 169.254.1.1
+networksetup -setmanual "Apple USB Ethernet Adapter" 169.254.1.88 255.255.255.0 169.254.1.1
+networksetup -setmanual "Thunderbolt Bridge" 169.254.1.88 255.255.255.0 169.254.1.1
+networksetup -setmanual "AX88772A" 169.254.1.88 255.255.255.0 169.254.1.1
+/usr/sbin/ipconfig waitall
+#

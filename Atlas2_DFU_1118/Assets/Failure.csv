@@ -1,0 +1,2 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition,Notes
+FA_ResetAll,Common:resetXavier,,,,,,"{""subsubtestname"":""Fixture_Reset"",""record"":""NO""}",,,

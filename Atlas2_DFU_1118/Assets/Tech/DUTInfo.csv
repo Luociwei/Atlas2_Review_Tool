@@ -1,0 +1,9 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+Syscfg_SanityCheck_MLBSN,Tech:check_Syscfg_SN,Y,,[mlbsn],,,"{""subsubtestname"":""Format"",""record"":""NO""}",,,,,,
+MLBSN,Common:checkScannedSNAndMLBSN,,,,,,"{""subsubtestname"": ""Check"",""pattern"": ""MLB#%s*(%w*)"",""attribute"": ""MLBSN_FCT"",""fa_sof"":""YES""}",,,syscfg print MLB#,FA_ResetAll,,
+ProjectCode,Common:getStationID,,,,,,"{""subsubtestname"": ""check""}",,,,,,
+Site,Common:getSiteName,,,,,,"{""subsubtestname"": ""check""}",,,,,,
+BoardID,Common:sendCmdAndParseWithDC,,,(boardid),,,"{""subsubtestname"": ""Check"",""pattern"": ""Board%s*Id:%s*(0x%x+)"",""attribute"": ""BOARD_ID_FCT""}",,,boardid,,,
+,Common:getBoardID,,(boardid),{mlb_type},,,"{""subsubtestname"": ""MLB_A_OR_MLB_B""}",,,,,,
+BootConfig,Common:sendCmdAndParseWithDC,,,,,,"{""subsubtestname"": ""MLB_B"",""pattern"": ""Boot%s*Configuration:%s*(0x%x+)"",""attribute"": ""BOOT_CONFIG""}",,,bootcfg,,,
+BoardRevision,Common:sendCmdAndParseWithDC,,,,,,"{""subsubtestname"": ""MLB"",""pattern"": ""Board%s*Revision:%s*(0x%x+)"",""attribute"": ""BOARD_REV_MLB_LA""}",,,boardrev,,,

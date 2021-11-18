@@ -1,5 +1,0 @@
-TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
-GetCMSite,Common,,Y,,,,,,,,
-getScannedSN,Common,,Y,,,,,,,,
-dataReportSetup,Common,,Y,,,,,,,,
-VariableInit,Common,,Y,,,,,,,,

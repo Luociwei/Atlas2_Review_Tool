@@ -1,0 +1,9 @@
+type,org,module,version,build,name,part,revision
+artifact,HWTE.SWPlatform,Atlas2,2.31.4.4,20723,,,
+artifact,HWTE.Common.Serialization,PListSerializationPlugin,1.0.4,20728,,,
+artifact,HWTE.Common.Serialization,CSVSerializationPlugin,1.0.5,20767,,,
+artifact,HWTE.SWPlatform.MatchboxUtils,RegexPlugin,0.0.7,20768,,,
+artifact,HWTE.EEIT.Atlas2Plugins,RunShellCommand,1.1.2,20774,,,
+artifact,HWTE.SWPlatform.Duplo,GroupStateMachine,1.3,21618,,,
+artifact,HWTE.SWPlatform,Matchbox,2.1.0,21623,,,
+artifact,Frogger,macOS,10.13.4,3860,,,

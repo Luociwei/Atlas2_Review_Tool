@@ -1,5 +1,0 @@
-TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
-ResetAll,Fixture,,Y,,,,,,,,
-LED_RED_ON,Fixture,,Y,,,,,,,testFail == TRUE,
-LED_GREEN_ON,Fixture,,Y,,,,,,,testFail != TRUE,
-addLogToInsight,Common,,Y,,,,,,,,

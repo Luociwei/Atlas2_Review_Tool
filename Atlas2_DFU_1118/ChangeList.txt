@@ -1,0 +1,205 @@
+Script_Version = "0.0.22"
+（Nyquist used 0.0.21, so online changed to 0.0.22)
+
+Change_List   =    [[
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.22
+change date: 20211116
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Add Eload_Check test function to check eload version for "02D", if fail to stop test
+2.Optimize Plugins.lua to check fixture PRCServer connect ->Comm to Xavier before press the start testing to avoid the Xavier disconnect issue.
+3.Update "Transition_Diags_DeadBattery2V5,PD_Contract_Check_9V" test function->500ms inner retry, 10 times, ok then break, if fail to stop test
+4.Update "Transition_Diags_DeadBattery2V5,PPVBUS_USB_EMI_DEBUG" test function and limit from [8900,9100] to [8800,9200]
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.20
+change date: 20211111
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Add PD_Contract_Check test (to make sure PDO output successed) before BatteryRechargeThreshold_VBUS5V//Calibration_IbusLimit_PDSink_CVT_CC_VBAT3V8_VBUS15V charge brick test
+2.Change DELAY_200MS_3 to DELAY_500MS_3 for "PMU,FrequencyCheck" test
+3.Optimize "Process.detectDCConnected" function (send blank)to try to fix Dock_Connect_Detect retset issue
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.18
+change date: 20211110
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Update "OTPProgram_ACE" TestName to "FWDL_ACE"
+2.Add PPVCC_MAIN test for VoltageCheck_Hibernation and VoltageCheck_Wakeup test group
+3.Optimize orion Check_Status test function to fix Check_Status retest issue will have max retry 5 times, the largest delay will be 1s.
+4.Optimize "USBC,LDCM_Trace_Default_1" test VDM_CC1_TO_ACE_CC1 sequence 
+5.Optimize "Process.detectDCConnected" function (send blank)to try to fix Dock_Connect_Detect retset issue
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.16
+change date: 20211108
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Sync with New matchbox 2.3.0 which report "group user fail" when test done.
+2.Add judgement to recognize the vendor is SC/PRM.
+3.Optimize "VoltageCheck_Safety_VBUS5V,IBUS_DEBUG" test function
+4.Add timeout 15s for send USBC LDCM Smokey command Parse
+5.Add remove bin file action before Usbfs_Mounted test.
+6."LDCM_Initial_CC1Enabled_VBUSOn,PPVBUS_USB_EMI" fixture measuemnt will have max retry 3 times, the largest delay will be 0.6s.
+7.Add fixture.reset before discharge for Process.forceDFUDischarge function + 1.6s
+8.wakeup/hibernation change -5~-5 to +- 50mv per Wei (radar: 82104068)
+
+---***********************************************************---
+
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.13
+change date: 20211104
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Correct some attribute name with "_FCT"
+2.Dombra current measuemnt will have max retry 3 times, the largest delay will be 0.6s.
+3.Optimize the flow.log
+4.SOC_Production_Stage->remove this attruibute.
+5.improve the dock channel key word capture before send "Diags".
+6.CBAT VERSION, upload string into attribute and judge it with 3 in limit csv file
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.11
+change date: 20211102
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Remove when vbus test value is samll then break logic, change back to original logic.
+2.Add SOC_IO_LEAKAGE_BIN_FUSE into attribute data
+
+---***********************************************************---
+
+
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.10
+change date: 20211101
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Remove "FWDL_ACEFlash_SPI_VBAT4V3_VBUS5V"/"OTPProgram_ACE" Test Items
+2. Judge "PD_Contract_Check_9V" is really up to 9V and have a do while (10 times max) inside.
+3. Add BatteryCharger.sendChargeCmd function to check charge command has error report or not, if no error,then connect FB_VBUS.
+4. Optimize "CurrentCheck_Hibernation,BATT_CURRENT" test function which follow up legacy test method, but we still need to roll into calibration param.
+5. Ibus cal current->change delay from 100ms to 120ms before measurement.
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.9
+change date: 20211029
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Change "Head,ID" test name to "Channel,ID" 
+2. Optimize "CurrentCheck_Hibernation,BATT_CURRENT" test
+3. Optimize "BatteryCharger.recordUSBCurr" function to measure IBUS current
+4. Optimize "Dmm.checkVBUSWithoutFB" function to fix VBUS FB retest issue@Safety check and Enter Diags.
+5. Update "USBC.eraseFW" function timeout to fix ACE_Erase retest issue
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.8
+change date: 20211028
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Add FA_SOF to stop fail test
+2. Change delay 100ms to 500ms to fix "LDCM_Initial_CC1Enabled_VBUSOn,PPVBUS_USB_EMI" issue 
+3. Optimize delay to fix "ConsumerModeHSAIDComms_PPVBUS_ORION_9V3A,Check_Status" issue
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.7
+change date: 20211027
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. VBUS FB issue solved by using step 50mv max, to slowly raise to target setting voltage.
+2. Remove OTPProgram PPVBUS 5V PORT measurement, due to move to DFU station.
+3. Optimize the "forcefail" issue, dockchannel teardown function move from "shutdownPlugins" to "shutdownGroupPlugins"
+4. Align with other dylibs, change the DockChannel.l-dylib ARC mode from no to yes in Git. under tracking the result online.
+---***********************************************************---
+
+
+
+
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.5
+change date: 20211025
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1.Change read back FB_VBUS voltage delay (inside) from 50ms to 100ms to fix VBUS FB retest issue@Safety check and Enter Diags.
+  (Add lua function)
+2.Release PP3V3_ACE_LDO voltage test for MLB_B V8.
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.4
+change date: 20211022
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Update "PMU,Info_Sera,OTP_Revision" test limit from 0x06 to 0x07 for EVT MINI
+2. Change attribute "SPK_BOOST_REV_ID" to "SPK_BOOST_MASTER_REV_ID"
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.3
+change date: 20211022
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Update ACE2_J407_OTP_NONprod.bin//ACE2_J407_OTP_Prod.bin for EVT RT13 OTP_FW
+2. Optimize script attribute test
+3. Put RT13 i2c -s 2 as a test item with limit setting.
+4. Pdsink to PDsink to follow VEGA
+
+---***********************************************************---
+
+---***********************************************************---
+build stage EVT 
+script Ver: 0.0.2
+change date: 20211021
+SW engineer: HongLiang/Wenguang_zhang
+Change Scope: J407
+
+1. Initial release for EVT Atlas2.
+
+---***********************************************************---
+
+]]
