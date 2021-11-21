@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)dismisssViewOnViewController:(NSViewController *)vc;
 -(void)showViewAsSheetOnViewController:(NSViewController *)vc;
 -(void)close;
-
+@property BOOL isActive;
 @end
 
 NS_ASSUME_NONNULL_END

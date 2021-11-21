@@ -115,13 +115,13 @@
 -(void)awakeFromNib{
     NSDate *date = [NSDate date];
     NSDate * buildTime = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
-//    NSTimeInterval timeInterval = [date timeIntervalSinceDate:buildTime];
-//    if (timeInterval > 3600*24*30*10) {
-//        [Alert cw_RemindException:@"Warning!!!" Information:@"The version has expired. Please use the latest version!"];
-//    }
-    if (!([date.description containsString:@"2021"] || [date.description containsString:@"2022"])) {
-        [NSApp terminate:nil];
+    NSTimeInterval timeInterval = [date timeIntervalSinceDate:buildTime];
+    if (timeInterval > 3600*24*30*12) {
+        [Alert cw_RemindException:@"Warning!!!" Information:@"The version has expired. Please use the latest version!"];
     }
+//    if (!([date.description containsString:@"2021"] || [date.description containsString:@"2022"])) {
+//        [NSApp terminate:nil];
+//    }
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(windowWillClose:)
                                                  name:NSWindowWillCloseNotification

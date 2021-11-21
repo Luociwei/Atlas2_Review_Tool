@@ -12,13 +12,13 @@
 
 
 @interface AtlasScritVC ()
-@property (unsafe_unretained) IBOutlet NSTextView *logview;
+//@property (unsafe_unretained) IBOutlet NSTextView *logview;
 
-@property (nonatomic,strong) NSMutableArray<NSDictionary *> *origin_items_data;
+@property (nonatomic,strong) NSMutableArray<NSMutableDictionary *> *origin_items_data;
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *fail_items_data;
 @property (weak) IBOutlet NSTableView *itemsTableView;
 
-@property (weak) IBOutlet NSTextField *labelPath;
+//@property (weak) IBOutlet NSTextField *labelPath;
 //@property (nonatomic, strong) FMDatabase *db;
 @property (weak) IBOutlet FileDragView *logDropView;
 //@property (weak) IBOutlet NSTextField *labelCount;
@@ -255,16 +255,35 @@
 - (IBAction)search:(NSSearchField *)searchField {
     
     NSString *content = searchField.stringValue.length ? searchField.stringValue : @"";
+
     
-    NSMutableArray *itemsArr = [self.tableDataDelegate getData];
-    
-    NSMutableArray *itemsArr_copy = [itemsArr mutableCopy];
+    if (!content.length) {
+        [self.origin_items_data enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            [itemDict setObject:@"" forKey:key_IsSearch];
+            
+        }];
+        [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
+        return;
+    }
+    NSMutableArray *itemsArr_copy = [[NSMutableArray alloc]initWithArray:self.origin_items_data];
+//    [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+//
+//        [itemDict setObject:content forKey:key_IsSearch];
+//
+//    }];
+    NSMutableArray *filterArr = [[NSMutableArray alloc]init];
     [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        [itemDict setObject:content forKey:key_IsSearch];
+        for (NSString *vaule in itemDict.allValues) {
+            if ([vaule.lowercaseString containsString:content.lowercaseString]) {
+                [itemDict setObject:content forKey:key_IsSearch];
+                [filterArr addObject:itemDict];
+                break;
+            }
+        }
         
     }];
-    [self.tableDataDelegate reloadTableViewWithData:itemsArr];
+    
+    [self.tableDataDelegate reloadTableViewWithData:filterArr];
     
     
 }

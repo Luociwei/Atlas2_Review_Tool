@@ -10,12 +10,13 @@
 #import "ItemMode.h"
 #import "FailOnlyItems.h"
 //#import "RedisInterface.hpp"
-
+#import "ProgressBarVC.h"
 
 @interface AtlasLogVC ()
-@property (unsafe_unretained) IBOutlet NSTextView *logview;
-@property (strong) IBOutlet NSMenuItem *editMenu;
+//@property (unsafe_unretained) IBOutlet NSTextView *logview;
+//@property (strong) IBOutlet NSMenuItem *editMenu;
 //@property (weak) IBOutlet NSButton *showSlot;
+@property (weak) IBOutlet NSButton *btnGenerate;
 
 //@property (nonatomic,strong) NSArray<NSDictionary *> *items_datas;
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *testTimeSort_items_data;
@@ -32,6 +33,7 @@
 @property (weak) IBOutlet NSTextField *labelCount;
 @property (strong,nonatomic)FailOnlyItems *failOnlyItems;
 @property(nonatomic,strong)TableDataDelegate *tableDataDelegate;
+@property(nonatomic,strong)ProgressBarVC *progressBarVC;
 
 
 @end
@@ -41,51 +43,10 @@
 //    RedisInterface *myRedis;
  
 }
-//- (void)redis_set
-//{
-//    myRedis->SetString("csv_all", "0.01,0.03\n0.02,0.05,0.8\n");
-//    myRedis->SetString("Audio HP_MIC_China_Mode_Loopback China_Mode_HP_Left_Loopback_@-5dB_Frequency", "0.01,0.03");
-//    myRedis->SetString("row1", "0.01,0.03,0.02");
-//    myRedis->SetString("row2", "0.01,0.03,0.02");
-//    myRedis->SetString("one_item", "0.01,0.03,0.02");
-//
-//    myRedis->SetString("Audio HP_MIC_China_Mode_Loopback China_Mode_HP_Left_Loopback_@-5dB_Peak_Power", "0.05,0.04,0.06");
-//    myRedis->SetString("test_item_3", "350");
-//
-//    myRedis->SetString("test_item_1", "0.01,0.03,0.02");
-//    myRedis->SetString("test_item_2", "1.01,1.03,0.02");
-//    myRedis->SetString("test_item_3", "2.01,3.03,0.02");
-//}
 
-//- (void)redis_get
-//{
-//
-//    const char *str_char = myRedis->GetString("csv_all");
-////    NSString *str = [NSString stringWithUTF8String:str_char];
-//    NSString *string = [[NSString alloc] initWithCString:str_char encoding:NSUTF8StringEncoding];
-//    NSLog(@"1");
-//
-//}
-//-(BOOL)OpenRedisServer
-//{
-//    NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
-//    system([killRedis UTF8String]);
-//
-//    NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
-//
-//    system([file UTF8String]);
-//    return true;
-//}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    clickIndexTableColumn = 0;
-//    system("/usr/bin/ulimit -n 8192");
-//    [self OpenRedisServer];
-//    myRedis = new RedisInterface;  // redis client connect
-//    myRedis->Connect();
-    
-   
+
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
     dfuLogPath =[deskPath stringByAppendingPathComponent:@"DFU_Tool_Log"];
@@ -127,210 +88,176 @@
     NSString *path =self.logDropView.stringValue;
     
     self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-    if (!path.length) {
+    if (!path.length || ![FileManager cw_isFileExistAtPath:path]) {
 
         [self.tableDataDelegate reloadTableViewWithData:nil];
+        [Alert cw_messageBox:@"Error!" Information:@"Not found the file path,pls check!!!"];
         return;
     }
-//    NSString *path = @"/Users/ciweiluo/Desktop/atlas_log/unit-archive";
-//    NSLog(@"%@", [NSString stringWithFormat:@"CW+++++path:%@",path]);
-//    CSVParser *csv = [[CSVParser alloc]init];
-//    NSMutableArray *mutArray = nil;
-//    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if (![manager fileExistsAtPath:path]) {
-        
-        [self.tableDataDelegate reloadTableViewWithData:nil];
-        return;
-    }
-//    NSString *home = [@"~" stringByExpandingTildeInPath];
-    NSMutableArray *files = [[NSMutableArray alloc] init];
-    NSString *filename;
+
+    [self.progressBarVC showViewOnViewController:self];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
     
-    for (filename in [manager enumeratorAtPath:path]) {
-        
-        if ([filename containsString:@"records.csv"]) {
-            [files addObject:filename];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if (![manager fileExistsAtPath:path]) {
+            
+            [self.tableDataDelegate reloadTableViewWithData:nil];
+            return;
         }
-    }
-    if (files.count < 1) {
-        [self.itemsTableView reloadData];
-        return;
-    }
-    NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
-    NSMutableArray *item_mode_pass_arr=[[NSMutableArray alloc]init];
-    NSMutableArray *item_mode_fail_arr=[[NSMutableArray alloc]init];
-    int i = 1;
-    for (filename in files) {
-        ItemMode *item_mode = [[ItemMode alloc]init];
-        NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
-        if (pathArr.count<2) {
+        //    NSString *home = [@"~" stringByExpandingTildeInPath];
+        NSMutableArray *files = [[NSMutableArray alloc] init];
+        
+        for (NSString *filename in [manager enumeratorAtPath:path]) {
+            
+            if ([filename containsString:@"system/records.csv"]) {
+                [files addObject:filename];
+            }
+        }
+        //[FileManager cw_findPathWithfFileName:@"system/records.csv" dirPath:path deepFind:YES];
+        if (files.count < 1) {
             [self.itemsTableView reloadData];
             return;
         }
         
-        
-        
-        item_mode.recordPath = [NSString stringWithFormat:@"%@/%@",path,filename];
-        //        ItemMode.s
-        NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
-        
-        NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
-        item_mode.slot = @"Unkonw";
-        //        if (self.showSlot.state) {
-        NSString *device_content = [FileManager cw_readFromFile:device_path];
-        if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
-            item_mode.slot = @"1";
-        }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
-            item_mode.slot = @"2";
-        }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
-            item_mode.slot = @"3";
-        }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
-            item_mode.slot = @"4";
-        }else{
-
-            if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
-                item_mode.slot = @"1";
-            }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
-                item_mode.slot = @"2";
-            }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
-                item_mode.slot = @"3";
-            }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
-                item_mode.slot = @"4";
-            }
-        }
-        
-        
-        item_mode.cfg = @"Unkonw";
-        item_mode.broadType = @"Unkonw";
-        NSArray *uartLogFiles = [FileManager cw_findPathWithfFileName:@".log" dirPath:userFile deepFind:NO];
-        if (uartLogFiles.count) {
-            NSString *uartLogPath = uartLogFiles[0];
-            NSString *uartLogContent = [FileManager cw_readFromFile:uartLogPath];
-            NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"boot, Board\\s+(.+\\))"];
-            NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#:\\s+(.+)"];
-            if (cfgArr.count) {
-                if ([cfgArr[0] count]>=2) {
-                    item_mode.cfg = cfgArr[0][1];
-                }
-                
-            }
-            if (typeArr.count) {
-                if ([typeArr[0] count]>=2) {
-                    item_mode.broadType = typeArr[0][1];
-                }
-                
-            }
-            
-            
-//            NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"Remote boot, (Board.+)\n"];
-        }
-        
-        
-        //        }
-        
-        //        for (NSString *ch_name in [manager enumeratorAtPath:device_path]) {
-        //            NSString *ch_name1 = [ch_name stringByReplacingOccurrencesOfString:@"/server.log" withString:@""];
-        //            if ([ch_name containsString:@"RPC_CH"]) {
-        //                item_mode.slot = [ch_name1 stringByReplacingOccurrencesOfString:@"RPC_CH" withString:@"Slot"];
-        //
-        //            }
-        //        }
-        item_mode.sn = pathArr[0];
-        //        item_mode.startTime = pathArr[1];
-        NSString *recordPath = [path stringByAppendingPathComponent:filename];
-        //        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
+        NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
+        NSMutableArray *item_mode_pass_arr=[[NSMutableArray alloc]init];
+        NSMutableArray *item_mode_fail_arr=[[NSMutableArray alloc]init];
+        NSInteger i = 1;
         CSVParser *csv = [[CSVParser alloc]init];
-        NSArray *csvArray = nil;
-        if ([csv openFile:recordPath]) {
-            csvArray = [csv parseFile];
-        }
-        NSMutableString *failList = [NSMutableString stringWithString:@""];
-        NSEnumerator *enumer=[csvArray objectEnumerator];
-        NSArray *itemInfo;
-        while (itemInfo=[enumer nextObject]) {
-            //            NSLog(@"%@----%@",itemInfo,[NSThread currentThread]);
-            if (itemInfo.count<=12) {
-                continue;
-            }
-            if ([itemInfo[12] isEqualToString:@"FAIL"]) {
-                NSString *fail_item = [NSString stringWithFormat:@"%@-%@-%@;",itemInfo[2],itemInfo[3],itemInfo[4]];
-                [failList appendString:fail_item];
+        NSInteger count_files = files.count;
+        for (NSString *filename in files) {
+            @autoreleasepool {
+                ItemMode *item_mode = [[ItemMode alloc]init];
+                NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
+                item_mode.sn = pathArr[0];
+
+                item_mode.recordPath = [NSString stringWithFormat:@"%@/%@",path,filename];
+                //        ItemMode.s
+                NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
                 
+                NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
+                item_mode.slot = @"Unkonw";
+                //        if (self.showSlot.state) {
+                NSString *device_content = [FileManager cw_readFromFile:device_path];
+                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
+                    item_mode.slot = @"1";
+                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
+                    item_mode.slot = @"2";
+                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
+                    item_mode.slot = @"3";
+                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
+                    item_mode.slot = @"4";
+                }else{
+                    
+                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
+                        item_mode.slot = @"1";
+                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
+                        item_mode.slot = @"2";
+                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
+                        item_mode.slot = @"3";
+                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
+                        item_mode.slot = @"4";
+                    }
+                }
+                
+                
+                item_mode.cfg = @"Unkonw";
+                item_mode.broadType = @"Unkonw";
+                NSArray *uartLogFiles = [FileManager cw_findPathWithfFileName:@".log" dirPath:userFile deepFind:NO];
+                if (uartLogFiles.count) {
+                    NSString *uartLogPath = uartLogFiles[0];
+                    NSString *uartLogContent = [FileManager cw_readFromFile:uartLogPath];
+                    NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"boot, Board\\s+(.+\\))"];
+                    NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#[\\sValue]*:\\s+(.+)"];
+                    if (cfgArr.count) {
+                        if ([cfgArr[0] count]>=2) {
+                            item_mode.cfg = cfgArr[0][1];
+                        }
+                        
+                    }
+                    if (typeArr.count) {
+                        if ([typeArr[0] count]>=2) {
+                            item_mode.broadType = typeArr[0][1];
+                        }
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                
+                //        item_mode.sn = pathArr[0];
+                //        item_mode.startTime = pathArr[1];
+                NSString *recordPath = [path stringByAppendingPathComponent:filename];
+                //        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
+                
+                NSArray *csvArray = nil;
+                if ([csv openFile:recordPath]) {
+                    csvArray = [csv parseFile];
+                }
+                NSMutableString *failList = [NSMutableString stringWithString:@""];
+                NSEnumerator *enumer=[csvArray objectEnumerator];
+                NSArray *itemInfo;
+                while (itemInfo=[enumer nextObject]) {
+                    //            NSLog(@"%@----%@",itemInfo,[NSThread currentThread]);
+                    if (itemInfo.count<=12) {
+                        continue;
+                    }
+                    if ([itemInfo[12] isEqualToString:@"FAIL"]) {
+                        NSString *fail_item = [NSString stringWithFormat:@"%@-%@-%@;",itemInfo[2],itemInfo[3],itemInfo[4]];
+                        [failList appendString:fail_item];
+                        
+                    }
+                    
+                }
+                
+                item_mode.failList = failList;
+                if (failList.length) {
+                    [item_mode_fail_arr addObject:item_mode];
+                }else{
+                    [item_mode_pass_arr addObject:item_mode];
+                }
+                item_mode.index=i;
+                
+                //        NSLog(@"%@",filename);
+                [item_mode_arr addObject:item_mode];
+//                BOOL S =self.progressBarVC.isViewLoaded;
+                if (self.progressBarVC.isActive) {
+                    double v =i*1.0/count_files*100.0;
+                    [self.progressBarVC setProgressBarDoubleValue:v info:item_mode.sn];
+                }else{
+                    return;
+                }
+
+                i = i + 1;
             }
-            
         }
         
-        item_mode.failList = failList;
-        if (failList.length) {
-            [item_mode_fail_arr addObject:item_mode];
-        }else{
-            [item_mode_pass_arr addObject:item_mode];
+
+        NSInteger total_count = item_mode_arr.count ? item_mode_arr.count : 0;
+        NSInteger fail_count = item_mode_fail_arr.count ? item_mode_fail_arr.count : 0;
+        NSInteger pass_count = item_mode_pass_arr.count ? item_mode_pass_arr.count : 0;
+        NSInteger rate = 0;
+        if (total_count>0 ) {
+            rate = 100*pass_count/total_count;
         }
-        item_mode.index=i;
-        i = i + 1;
-        NSLog(@"%@",filename);
-        [item_mode_arr addObject:item_mode];
-    }
-    
-//    [self.testTimeSort_items_data addObjectsFromArray:item_mode_arr];
-//
-//
-//    self.items_datas =item_mode_arr;
-    
-    
-//    [self.fail_items_data addObjectsFromArray:item_mode_fail_arr];
-//    [self.fail_items_data addObjectsFromArray:item_mode_pass_arr];
-    NSInteger total_count = item_mode_arr.count ? item_mode_arr.count : 0;
-    NSInteger fail_count = item_mode_fail_arr.count ? item_mode_fail_arr.count : 0;
-    NSInteger pass_count = item_mode_pass_arr.count ? item_mode_pass_arr.count : 0;
-    NSInteger rate = 0;
-    if (total_count>0 ) {
-        rate = 100*pass_count/total_count;
-    }
-    self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-    
-    
-//    NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
-//    for (ItemMode *mode in item_mode_arr) {
-//        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-//        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
-//        [dict setObject:mode.startTime forKey:id_start_time];
-//        [dict setObject:mode.sn forKey:id_sn];
-//        [dict setObject:mode.failList forKey:id_fail_list];
-//        [dict setObject:@(mode.isFail) forKey:key_is_fail];
-//        [dict setObject:mode.recordPath forKey:key_record_path];
-//        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
-//        [self.testTimeSort_items_data addObject:dict];
-//
-//    }
-    NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithItemModeArr:item_mode_arr];
-    
-    [self updateAllIWithtemsData:item_dict_arr];
-//    self.testTimeSort_items_data = [self getSnSortItemsData:item_dict_arr];
-//    self.fail_items_data = [self getFailListSortItemsData:item_dict_arr];
-//    self.startTimeSort_items_data = [self getTimeSortItemsData:item_dict_arr];
-//    self.slotSort_items_data = [self getSotSortItemsData:item_dict_arr];
-//    getSotSortItemsData
-    
-//    [self.startTimeSort_items_data removeAllObjects];
-//    for (ItemMode *mode in item_mode_fail_arr) {
-//        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-//        [dict setObject:[NSString stringWithFormat:@"%ld",(long)mode.index] forKey:id_index];
-//        [dict setObject:mode.startTime forKey:id_start_time];
-//        [dict setObject:mode.sn forKey:id_sn];
-//        [dict setObject:mode.failList forKey:id_fail_list];
-//        [dict setObject:@(mode.isFail) forKey:key_is_fail];
-//        [dict setObject:mode.recordPath forKey:key_record_path];
-//        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
-//        [self.fail_items_data addObject:dict];
-//
-//    }
-//
-    [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
-    //    }];
-    
-//    [self save:nil];
+        
+
+        NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithItemModeArr:item_mode_arr];
+        
+        [self updateAllIWithtemsData:item_dict_arr];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressBarVC dismisssViewOnViewController:self];
+            
+            self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
+            
+//            self.btnGenerate.title = @"Generate";
+            [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
+        });
+
+    });
 }
 
 
@@ -536,6 +463,13 @@
     return _failOnlyItems;
 }
 
+-(ProgressBarVC *)progressBarVC{
+    if (!_progressBarVC) {
+        _progressBarVC =[[ProgressBarVC alloc]init];
+    }
+    return _progressBarVC;
+}
+
 -(TableDataDelegate *)tableDataDelegate{
     if (!_tableDataDelegate) {
 //        __weak __typeof(self)weakSelf = self;
@@ -593,7 +527,10 @@
             
             //            __strong __typeof(weakSelf)strongSelf = weakSelf;
             NSString *record_path = [item_data objectForKey:key_record_path];
-            [Task cw_openFileWithPath:record_path.stringByDeletingLastPathComponent];
+            if ([FileManager cw_isFileExistAtPath:record_path]) {
+                [Task cw_openFileWithPath:record_path.stringByDeletingLastPathComponent];
+            }
+            
         };
         
         _tableDataDelegate.tableViewdidClickColumnCallback = ^(NSString *identifier, NSInteger clickIndex) {
@@ -658,68 +595,6 @@
 }
 //
 
-//
-//- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
-//
-//    NSString *identifier = tableColumn.identifier;
-//    if (!self.fail_items_data.count) {
-//        return;
-//    }
-//    if ([identifier isEqualToString:@"FailList"]) {
-//        clickIndexTableColumn = clickIndexTableColumn + 1;
-//        self.items_datas = nil;
-//        if (clickIndexTableColumn % 2 == 1) {
-//
-//            self.items_datas = self.fail_items_data;
-//        }else{
-//
-//            self.items_datas = self.testTimeSort_items_data;
-//        }
-//        [self.itemsTableView reloadData];
-////        self.data
-//
-//    }
-//}
-//- (IBAction)recordBtnClick:(NSButton *)btn {
-//
-//    NSInteger row =btn.tag;
-//    if (row == -1 || !self.fail_items_data.count)
-//    {
-//        return;
-//    }
-//    ItemMode *mode = self.items_datas[row];
-//    NSString *record = mode.recordPath.stringByDeletingLastPathComponent;
-//    [Task termialWithCmd:[NSString stringWithFormat:@"open %@",record]];
-//
-//
-////    if (mode.isFail) {
-////        //        self.failOnlyItems.title =mode.recordPath;
-////        [self.failOnlyItems showViewOnViewController:self];
-////        self.failOnlyItems.recordPath = mode.recordPath;
-////    }
-//
-//}
-//
-//
-//- (void)tableViewSelectionDidChange:(NSNotification *)notification{
-//
-//    NSLog(@"s");
-//
-//    NSTableView *tableView = notification.object;
-//    if (tableView == self.itemsTableView) {
-//        NSInteger index = tableView.selectedRow;
-//        if (self.items_datas.count) {
-//            ItemMode *item = self.items_datas[index];
-////            [self.sn_datas removeAllObjects];
-////            [self.sn_datas addObjectsFromArray:item.SnVauleArray];
-////            [self.snTableView reloadData];
-//        }
-//
-//    }
-//}
-//
-
-
 
 - (void)keyDown:(NSEvent *)event{
     
@@ -731,7 +606,6 @@
     }
 
 }
-
 
 
 

@@ -21,6 +21,9 @@
 
 
 -(void)setRecordPath:(NSString *)recordPath{
+    if (!recordPath.length) {
+        recordPath = @"";
+    }
     _recordPath = recordPath;
     
     NSString *systemFile = recordPath.stringByDeletingLastPathComponent;
@@ -37,17 +40,17 @@
     NSString *content = [FileManager cw_readFromFile:flow_file];
     NSString *pattern = @"\\d{4}[-/]\\d+[-/]\\d+ \\d+:\\d+:\\d+";
     NSMutableArray *resultsArr = [content cw_regularWithPattern:pattern];
-
-    _startTime = [NSString stringWithFormat:@"%@", resultsArr.firstObject[0]];
-    if (!_startTime.length) {
-        _startTime = @"";
-    }
-    _endTime = [NSString stringWithFormat:@"%@", resultsArr.lastObject[0]];
-    if (!_endTime.length) {
-        _endTime = @"";
-    }
-
-    
+//    @autoreleasepool {
+        _startTime = [NSString stringWithFormat:@"%@", resultsArr.firstObject[0]];
+        if (!_startTime.length) {
+            _startTime = @"";
+        }
+        _endTime = [NSString stringWithFormat:@"%@", resultsArr.lastObject[0]];
+        if (!_endTime.length) {
+            _endTime = @"";
+        }
+        
+//    }
     NSDate *date1 = [self getDateFrom:_startTime];
     NSDate *date2 = [self getDateFrom:_endTime];
     NSTimeInterval test_time = [date2 timeIntervalSinceDate:date1];
@@ -68,17 +71,18 @@
     int minutes = (totalSeconds / 60) % 60;
     int hours = totalSeconds / 3600;
     NSString *str = @"";
-    if (hours == 0) {
-        if (minutes == 0) {
-            str =[NSString stringWithFormat:@"%02ds", seconds];
+//    @autoreleasepool {
+        if (hours == 0) {
+            if (minutes == 0) {
+                str =[NSString stringWithFormat:@"%02ds", seconds];
+            }else{
+                str =[NSString stringWithFormat:@"%02dm%02ds",minutes, seconds];
+            }
+            
         }else{
-            str =[NSString stringWithFormat:@"%02dm%02ds",minutes, seconds];
+            str =[NSString stringWithFormat:@"%02dh%02dm%02ds",hours,minutes, seconds];
         }
-        
-    }else{
-        str =[NSString stringWithFormat:@"%02dh%02dm%02ds",hours,minutes, seconds];
-    }
-    
+//    }
     return str;
 }
 
@@ -156,7 +160,7 @@
         [dict cw_safetySetObject:mode.slot forKey:id_slot];
         [dict cw_safetySetObject:mode.failList forKey:id_fail_list];
         [dict setObject:@(mode.isFail) forKey:key_is_fail];
-        [dict cw_safetySetObject:mode.recordPath forKey:key_record_path];
+        [dict setObject:mode.recordPath forKey:key_record_path];
         [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
         [tableData_dic addObject:dict];
         

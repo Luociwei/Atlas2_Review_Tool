@@ -27,6 +27,7 @@
 
 -(void)viewDidAppear{
     [super viewDidAppear];
+    self.isActive = YES;
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(windowWillClose:)
 //                                                 name:NSWindowWillCloseNotification
@@ -35,7 +36,7 @@
 
 -(void)viewDidDisappear{
     [super viewDidDisappear];
-
+    self.isActive = NO;
     [self removeNSWindowWillCloseNotificationObserver];
 }
 
@@ -60,6 +61,7 @@
 }
 
 -(void)close{
+    self.isActive = NO;
     [_mainVc dismissViewController:self];
     
 }
