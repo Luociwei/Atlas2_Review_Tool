@@ -13,6 +13,7 @@
 
 @interface AtlasScritVC ()
 //@property (unsafe_unretained) IBOutlet NSTextView *logview;
+@property (weak) IBOutlet NSPopUpButton *popBtnSearch;
 
 @property (nonatomic,strong) NSMutableArray<NSMutableDictionary *> *origin_items_data;
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> *fail_items_data;
@@ -37,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.popBtnSearch cw_addItemsWithTitles:@[@"Filter",@"Search"]];
 //    NSString *str= [FileManager cw_readFromFile:@"/Users/ciweiluo/Desktop/test/test_bk.csv"];
 //    NSArray *arr = [str cw_componentsSeparatedByString:@","];
 //    NSMutableString *mutstr = [[NSMutableString alloc]init];
@@ -100,9 +101,10 @@
     [self.origin_items_data removeAllObjects];
 
 //    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-    if (!path.length) {
+    if (!path.length || ![FileManager cw_isFileExistAtPath:path]) {
         [self.tableDataDelegate setData:nil];
         [self.itemsTableView reloadData];
+        [Alert cw_messageBox:@"Error!!!" Information:@"Not found the file path,pls check."];
         return;
     }
 //    NSString *path = @"/Users/ciweiluo/Desktop/atlas_log/unit-archive";
@@ -110,17 +112,13 @@
 //    CSVParser *csv = [[CSVParser alloc]init];
 //    NSMutableArray *mutArray = nil;
 //    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if (![manager fileExistsAtPath:path]) {
-        [self.tableDataDelegate setData:nil];
-        [self.itemsTableView reloadData];
-        return;
-    }
 
     NSString *mainCsvPath = [path stringByAppendingPathComponent:@"Assets/Main.csv"];
-    if (![manager fileExistsAtPath:mainCsvPath]) {
+    if (![FileManager cw_isFileExistAtPath:mainCsvPath]) {
         [self.tableDataDelegate setData:nil];
         [self.itemsTableView reloadData];
+        
+        [Alert cw_messageBox:@"Error!!!" Information:[NSString stringWithFormat:@"Not found the file path:%@,pls check.",mainCsvPath]];
         return;
     }
 
@@ -144,7 +142,8 @@
         NSArray *techCsvArr = nil;
 
         NSString *techCsvPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Assets/Tech/%@.csv",testName]];
-        if (![manager fileExistsAtPath:techCsvPath]) {
+        if (![FileManager cw_isFileExistAtPath:techCsvPath]) {
+            [Alert cw_messageBox:@"Error!!!" Information:[NSString stringWithFormat:@"Not found the file path:%@,pls check.",techCsvPath]];
             continue;
         }
         if (![techCsvPathDic.allKeys containsObject:techCsvPath]) {
@@ -255,35 +254,44 @@
 - (IBAction)search:(NSSearchField *)searchField {
     
     NSString *content = searchField.stringValue.length ? searchField.stringValue : @"";
-
-    
-    if (!content.length) {
-        [self.origin_items_data enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
-            [itemDict setObject:@"" forKey:key_IsSearch];
-            
-        }];
-        [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
-        return;
-    }
-    NSMutableArray *itemsArr_copy = [[NSMutableArray alloc]initWithArray:self.origin_items_data];
-//    [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
-//
-//        [itemDict setObject:content forKey:key_IsSearch];
-//
-//    }];
-    NSMutableArray *filterArr = [[NSMutableArray alloc]init];
-    [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSString *vaule in itemDict.allValues) {
-            if ([vaule.lowercaseString containsString:content.lowercaseString]) {
-                [itemDict setObject:content forKey:key_IsSearch];
-                [filterArr addObject:itemDict];
-                break;
-            }
-        }
+    [self.origin_items_data enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+        [itemDict setObject:@"" forKey:key_IsSearch];
         
     }];
+    [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
+    if (!content.length) {
+        return;
+    }
     
-    [self.tableDataDelegate reloadTableViewWithData:filterArr];
+    NSMutableArray *itemsArr_copy = [[NSMutableArray alloc]initWithArray:self.origin_items_data];
+    NSString *popBtnTitle = self.popBtnSearch.title;
+    //    NSString *popBtnTitle2 = self.popBtnSearch.titleOfSelectedItem;
+    //    @"Filter",@"Search"
+    if ([popBtnTitle isEqualToString:@"Search"]) {
+        [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            [itemDict setObject:content forKey:key_IsSearch];
+            
+        }];
+        [self.tableDataDelegate reloadTableViewWithData:itemsArr_copy];
+    }else{
+        
+        NSMutableArray *filterArr = [[NSMutableArray alloc]init];
+        [itemsArr_copy enumerateObjectsUsingBlock:^(NSMutableDictionary *itemDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (NSString *vaule in itemDict.allValues) {
+                if ([vaule.lowercaseString containsString:content.lowercaseString]) {
+                    [itemDict setObject:content forKey:key_IsSearch];
+                    [filterArr addObject:itemDict];
+                    break;
+                }
+            }
+            
+        }];
+        
+        [self.tableDataDelegate reloadTableViewWithData:filterArr];
+        
+        
+    }
     
     
 }
@@ -585,7 +593,7 @@
 
 -(TableDataDelegate *)tableDataDelegate{
     if (!_tableDataDelegate) {
-        __weak __typeof(self)weakSelf = self;
+//        __weak __typeof(self)weakSelf = self;
         _tableDataDelegate = [[TableDataDelegate alloc]initWithTaleView:_itemsTableView isDargData:YES];
         _tableDataDelegate.tableViewForTableColumnCallback = ^(id view, NSInteger row, NSDictionary *data,NSString *identifier) {
             NSString *value = [data valueForKey:identifier];

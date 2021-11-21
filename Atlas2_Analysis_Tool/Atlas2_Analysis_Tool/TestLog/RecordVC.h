@@ -10,7 +10,7 @@
 #import "ExtensionConst.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FailOnlyItems : PresentViewController
+@interface RecordVC : PresentViewController
 @property(nonatomic,strong)NSString *recordPath;
 @end
 

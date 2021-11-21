@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RegularVC">
             <connections>
+                <outlet property="btnMatch" destination="LIR-QH-zIW" id="iKJ-fA-F4u"/>
                 <outlet property="contentView" destination="QkQ-Ok-gK1" id="WJi-0k-LRh"/>
                 <outlet property="patternView" destination="MCw-ez-xlh" id="pgS-RB-dgk"/>
                 <outlet property="resultView" destination="Pa4-hd-1Fk" id="FI3-iR-PBF"/>
@@ -103,7 +104,7 @@
                                 </scroller>
                             </scrollView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCw-ez-xlh">
-                                <rect key="frame" x="20" y="2" width="1053" height="21"/>
+                                <rect key="frame" x="20" y="2" width="1022" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="diag-pallas-([\\d.]+)bin" drawsBackground="YES" id="TFl-mM-dag">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -112,7 +113,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIR-QH-zIW">
-                                <rect key="frame" x="1083" y="-5" width="103" height="32"/>
+                                <rect key="frame" x="1053" y="-5" width="133" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="Match" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X6Z-8T-ZTG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

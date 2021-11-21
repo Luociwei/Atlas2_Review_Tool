@@ -8,7 +8,7 @@
 
 #import "AtlasLogVC.h"
 #import "ItemMode.h"
-#import "FailOnlyItems.h"
+#import "RecordVC.h"
 //#import "RedisInterface.hpp"
 #import "ProgressBarVC.h"
 
@@ -31,7 +31,7 @@
 //@property (nonatomic, strong) FMDatabase *db;
 @property (weak) IBOutlet FileDragView *logDropView;
 @property (weak) IBOutlet NSTextField *labelCount;
-@property (strong,nonatomic)FailOnlyItems *failOnlyItems;
+@property (strong,nonatomic)RecordVC *failOnlyItems;
 @property(nonatomic,strong)TableDataDelegate *tableDataDelegate;
 @property(nonatomic,strong)ProgressBarVC *progressBarVC;
 
@@ -91,41 +91,38 @@
     if (!path.length || ![FileManager cw_isFileExistAtPath:path]) {
 
         [self.tableDataDelegate reloadTableViewWithData:nil];
-        [Alert cw_messageBox:@"Error!" Information:@"Not found the file path,pls check!!!"];
+        [Alert cw_messageBox:@"Error!!!" Information:@"Not found the file path,pls check."];
         return;
     }
 
     [self.progressBarVC showViewOnViewController:self];
+    NSFileManager *manager = [NSFileManager defaultManager];
+
+    NSMutableArray *filesArr = [[NSMutableArray alloc] init];
+    
+    for (NSString *filename in [manager enumeratorAtPath:path]) {
+        
+        if ([filename containsString:@"system/records.csv"]) {
+            [filesArr addObject:filename];
+        }
+    }
+    //[FileManager cw_findPathWithfFileName:@"system/records.csv" dirPath:path deepFind:YES];
+    if (filesArr.count < 1) {
+        [self.tableDataDelegate reloadTableViewWithData:nil];
+        [Alert cw_messageBox:@"Error!!!" Information:@"Not the records.csv file,pls check."];
+        return;
+    }
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
     
-        NSFileManager *manager = [NSFileManager defaultManager];
-        if (![manager fileExistsAtPath:path]) {
-            
-            [self.tableDataDelegate reloadTableViewWithData:nil];
-            return;
-        }
-        //    NSString *home = [@"~" stringByExpandingTildeInPath];
-        NSMutableArray *files = [[NSMutableArray alloc] init];
-        
-        for (NSString *filename in [manager enumeratorAtPath:path]) {
-            
-            if ([filename containsString:@"system/records.csv"]) {
-                [files addObject:filename];
-            }
-        }
-        //[FileManager cw_findPathWithfFileName:@"system/records.csv" dirPath:path deepFind:YES];
-        if (files.count < 1) {
-            [self.itemsTableView reloadData];
-            return;
-        }
-        
+
         NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
         NSMutableArray *item_mode_pass_arr=[[NSMutableArray alloc]init];
         NSMutableArray *item_mode_fail_arr=[[NSMutableArray alloc]init];
         NSInteger i = 1;
         CSVParser *csv = [[CSVParser alloc]init];
-        NSInteger count_files = files.count;
-        for (NSString *filename in files) {
+        NSInteger count_files = filesArr.count;
+        for (NSString *filename in filesArr) {
             @autoreleasepool {
                 ItemMode *item_mode = [[ItemMode alloc]init];
                 NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
@@ -282,14 +279,6 @@
 //}
 
 
-//-(NSInteger)getTestTime:(NSString *)timeStr{
-//    NSInteger h = 0;
-//    NSInteger m = 0;
-//    NSInteger s = 0;
-//    if ([timeStr containsString:@"h"]) {
-//        
-//    }
-//}
 
 -(NSMutableArray *)getTestTimeSortItemsData:(NSMutableArray<NSDictionary *>*)itemsData{
     NSArray *sortArray = [itemsData sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
@@ -456,9 +445,9 @@
 
 
 #pragma mark-  laze load
--(FailOnlyItems *)failOnlyItems{
+-(RecordVC *)failOnlyItems{
     if (!_failOnlyItems) {
-        _failOnlyItems =[[FailOnlyItems alloc]init];
+        _failOnlyItems =[[RecordVC alloc]init];
     }
     return _failOnlyItems;
 }

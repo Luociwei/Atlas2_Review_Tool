@@ -18,8 +18,8 @@
 		BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BD263AFCF90066545F /* CatchFwVc.xib */; };
 		BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */; };
 		BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97BF263AFCF90066545F /* CatchFwVc.m */; };
-		BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* FailOnlyItems.m */; };
-		BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* FailOnlyItems.xib */; };
+		BA1D97C7263AFD270066545F /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* RecordVC.m */; };
+		BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* RecordVC.xib */; };
 		BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993D263E58B00066545F /* ScritItemMode.m */; };
 		BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D993E263E58B10066545F /* AtlasScritVC.xib */; };
 		BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993F263E58B10066545F /* AtlasScritVC.m */; };
@@ -97,6 +97,7 @@
 		BAC66D4B274928E70025A91E /* ProgressBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D49274928E70025A91E /* ProgressBarVC.m */; };
 		BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D4A274928E70025A91E /* ProgressBarVC.xib */; };
 		BAC66D4D274940FA0025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D2E2743FC110025A91E /* CwGeneralManagerFrameWork.framework */; };
+		BAC66D53274A24880025A91E /* PythonRegularTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D52274A24880025A91E /* PythonRegularTest.py */; };
 		BAD8597126FB77160019A69B /* sn.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAD8597026FB77160019A69B /* sn.txt */; };
 /* End PBXBuildFile section */
 
@@ -132,9 +133,9 @@
 		BA1D97BD263AFCF90066545F /* CatchFwVc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatchFwVc.xib; sourceTree = "<group>"; };
 		BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = DFU_Station_CatchFW.py; sourceTree = "<group>"; };
 		BA1D97BF263AFCF90066545F /* CatchFwVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchFwVc.m; sourceTree = "<group>"; };
-		BA1D97C4263AFD270066545F /* FailOnlyItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailOnlyItems.h; sourceTree = "<group>"; };
-		BA1D97C5263AFD270066545F /* FailOnlyItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnlyItems.m; sourceTree = "<group>"; };
-		BA1D97C6263AFD270066545F /* FailOnlyItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailOnlyItems.xib; sourceTree = "<group>"; };
+		BA1D97C4263AFD270066545F /* RecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVC.h; sourceTree = "<group>"; };
+		BA1D97C5263AFD270066545F /* RecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
+		BA1D97C6263AFD270066545F /* RecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordVC.xib; sourceTree = "<group>"; };
 		BA1D993C263E58B00066545F /* ScritItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScritItemMode.h; sourceTree = "<group>"; };
 		BA1D993D263E58B00066545F /* ScritItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScritItemMode.m; sourceTree = "<group>"; };
 		BA1D993E263E58B10066545F /* AtlasScritVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasScritVC.xib; sourceTree = "<group>"; };
@@ -283,6 +284,7 @@
 		BAC66D48274928E70025A91E /* ProgressBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressBarVC.h; sourceTree = "<group>"; };
 		BAC66D49274928E70025A91E /* ProgressBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressBarVC.m; sourceTree = "<group>"; };
 		BAC66D4A274928E70025A91E /* ProgressBarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarVC.xib; sourceTree = "<group>"; };
+		BAC66D52274A24880025A91E /* PythonRegularTest.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PythonRegularTest.py; sourceTree = "<group>"; };
 		BAD8597026FB77160019A69B /* sn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sn.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -322,7 +324,7 @@
 				BA27331F2682356800C1F6F7 /* RegularVC */,
 				BA8BD72A264A5F320024B100 /* LuaFunction */,
 				BA1D993B263E58880066545F /* AtlasScritVC */,
-				BA1D97C3263AFD270066545F /* FailOnlyItems */,
+				BA1D97C3263AFD270066545F /* TestLog */,
 				BA1D97BB263AFCF90066545F /* CatchFwVc */,
 				BA1D97B0263AFADF0066545F /* Main */,
 				BA1D97A4263AFA310066545F /* AtlasLogVC */,
@@ -383,14 +385,14 @@
 			path = CatchFwVc;
 			sourceTree = "<group>";
 		};
-		BA1D97C3263AFD270066545F /* FailOnlyItems */ = {
+		BA1D97C3263AFD270066545F /* TestLog */ = {
 			isa = PBXGroup;
 			children = (
-				BA1D97C4263AFD270066545F /* FailOnlyItems.h */,
-				BA1D97C5263AFD270066545F /* FailOnlyItems.m */,
-				BA1D97C6263AFD270066545F /* FailOnlyItems.xib */,
+				BA1D97C4263AFD270066545F /* RecordVC.h */,
+				BA1D97C5263AFD270066545F /* RecordVC.m */,
+				BA1D97C6263AFD270066545F /* RecordVC.xib */,
 			);
-			path = FailOnlyItems;
+			path = TestLog;
 			sourceTree = "<group>";
 		};
 		BA1D993B263E58880066545F /* AtlasScritVC */ = {
@@ -416,6 +418,7 @@
 				BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */,
 				BAB90A6D26C689D0004853E2 /* CycleTimeModel.h */,
 				BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */,
+				BAC66D52274A24880025A91E /* PythonRegularTest.py */,
 				BAB90A6526C59827004853E2 /* LuaRegularTest.lua */,
 			);
 			path = RegularVC;
@@ -682,9 +685,10 @@
 				BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */,
 				BA9ACEC226C57D9E004F6F72 /* osi-certified-72x60.png in Resources */,
 				BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */,
+				BAC66D53274A24880025A91E /* PythonRegularTest.py in Resources */,
 				BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */,
 				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
-				BA1D97C8263AFD270066545F /* FailOnlyItems.xib in Resources */,
+				BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */,
 				BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */,
 				BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */,
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
@@ -715,7 +719,7 @@
 				BA9ACEAC26C57D9E004F6F72 /* LSCTmpValue.m in Sources */,
 				BA9ACECA26C57D9E004F6F72 /* loadlib.c in Sources */,
 				BA9ACEAD26C57D9E004F6F72 /* LSCFunction.m in Sources */,
-				BA1D97C7263AFD270066545F /* FailOnlyItems.m in Sources */,
+				BA1D97C7263AFD270066545F /* RecordVC.m in Sources */,
 				BA9ACEE426C57D9E004F6F72 /* ldo.c in Sources */,
 				BA9ACED726C57D9E004F6F72 /* ldblib.c in Sources */,
 				BA9ACEBB26C57D9E004F6F72 /* LSCError.m in Sources */,

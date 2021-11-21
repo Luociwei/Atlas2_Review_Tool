@@ -24,9 +24,9 @@
     ocRegularVC.title = @"Objective-C";
     RegularVC *luaRegularVC = [[RegularVC alloc]init];
     luaRegularVC.title = @"Lua";
-//    RegularVC *pyRegularVC = [[RegularVC alloc]init];
-//    pyRegularVC.title = @"Python";
-    [self addViewControllers:@[luaRegularVC,ocRegularVC]];
+    RegularVC *pyRegularVC = [[RegularVC alloc]init];
+    pyRegularVC.title = @"Python";
+    [self addViewControllers:@[luaRegularVC,ocRegularVC,pyRegularVC]];
     
     
     
