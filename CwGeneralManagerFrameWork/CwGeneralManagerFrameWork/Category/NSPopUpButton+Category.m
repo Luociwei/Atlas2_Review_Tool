@@ -9,5 +9,8 @@
 #import "NSPopUpButton+Category.h"
 
 @implementation NSPopUpButton (Category)
-
+-(void)cw_addItemsWithTitles:(NSArray *)titles{
+    [self removeAllItems];
+    [self addItemsWithTitles:titles];
+}
 @end

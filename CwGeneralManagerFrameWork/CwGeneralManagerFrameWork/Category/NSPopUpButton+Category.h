@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSPopUpButton (Category)
-
+-(void)cw_addItemsWithTitles:(NSArray *)titles;
 @end
 
 NS_ASSUME_NONNULL_END

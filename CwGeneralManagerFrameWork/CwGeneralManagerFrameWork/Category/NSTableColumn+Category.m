@@ -20,8 +20,9 @@
     [self setWidth:item.width];
     [self setMinWidth:item.minWidth];
     [self setMaxWidth:item.maxWidth];
+    
     [self setEditable:YES];
-    [self setResizingMask:NSTableColumnAutoresizingMask];
+    [self setResizingMask:NSTableColumnUserResizingMask];
     
    
     [self updateHeaderCellWithItem:item];

@@ -29,4 +29,6 @@
 #import "NSComboBox+Category.h"
 #import "NSTableColumn+Category.h"
 #import "NSImageView+Category.h"
+#import "NSPopUpButton+Category.h"
 #import "Masonry.h"
+

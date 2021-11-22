@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, TableColumnCellType) {
 @property(nonatomic,assign)TableColumnCellType     cellType;//表格单元视图的类型
 @property(nonatomic,strong)NSColor        *textColor;//文本的Color
 @property(nonatomic,assign)BOOL    editable;//文本是否允许编辑
+
 @property(nonatomic,strong)NSArray *items;//Combox类型的items数据
 
 

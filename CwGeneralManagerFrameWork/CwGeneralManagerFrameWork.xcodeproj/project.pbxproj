@@ -56,6 +56,8 @@
 		BA8BD6EE264799B40024B100 /* FileDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8BD6EB264799090024B100 /* FileDragView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAB90AA326DFBB22004853E2 /* CwGeneralManagerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB90AA226DFBB22004853E2 /* CwGeneralManagerBundle.bundle */; };
+		BAC66D50274A0A5A0025A91E /* NSPopUpButton+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC66D4E274A0A5A0025A91E /* NSPopUpButton+Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAC66D51274A0A5A0025A91E /* NSPopUpButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D4F274A0A5A0025A91E /* NSPopUpButton+Category.m */; };
 		BAE02CFD25B3F17A0063A886 /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE725B3F17A0063A886 /* FileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFE25B3F17A0063A886 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE825B3F17A0063A886 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE02CFF25B3F17A0063A886 /* JXArcCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */; };
@@ -129,6 +131,8 @@
 		BA8BD6EB264799090024B100 /* FileDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDragView.h; sourceTree = "<group>"; };
 		BA8E4D0C25ED2BD20056F67F /* CwGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CwGeneralManager.h; sourceTree = "<group>"; };
 		BAB90AA226DFBB22004853E2 /* CwGeneralManagerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CwGeneralManagerBundle.bundle; sourceTree = "<group>"; };
+		BAC66D4E274A0A5A0025A91E /* NSPopUpButton+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton+Category.h"; sourceTree = "<group>"; };
+		BAC66D4F274A0A5A0025A91E /* NSPopUpButton+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPopUpButton+Category.m"; sourceTree = "<group>"; };
 		BAE02CE725B3F17A0063A886 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BAE02CE825B3F17A0063A886 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		BAE02CE925B3F17A0063A886 /* JXArcCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXArcCompatibilityMacros.h; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			children = (
 				BA1D9836263C14960066545F /* NSString+Extension.h */,
 				BA1D9840263C14960066545F /* NSString+Extension.m */,
+				BAC66D4E274A0A5A0025A91E /* NSPopUpButton+Category.h */,
+				BAC66D4F274A0A5A0025A91E /* NSPopUpButton+Category.m */,
 				BA1D983F263C14960066545F /* NSButton+Category.h */,
 				BA1D9837263C14960066545F /* NSButton+Category.m */,
 				BA1D9838263C14960066545F /* NSTextField+Category.h */,
@@ -293,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8E4D0E25ED2BD20056F67F /* CwGeneralManager.h in Headers */,
+				BAC66D50274A0A5A0025A91E /* NSPopUpButton+Category.h in Headers */,
 				BAE02D1125B3F17A0063A886 /* TextView.h in Headers */,
 				BAE02D0625B3F17A0063A886 /* CSVParser.h in Headers */,
 				BAE02D0F25B3F17A0063A886 /* Alert.h in Headers */,
@@ -408,6 +415,7 @@
 				BA1D9937263C368A0066545F /* MASViewAttribute.m in Sources */,
 				BA1D9922263C368A0066545F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BAE02D0D25B3F17A0063A886 /* CSVParser.m in Sources */,
+				BAC66D51274A0A5A0025A91E /* NSPopUpButton+Category.m in Sources */,
 				BA1D9930263C368A0066545F /* MASLayoutConstraint.m in Sources */,
 				BAE02D0C25B3F17A0063A886 /* WindowController.m in Sources */,
 				BA1D9853263C14960066545F /* NSComboBox+Category.m in Sources */,
