@@ -23,7 +23,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2021年 Suncode Luociwei All rights reserved.</string>
+	<string>Copyright © 2021年 Suncode Louis.Luo All rights reserved.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Atlas2_Review_Tool</string>
 	<key>NSMainStoryboardFile</key>

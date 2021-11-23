@@ -19,6 +19,9 @@
 @property (nonatomic,strong) NSMutableArray<NSMutableDictionary *> *origin_items_data;
 @property (nonatomic,strong) NSMutableArray<NSMutableDictionary *> *fail_items_data;
 @property(nonatomic,strong)CSVParser *csv;
+
+@property (weak) IBOutlet NSButton *btnShowAll;
+
 @end
 
 @implementation RecordVC
@@ -31,6 +34,7 @@
 //    [self.view addSubview:self.textView];
 //    self.textView1.frame = self.view.bounds;
 //    [self setupAutolayout];
+    
     [self.popBtnSearch cw_addItemsWithTitles:@[@"Filter",@"Search"]];
     self.origin_items_data = [[NSMutableArray alloc]init];
     self.fail_items_data = [[NSMutableArray alloc]init];
@@ -45,7 +49,7 @@
     }
     
 }
-- (IBAction)showFailOnly:(NSButton *)btn {
+- (IBAction)showAllItems:(NSButton *)btn {
     
     if (btn.state == 1) {
         [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
@@ -145,8 +149,8 @@
         
     }
     
-    if (self.origin_items_data.count) {
-        [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
+    if (self.fail_items_data.count) {
+        [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
     }
 }
 
@@ -157,7 +161,9 @@
         [itemDict setObject:@"" forKey:key_IsSearch];
         
     }];
-    [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
+    [self.btnShowAll setState:1];
+    [self showAllItems:_btnShowAll];
+    //[self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
     if (!content.length) {
         return;
     }

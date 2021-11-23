@@ -8,7 +8,7 @@
 
 #import "WindowVC.h"
 #import "AtlasLogVC.h"
-#import "CatchFwVc.h"
+//#import "CatchFwVc.h"
 #import "AtlasScritVC.h"
 
 #import "RecordVC.h"
@@ -24,7 +24,7 @@
 
 @property (weak) IBOutlet NSImageView *isMixReadyImage;
 
-@property (strong,nonatomic)CatchFwVc *catchFwVc;
+//@property (strong,nonatomic)CatchFwVc *catchFwVc;
 @property (strong,nonatomic)AtlasScritVC *atlasScritVC;
 @property (strong,nonatomic)AtlasLogVC *atlasCsvLogVC;
 //@property (strong,nonatomic)RegularVC *regularVC;
@@ -134,11 +134,11 @@
     [Task cw_openFileWithPath:path];
 }
 
-
-- (IBAction)CatchFW:(NSButton *)sender {
-    
-    [self.catchFwVc showViewOnViewController:self.contentViewController];
-}
+//
+//- (IBAction)CatchFW:(NSButton *)sender {
+//    
+//    [self.catchFwVc showViewOnViewController:self.contentViewController];
+//}
 
 
 
@@ -197,10 +197,10 @@
 
 
 
--(PresentViewController *)catchFwVc{
-    if (!_catchFwVc) {
-        _catchFwVc =[[CatchFwVc alloc]init];
-    }
-    return _catchFwVc;
-}
+//-(PresentViewController *)catchFwVc{
+//    if (!_catchFwVc) {
+//        _catchFwVc =[[CatchFwVc alloc]init];
+//    }
+//    return _catchFwVc;
+//}
 @end

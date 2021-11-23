@@ -25,6 +25,12 @@
     [self setProgressBarDoubleValue:0 info:@"Pls wait!"];
 }
 
+
+- (IBAction)cancel:(NSButton *)sender {
+    [self close];
+}
+
+
 -(void)setProgressBarDoubleValue:(float)doubleVaule info:(NSString *)info{
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{

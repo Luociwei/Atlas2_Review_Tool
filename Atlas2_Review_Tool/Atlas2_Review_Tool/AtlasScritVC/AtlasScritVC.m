@@ -51,7 +51,7 @@
 
 //    self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *userPath = [NSString cw_getUserPath];
-    dfuLogPath =[userPath stringByAppendingPathComponent:@"DFU_Tool_Log"];
+    dfuLogPath =[userPath stringByAppendingPathComponent:@"Atlas2ReviewTool_Log"];
     [FileManager cw_createFile:dfuLogPath isDirectory:YES];
     
 //    self.items_datas = [[NSMutableArray alloc]init];
@@ -667,8 +667,9 @@
     
     [self.luaFunction showViewOnViewController:self];
     self.luaFunction.title = fuctionCsvPath;
-    self.luaFunction.luaFunctionPath = fuctionCsvPath;
     self.luaFunction.luaFunctionName = functionName;
+    self.luaFunction.luaFunctionPath = fuctionCsvPath;
+    
 //    NSDictionary *dict = self.origin_items_data[row];
 //
 //    NSString *recordPath = [dict objectForKey:key_record_path];

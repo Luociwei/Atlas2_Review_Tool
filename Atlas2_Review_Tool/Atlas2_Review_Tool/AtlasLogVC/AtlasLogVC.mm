@@ -8,7 +8,7 @@
 
 #import "AtlasLogVC.h"
 #import "ItemMode.h"
-#import "RecordVC.h"
+#import "TestLogVC.h"
 //#import "RedisInterface.hpp"
 #import "ProgressBarVC.h"
 
@@ -31,7 +31,7 @@
 //@property (nonatomic, strong) FMDatabase *db;
 @property (weak) IBOutlet FileDragView *logDropView;
 @property (weak) IBOutlet NSTextField *labelCount;
-@property (strong,nonatomic)RecordVC *failOnlyItems;
+@property (strong,nonatomic)TestLogVC *testLogVC;
 @property(nonatomic,strong)TableDataDelegate *tableDataDelegate;
 @property(nonatomic,strong)ProgressBarVC *progressBarVC;
 
@@ -49,7 +49,7 @@
 
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
-    dfuLogPath =[deskPath stringByAppendingPathComponent:@"DFU_Tool_Log"];
+    dfuLogPath =[deskPath stringByAppendingPathComponent:@"Atlas2ReviewTool_Log"];
     [FileManager cw_createFile:dfuLogPath isDirectory:YES];
     
 //    self.items_datas = [[NSMutableArray alloc]init];
@@ -95,7 +95,7 @@
         return;
     }
 
-    [self.progressBarVC showViewOnViewController:self];
+    
     NSFileManager *manager = [NSFileManager defaultManager];
 
     NSMutableArray *filesArr = [[NSMutableArray alloc] init];
@@ -109,10 +109,10 @@
     //[FileManager cw_findPathWithfFileName:@"system/records.csv" dirPath:path deepFind:YES];
     if (filesArr.count < 1) {
         [self.tableDataDelegate reloadTableViewWithData:nil];
-        [Alert cw_messageBox:@"Error!!!" Information:@"Not the records.csv file,pls check."];
+        [Alert cw_messageBox:@"Error!!!" Information:@"Not found the records.csv file,pls check."];
         return;
     }
-    
+    [self.progressBarVC showViewAsSheetOnViewController:self];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
     
 
@@ -445,11 +445,11 @@
 
 
 #pragma mark-  laze load
--(RecordVC *)failOnlyItems{
-    if (!_failOnlyItems) {
-        _failOnlyItems =[[RecordVC alloc]init];
+-(TestLogVC *)testLogVC{
+    if (!_testLogVC) {
+        _testLogVC =[[TestLogVC alloc]init];
     }
-    return _failOnlyItems;
+    return _testLogVC;
 }
 
 -(ProgressBarVC *)progressBarVC{
@@ -495,20 +495,20 @@
         //        };
         
         
-        _tableDataDelegate.tableViewRowDoubleClickCallback = ^(NSInteger index, NSDictionary *item_data) {
-            
-            __strong __typeof(&*weakSelf)strongSelf = weakSelf;
-            if (!strongSelf) {
-                return;
-            }
-            NSString *record_path = [item_data objectForKey:key_record_path];
-            BOOL isfail = [[item_data objectForKey:key_is_fail] boolValue];
-            if (isfail) {
-                //        self.failOnlyItems.title =mode.recordPath;
-                [strongSelf.failOnlyItems showViewOnViewController:weakSelf];
-                strongSelf.failOnlyItems.recordPath = record_path;
-            }
-        };
+//        _tableDataDelegate.tableViewRowDoubleClickCallback = ^(NSInteger index, NSDictionary *item_data) {
+//
+//            __strong __typeof(&*weakSelf)strongSelf = weakSelf;
+//            if (!strongSelf) {
+//                return;
+//            }
+//            NSString *record_path = [item_data objectForKey:key_record_path];
+//            BOOL isfail = [[item_data objectForKey:key_is_fail] boolValue];
+//            if (isfail) {
+//                //        self.failOnlyItems.title =mode.recordPath;
+//                [strongSelf.testLogVC showViewOnViewController:weakSelf];
+//                strongSelf.testLogVC.systemPath = record_path.stringByDeletingLastPathComponent;
+//            }
+//        };
         
         
         
@@ -570,17 +570,13 @@
     {
         return;
     }
-
+    
     NSDictionary *dict = self.tableDataDelegate.getData[row];
-
+    
     NSString *recordPath = [dict objectForKey:key_record_path];
-    BOOL isFail = [[dict objectForKey:key_is_fail] boolValue];
-    if (isFail) {
-//        self.failOnlyItems.title =mode.recordPath;
-        [self.failOnlyItems showViewOnViewController:self];
-        self.failOnlyItems.title = recordPath;
-        self.failOnlyItems.recordPath = recordPath;
-    }
+    self.testLogVC.isFail = [[dict objectForKey:key_is_fail] boolValue];
+    [self.testLogVC showViewOnViewController:self];
+    self.testLogVC.recordPath = recordPath;
 
 }
 //

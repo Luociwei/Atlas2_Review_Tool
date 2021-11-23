@@ -187,6 +187,39 @@
 //    }
 //}
 
++(NSArray *)cw_findPathWithfFileNames:(NSArray *)fileNames dirPath:(NSString *)dirPath deepFind:(BOOL)isDeedFind{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSMutableArray *mutPathArr = [[NSMutableArray alloc]init];
+    if (isDeedFind) {
+        for (NSString *name in [manager enumeratorAtPath:dirPath]) {
+            
+            for (NSString *fileName in fileNames) {
+                if ([name containsString:fileName]) {
+                    //flow_file = [systemFile stringByAppendingPathComponent:file];
+                    NSString *file_path = [dirPath stringByAppendingPathComponent:name];
+                    [mutPathArr addObject:file_path];
+                    break;
+                    
+                }
+            }
+
+        }
+    }else{
+        NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
+        for (NSString *name in tmplist) {
+            for (NSString *fileName in fileNames) {
+                if ([name containsString:fileName]) {
+                    NSString *file_path = [dirPath stringByAppendingPathComponent:name];
+                    [mutPathArr addObject:file_path];
+                    break;
+                }
+            }
+        }
+    }
+    
+    return mutPathArr;
+}
+
 +(NSArray *)cw_findPathWithfFileName:(NSString *)fileName dirPath:(NSString *)dirPath deepFind:(BOOL)isDeedFind{
     NSFileManager *manager = [NSFileManager defaultManager];
     NSMutableArray *mutPathArr = [[NSMutableArray alloc]init];

@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RecordVC">
             <connections>
+                <outlet property="btnShowAll" destination="bpP-t7-JeW" id="z37-VG-ZLZ"/>
                 <outlet property="filePathView" destination="QoH-oE-Rma" id="e6l-00-JT2"/>
                 <outlet property="popBtnSearch" destination="wfo-Vb-mIF" id="Z1C-as-nLa"/>
                 <outlet property="recordTableView" destination="i33-sG-1mo" id="66a-cL-lJz"/>
@@ -87,7 +88,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QoH-oE-Rma">
                     <rect key="frame" x="46" y="574" width="1156" height="17"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="FilePath:" id="27W-kE-gfb">
+                    <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" title="FilePath:" id="27W-kE-gfb">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -95,7 +96,7 @@
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I5Z-bA-2WU">
                     <rect key="frame" x="7" y="568" width="39" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSFolder" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ndd-eE-eVV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -132,14 +133,14 @@
                     </connections>
                 </searchField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpP-t7-JeW">
-                    <rect key="frame" x="1081" y="546" width="111" height="18"/>
+                    <rect key="frame" x="1079" y="546" width="111" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Show Fail Only" bezelStyle="regularSquare" imagePosition="left" inset="2" id="IEM-4U-Tad">
+                    <buttonCell key="cell" type="check" title="Show All Items" bezelStyle="regularSquare" imagePosition="left" inset="2" id="IEM-4U-Tad">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="showFailOnly:" target="-2" id="Hb6-kB-Cr0"/>
+                        <action selector="showAllItems:" target="-2" id="1Iu-HB-IYM"/>
                     </connections>
                 </button>
             </subviews>

@@ -15,9 +15,6 @@
 		BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B3263AFADF0066545F /* WindowVC.m */; };
 		BA1D97B7263AFAE00066545F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B4263AFADF0066545F /* main.m */; };
 		BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.m */; };
-		BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BD263AFCF90066545F /* CatchFwVc.xib */; };
-		BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */; };
-		BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97BF263AFCF90066545F /* CatchFwVc.m */; };
 		BA1D97C7263AFD270066545F /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* RecordVC.m */; };
 		BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* RecordVC.xib */; };
 		BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993D263E58B00066545F /* ScritItemMode.m */; };
@@ -25,11 +22,8 @@
 		BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993F263E58B10066545F /* AtlasScritVC.m */; };
 		BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA273321268235AF00C1F6F7 /* RegularVC.m */; };
 		BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA273322268235AF00C1F6F7 /* RegularVC.xib */; };
-		BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
-		BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD733264B5E3F0024B100 /* 2_off.command */; };
-		BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD734264B5E3F0024B100 /* 1_on.command */; };
 		BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */; };
 		BA9ACEAA26C57D9E004F6F72 /* LSCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACE2A26C57D9E004F6F72 /* LSCConfig.m */; };
 		BA9ACEAB26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACE2B26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m */; };
@@ -96,10 +90,13 @@
 		BAC66D3827453F8E0025A91E /* MixPing.app in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D3727453F8E0025A91E /* MixPing.app */; };
 		BAC66D4B274928E70025A91E /* ProgressBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D49274928E70025A91E /* ProgressBarVC.m */; };
 		BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D4A274928E70025A91E /* ProgressBarVC.xib */; };
-		BAC66D4D274940FA0025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D2E2743FC110025A91E /* CwGeneralManagerFrameWork.framework */; };
 		BAC66D53274A24880025A91E /* PythonRegularTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D52274A24880025A91E /* PythonRegularTest.py */; };
 		BAC66D55274BB46A0025A91E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D54274BB46A0025A91E /* README.md */; };
-		BAD8597126FB77160019A69B /* sn.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAD8597026FB77160019A69B /* sn.txt */; };
+		BAC66D58274BD8AE0025A91E /* TestLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D57274BD8AE0025A91E /* TestLogVC.m */; };
+		BAC66D5C274BE5B00025A91E /* TextReviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D5A274BE5B00025A91E /* TextReviewVC.m */; };
+		BAC66D5D274BE5B00025A91E /* TextReviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D5B274BE5B00025A91E /* TextReviewVC.xib */; };
+		BAC66D5F274D0F740025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D5E274D0F730025A91E /* CwGeneralManagerFrameWork.framework */; };
+		BAC66D60274D0F740025A91E /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66D5E274D0F730025A91E /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +106,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BAC66D60274D0F740025A91E /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,10 +128,6 @@
 		BA1D97B3263AFADF0066545F /* WindowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
 		BA1D97B4263AFADF0066545F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA1D97B5263AFADF0066545F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA1D97BC263AFCF90066545F /* CatchFwVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchFwVc.h; sourceTree = "<group>"; };
-		BA1D97BD263AFCF90066545F /* CatchFwVc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatchFwVc.xib; sourceTree = "<group>"; };
-		BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = DFU_Station_CatchFW.py; sourceTree = "<group>"; };
-		BA1D97BF263AFCF90066545F /* CatchFwVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchFwVc.m; sourceTree = "<group>"; };
 		BA1D97C4263AFD270066545F /* RecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVC.h; sourceTree = "<group>"; };
 		BA1D97C5263AFD270066545F /* RecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
 		BA1D97C6263AFD270066545F /* RecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordVC.xib; sourceTree = "<group>"; };
@@ -145,12 +139,9 @@
 		BA273320268235AF00C1F6F7 /* RegularVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularVC.h; sourceTree = "<group>"; };
 		BA273321268235AF00C1F6F7 /* RegularVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularVC.m; sourceTree = "<group>"; };
 		BA273322268235AF00C1F6F7 /* RegularVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegularVC.xib; sourceTree = "<group>"; };
-		BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sudo_cmd.txt; path = CatchFwVc/sudo_cmd.txt; sourceTree = "<group>"; };
 		BA8BD72B264A5F650024B100 /* LuaFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaFunction.h; sourceTree = "<group>"; };
 		BA8BD72C264A5F650024B100 /* LuaFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaFunction.m; sourceTree = "<group>"; };
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
-		BA8BD733264B5E3F0024B100 /* 2_off.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 2_off.command; sourceTree = "<group>"; };
-		BA8BD734264B5E3F0024B100 /* 1_on.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = 1_on.command; sourceTree = "<group>"; };
 		BA9ACD4F26C561B4004F6F72 /* RegularTabVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularTabVC.h; sourceTree = "<group>"; };
 		BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularTabVC.m; sourceTree = "<group>"; };
 		BA9ACE2826C57D9E004F6F72 /* LSCContext_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCContext_Private.h; sourceTree = "<group>"; };
@@ -287,7 +278,12 @@
 		BAC66D4A274928E70025A91E /* ProgressBarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarVC.xib; sourceTree = "<group>"; };
 		BAC66D52274A24880025A91E /* PythonRegularTest.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PythonRegularTest.py; sourceTree = "<group>"; };
 		BAC66D54274BB46A0025A91E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BAD8597026FB77160019A69B /* sn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sn.txt; sourceTree = "<group>"; };
+		BAC66D56274BD8AE0025A91E /* TestLogVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLogVC.h; sourceTree = "<group>"; };
+		BAC66D57274BD8AE0025A91E /* TestLogVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLogVC.m; sourceTree = "<group>"; };
+		BAC66D59274BE5B00025A91E /* TextReviewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextReviewVC.h; sourceTree = "<group>"; };
+		BAC66D5A274BE5B00025A91E /* TextReviewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextReviewVC.m; sourceTree = "<group>"; };
+		BAC66D5B274BE5B00025A91E /* TextReviewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextReviewVC.xib; sourceTree = "<group>"; };
+		BAC66D5E274D0F730025A91E /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC66D4D274940FA0025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BAC66D5F274D0F740025A91E /* CwGeneralManagerFrameWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +301,7 @@
 		711A34221DC3539000F5B5D2 = {
 			isa = PBXGroup;
 			children = (
+				BAC66D5E274D0F730025A91E /* CwGeneralManagerFrameWork.framework */,
 				711A342D1DC3539000F5B5D2 /* Atlas2_Review_Tool */,
 				711A342C1DC3539000F5B5D2 /* Products */,
 				BAB4314625B328C1003F0AFB /* Frameworks */,
@@ -327,11 +324,9 @@
 				BA8BD72A264A5F320024B100 /* LuaFunction */,
 				BA1D993B263E58880066545F /* AtlasScritVC */,
 				BA1D97C3263AFD270066545F /* TestLog */,
-				BA1D97BB263AFCF90066545F /* CatchFwVc */,
 				BA1D97B0263AFADF0066545F /* Main */,
 				BA1D97A4263AFA310066545F /* AtlasLogVC */,
 				711A34371DC3539000F5B5D2 /* Assets.xcassets */,
-				BAC66D54274BB46A0025A91E /* README.md */,
 				711A34391DC3539000F5B5D2 /* Main.storyboard */,
 				711A343C1DC3539000F5B5D2 /* Info.plist */,
 				711A34311DC3539000F5B5D2 /* Supporting Files */,
@@ -342,11 +337,8 @@
 		711A34311DC3539000F5B5D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BAD8597026FB77160019A69B /* sn.txt */,
-				BA491CCE2700B1B6008EF366 /* sudo_cmd.txt */,
+				BAC66D54274BB46A0025A91E /* README.md */,
 				BAC66D3727453F8E0025A91E /* MixPing.app */,
-				BA8BD734264B5E3F0024B100 /* 1_on.command */,
-				BA8BD733264B5E3F0024B100 /* 2_off.command */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
 				BAB4315025B32A38003F0AFB /* ExtensionConst.m */,
 			);
@@ -377,23 +369,17 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		BA1D97BB263AFCF90066545F /* CatchFwVc */ = {
-			isa = PBXGroup;
-			children = (
-				BA1D97BC263AFCF90066545F /* CatchFwVc.h */,
-				BA1D97BF263AFCF90066545F /* CatchFwVc.m */,
-				BA1D97BD263AFCF90066545F /* CatchFwVc.xib */,
-				BA1D97BE263AFCF90066545F /* DFU_Station_CatchFW.py */,
-			);
-			path = CatchFwVc;
-			sourceTree = "<group>";
-		};
 		BA1D97C3263AFD270066545F /* TestLog */ = {
 			isa = PBXGroup;
 			children = (
 				BA1D97C4263AFD270066545F /* RecordVC.h */,
 				BA1D97C5263AFD270066545F /* RecordVC.m */,
 				BA1D97C6263AFD270066545F /* RecordVC.xib */,
+				BAC66D56274BD8AE0025A91E /* TestLogVC.h */,
+				BAC66D57274BD8AE0025A91E /* TestLogVC.m */,
+				BAC66D59274BE5B00025A91E /* TextReviewVC.h */,
+				BAC66D5A274BE5B00025A91E /* TextReviewVC.m */,
+				BAC66D5B274BE5B00025A91E /* TextReviewVC.xib */,
 			);
 			path = TestLog;
 			sourceTree = "<group>";
@@ -687,23 +673,18 @@
 				BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */,
 				BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */,
 				BA9ACEC226C57D9E004F6F72 /* osi-certified-72x60.png in Resources */,
-				BA1D97C1263AFCF90066545F /* DFU_Station_CatchFW.py in Resources */,
 				BAC66D53274A24880025A91E /* PythonRegularTest.py in Resources */,
 				BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */,
 				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
 				BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */,
-				BA491CCF2700B1B6008EF366 /* sudo_cmd.txt in Resources */,
-				BA8BD735264B5E3F0024B100 /* 2_off.command in Resources */,
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
 				BA9ACEC026C57D9E004F6F72 /* manual.css in Resources */,
 				BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */,
-				BAD8597126FB77160019A69B /* sn.txt in Resources */,
 				BA9ACEC126C57D9E004F6F72 /* luac.1 in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
 				BAC66D3827453F8E0025A91E /* MixPing.app in Resources */,
 				BA9ACEBF26C57D9E004F6F72 /* index.css in Resources */,
-				BA1D97C0263AFCF90066545F /* CatchFwVc.xib in Resources */,
-				BA8BD736264B5E3F0024B100 /* 1_on.command in Resources */,
+				BAC66D5D274BE5B00025A91E /* TextReviewVC.xib in Resources */,
 				BAC66D55274BB46A0025A91E /* README.md in Resources */,
 				BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */,
 			);
@@ -757,11 +738,13 @@
 				BA9ACEDA26C57D9E004F6F72 /* lcorolib.c in Sources */,
 				BA9ACEB826C57D9E004F6F72 /* LSCValue.m in Sources */,
 				BA1D97AC263AFA310066545F /* ItemMode.m in Sources */,
+				BAC66D5C274BE5B00025A91E /* TextReviewVC.m in Sources */,
 				BA9ACEAE26C57D9E004F6F72 /* LSCContext.m in Sources */,
 				BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */,
 				BA9ACEC526C57D9E004F6F72 /* lopcodes.c in Sources */,
 				BA9ACED926C57D9E004F6F72 /* lmem.c in Sources */,
 				BA1D97B7263AFAE00066545F /* main.m in Sources */,
+				BAC66D58274BD8AE0025A91E /* TestLogVC.m in Sources */,
 				BA9ACED026C57D9E004F6F72 /* lundump.c in Sources */,
 				BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */,
 				BA9ACEC426C57D9E004F6F72 /* liolib.c in Sources */,
@@ -776,7 +759,6 @@
 				BA9ACED126C57D9E004F6F72 /* lctype.c in Sources */,
 				BA9ACEAB26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m in Sources */,
 				BA9ACEAA26C57D9E004F6F72 /* LSCConfig.m in Sources */,
-				BA1D97C2263AFCF90066545F /* CatchFwVc.m in Sources */,
 				BA9ACEE026C57D9E004F6F72 /* ldebug.c in Sources */,
 				BA9ACEB226C57D9E004F6F72 /* LSCTable.m in Sources */,
 				BA9ACEDC26C57D9E004F6F72 /* ltablib.c in Sources */,
