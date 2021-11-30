@@ -165,12 +165,21 @@
                     NSString *uartLogPath = uartLogFiles[0];
                     NSString *uartLogContent = [FileManager cw_readFromFile:uartLogPath];
                     NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"boot, Board\\s+(.+\\))"];
-                    NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#[\\sValue]*:\\s+(.+)"];
+                    NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"syscfg print CFG#\\s*[\\d/\\s:.]+([A-Z0-9-_]+)\n"];
                     if (cfgArr.count) {
                         if ([cfgArr[0] count]>=2) {
                             item_mode.cfg = cfgArr[0][1];
                         }
                         
+                    }else{
+                        cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#[\\sValue]*:\\s+(.+)"];
+                        if (cfgArr.count) {
+                            if ([cfgArr[0] count]>=2) {
+                                item_mode.cfg = cfgArr[0][1];
+                            }
+                            
+                        }
+//
                     }
                     if (typeArr.count) {
                         if ([typeArr[0] count]>=2) {
@@ -514,12 +523,12 @@
         
         _tableDataDelegate.buttonClickCallback = ^(NSInteger index, NSDictionary *item_data) {
             
-            //            __strong __typeof(weakSelf)strongSelf = weakSelf;
+//            __strong __typeof(weakSelf)strongSelf = weakSelf;
             NSString *record_path = [item_data objectForKey:key_record_path];
             if ([FileManager cw_isFileExistAtPath:record_path]) {
                 [Task cw_openFileWithPath:record_path.stringByDeletingLastPathComponent];
             }
-            
+//            [weakSelf doubleClick:weakSelf.itemsTableView];
         };
         
         _tableDataDelegate.tableViewdidClickColumnCallback = ^(NSString *identifier, NSInteger clickIndex) {
@@ -574,9 +583,15 @@
     NSDictionary *dict = self.tableDataDelegate.getData[row];
     
     NSString *recordPath = [dict objectForKey:key_record_path];
-    self.testLogVC.isFail = [[dict objectForKey:key_is_fail] boolValue];
-    [self.testLogVC showViewOnViewController:self];
-    self.testLogVC.recordPath = recordPath;
+//    [self.testLogVC removeAllChildViewController];
+    TestLogVC *testLogVC = [[TestLogVC alloc] init];
+    testLogVC.isFail = [[dict objectForKey:key_is_fail] boolValue];
+    
+    testLogVC.recordPath = recordPath;
+    [testLogVC showViewOnViewController:self];
+    
+    
+    
 
 }
 //

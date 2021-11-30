@@ -18,10 +18,10 @@
     [super viewDidLoad];
     // Do view setup here.
     self.title = [NSStringFromClass([self class]) stringByReplacingOccurrencesOfString:@"VC" withString:@""];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(windowWillClose:)
-                                                 name:NSWindowWillCloseNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(windowWillClose:)
+//                                                 name:NSWindowWillCloseNotification
+//                                               object:nil];
 }
 
 
@@ -37,7 +37,7 @@
 -(void)viewDidDisappear{
     [super viewDidDisappear];
     self.isActive = NO;
-    [self removeNSWindowWillCloseNotificationObserver];
+//    [self removeNSWindowWillCloseNotificationObserver];
 }
 
 -(void)dismisssViewOnViewController:(NSViewController *)vc{
@@ -56,9 +56,9 @@
     _mainVc = vc;
     [vc presentViewControllerAsSheet:self];
 }
-- (void)windowWillClose:(NSNotification *)notification {
-    [self close];
-}
+//- (void)windowWillClose:(NSNotification *)notification {
+//    [self close];
+//}
 
 -(void)close{
     self.isActive = NO;
@@ -66,14 +66,15 @@
     
 }
 
--(void)dealloc{
-    [self removeNSWindowWillCloseNotificationObserver];
-    
-}
-
--(void)removeNSWindowWillCloseNotificationObserver{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:NSWindowWillCloseNotification object:nil];
-}
+//-(void)dealloc{
+//
+//    [self removeNSWindowWillCloseNotificationObserver];
+//
+//}
+//
+//-(void)removeNSWindowWillCloseNotificationObserver{
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:NSWindowWillCloseNotification object:nil];
+//}
 
 
 @end

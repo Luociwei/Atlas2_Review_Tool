@@ -1,0 +1,67 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+Info_SEP,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_INIT"", ""expect"": ""OK""}",,,"sep --init",,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_W"", ""expect"": ""OK""}",,,"sep --wait_for_ready",,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_INFO"", ""expect"": ""OK""}",,,"sep --info",,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_G"", ""expect"": ""OK""}",,,"sep -g",,,
+,Common:sendCmdAndCreateRecord,,,,70,,"{""subsubtestname"": ""SEP_LYNX"", ""expect"": ""OK""}",,,"sep -e lynx lynt --timeout 60000000",,,
+,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SEP_C"", ""expect"": ""self-test successful""}",,,"sep -c",,,
+Info_ISP,Common:sendCmdAndCreateRecord,,,,10,,"{""subsubtestname"": ""ISP_FW_Version"",""comparekey"": ""ISPFW"", ""pattern"": ""(diag-triton-.+bin)""}",,,"camisp --fw dump",,,
+Info_1,Common:sendCmdAndCreateRecord,Y,,,3,,"{""dutPluginName"":""dut""}",,,"ace --pick usbc",,,
+,Common:sendCmdAndCreateRecord,Y,,,3,,"{""dutPluginName"":""dut""}",,,"ace --read 0x09",,,
+,Common:sendCmdAndCreateRecord,Y,,,6,,"{""subsubtestname"": ""ACE_FW""}",,,"ace --read 0x0F",,,
+,Common:sendCmdAndCreateRecord,,,(boardid_resp),3,,"{""expect"":""0x0""}",,,"boardid command",,,"run boardid command"
+,Common:regexParseString,,(boardid_resp),[BOARD_ID],,,"{""subsubtestname"": ""BOARD_ID"", ""attribute"": ""BOARDID"", ""pattern"": ""Board id: (0x[0-9A-Fa-f]+)""}",,,,,,BOARD_ID
+,Common:setTypeCondition,,(boardid_resp),{mlb_type},,,"{""subsubtestname"": ""BOARD_ID_SET"", ""mlb_b"": ""0x0E""}",,,,,,"mlb_type = MLB_B if the response of 'boardid' contains '0x0E'"
+,Common:checkExpect,,,{HAS_TWO_STORAGE_DEVICE},,,"{""subsubtestname"": ""Check_Storage_Device_Number"",""expect"": ""number of storage devices 2""}",,,,,,
+,Common:sendCmdAndCreateRecord,,,(chipid_resp),3,,"{""subsubtestname"": ""QUERY_CHIP_ID""}",,,chipid,,,Chip_ID
+,Common:regexParseString,,(chipid_resp),[Chip_ID],,,"{""subsubtestname"": ""Chip_ID"", ""attribute"": ""SOC_CHIP_ID"", ""pattern"": ""Chip  ID:\\s+(\\w+)\\s+Version:""}",,,,,,Chip_ID
+,Common:regexParseString,,(chipid_resp),[Chip_Ver],,,"{""subsubtestname"": ""Chip_Ver"", ""attribute"": ""SOC_CHIP_VERSION"", ""pattern"": ""Version:\\s+([0-9a-zA-Z.]+)""}",,,,,,Chip_Ver
+,Common:regexParseString,,(chipid_resp),[DIE_ID],,,"{""subsubtestname"": ""DIE_ID"", ""attribute"": ""SOC_DIE_ID"", ""pattern"": ""Die   ID:\\s+([0-9A-Z:]+)""}",,,,,,DIE_ID
+,Common:regexParseString,,(chipid_resp),[FUSE_ID],,,"{""subsubtestname"": ""FUSE_ID"", ""attribute"": ""SOC_FUSE_ID"", ""pattern"": ""Fuse  ID:\\s+([0-9A-Z:]+)""}",,,,,,FUSE_ID
+,Common:regexParseString,,(chipid_resp),[ECID],,,"{""subsubtestname"": ""ECID"", ""attribute"": ""ECID"", ""pattern"": ""ECID    :\\s+(0x[0-9A-F]+)""}",,,,,,ECID
+,Common:sendCmdAndCreateRecord,,,(soc_p_resp),5,,"{""subsubtestname"": ""SOC-P""}",,,"soc -p",,,"print SoC information"
+,Common:regexParseString,,(soc_p_resp),[PRODUCTION_SOC],,,"{""subsubtestname"": ""Production_Mode"", ""attribute"": ""SOC_PRODUCTION"",""pattern"": ""production-mode:\\s([0-9]+)""}",,,,,,production_mode
+,Common:sfcQuery,,[MLB_Num],(Production_Mode_SFC),,,"{""subsubtestname"": ""Production_Mode_SFC"",""sfc_key"":""soc_fusing""}",,,,,"SITE == FXCD",Production_Mode_SFC
+,Common:valueCompare,,"[PRODUCTION_SOC],(Production_Mode_SFC)",,,,"{""subsubtestname"": ""Production_Mode_Compare""}",,,,,"SITE == FXCD",Production_Mode_Compare
+Restore_DFUMode,Common:restoreDFUModeCheck,,,[Location_ID],10,,"{""subsubtestname"": ""Check"", ""flagIndex"": -1}",,,,FA_POWER_OFF,,"restore_dfu_mode_check and get the usb location id"
+Restore_NonUI_DCSD_1,Common:restore,,[Location_ID],,1500,,"{""subsubtestname"": ""Restore_complete""}",,,,,,"check for panic during restore"
+Delay_For_Restore_Async,Common:mutexDelay,,,,,,"{""subsubtestname"": ""Delay_To_Start_Restore"",""time_s"": 10, ""identifier"":""delay_for_restore_async""}",,,,,,"Delay 10s to start restore process between each slot"
+Ace_Provisioning_Power,Common:supplyAceProvisioningPower,,,,1500,,,,,,,,"check restore device log and supply Ace Provisioning Power"
+Restore_NonUI_DCSD_2,Common:checkHangAndKernelPanic,,,[restore_uart_log],1500,,"{""subsubtestname"": ""Kernel_Panic"",""hangTimeout"":125}",Y,,,,,"check for panic during restore"
+Restore_NonUI_DCSD_3,Common:setTypeCondition,,,{mlb_type},,,"{""subsubtestname"": ""MLB_Type"", ""mlb_b"": ""Board ID: 0xE""}",,,,,,"check it is MLB-B or MLB-A"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Waiting_Position_percentage"", ""expect"": ""Waiting, position %%d"",""log_device"":""system""}",,,,,,"DCSDRestore Waiting position %d"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""DFU_download"", ""expect"": ""DFU download %(99%% complete%)"",""log_device"":""system""}",,,,,,"DCSDRestore DFU download 99% completed"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Booting"", ""expect"": ""Sending kernel cache to device"",""log_device"":""system""}",,,,,,"DCSDRestore dut enter recovery mode"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Personalizing_Restore_Bundle"", ""expect"": ""Personalizing restore bundle"",""log_device"":""system""}",,,,,,"DCSDRestore Personalizing restore bundle"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Setting_Date_and_Time"", ""expect"": ""Setting date and time on device"",""log_device"":""system""}",,,,,,"DCSDRestore setting date and time into dut"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Loading_Firmware_To_Flash"", ""expect"": ""Loading firmware data to flash"",""log_device"":""system""}",,,,,,"DCSDRestore loading firmware firmware data to flash"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Waiting_for_NAND"", ""expect"": ""Waiting for NAND"",""log_device"":""system""}",,,,,,"DCSDRestore waiting for NAND"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_NAND_Firmware"", ""expect"": ""CHECKPOINT END: RESTORED:%[0x060E%] update_NAND_firmware"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Updating_NAND_Firmware"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Creating_Partition_Map"", ""expect"": ""Creating partition map"",""log_device"":""system""}",,,,,,"DCSDRestore Creating_Partition_Map"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Restoring_image"", ""expect"": ""Restoring image %(100%% complete%)"",""log_device"":""system""}",,,,,,"DCSDRestore Restoring_image"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Verifying_restore"", ""expect"": ""Verifying restore %(100%% complete%)"",""log_device"":""system""}",,,,,,"DCSDRestore Verifying_restore"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Flashing_firmware"", ""expect"": ""Flashing firmware %(100%% complete%)"",""log_device"":""system""}",,,,,,"DCSDRestore Flashing_firmware"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_gas_gauge_software"", ""expect"": ""CHECKPOINT END: FIRMWARE:%[0x1301%] update_gas_gauge"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Updating_gas_gauge_software"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_Stockholm"", ""expect"": ""CHECKPOINT END: FIRMWARE:%[0x1304%] update_stockholm"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Updating_Stockholm"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_baseband"", ""expect"": ""CHECKPOINT END: FIRMWARE:%[0x1303%] update_baseband"",""log_device"":""restore_device""}",,,,,mlb_type==MLB_B,"DCSDRestore Updating_baseband"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_usbcretimer"", ""expect"": ""CHECKPOINT END: FIRMWARE:%[0x1318%] update_usbcretimer"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Updating RT13 Firmware"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""ACE2_provision"", ""expect"": ""Ace2 Provisioning finished"",""log_device"":""restore_device""}",,,,,,"Ace2 Provisioning finished"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Updating_SE_Firmware"", ""expect"": ""CHECKPOINT END: FIRMWARE:%[0x1309%] update_se"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Updating_SE_Firmware"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Pairing_Stockholm"", ""expect"": ""CHECKPOINT END: %(null%):%[0x0636%] pair_stockholm"",""log_device"":""restore_device""}",,,,,,"DCSDRestore Pairing_Stockholm"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Fixing_up/var"", ""expect"": ""Fixing up /var"",""log_device"":""system""}",,,,,,"DCSDRestore Fixing_up/var"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Sending_FDR_user_info"", ""expect"": ""Sending FDR user info"",""log_device"":""system""}",,,,,,"DCSDRestore Sending_FDR_user_info"
+,Common:restoreProcessCheck,Y,,,,,"{""subsubtestname"": ""Restore_successful"", ""expect"": ""Restore successful"",""log_device"":""system""}",,,,FA_POWER_OFF,,"DCSDRestore Restore_successful"
+,Common:restoreProcessCheck,,,,,,"{""subsubtestname"": ""Restore_successful"", ""expect"": ""Successfully restored"",""log_device"":""restore_host""}",,,,FA_POWER_OFF,,"DCSDRestore Restore_successful"
+,Common:regexParseString,,[restore_uart_log],,,,"{""subsubtestname"": ""ChipRev_Check"", ""pattern"": ""chipRev\\s([A-Z0-9]+)"",""target"":""B0""}",,,,,,"Check SOC revision"
+,Common:regexParseString,,,,,,"{""subsubtestname"": ""OS_Version"",""comparekey"":""OS Version"",""pattern"": ""iOS\\s+=\\s+(\\w+)"",""attribute"":""OS_Version"",""log_device"":""system""}",,,,,,"OS_Bundle version"
+,Common:regexParseString,,,,,,"{""subsubtestname"": ""Lynx_ID"", ""pattern"": ""Success lcrt:([0-9A-Za-z]+)"",""attribute"":""Lynx_ID"",""log_device"":""restore_device""}",,,,,,"find Lynx_ID by searching 'lcrt:'"
+,Common:regexParseString,,,,,,"{""subsubtestname"": ""SIK"", ""pattern"": ""x-fdr-client-id-sik:\\s+(sik\\S+)"",""attribute"":""SIK"",""log_device"":""restore_device""}",,,,,,"find SIK by seraching 'x-fdr-client-id-sik:'"
+,Common:regexParseString,,,,,,"{""subsubtestname"": ""ACE2_UUID"", ""pattern"": ""UUID=([0-9A-Za-z]+)&"",""attribute"":""ACE2_UUID"",""log_device"":""restore_device""}",,,,,,"ACE2 ID"
+Temperature,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_SELECT1"",""expect"":""OK""}",,,"reg select stowe",,,"sochot1 select stowe check expect 0"
+,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_READ1"", ""expect"": ""0x00""}",,,"reg read 0xfa01",,,"sochot1 read check expect 0"
+,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_Off"",""expect"":""Execute method: sochot""}",,,"device -k ThermalSensor -e sochot 1 off",,,"thermal sensor sochot 1 off"
+,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_On"",""expect"":""Execute method: sochot""}",,,"device -k ThermalSensor -e sochot 1 on 10",,,"thermal sensor sochot 1 on"
+,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_iBoot_Check""}",Y,,iboot,FA_POWER_OFF,,"catch key word to check if enter recoverymode"
+,Common:enterEnv,,,,25,,"{""subsubtestname"": ""Enter_Diag_Check""}",Y,,diags,FA_POWER_OFF,,"capture the :-) characters"
+,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_SELECT2"",""expect"":""OK""}",,,"reg select stowe",,,"sochot1 select stowe check expect 0"
+,Common:sendCmdAndCreateRecord,,,,3,,"{""subsubtestname"": ""SOCHOT1_READ2"", ""expect"": ""0x40""}",,,"reg read 0xfa01",,,"sochot1 read check expect 0"

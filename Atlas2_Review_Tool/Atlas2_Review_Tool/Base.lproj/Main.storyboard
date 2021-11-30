@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -679,8 +679,8 @@
                                 <toolbarItem implicitItemIdentifier="12814414-295F-4A60-AD6C-BFCE7CD414CF" label="" paletteLabel="" image="sublimeText" sizingBehavior="auto" id="2Vt-wW-726" userLabel="subline">
                                     <nil key="toolTip"/>
                                     <button key="view" id="Cw4-Xm-FSW">
-                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sublimeText" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qm1-Wx-hjL">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -693,8 +693,8 @@
                                 <toolbarItem implicitItemIdentifier="90D3EA2B-06BE-43B8-93FB-7F5B7B270D9C" label="" paletteLabel="" image="CSV_Converter" sizingBehavior="auto" id="6hH-IS-0h3" userLabel="CSV_Converter">
                                     <nil key="toolTip"/>
                                     <button key="view" id="GpJ-Sz-CQB">
-                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="25" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CSV_Converter" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="eNM-B0-mru">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -707,8 +707,8 @@
                                 <toolbarItem implicitItemIdentifier="CA050C40-B0DB-488E-A778-F26D5FBACE01" label="" paletteLabel="" image="TextWrangler" sizingBehavior="auto" id="DMi-GP-TCC" userLabel="TextWrangler">
                                     <nil key="toolTip"/>
                                     <button key="view" id="76Q-cM-AhN">
-                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="30" height="31"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TextWrangler" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="tWG-tp-e3n">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -721,8 +721,8 @@
                                 <toolbarItem implicitItemIdentifier="65ED3C64-1E08-4463-9668-53D0B66B5BCD" label="" paletteLabel="" image="NSFolder" sizingBehavior="auto" id="ELR-Pi-DAl" userLabel="atlas2Path">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="duf-R7-wew" userLabel="atlas2Path">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="30" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSFolder" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Na2-1z-QnM">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -735,8 +735,8 @@
                                 <toolbarItem implicitItemIdentifier="EFFD7315-1B31-4369-A00E-DCC255597071" label="" paletteLabel="" image="NSTouchBarRecordStopTemplate" sizingBehavior="auto" id="EsA-ud-qZA" userLabel="stop">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="amD-T3-yBZ" userLabel="stop">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="26" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarRecordStopTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zea-6t-Icf">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -749,8 +749,8 @@
                                 <toolbarItem implicitItemIdentifier="1EE5A32A-4B37-4897-A041-1696CBFA5BE8" label="" paletteLabel="" image="NSTouchBarFolderTemplate" sizingBehavior="auto" id="xqe-HT-xf5" userLabel="atlasLog">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="xJj-IK-sNN" userLabel="atlasLog">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="30" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarFolderTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8LG-Ap-wQs">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -763,8 +763,8 @@
                                 <toolbarItem implicitItemIdentifier="047F88C5-1287-4BA2-927F-55E1446EA2EB" label="" paletteLabel="" image="Log" sizingBehavior="auto" id="AJX-aX-wWV" userLabel="mixLogPath">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="sJa-Ow-C7n" userLabel="mixLogPath">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="30" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="Log" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Dmu-9k-mu9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -774,11 +774,11 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="935D162B-E509-406C-BDCF-B6F654171C09" label="" paletteLabel="" sizingBehavior="auto" id="rmx-Lh-kfR" userLabel="sn">
+                                <toolbarItem implicitItemIdentifier="935D162B-E509-406C-BDCF-B6F654171C09" label="" paletteLabel="" title="MIX_Ping" sizingBehavior="auto" id="rmx-Lh-kfR" userLabel="sn">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="Mha-S8-Lj8" userLabel="mixLogPath">
-                                        <rect key="frame" x="0.0" y="14" width="78" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="74" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" title="MIX_Ping" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jI5-xP-B5E">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -791,8 +791,8 @@
                                 <toolbarItem implicitItemIdentifier="BF7243D1-9ADF-44C7-9E82-77B434CBE7A0" label="" paletteLabel="" image="NSTouchBarPlayTemplate" sizingBehavior="auto" id="cLx-vS-MTc" userLabel="start">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="ws9-ce-lEK" userLabel="startAtlas2Btn">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="24" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarPlayTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kwy-x8-ocn">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -805,8 +805,8 @@
                                 <toolbarItem implicitItemIdentifier="31C1F69A-78DA-4C8E-B657-70CD8367A797" label="" paletteLabel="" sizingBehavior="auto" id="Tx9-z9-LG9">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="YGL-Zd-xGf">
-                                        <rect key="frame" x="0.0" y="14" width="29" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="help" bezelStyle="helpButton" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WU5-dN-NNh">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -818,14 +818,26 @@
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="ELR-Pi-DAl"/>
-                                <toolbarItem reference="xqe-HT-xf5"/>
-                                <toolbarItem reference="rmx-Lh-kfR"/>
+                                <toolbarItem reference="Tx9-z9-LG9"/>
                                 <toolbarItem reference="k1d-lO-r5T"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
-                                <toolbarItem reference="Tx9-z9-LG9"/>
+                                <toolbarItem reference="k1d-lO-r5T"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="k1d-lO-r5T"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="k1d-lO-r5T"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="xqe-HT-xf5"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="ELR-Pi-DAl"/>
+                                <toolbarItem reference="uW4-ov-ga1"/>
+                                <toolbarItem reference="rmx-Lh-kfR"/>
                                 <toolbarItem reference="uW4-ov-ga1"/>
                             </defaultToolbarItems>
                         </toolbar>
@@ -847,9 +859,9 @@
         <image name="CSV_Converter" width="25" height="24"/>
         <image name="Log" width="25" height="25"/>
         <image name="NSFolder" width="32" height="32"/>
-        <image name="NSTouchBarFolderTemplate" width="22" height="30"/>
-        <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
-        <image name="NSTouchBarRecordStopTemplate" width="12" height="30"/>
+        <image name="NSTouchBarFolderTemplate" width="18" height="14"/>
+        <image name="NSTouchBarPlayTemplate" width="12" height="13"/>
+        <image name="NSTouchBarRecordStopTemplate" width="14" height="13"/>
         <image name="TextWrangler" width="30" height="31"/>
         <image name="sublimeText" width="25" height="24.5"/>
     </resources>

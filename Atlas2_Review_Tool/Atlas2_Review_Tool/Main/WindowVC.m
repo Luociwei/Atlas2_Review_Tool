@@ -144,7 +144,7 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
+//    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
 //    NSString *s1 =@"Regular";
 //    NSString *s2 =@"2021-09-22 09:47:46";
 //    
@@ -160,9 +160,7 @@
     [self cw_addViewControllers:@[_atlasCsvLogVC,_atlasScritVC,regularVC]];
 //    FailOnlyItems *item =  [[FailOnlyItems alloc] init];
 //    item.title = @"AtlasLog";
-//
 //    [self cw_addViewControllers:@[item]];
-   
 //    [self getMixSate];
     
     self.startBtn.toolTip = @"1_on.command";

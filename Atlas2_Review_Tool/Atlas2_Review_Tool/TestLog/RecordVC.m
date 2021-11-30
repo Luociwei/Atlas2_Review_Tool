@@ -26,6 +26,26 @@
 
 @implementation RecordVC
 
+-(void)viewWillAppear{
+    [super viewWillAppear];
+    
+    if (_recordPath.length) {
+       
+        self.filePathView.stringValue = [NSString stringWithFormat:@"FilePath:%@",_recordPath];;
+        NSArray *csvArray = nil;
+        if ([self.csv openFile:_recordPath]) {
+            csvArray = [self.csv parseFile];
+        }
+        
+        if (csvArray.count) {
+            [self setRcordTableView:csvArray];
+        }
+ 
+    }else{
+        self.filePathView.stringValue = [NSString stringWithFormat:@"FilePath:Not found."];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
@@ -52,37 +72,22 @@
 - (IBAction)showAllItems:(NSButton *)btn {
     
     if (btn.state == 1) {
-        [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
-    }else{
         [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
-    }
-    
-}
-
--(void)setRecordPath:(NSString *)recordPath{
-//    [self.textView clean];
-    if (![FileManager cw_isFileExistAtPath:recordPath]) {
-        [Alert cw_messageBox:@"Error!!!" Information:[NSString stringWithFormat:@"Not found the file path:%@,pls check.",recordPath]];
-        return;
-    }
-    
-
-    if (recordPath.length) {
-        _recordPath = recordPath;
-        self.filePathView.stringValue = [NSString stringWithFormat:@"FilePath:%@",recordPath];;
-        NSArray *csvArray = nil;
-        if ([self.csv openFile:recordPath]) {
-            csvArray = [self.csv parseFile];
-        }
-        
-        if (csvArray.count) {
-            [self setRcordTableView:csvArray];
-        }
- 
     }else{
-        self.filePathView.stringValue = [NSString stringWithFormat:@"FilePath:Not found."];
+        [self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
     }
+    
 }
+//
+//-(void)setRecordPath:(NSString *)recordPath{
+////    [self.textView clean];
+//
+//    if (![FileManager cw_isFileExistAtPath:recordPath]) {
+//        [Alert cw_messageBox:@"Error!!!" Information:[NSString stringWithFormat:@"Not found the file path:%@,pls check.",recordPath]];
+//        return;
+//    }
+//
+//}
 
 -(TableColumnItem *)setIndexTableColumnItem{
     TableColumnItem *tableColum = [[TableColumnItem alloc]init];
@@ -161,7 +166,7 @@
         [itemDict setObject:@"" forKey:key_IsSearch];
         
     }];
-    [self.btnShowAll setState:1];
+    [self.btnShowAll setState:0];
     [self showAllItems:_btnShowAll];
     //[self.tableDataDelegate reloadTableViewWithData:self.origin_items_data];
     if (!content.length) {

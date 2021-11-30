@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LuaFunction">
             <connections>
-                <outlet property="textFuncView" destination="SeQ-er-PDB" id="9E5-rX-GaX"/>
+                <outlet property="textFuncView" destination="sR4-KQ-o1P" id="EgS-8z-jbi"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -18,33 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKM-tZ-oEA">
-                    <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="bof-zb-sim">
-                        <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" usesInspectorBar="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsDocumentBackgroundColorChange="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="SeQ-er-PDB">
-                                <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" red="0.17610508419689119" green="0.17610508419689119" blue="0.17610508419689119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <size key="minSize" width="1100" height="700"/>
-                                <size key="maxSize" width="1100" height="10000000"/>
-                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            </textView>
-                        </subviews>
-                    </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Apc-CR-giT">
-                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="pwE-4Y-rPw">
-                        <rect key="frame" x="1084" y="0.0" width="16" height="700"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                </scrollView>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUH-aI-wAd">
                     <rect key="frame" x="501" y="99" width="88" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -67,7 +40,35 @@ Gw
                         <action selector="performChanges:" target="-2" id="9Ks-li-Qld"/>
                     </connections>
                 </button>
+                <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-8z-xg5">
+                    <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" drawsBackground="NO" id="eJM-n3-DgM">
+                        <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" spellingCorrection="YES" smartInsertDelete="YES" id="sR4-KQ-o1P">
+                                <rect key="frame" x="0.0" y="0.0" width="1100" height="700"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="1100" height="700"/>
+                                <size key="maxSize" width="1118" height="10000000"/>
+                                <color key="insertionPointColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="V3I-VD-xkh">
+                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Ey3-xy-Ga2">
+                        <rect key="frame" x="1084" y="0.0" width="16" height="700"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
+            <point key="canvasLocation" x="139" y="135"/>
         </customView>
         <button verticalHuggingPriority="750" id="6XS-Lw-o1u">
             <rect key="frame" x="0.0" y="0.0" width="100" height="32"/>
@@ -78,6 +79,34 @@ Gw
             </buttonCell>
             <point key="canvasLocation" x="278" y="329"/>
         </button>
+        <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="AKM-tZ-oEA">
+            <rect key="frame" x="0.0" y="0.0" width="707" height="401"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="bof-zb-sim">
+                <rect key="frame" x="0.0" y="0.0" width="707" height="401"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" usesInspectorBar="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsDocumentBackgroundColorChange="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="SeQ-er-PDB">
+                        <rect key="frame" x="0.0" y="0.0" width="707" height="401"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.17610508419689119" green="0.17610508419689119" blue="0.17610508419689119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <size key="minSize" width="707" height="401"/>
+                        <size key="maxSize" width="1100" height="10000000"/>
+                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                    </textView>
+                </subviews>
+            </clipView>
+            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Apc-CR-giT">
+                <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </scroller>
+            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="pwE-4Y-rPw">
+                <rect key="frame" x="691" y="0.0" width="16" height="401"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </scroller>
+            <point key="canvasLocation" x="-58" y="763"/>
+        </scrollView>
     </objects>
     <resources>
         <sound name="Blow"/>

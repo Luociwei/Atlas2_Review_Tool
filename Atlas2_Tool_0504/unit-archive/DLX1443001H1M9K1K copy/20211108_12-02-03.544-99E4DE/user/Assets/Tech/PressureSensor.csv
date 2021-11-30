@@ -1,0 +1,11 @@
+TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition,Notes
+SensorData,Common:sendCmdAndCreateRecord,,,[phosphorus_test_resp],10,,"{""subsubtestname"": ""Phos2_test"",""dutPluginName"":""dut""}",,,sensor --listsensors;sensor --sel pressure --init;sensor --sel pressure --conntest;sensor --sel pressure --turnoff;wait 20;sensor --sel pressure --init;sensorreg --sel pressure -r 0xD0 1;sensorreg --sel pressure -r 0xF3 3;sensorreg --sel pressure -r 0x80 36,,,Sensor_Test
+,Common:sendCmdAndCreateRecord,,,"(Sample1000ms_PR_Pressure_Average),[pressure_test_resp]",10,,"{""subsubtestname"": ""Press_Average"",""dutPluginName"":""dut"",""targetindex"":""2"",""isparametric"":""YES"",""pattern"": ""average: pressure = (-?[0-9.]+), temp = -?[0-9.]+""}",,,sensorreg --sel pressure -r 0xF7 6;sensor --sel pressure --sample 1000ms --stats;sensor --sel pressure --turnoff,,,Sensor_Test
+,Common:regexParseNumber,,[pressure_test_resp],,,,"{""subsubtestname"": ""Press_Std"",""pattern"": ""std-dev: pressure = (-?[0-9.]+), temp = -?[0-9.]+"",""factor"":""1000""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[pressure_test_resp],,,,"{""subsubtestname"": ""ODR"",""pattern"": ""calculated odr: (-?[0-9.]+)Hz""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[pressure_test_resp],,,,"{""subsubtestname"": ""Temp_Average"",""pattern"": ""average: pressure = -?[0-9.]+, temp = (-?[0-9.]+)""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[pressure_test_resp],,,,"{""subsubtestname"": ""Temp_Std"",""pattern"": ""std-dev: pressure = -?[0-9.]+, temp = (-?[0-9.]+)""}",,,,,,Sensor_Test
+Registers,Common:regexParseNumber,,[phosphorus_test_resp],,,,"{""subsubtestname"": ""Manu_ID"",""pattern"": ""0x80 = (0x[0-9A-F]{2})""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[phosphorus_test_resp],,,,"{""subsubtestname"": ""Chip_ID"",""pattern"": ""0x81 = (0x[0-9A-F]{2})""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[phosphorus_test_resp],,,,"{""subsubtestname"": ""Rev_ID"",""pattern"": ""0x82 = (0x[0-9A-F]{2})""}",,,,,,Sensor_Test
+,Common:regexParseNumber,,[phosphorus_test_resp],,,,"{""subsubtestname"": ""Trim_ID"",""pattern"": ""0xA3 = (0x[0-9A-F]{2})""}",,,,,,Sensor_Test
