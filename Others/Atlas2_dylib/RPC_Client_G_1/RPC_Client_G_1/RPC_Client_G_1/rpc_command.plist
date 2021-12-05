@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>io set</key>
+	<string>io_set</string>
+	<key>io read</key>
+	<string>io_get</string>
+	<key>io dir set</key>
+	<string>io_dir_set</string>
+	<key>io dir read</key>
+	<string>io_dir_get</string>
+	<key>eeprom read</key>
+	<string>eeprom_read</string>
+	<key>eeprom write</key>
+	<string>eeprom_write</string>
+	<key>uart config</key>
+	<string>uart_config</string>
+	<key>pdm disable</key>
+	<string>pdm_disable</string>
+	<key>pdm enable</key>
+	<string>pdm_enable</string>
+</dict>
+</plist>

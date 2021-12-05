@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Copy dependency (lizmq dylib) to /usr/local/lib.
+# This script is used as postinstall script when installing package
+# and is input of pkgbuild command in the last build phase.
+echo 'copying libzmq to /usr/local/lib/'
+touch ~/.libzmq_copied
+cp -rf /AppleInternal/Library/Frameworks/mix_rpc_client_framework.framework/Resources/libzmq*.dylib /usr/local/lib/

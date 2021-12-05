@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1906A38C25415B7900F2EE1B /* DFUFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 1906A38A25415B7900F2EE1B /* DFUFixture.h */; };
+		1940B68025354A1600E3004F /* FixtureDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1940B67E25354A1600E3004F /* FixtureDetector.h */; };
+		1940B68125354A1600E3004F /* FixtureDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1940B67F25354A1600E3004F /* FixtureDetector.m */; };
+		19AA81AA251B3BD700D2E57F /* FixturePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 19AA81A9251B3BD700D2E57F /* FixturePlugin.h */; };
+		19AA81AC251B3BD700D2E57F /* FixturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AA81AB251B3BD700D2E57F /* FixturePlugin.m */; };
+		19AA81B6251B3C5900D2E57F /* CommonFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 19AA81B2251B3C5900D2E57F /* CommonFixture.h */; };
+		19AA81B7251B3C5900D2E57F /* CommonFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AA81B3251B3C5900D2E57F /* CommonFixture.m */; };
+		6E4B280D262E8222005B9441 /* libDFUFixture.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4B280C262E8222005B9441 /* libDFUFixture.dylib */; };
+		CE8A152F2674ADFB005D3681 /* AtlasLuaSequencer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A152C2674ADFB005D3681 /* AtlasLuaSequencer.framework */; };
+		CE8A15312674ADFB005D3681 /* AtlasLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A152D2674ADFB005D3681 /* AtlasLogging.framework */; };
+		CE8A15332674ADFB005D3681 /* AtlasIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A152E2674ADFB005D3681 /* AtlasIO.framework */; };
+		CE8A15362674AE26005D3681 /* AtlasDetection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A15352674AE25005D3681 /* AtlasDetection.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1906A38A25415B7900F2EE1B /* DFUFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUFixture.h; sourceTree = "<group>"; };
+		1940B67E25354A1600E3004F /* FixtureDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureDetector.h; sourceTree = "<group>"; };
+		1940B67F25354A1600E3004F /* FixtureDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureDetector.m; sourceTree = "<group>"; };
+		19AA81A6251B3BD700D2E57F /* FixturePlugin.l-dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "FixturePlugin.l-dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19AA81A9251B3BD700D2E57F /* FixturePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixturePlugin.h; sourceTree = "<group>"; };
+		19AA81AB251B3BD700D2E57F /* FixturePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FixturePlugin.m; sourceTree = "<group>"; };
+		19AA81B2251B3C5900D2E57F /* CommonFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFixture.h; sourceTree = "<group>"; };
+		19AA81B3251B3C5900D2E57F /* CommonFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFixture.m; sourceTree = "<group>"; };
+		6E4B280C262E8222005B9441 /* libDFUFixture.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libDFUFixture.dylib; sourceTree = "<group>"; };
+		CE8A152C2674ADFB005D3681 /* AtlasLuaSequencer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtlasLuaSequencer.framework; path = ../../../../System/Volumes/Data/AppleInternal/Library/Frameworks/AtlasLuaSequencer.framework; sourceTree = "<group>"; };
+		CE8A152D2674ADFB005D3681 /* AtlasLogging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtlasLogging.framework; path = ../../../../System/Volumes/Data/AppleInternal/Library/Frameworks/AtlasLogging.framework; sourceTree = "<group>"; };
+		CE8A152E2674ADFB005D3681 /* AtlasIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtlasIO.framework; path = ../../../../System/Volumes/Data/AppleInternal/Library/Frameworks/AtlasIO.framework; sourceTree = "<group>"; };
+		CE8A15352674AE25005D3681 /* AtlasDetection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtlasDetection.framework; path = ../../../../System/Volumes/Data/AppleInternal/Library/Frameworks/AtlasDetection.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19AA81A4251B3BD700D2E57F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8A15362674AE26005D3681 /* AtlasDetection.framework in Frameworks */,
+				6E4B280D262E8222005B9441 /* libDFUFixture.dylib in Frameworks */,
+				CE8A152F2674ADFB005D3681 /* AtlasLuaSequencer.framework in Frameworks */,
+				CE8A15332674ADFB005D3681 /* AtlasIO.framework in Frameworks */,
+				CE8A15312674ADFB005D3681 /* AtlasLogging.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19AA819D251B3BD700D2E57F = {
+			isa = PBXGroup;
+			children = (
+				19AA81A8251B3BD700D2E57F /* FixturePlugin */,
+				19AA81A7251B3BD700D2E57F /* Products */,
+				6ED0C26225E66F7600ABB1ED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		19AA81A7251B3BD700D2E57F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19AA81A6251B3BD700D2E57F /* FixturePlugin.l-dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19AA81A8251B3BD700D2E57F /* FixturePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				6E4B280C262E8222005B9441 /* libDFUFixture.dylib */,
+				1906A38A25415B7900F2EE1B /* DFUFixture.h */,
+				1940B67E25354A1600E3004F /* FixtureDetector.h */,
+				1940B67F25354A1600E3004F /* FixtureDetector.m */,
+				19AA81B2251B3C5900D2E57F /* CommonFixture.h */,
+				19AA81B3251B3C5900D2E57F /* CommonFixture.m */,
+				19AA81A9251B3BD700D2E57F /* FixturePlugin.h */,
+				19AA81AB251B3BD700D2E57F /* FixturePlugin.m */,
+			);
+			path = FixturePlugin;
+			sourceTree = "<group>";
+		};
+		6ED0C26225E66F7600ABB1ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A15352674AE25005D3681 /* AtlasDetection.framework */,
+				CE8A152E2674ADFB005D3681 /* AtlasIO.framework */,
+				CE8A152D2674ADFB005D3681 /* AtlasLogging.framework */,
+				CE8A152C2674ADFB005D3681 /* AtlasLuaSequencer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		19AA81A2251B3BD700D2E57F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1906A38C25415B7900F2EE1B /* DFUFixture.h in Headers */,
+				1940B68025354A1600E3004F /* FixtureDetector.h in Headers */,
+				19AA81AA251B3BD700D2E57F /* FixturePlugin.h in Headers */,
+				19AA81B6251B3C5900D2E57F /* CommonFixture.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		19AA81A5251B3BD700D2E57F /* FixturePlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19AA81AF251B3BD700D2E57F /* Build configuration list for PBXNativeTarget "FixturePlugin" */;
+			buildPhases = (
+				19AA81A2251B3BD700D2E57F /* Headers */,
+				19AA81A3251B3BD700D2E57F /* Sources */,
+				19AA81A4251B3BD700D2E57F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FixturePlugin;
+			productName = FixturePlugin;
+			productReference = 19AA81A6251B3BD700D2E57F /* FixturePlugin.l-dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19AA819E251B3BD700D2E57F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = swqt;
+				TargetAttributes = {
+					19AA81A5251B3BD700D2E57F = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 19AA81A1251B3BD700D2E57F /* Build configuration list for PBXProject "FixturePlugin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19AA819D251B3BD700D2E57F;
+			productRefGroup = 19AA81A7251B3BD700D2E57F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19AA81A5251B3BD700D2E57F /* FixturePlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19AA81A3251B3BD700D2E57F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1940B68125354A1600E3004F /* FixtureDetector.m in Sources */,
+				19AA81B7251B3C5900D2E57F /* CommonFixture.m in Sources */,
+				19AA81AC251B3BD700D2E57F /* FixturePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		19AA81AD251B3BD700D2E57F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		19AA81AE251B3BD700D2E57F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		19AA81B0251B3BD700D2E57F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8 EXCLUDED_ARCHS=$(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)) arm64";
+				EXECUTABLE_EXTENSION = "l-dylib";
+				FRAMEWORK_SEARCH_PATHS = /AppleInternal/Library/Frameworks/;
+				INSTALL_PATH = /usr/local/Atlas/Plugins/;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(PROJECT_DIR)/FixturePlugin",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		19AA81B1251B3BD700D2E57F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8 EXCLUDED_ARCHS=$(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)) arm64";
+				EXECUTABLE_EXTENSION = "l-dylib";
+				FRAMEWORK_SEARCH_PATHS = /AppleInternal/Library/Frameworks/;
+				INSTALL_PATH = /usr/local/Atlas/Plugins/;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(PROJECT_DIR)/FixturePlugin",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19AA81A1251B3BD700D2E57F /* Build configuration list for PBXProject "FixturePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19AA81AD251B3BD700D2E57F /* Debug */,
+				19AA81AE251B3BD700D2E57F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19AA81AF251B3BD700D2E57F /* Build configuration list for PBXNativeTarget "FixturePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19AA81B0251B3BD700D2E57F /* Debug */,
+				19AA81B1251B3BD700D2E57F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19AA819E251B3BD700D2E57F /* Project object */;
+}

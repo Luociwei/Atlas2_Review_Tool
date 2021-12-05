@@ -1,0 +1,34 @@
+#!/bin/sh
+
+source "${MINK_BUNDLE_RESOURCES_PATH}/mink_bash_arg_parser.sh"
+source "${MINK_BUNDLE_RESOURCES_PATH}/mink_bash_utils.sh"
+
+echo "Building for module target: ${BUILD_MODULE}"
+echo "Build output path: ${BUILD_OUT_PATH}"
+echo "Build output user home path: ${BUILD_OUT_USER_HOME_PATH}"
+echo "Build docs output path: ${BUILD_DOCS_OUT_PATH}"
+echo "Build version output path: ${BUILD_VERSION_OUT_PATH}"
+echo "Build deps CSV path: ${BUILD_DEPS_CSV_PATH}"
+
+# Create initial files to give us something to copy. In a real use case,
+# these files would already exist in a user's source repo. If building using
+# a method other than MATLAB or Xcode (like "make" or direct call to compiler),
+# this is where you would make that call to generate the output files
+target_atlas2_home="$BUILD_OUT_USER_HOME_PATH/Library/Atlas2"
+srcroot="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Now assuming that all of our build output has been created, or our static
+# script files to be copied existed at repo clone time, we copy to build output.
+# Mink will package everything in the build output folder as an install root,
+# so be sure to include intermediate folders to dictate where files should be
+# installed on the destination machine
+build_deps_dir="${srcroot}/build/deps"
+header_search="/usr/local/include /usr/local/include/amd ${build_deps_dir}/usr/local/include"
+lib_search="${build_deps_dir}/usr/lib ${build_deps_dir}/usr/local/lib /usr/local/lib/amd ${srcroot}/FixturePlugin"
+framework_search="${build_deps_dir}/AppleInternal/Library/Frameworks ${build_deps_dir}/Library/Frameworks ${build_deps_dir}/usr/local/Atlas/Frameworks"
+
+echo "Build Deps Dir: ${build_deps_dir}"
+echo "Build Header Search Dir: ${header_search}"
+echo "Build Lib Search Dir: ${lib_search}"
+echo "Build Framework Search Dir: ${framework_search}" 
+xcodebuild -project FixturePlugin.xcodeproj -configuration Release -target FixturePlugin DYLIB_CURRENT_VERSION=$(mink_get_version) DSTROOT="/" HEADER_SEARCH_PATHS="${header_search}" LIBRARY_SEARCH_PATHS="${lib_search}" FRAMEWORK_SEARCH_PATHS="${framework_search}" INSTALL_PATH="$target_atlas2_home/Plugins" SKIP_INSTALL=NO install

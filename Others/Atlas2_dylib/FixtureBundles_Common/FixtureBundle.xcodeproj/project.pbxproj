@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		421E5AAB250CA57400EB7B88 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421E5AAA250CA57400EB7B88 /* IOKit.framework */; };
+		421E5AAD250CA59100EB7B88 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421E5AAC250CA59100EB7B88 /* CoreTelephony.framework */; };
+		915F91661D8142F60009EC1E /* fixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 915F91651D8142F60009EC1E /* fixtureTests.m */; };
+		91D7F0081D83594200F10112 /* FixtureBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D7F0071D83594200F10112 /* FixtureBundle.m */; };
+		DCFE3DCE1CBD798A00B5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCFE3DCD1CBD798A00B5968B /* Foundation.framework */; };
+		DCFE3DD61CBD798A00B5968B /* CommonFixturePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE3DD51CBD798A00B5968B /* CommonFixturePlugin.m */; };
+		DCFE3DDC1CBD798A00B5968B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFE3DDB1CBD798A00B5968B /* Images.xcassets */; };
+		DCFE3DE21CBD798A00B5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCFE3DCD1CBD798A00B5968B /* Foundation.framework */; };
+		DCFE3DEA1CBD798A00B5968B /* CommonFixturePluginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE3DE91CBD798A00B5968B /* CommonFixturePluginTests.m */; };
+		DCFE3E421CC0384000B5968B /* libDFUFixture.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCFE3E411CC0384000B5968B /* libDFUFixture.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCFE3DE41CBD798A00B5968B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCFE3DC11CBD798A00B5968B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCFE3DC91CBD798A00B5968B;
+			remoteInfo = FixtureBundle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		421E5AAA250CA57400EB7B88 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		421E5AAC250CA59100EB7B88 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		915F91651D8142F60009EC1E /* fixtureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fixtureTests.m; sourceTree = "<group>"; };
+		91D7F0061D83594200F10112 /* FixtureBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureBundle.h; sourceTree = "<group>"; };
+		91D7F0071D83594200F10112 /* FixtureBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureBundle.m; sourceTree = "<group>"; };
+		DCFE3DCA1CBD798A00B5968B /* FixtureBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FixtureBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFE3DCD1CBD798A00B5968B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCFE3DD41CBD798A00B5968B /* CommonFixturePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFixturePlugin.h; sourceTree = "<group>"; };
+		DCFE3DD51CBD798A00B5968B /* CommonFixturePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonFixturePlugin.m; sourceTree = "<group>"; };
+		DCFE3DDB1CBD798A00B5968B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DCFE3DE11CBD798A00B5968B /* FixtureBundleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FixtureBundleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFE3DE81CBD798A00B5968B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCFE3DE91CBD798A00B5968B /* CommonFixturePluginTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonFixturePluginTests.m; sourceTree = "<group>"; };
+		DCFE3DF31CBD857200B5968B /* DFUFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUFixture.h; sourceTree = "<group>"; };
+		DCFE3DFB1CBD871E00B5968B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCFE3E411CC0384000B5968B /* libDFUFixture.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libDFUFixture.dylib; path = vendorlibs/libDFUFixture.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCFE3DC71CBD798A00B5968B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				421E5AAD250CA59100EB7B88 /* CoreTelephony.framework in Frameworks */,
+				421E5AAB250CA57400EB7B88 /* IOKit.framework in Frameworks */,
+				DCFE3DCE1CBD798A00B5968B /* Foundation.framework in Frameworks */,
+				DCFE3E421CC0384000B5968B /* libDFUFixture.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCFE3DDE1CBD798A00B5968B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFE3DE21CBD798A00B5968B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCFE3DC01CBD798A00B5968B = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DD11CBD798A00B5968B /* FixtureBundle */,
+				DCFE3DE61CBD798A00B5968B /* FixtureBundleTests */,
+				DCFE3DCC1CBD798A00B5968B /* Frameworks */,
+				DCFE3DCB1CBD798A00B5968B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCFE3DCB1CBD798A00B5968B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DCA1CBD798A00B5968B /* FixtureBundle.bundle */,
+				DCFE3DE11CBD798A00B5968B /* FixtureBundleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCFE3DCC1CBD798A00B5968B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				421E5AAC250CA59100EB7B88 /* CoreTelephony.framework */,
+				421E5AAA250CA57400EB7B88 /* IOKit.framework */,
+				DCFE3DCD1CBD798A00B5968B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCFE3DD11CBD798A00B5968B /* FixtureBundle */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DF61CBD85A800B5968B /* vendorlibs */,
+				91D7F0061D83594200F10112 /* FixtureBundle.h */,
+				91D7F0071D83594200F10112 /* FixtureBundle.m */,
+				DCFE3DD41CBD798A00B5968B /* CommonFixturePlugin.h */,
+				DCFE3DD51CBD798A00B5968B /* CommonFixturePlugin.m */,
+				DCFE3DDB1CBD798A00B5968B /* Images.xcassets */,
+				DCFE3DD21CBD798A00B5968B /* Supporting Files */,
+			);
+			path = FixtureBundle;
+			sourceTree = "<group>";
+		};
+		DCFE3DD21CBD798A00B5968B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DFB1CBD871E00B5968B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCFE3DE61CBD798A00B5968B /* FixtureBundleTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DE91CBD798A00B5968B /* CommonFixturePluginTests.m */,
+				915F91651D8142F60009EC1E /* fixtureTests.m */,
+				DCFE3DE71CBD798A00B5968B /* Supporting Files */,
+			);
+			path = FixtureBundleTests;
+			sourceTree = "<group>";
+		};
+		DCFE3DE71CBD798A00B5968B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DE81CBD798A00B5968B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCFE3DF61CBD85A800B5968B /* vendorlibs */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE3DF31CBD857200B5968B /* DFUFixture.h */,
+				DCFE3E411CC0384000B5968B /* libDFUFixture.dylib */,
+			);
+			name = vendorlibs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCFE3DC91CBD798A00B5968B /* FixtureBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCFE3DED1CBD798A00B5968B /* Build configuration list for PBXNativeTarget "FixtureBundle" */;
+			buildPhases = (
+				DCFE3DC61CBD798A00B5968B /* Sources */,
+				DCFE3DC71CBD798A00B5968B /* Frameworks */,
+				DCFE3DC81CBD798A00B5968B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FixtureBundle;
+			productName = FixtureBundle;
+			productReference = DCFE3DCA1CBD798A00B5968B /* FixtureBundle.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		DCFE3DE01CBD798A00B5968B /* FixtureBundleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCFE3DF01CBD798A00B5968B /* Build configuration list for PBXNativeTarget "FixtureBundleTests" */;
+			buildPhases = (
+				DCFE3DDD1CBD798A00B5968B /* Sources */,
+				DCFE3DDE1CBD798A00B5968B /* Frameworks */,
+				DCFE3DDF1CBD798A00B5968B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCFE3DE51CBD798A00B5968B /* PBXTargetDependency */,
+			);
+			name = FixtureBundleTests;
+			productName = FixtureBundleTests;
+			productReference = DCFE3DE11CBD798A00B5968B /* FixtureBundleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCFE3DC11CBD798A00B5968B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					DCFE3DC91CBD798A00B5968B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					DCFE3DE01CBD798A00B5968B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = DCFE3DC41CBD798A00B5968B /* Build configuration list for PBXProject "FixtureBundle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCFE3DC01CBD798A00B5968B;
+			productRefGroup = DCFE3DCB1CBD798A00B5968B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCFE3DC91CBD798A00B5968B /* FixtureBundle */,
+				DCFE3DE01CBD798A00B5968B /* FixtureBundleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCFE3DC81CBD798A00B5968B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFE3DDC1CBD798A00B5968B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCFE3DDF1CBD798A00B5968B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCFE3DC61CBD798A00B5968B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFE3DD61CBD798A00B5968B /* CommonFixturePlugin.m in Sources */,
+				91D7F0081D83594200F10112 /* FixtureBundle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCFE3DDD1CBD798A00B5968B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFE3DEA1CBD798A00B5968B /* CommonFixturePluginTests.m in Sources */,
+				915F91661D8142F60009EC1E /* fixtureTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCFE3DE51CBD798A00B5968B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCFE3DC91CBD798A00B5968B /* FixtureBundle */;
+			targetProxy = DCFE3DE41CBD798A00B5968B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DCFE3DEB1CBD798A00B5968B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DCFE3DEC1CBD798A00B5968B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DCFE3DEE1CBD798A00B5968B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/AppleInternal/Library/Frameworks,
+					"$(PROJECT_DIR)",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				INFOPLIST_FILE = FixtureBundle/Info.plist;
+				INSTALL_PATH = $HOME/Library/Atlas/plugins;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FixtureBundle/vendorlibs",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		DCFE3DEF1CBD798A00B5968B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/AppleInternal/Library/Frameworks,
+					"$(PROJECT_DIR)",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				INFOPLIST_FILE = FixtureBundle/Info.plist;
+				INSTALL_PATH = $HOME/Library/Atlas/plugins;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FixtureBundle/vendorlibs",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		DCFE3DF11CBD798A00B5968B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/AppleInternal/Library/Frameworks,
+				);
+				INFOPLIST_FILE = FixtureBundleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCFE3DF21CBD798A00B5968B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/AppleInternal/Library/Frameworks,
+				);
+				INFOPLIST_FILE = FixtureBundleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCFE3DC41CBD798A00B5968B /* Build configuration list for PBXProject "FixtureBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCFE3DEB1CBD798A00B5968B /* Debug */,
+				DCFE3DEC1CBD798A00B5968B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCFE3DED1CBD798A00B5968B /* Build configuration list for PBXNativeTarget "FixtureBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCFE3DEE1CBD798A00B5968B /* Debug */,
+				DCFE3DEF1CBD798A00B5968B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCFE3DF01CBD798A00B5968B /* Build configuration list for PBXNativeTarget "FixtureBundleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCFE3DF11CBD798A00B5968B /* Debug */,
+				DCFE3DF21CBD798A00B5968B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCFE3DC11CBD798A00B5968B /* Project object */;
+}
