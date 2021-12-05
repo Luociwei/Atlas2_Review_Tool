@@ -35,7 +35,7 @@
 @property(nonatomic,strong)TableDataDelegate *tableDataDelegate;
 @property(nonatomic,strong)ProgressBarVC *progressBarVC;
 
-
+@property(nonatomic,copy)NSDictionary *slotDic;
 @end
 
 @implementation AtlasLogVC{
@@ -46,6 +46,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
+
+    self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
 
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
@@ -78,6 +81,23 @@
     self.fail_items_data = [self getFailListSortItemsData:item_dict_arr];
     self.startTimeSort_items_data = [self getStartTimeSortItemsData:item_dict_arr];
     self.slotSort_items_data = [self getSotSortItemsData:item_dict_arr];
+}
+
+-(NSString *)getSlotWithDevicePath:(NSString *)device_path{
+    //    self.slotDic.allKeys
+    NSString *slot = @"Unkonw";
+    NSString *device_content = [FileManager cw_readFromFile:device_path];
+    for (NSString *key in self.slotDic.allKeys) {
+        NSArray *arr = [self.slotDic objectForKey:key];
+        
+        for (NSString *str in arr) {
+            if ([device_content containsString:str]) {
+                return key;
+            }
+        }
+    }
+
+    return slot;
 }
 
 - (IBAction)add_csv_click:(NSButton *)sender {
@@ -124,6 +144,7 @@
         NSInteger count_files = filesArr.count;
         for (NSString *filename in filesArr) {
             @autoreleasepool {
+       
                 ItemMode *item_mode = [[ItemMode alloc]init];
                 NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
                 item_mode.sn = pathArr[0];
@@ -133,29 +154,31 @@
                 NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
                 
                 NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
-                item_mode.slot = @"Unkonw";
+                item_mode.slot = [self getSlotWithDevicePath:device_path];
+                
                 //        if (self.showSlot.state) {
-                NSString *device_content = [FileManager cw_readFromFile:device_path];
-                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
-                    item_mode.slot = @"1";
-                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
-                    item_mode.slot = @"2";
-                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
-                    item_mode.slot = @"3";
-                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
-                    item_mode.slot = @"4";
-                }else{
-                    
-                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
-                        item_mode.slot = @"1";
-                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
-                        item_mode.slot = @"2";
-                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
-                        item_mode.slot = @"3";
-                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
-                        item_mode.slot = @"4";
-                    }
-                }
+//                NSString *device_content = [FileManager cw_readFromFile:device_path];
+//                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
+//                    item_mode.slot = @"1";
+//                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
+//                    item_mode.slot = @"2";
+//                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
+//                    item_mode.slot = @"3";
+//                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
+//                    item_mode.slot = @"4";
+//                }
+//                else{
+//
+//                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
+//                        item_mode.slot = @"1";
+//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
+//                        item_mode.slot = @"2";
+//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
+//                        item_mode.slot = @"3";
+//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
+//                        item_mode.slot = @"4";
+//                    }
+//                }
                 
                 
                 item_mode.cfg = @"Unkonw";
@@ -191,10 +214,6 @@
                     
                 }
                 
-                
-                
-                //        item_mode.sn = pathArr[0];
-                //        item_mode.startTime = pathArr[1];
                 NSString *recordPath = [path stringByAppendingPathComponent:filename];
                 //        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
                 
@@ -253,18 +272,64 @@
         NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithItemModeArr:item_mode_arr];
         
         [self updateAllIWithtemsData:item_dict_arr];
+        
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.progressBarVC dismisssViewOnViewController:self];
-            
+
             self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-            
+
 //            self.btnGenerate.title = @"Generate";
+            [self reloadDataWithColumnSize:self.startTimeSort_items_data];
             [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
         });
 
     });
 }
+
+-(void)reloadDataWithColumnSize:(NSArray *)data{
+    if (!data.count) {
+        return;
+    }
+    NSMutableArray *keyArr = [[NSMutableArray alloc]init];
+    for (NSTableColumn *col in self.itemsTableView.tableColumns) {
+//        [columnDic setObject:col.identifier forKey:col.title];
+        [keyArr addObject:col.identifier];
+    }
+//    NSArray *keyArr = self.itemsTableView.tableColumns
+//    int i =0;
+    NSMutableDictionary *colMixLenDic = [[NSMutableDictionary alloc]init];
+    for (NSString *key in keyArr) {
+        if ([key isEqualToString:id_record]) {
+            continue;
+        }
+        NSString *maxValue = @"";
+        for (NSMutableDictionary *mutDic in data) {
+        
+            NSString *vaule =[mutDic objectForKey:key] ;
+            if ([vaule length] >= maxValue.length) {
+                maxValue =vaule;
+            }
+            
+        }
+        [colMixLenDic setObject:maxValue forKey:key];
+    }
+
+    for (NSString *key in keyArr) {
+
+        NSTableColumn *column = [self.itemsTableView tableColumnWithIdentifier:key];
+        NSString *vaule =colMixLenDic[key];
+        float w = 20.0;
+        if (![key isEqualToString:id_record]) {
+            w = [vaule sizeWithAttributes:nil].width;
+        }
+         
+
+        //NSInteger w =9*vaule.length;
+        column.width = w*1.3;
+    }
+}
+
 
 
 //-(NSMutableArray *)getSnSortItemsData:(NSMutableArray<NSDictionary *>*)itemsData{

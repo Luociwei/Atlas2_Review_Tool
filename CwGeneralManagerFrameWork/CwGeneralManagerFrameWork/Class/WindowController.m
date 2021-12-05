@@ -113,12 +113,12 @@
 //// stringFromDate 将日期类型格式化，转为NSString 类型
 //return [formatter stringFromDate:buildTime];
 -(void)awakeFromNib{
-    NSDate *date = [NSDate date];
-    NSDate * buildTime = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
-    NSTimeInterval timeInterval = [date timeIntervalSinceDate:buildTime];
-    if (timeInterval > 3600*24*30*12) {
-        [Alert cw_RemindException:@"Warning!!!" Information:@"The version has expired. Please use the latest version!"];
-    }
+//    NSDate *date = [NSDate date];
+//    NSDate * buildTime = (NSDate *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CustomBundleTime"];
+//    NSTimeInterval timeInterval = [date timeIntervalSinceDate:buildTime];
+//    if (timeInterval > 3600*24*30*6) {
+//        [Alert cw_RemindException:@"Warning!!!" Information:@"The version has expired. Please use the latest version!"];
+//    }
 //    if (!([date.description containsString:@"2021"] || [date.description containsString:@"2022"])) {
 //        [NSApp terminate:nil];
 //    }

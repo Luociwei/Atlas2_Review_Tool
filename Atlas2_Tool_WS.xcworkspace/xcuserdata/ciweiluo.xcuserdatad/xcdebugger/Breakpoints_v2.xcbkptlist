@@ -261,8 +261,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "591"
-            endingLineNumber = "591"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
             landmarkName = "-doubleClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,22 +334,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "42C53A6A-77F4-4DF5-A16C-7AC22F112603"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/TestLog/TextReviewVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-setContentStr:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4EFF6544-EE90-4B36-9EAB-B65E54A15540"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -357,9 +341,57 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "-tableDataDelegate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E281F0EC-BFE0-4EC9-93F9-5486119B38CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/TestLog/TestLogVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-viewWillAppear"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F136EE66-BD93-4FF9-BB53-22E09DD16889"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "-reloadDataWithColumnSize:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45811402-4A95-451D-93A9-5373E879F14D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
+            landmarkName = "-reloadDataWithColumnSize:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -63,7 +63,17 @@
 
 +(NSString *)cw_readFromFile:(NSString *)filePath
 {
-    return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:filePath];
+    
+            
+//    data = [fh readDataToEndOfFile];
+    
+    
+    return [[NSString alloc] initWithData:[fh readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    
+        
+    
+//    return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 }
 +(NSString *)cw_getAppResourcePath{
     NSString *bundlePath = [[NSBundle bundleForClass:[self class]] bundlePath];
