@@ -11,7 +11,8 @@
 #import "TestLogVC.h"
 //#import "RedisInterface.hpp"
 #import "ProgressBarVC.h"
-
+#define  cpk_zmq_addr           @"tcp://127.0.0.1:3100"
+#import "Client.h"
 @interface AtlasLogVC ()
 //@property (unsafe_unretained) IBOutlet NSTextView *logview;
 //@property (strong) IBOutlet NSMenuItem *editMenu;
@@ -40,12 +41,50 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
+    Client *cpkClient;
 //    RedisInterface *myRedis;
  
 }
 
+
+
+-(int)execute_withTask:(NSString*) szcmd withPython:(NSString *)arg
+{
+    if (!szcmd) return -1;
+    NSTask * task = [[NSTask alloc] init];
+    [task setLaunchPath:szcmd];
+    [task setArguments:[NSArray arrayWithObjects:arg, nil]];
+    [task launch];
+    return 0;
+}
+-(void)Lanuch_cpk
+
+{
+    
+    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString * launchPath = [resourcePath stringByAppendingString:@"/Python/NewEnv/pythonProject/bin/python3.10"];
+    
+    NSString * arg = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
+    NSString *logCmd = @"ps -ef |grep -i python |grep -i PythonTest.py |grep -v grep|awk '{print $2}' | xargs kill -9";
+    system([logCmd UTF8String]); //杀掉PythonTest.py 进程
+    [self execute_withTask:launchPath withPython:arg];
+    
+}
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    system("/usr/bin/ulimit -n 8192");
+    [self Lanuch_cpk];
+    cpkClient = [[Client alloc] init];   // connect CPK zmq for PythonTest.py
+    [cpkClient CreateRPC:cpk_zmq_addr withSubscriber:nil];
+    [cpkClient setTimeout:20*1000];
+    
+    
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
 
     self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
@@ -101,6 +140,23 @@
 }
 
 - (IBAction)add_csv_click:(NSButton *)sender {
+    
+    
+    
+    int ret = [cpkClient SendCmd:@"testfsed"];
+    if (ret > 0)
+    {
+        NSString * response = [cpkClient RecvRquest:1024];
+        if (!response)
+        {
+            NSLog(@"zmq for python error");
+        }
+        NSLog(@"app->get response from python: %@",response);
+//        return response;
+    }
+    return;
+    
+    
     //    [FileManager openPanel:^(NSString * _Nonnull path) {
 //    [self redis_set];
     [self removeAllItemsData];

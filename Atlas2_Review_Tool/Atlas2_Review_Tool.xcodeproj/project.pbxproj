@@ -14,7 +14,7 @@
 		BA1D97AF263AFA310066545F /* AtlasLogVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97AB263AFA310066545F /* AtlasLogVC.mm */; };
 		BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B3263AFADF0066545F /* WindowVC.m */; };
 		BA1D97B7263AFAE00066545F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B4263AFADF0066545F /* main.m */; };
-		BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.m */; };
+		BA1D97B8263AFAE00066545F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.mm */; };
 		BA1D97C7263AFD270066545F /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* RecordVC.m */; };
 		BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* RecordVC.xib */; };
 		BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993D263E58B00066545F /* ScritItemMode.m */; };
@@ -22,6 +22,7 @@
 		BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993F263E58B10066545F /* AtlasScritVC.m */; };
 		BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA273321268235AF00C1F6F7 /* RegularVC.m */; };
 		BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA273322268235AF00C1F6F7 /* RegularVC.xib */; };
+		BA53C59C276306CC0075FC6C /* Python in Resources */ = {isa = PBXBuildFile; fileRef = BA53C59B276306CC0075FC6C /* Python */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
 		BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */; };
@@ -85,11 +86,20 @@
 		BA9ACEE326C57D9E004F6F72 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACEA126C57D9E004F6F72 /* ltm.c */; };
 		BA9ACEE426C57D9E004F6F72 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACEA326C57D9E004F6F72 /* ldo.c */; };
 		BAB38356275A5F340025CDE6 /* SlotRegular.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB38355275A5F340025CDE6 /* SlotRegular.plist */; };
-		BAB38363275B1E690025CDE6 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1B22A274E789400B2F8F3 /* CwGeneralManagerFrameWork.framework */; };
-		BAB38364275B1E690025CDE6 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1B22A274E789400B2F8F3 /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAB38369275F0CE20025CDE6 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */; };
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 		BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = BAB90A6526C59827004853E2 /* LuaRegularTest.lua */; };
 		BAB90A6F26C689D0004853E2 /* CycleTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */; };
+		BABBFB512761B0DE000E822B /* libzmq.la in Resources */ = {isa = PBXBuildFile; fileRef = BABBFB282761B0DE000E822B /* libzmq.la */; };
+		BABBFB522761B0DE000E822B /* Publisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB292761B0DE000E822B /* Publisher.cpp */; };
+		BABBFB532761B0DE000E822B /* libzmq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBFB2A2761B0DE000E822B /* libzmq.a */; };
+		BABBFB542761B0DE000E822B /* libZMQX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBFB2C2761B0DE000E822B /* libZMQX.a */; };
+		BABBFB552761B0DE000E822B /* Subscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB2D2761B0DE000E822B /* Subscriber.cpp */; };
+		BABBFB562761B0DE000E822B /* zmqw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB2F2761B0DE000E822B /* zmqw.cpp */; };
+		BABBFB572761B0DE000E822B /* Requester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB322761B0DE000E822B /* Requester.cpp */; };
+		BABBFB582761B0DE000E822B /* Replier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB352761B0DE000E822B /* Replier.cpp */; };
+		BABBFB592761B0DE000E822B /* Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB362761B0DE000E822B /* Client.mm */; };
+		BABBFB982761BCA6000E822B /* PythonTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BABBFB972761BCA6000E822B /* PythonTest.py */; };
 		BAC66D3827453F8E0025A91E /* MixPing.app in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D3727453F8E0025A91E /* MixPing.app */; };
 		BAC66D4B274928E70025A91E /* ProgressBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D49274928E70025A91E /* ProgressBarVC.m */; };
 		BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D4A274928E70025A91E /* ProgressBarVC.xib */; };
@@ -99,20 +109,6 @@
 		BAC66D5C274BE5B00025A91E /* TextReviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D5A274BE5B00025A91E /* TextReviewVC.m */; };
 		BAC66D5D274BE5B00025A91E /* TextReviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D5B274BE5B00025A91E /* TextReviewVC.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BAB38365275B1E690025CDE6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BAB38364275B1E690025CDE6 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		711A342B1DC3539000F5B5D2 /* Atlas2_Review_Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas2_Review_Tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +124,7 @@
 		BA1D97B2263AFADF0066545F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA1D97B3263AFADF0066545F /* WindowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
 		BA1D97B4263AFADF0066545F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BA1D97B5263AFADF0066545F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA1D97B5263AFADF0066545F /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		BA1D97C4263AFD270066545F /* RecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVC.h; sourceTree = "<group>"; };
 		BA1D97C5263AFD270066545F /* RecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
 		BA1D97C6263AFD270066545F /* RecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordVC.xib; sourceTree = "<group>"; };
@@ -140,6 +136,7 @@
 		BA273320268235AF00C1F6F7 /* RegularVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularVC.h; sourceTree = "<group>"; };
 		BA273321268235AF00C1F6F7 /* RegularVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularVC.m; sourceTree = "<group>"; };
 		BA273322268235AF00C1F6F7 /* RegularVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegularVC.xib; sourceTree = "<group>"; };
+		BA53C59B276306CC0075FC6C /* Python */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Python; sourceTree = "<group>"; };
 		BA8BD72B264A5F650024B100 /* LuaFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaFunction.h; sourceTree = "<group>"; };
 		BA8BD72C264A5F650024B100 /* LuaFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaFunction.m; sourceTree = "<group>"; };
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
@@ -268,11 +265,31 @@
 		BA9ACEA326C57D9E004F6F72 /* ldo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ldo.c; sourceTree = "<group>"; };
 		BA9ACEA426C57D9E004F6F72 /* lundump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lundump.h; sourceTree = "<group>"; };
 		BAB38355275A5F340025CDE6 /* SlotRegular.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SlotRegular.plist; sourceTree = "<group>"; };
+		BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwGeneralManagerFrameWork.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
 		BAB4315025B32A38003F0AFB /* ExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionConst.m; sourceTree = "<group>"; };
 		BAB4315125B32A38003F0AFB /* ExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionConst.h; sourceTree = "<group>"; };
 		BAB90A6526C59827004853E2 /* LuaRegularTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LuaRegularTest.lua; sourceTree = "<group>"; };
 		BAB90A6D26C689D0004853E2 /* CycleTimeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleTimeModel.h; sourceTree = "<group>"; };
 		BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTimeModel.m; sourceTree = "<group>"; };
+		BABBFB252761B0DE000E822B /* Replier.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Replier.hpp; sourceTree = "<group>"; };
+		BABBFB262761B0DE000E822B /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		BABBFB272761B0DE000E822B /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq_utils.h; sourceTree = "<group>"; };
+		BABBFB282761B0DE000E822B /* libzmq.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libzmq.la; sourceTree = "<group>"; };
+		BABBFB292761B0DE000E822B /* Publisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Publisher.cpp; sourceTree = "<group>"; };
+		BABBFB2A2761B0DE000E822B /* libzmq.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzmq.a; sourceTree = "<group>"; };
+		BABBFB2B2761B0DE000E822B /* Requester.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Requester.hpp; sourceTree = "<group>"; };
+		BABBFB2C2761B0DE000E822B /* libZMQX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZMQX.a; sourceTree = "<group>"; };
+		BABBFB2D2761B0DE000E822B /* Subscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subscriber.cpp; sourceTree = "<group>"; };
+		BABBFB2E2761B0DE000E822B /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq.h; sourceTree = "<group>"; };
+		BABBFB2F2761B0DE000E822B /* zmqw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zmqw.cpp; sourceTree = "<group>"; };
+		BABBFB302761B0DE000E822B /* zhelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhelpers.h; sourceTree = "<group>"; };
+		BABBFB312761B0DE000E822B /* Publisher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Publisher.hpp; sourceTree = "<group>"; };
+		BABBFB322761B0DE000E822B /* Requester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Requester.cpp; sourceTree = "<group>"; };
+		BABBFB332761B0DE000E822B /* Subscriber.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Subscriber.hpp; sourceTree = "<group>"; };
+		BABBFB342761B0DE000E822B /* zmqw.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = zmqw.hpp; sourceTree = "<group>"; };
+		BABBFB352761B0DE000E822B /* Replier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Replier.cpp; sourceTree = "<group>"; };
+		BABBFB362761B0DE000E822B /* Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Client.mm; sourceTree = "<group>"; };
+		BABBFB972761BCA6000E822B /* PythonTest.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PythonTest.py; sourceTree = "<group>"; };
 		BAC66D3727453F8E0025A91E /* MixPing.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = MixPing.app; sourceTree = "<group>"; };
 		BAC66D48274928E70025A91E /* ProgressBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressBarVC.h; sourceTree = "<group>"; };
 		BAC66D49274928E70025A91E /* ProgressBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressBarVC.m; sourceTree = "<group>"; };
@@ -292,7 +309,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB38363275B1E690025CDE6 /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BABBFB532761B0DE000E822B /* libzmq.a in Frameworks */,
+				BAB38369275F0CE20025CDE6 /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BABBFB542761B0DE000E822B /* libZMQX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +338,7 @@
 		711A342D1DC3539000F5B5D2 /* Atlas2_Review_Tool */ = {
 			isa = PBXGroup;
 			children = (
+				BABBFB242761B0DE000E822B /* zmq */,
 				BAC66D47274928B80025A91E /* ProgressBar */,
 				BA27331F2682356800C1F6F7 /* RegularVC */,
 				BA8BD72A264A5F320024B100 /* LuaFunction */,
@@ -337,6 +357,8 @@
 			isa = PBXGroup;
 			children = (
 				BAC66D54274BB46A0025A91E /* README.md */,
+				BA53C59B276306CC0075FC6C /* Python */,
+				BABBFB972761BCA6000E822B /* PythonTest.py */,
 				BAB38355275A5F340025CDE6 /* SlotRegular.plist */,
 				BAC66D3727453F8E0025A91E /* MixPing.app */,
 				BAB4315125B32A38003F0AFB /* ExtensionConst.h */,
@@ -365,7 +387,7 @@
 				BA1D97B1263AFADF0066545F /* WindowVC.h */,
 				BA1D97B3263AFADF0066545F /* WindowVC.m */,
 				BA1D97B2263AFADF0066545F /* AppDelegate.h */,
-				BA1D97B5263AFADF0066545F /* AppDelegate.m */,
+				BA1D97B5263AFADF0066545F /* AppDelegate.mm */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -596,9 +618,35 @@
 		BAB4314625B328C1003F0AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */,
 				BAD1B22A274E789400B2F8F3 /* CwGeneralManagerFrameWork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BABBFB242761B0DE000E822B /* zmq */ = {
+			isa = PBXGroup;
+			children = (
+				BABBFB252761B0DE000E822B /* Replier.hpp */,
+				BABBFB272761B0DE000E822B /* zmq_utils.h */,
+				BABBFB282761B0DE000E822B /* libzmq.la */,
+				BABBFB292761B0DE000E822B /* Publisher.cpp */,
+				BABBFB2A2761B0DE000E822B /* libzmq.a */,
+				BABBFB2B2761B0DE000E822B /* Requester.hpp */,
+				BABBFB2C2761B0DE000E822B /* libZMQX.a */,
+				BABBFB2D2761B0DE000E822B /* Subscriber.cpp */,
+				BABBFB2E2761B0DE000E822B /* zmq.h */,
+				BABBFB2F2761B0DE000E822B /* zmqw.cpp */,
+				BABBFB302761B0DE000E822B /* zhelpers.h */,
+				BABBFB312761B0DE000E822B /* Publisher.hpp */,
+				BABBFB322761B0DE000E822B /* Requester.cpp */,
+				BABBFB332761B0DE000E822B /* Subscriber.hpp */,
+				BABBFB342761B0DE000E822B /* zmqw.hpp */,
+				BABBFB352761B0DE000E822B /* Replier.cpp */,
+				BABBFB262761B0DE000E822B /* Client.h */,
+				BABBFB362761B0DE000E822B /* Client.mm */,
+			);
+			path = zmq;
 			sourceTree = "<group>";
 		};
 		BAC66D47274928B80025A91E /* ProgressBar */ = {
@@ -621,7 +669,6 @@
 				711A34271DC3539000F5B5D2 /* Sources */,
 				711A34281DC3539000F5B5D2 /* Frameworks */,
 				711A34291DC3539000F5B5D2 /* Resources */,
-				BAB38365275B1E690025CDE6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -673,8 +720,10 @@
 			files = (
 				BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */,
 				BAC66D4C274928E70025A91E /* ProgressBarVC.xib in Resources */,
+				BABBFB982761BCA6000E822B /* PythonTest.py in Resources */,
 				BA9ACEC226C57D9E004F6F72 /* osi-certified-72x60.png in Resources */,
 				BAC66D53274A24880025A91E /* PythonRegularTest.py in Resources */,
+				BA53C59C276306CC0075FC6C /* Python in Resources */,
 				BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */,
 				BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */,
 				BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */,
@@ -682,6 +731,7 @@
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
 				BA9ACEC026C57D9E004F6F72 /* manual.css in Resources */,
 				BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */,
+				BABBFB512761B0DE000E822B /* libzmq.la in Resources */,
 				BA9ACEC126C57D9E004F6F72 /* luac.1 in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
 				BAC66D3827453F8E0025A91E /* MixPing.app in Resources */,
@@ -699,8 +749,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABBFB522761B0DE000E822B /* Publisher.cpp in Sources */,
 				BA1D97AF263AFA310066545F /* AtlasLogVC.mm in Sources */,
-				BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */,
+				BA1D97B8263AFAE00066545F /* AppDelegate.mm in Sources */,
 				BA9ACEB126C57D9E004F6F72 /* LSCOperationQueue.m in Sources */,
 				BA9ACEAF26C57D9E004F6F72 /* LSCExportMethodDescriptor.m in Sources */,
 				BA9ACEAC26C57D9E004F6F72 /* LSCTmpValue.m in Sources */,
@@ -718,6 +769,7 @@
 				BA9ACEC326C57D9E004F6F72 /* lauxlib.c in Sources */,
 				BA9ACED226C57D9E004F6F72 /* ltable.c in Sources */,
 				BA9ACED326C57D9E004F6F72 /* ldump.c in Sources */,
+				BABBFB562761B0DE000E822B /* zmqw.cpp in Sources */,
 				BA9ACECB26C57D9E004F6F72 /* lvm.c in Sources */,
 				BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */,
 				BA9ACEBE26C57D9E004F6F72 /* LSCScriptController.m in Sources */,
@@ -728,11 +780,14 @@
 				BA9ACED526C57D9E004F6F72 /* lgc.c in Sources */,
 				BA9ACEB626C57D9E004F6F72 /* LSCCoroutine.m in Sources */,
 				BA9ACEB726C57D9E004F6F72 /* LSCEngineAdapter.m in Sources */,
+				BABBFB582761B0DE000E822B /* Replier.cpp in Sources */,
 				BA9ACEBA26C57D9E004F6F72 /* LSCSession.m in Sources */,
+				BABBFB592761B0DE000E822B /* Client.mm in Sources */,
 				BA9ACEE226C57D9E004F6F72 /* llex.c in Sources */,
 				BA9ACEE126C57D9E004F6F72 /* lparser.c in Sources */,
 				BA9ACEB026C57D9E004F6F72 /* LSCTuple.m in Sources */,
 				BA9ACEDD26C57D9E004F6F72 /* lbitlib.c in Sources */,
+				BABBFB572761B0DE000E822B /* Requester.cpp in Sources */,
 				BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */,
 				BA9ACECE26C57D9E004F6F72 /* linit.c in Sources */,
 				BA9ACEB326C57D9E004F6F72 /* LSCExportTypeDescriptor.m in Sources */,
@@ -740,6 +795,7 @@
 				BA9ACEDA26C57D9E004F6F72 /* lcorolib.c in Sources */,
 				BA9ACEB826C57D9E004F6F72 /* LSCValue.m in Sources */,
 				BA1D97AC263AFA310066545F /* ItemMode.m in Sources */,
+				BABBFB552761B0DE000E822B /* Subscriber.cpp in Sources */,
 				BAC66D5C274BE5B00025A91E /* TextReviewVC.m in Sources */,
 				BA9ACEAE26C57D9E004F6F72 /* LSCContext.m in Sources */,
 				BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */,
@@ -879,14 +935,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Atlas2_Review_Tool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/Redis/lib",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/zmq",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = app.io.Atlas2_Review_Tool;
@@ -899,14 +958,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Atlas2_Review_Tool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/Redis/lib",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/zmq",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = app.io.Atlas2_Review_Tool;
