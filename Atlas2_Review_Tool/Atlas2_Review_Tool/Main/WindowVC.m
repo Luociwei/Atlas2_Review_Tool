@@ -140,7 +140,23 @@
 //    [self.catchFwVc showViewOnViewController:self.contentViewController];
 //}
 
-
+-(void)windowWillClose:(NSNotification *)notification{
+    NSLog(@"--close app--");
+    NSString *file_cli = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-cli"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+    NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
+    for (int i=0; i<10; i++)
+        system([cli_Path UTF8String]);
+    
+    for (int i=0; i<20; i++)
+    {
+        NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
+        system([killRedis UTF8String]);
+    }
+    NSString *logCmd = @"ps -ef |grep -i python |grep -i main.py |grep -v grep|awk '{print $2}' | xargs kill -9";
+    system([logCmd UTF8String]); //杀掉PythonTest.py 进程
+    [NSThread sleepForTimeInterval:1];
+    [super windowWillClose:notification];
+}
 
 - (void)windowDidLoad {
     [super windowDidLoad];

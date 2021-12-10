@@ -13,6 +13,7 @@
 #import "ProgressBarVC.h"
 #define  cpk_zmq_addr           @"tcp://127.0.0.1:3100"
 #import "Client.h"
+#import "RedisInterface.hpp"
 @interface AtlasLogVC ()
 //@property (unsafe_unretained) IBOutlet NSTextView *logview;
 //@property (strong) IBOutlet NSMenuItem *editMenu;
@@ -42,11 +43,46 @@
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
     Client *cpkClient;
+    RedisInterface *myRedis;
 //    RedisInterface *myRedis;
  
 }
 
+-(BOOL)OpenRedisServer
+{
+    for (int i=0; i<5; i++)
+    {
+        NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
+        system([killRedis UTF8String]);
+    }
+    
+    [NSThread sleepForTimeInterval:0.2];
 
+    for (int i=0; i<5; i++)
+    {
+        NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
+        system([killRedis UTF8String]);
+    }
+     [NSThread sleepForTimeInterval:0.2];
+    
+    NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+    system([file UTF8String]);
+    //NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+
+//    system([file UTF8String]);
+    
+    [NSThread sleepForTimeInterval:0.2];
+    NSString *file_cli = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-cli"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+    NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
+    for (int i=0; i<10; i++)
+        system([cli_Path UTF8String]);
+    
+    myRedis = new RedisInterface();  // redis client connect
+    myRedis->Connect();
+    myRedis->SetString("dummy", "just for test");
+
+    return true;
+}
 
 -(int)execute_withTask:(NSString*) szcmd withPython:(NSString *)arg
 {
@@ -60,29 +96,30 @@
 -(void)Lanuch_cpk
 
 {
-    
+    system("/usr/bin/ulimit -n 8192");
     NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
     NSString * launchPath = [resourcePath stringByAppendingString:@"/Python/NewEnv/pythonProject/bin/python3.10"];
     
     NSString * arg = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
-    NSString *logCmd = @"ps -ef |grep -i python |grep -i PythonTest.py |grep -v grep|awk '{print $2}' | xargs kill -9";
+    NSString *logCmd = @"ps -ef |grep -i python |grep -i main.py |grep -v grep|awk '{print $2}' | xargs kill -9";
     system([logCmd UTF8String]); //杀掉PythonTest.py 进程
     [self execute_withTask:launchPath withPython:arg];
     
 }
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    system("/usr/bin/ulimit -n 8192");
+    [self OpenRedisServer];
+    
     [self Lanuch_cpk];
     cpkClient = [[Client alloc] init];   // connect CPK zmq for PythonTest.py
     [cpkClient CreateRPC:cpk_zmq_addr withSubscriber:nil];
     [cpkClient setTimeout:20*1000];
+    
+
     
     
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
@@ -141,17 +178,21 @@
 
 - (IBAction)add_csv_click:(NSButton *)sender {
     
-    
-    
-    int ret = [cpkClient SendCmd:@"testfsed"];
+    myRedis->SetString("test_item_3", "0.01,0.03,0.02");
+
+    int ret = [cpkClient SendCmd:@"test_item_3"];
     if (ret > 0)
     {
         NSString * response = [cpkClient RecvRquest:1024];
         if (!response)
         {
             NSLog(@"zmq for python error");
+            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:@"zmq for python error"];
+        }else{
+            NSLog(@"app->get response from python: %@",response);
+            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:[NSString stringWithFormat:@"app->get response from python: %@",response]];
         }
-        NSLog(@"app->get response from python: %@",response);
+        
 //        return response;
     }
     return;

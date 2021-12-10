@@ -16,7 +16,7 @@
 @end
 
 @implementation AppDelegate{
-    Client *cpkClient;
+//    Client *cpkClient;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -28,24 +28,7 @@
     
     
 }
--(int)execute_withTask:(NSString*) szcmd withPython:(NSString *)arg
-{
-    if (!szcmd) return -1;
-    NSTask * task = [[NSTask alloc] init];
-    [task setLaunchPath:szcmd];
-    [task setArguments:[NSArray arrayWithObjects:arg, nil]];
-    [task launch];
-    return 0;
-}
--(void)Lanuch_cpk
-{
-    NSString * cmd = @"/Library/Frameworks/Python.framework/Versions/3.8/bin/python3";
-    NSString * arg = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PythonTest.py"];
-    NSString *logCmd = @"ps -ef |grep -i python |grep -i PythonTest.py |grep -v grep|awk '{print $2}' | xargs kill -9";
-    system([logCmd UTF8String]); //杀掉PythonTest.py 进程
-    [self execute_withTask:cmd withPython:arg];
-    
-}
+
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application

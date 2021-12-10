@@ -261,8 +261,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "711"
-            endingLineNumber = "711"
+            startingLineNumber = "752"
+            endingLineNumber = "752"
             landmarkName = "-doubleClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -341,8 +341,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "651"
-            endingLineNumber = "651"
+            startingLineNumber = "692"
+            endingLineNumber = "692"
             landmarkName = "-tableDataDelegate"
             landmarkType = "7">
          </BreakpointContent>
@@ -373,8 +373,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
             landmarkName = "-reloadDataWithColumnSize:"
             landmarkType = "7">
          </BreakpointContent>
@@ -389,8 +389,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "-reloadDataWithColumnSize:"
             landmarkType = "7">
          </BreakpointContent>
@@ -421,8 +421,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-Lanuch_cpk"
             landmarkType = "7">
          </BreakpointContent>
@@ -437,9 +437,25 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "-add_csv_click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E0FEF8E-1046-4176-B0CF-FB4DE072E2B9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/Main/WindowVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-windowWillClose:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
