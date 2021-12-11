@@ -79,7 +79,7 @@
     
     myRedis = new RedisInterface();  // redis client connect
     myRedis->Connect();
-    myRedis->SetString("dummy", "just for test");
+    //myRedis->SetString("dummy", "just for test");
 
     return true;
 }

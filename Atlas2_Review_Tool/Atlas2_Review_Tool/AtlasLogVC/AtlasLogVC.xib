@@ -140,11 +140,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="CEh-KP-NCX">
-                                                <rect key="frame" x="49" y="1" width="145" height="17"/>
+                                                <rect key="frame" x="49" y="1" width="144" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ih-jh-Uaq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" id="cNz-eb-Yk2">
                                                             <font key="font" metaFont="system"/>
@@ -172,7 +172,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="tjt-Qy-xHI">
-                                                <rect key="frame" x="196.5" y="1" width="80" height="17"/>
+                                                <rect key="frame" x="196" y="1" width="80" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LB-Zo-9hc">
@@ -204,11 +204,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="FrG-OR-57Z">
-                                                <rect key="frame" x="279.5" y="1" width="46" height="17"/>
+                                                <rect key="frame" x="279" y="1" width="47" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="od4-1D-Pez">
-                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="QJf-m2-YDP">
                                                             <font key="font" metaFont="system"/>
@@ -447,7 +447,7 @@
                             </tableView>
                         </subviews>
                     </clipView>
-                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.13450292397660818" horizontal="YES" id="Tje-F7-ktU">
+                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Tje-F7-ktU">
                         <rect key="frame" x="1" y="592" width="1198" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
