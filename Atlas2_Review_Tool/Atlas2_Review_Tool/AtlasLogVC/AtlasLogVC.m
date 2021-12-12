@@ -12,12 +12,11 @@
 //#import "RedisInterface.hpp"
 #import "ProgressBarVC.h"
 #define  cpk_zmq_addr           @"tcp://127.0.0.1:3100"
-#import "Client.h"
-#import "RedisInterface.hpp"
+#import "CWZMQ.h"
+#import "CWRedis.h"
+
 @interface AtlasLogVC ()
-//@property (unsafe_unretained) IBOutlet NSTextView *logview;
-//@property (strong) IBOutlet NSMenuItem *editMenu;
-//@property (weak) IBOutlet NSButton *showSlot;
+
 @property (weak) IBOutlet NSButton *btnGenerate;
 
 //@property (nonatomic,strong) NSArray<NSDictionary *> *items_datas;
@@ -42,90 +41,28 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
-    Client *cpkClient;
-    RedisInterface *myRedis;
-//    RedisInterface *myRedis;
+    
+    CWRedis *_redis;
+    
+    CWZMQ *_zmqClient;
  
 }
 
--(BOOL)OpenRedisServer
-{
-    for (int i=0; i<5; i++)
-    {
-        NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
-        system([killRedis UTF8String]);
-    }
-    
-    [NSThread sleepForTimeInterval:0.2];
-
-    for (int i=0; i<5; i++)
-    {
-        NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
-        system([killRedis UTF8String]);
-    }
-     [NSThread sleepForTimeInterval:0.2];
-    
-    NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
-    system([file UTF8String]);
-    //NSString *file = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-server&"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
-
-//    system([file UTF8String]);
-    
-    [NSThread sleepForTimeInterval:0.2];
-    NSString *file_cli = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"redis-cli"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
-    NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
-    for (int i=0; i<10; i++)
-        system([cli_Path UTF8String]);
-    
-    myRedis = new RedisInterface();  // redis client connect
-    myRedis->Connect();
-    //myRedis->SetString("dummy", "just for test");
-
-    return true;
-}
-
--(int)execute_withTask:(NSString*) szcmd withPython:(NSString *)arg
-{
-    if (!szcmd) return -1;
-    NSTask * task = [[NSTask alloc] init];
-    [task setLaunchPath:szcmd];
-    [task setArguments:[NSArray arrayWithObjects:arg, nil]];
-    [task launch];
-    return 0;
-}
--(void)Lanuch_cpk
-
-{
-    system("/usr/bin/ulimit -n 8192");
-    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString * launchPath = [resourcePath stringByAppendingString:@"/Python/NewEnv/pythonProject/bin/python3.10"];
-    
-    NSString * arg = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
-    NSString *logCmd = @"ps -ef |grep -i python |grep -i main.py |grep -v grep|awk '{print $2}' | xargs kill -9";
-    system([logCmd UTF8String]); //杀掉PythonTest.py 进程
-    [self execute_withTask:launchPath withPython:arg];
-    
-}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _redis = [[CWRedis alloc] init];
+    [_redis connect];
     
-    [self OpenRedisServer];
-    
-    [self Lanuch_cpk];
-    cpkClient = [[Client alloc] init];   // connect CPK zmq for PythonTest.py
-    [cpkClient CreateRPC:cpk_zmq_addr withSubscriber:nil];
-    [cpkClient setTimeout:20*1000];
-    
+    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
+    _zmqClient = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100"];
+    [_zmqClient lanuchPythonFile:pyFile];
 
-    
-    
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
-
     self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
-
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
     NSString *deskPath = [NSString cw_getUserPath];
     dfuLogPath =[deskPath stringByAppendingPathComponent:@"Atlas2ReviewTool_Log"];
@@ -178,12 +115,12 @@
 
 - (IBAction)add_csv_click:(NSButton *)sender {
     
-    myRedis->SetString("test_item_3", "0.01,0.03,0.02");
+    [_redis setString:@"test_item_3" value:@"0.01,0.03,0.02"];
+    int ret = [_zmqClient send:@"test_item_3"];
 
-    int ret = [cpkClient SendCmd:@"test_item_3"];
     if (ret > 0)
     {
-        NSString * response = [cpkClient RecvRquest:1024];
+        NSString * response = [_zmqClient read];
         if (!response)
         {
             NSLog(@"zmq for python error");
