@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CwGeneralManagerFrameWork/CwGeneralManager.h>
+#import "AppDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

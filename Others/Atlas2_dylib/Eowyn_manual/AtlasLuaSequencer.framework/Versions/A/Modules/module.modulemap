@@ -1,0 +1,6 @@
+framework module AtlasLuaSequencer {
+  umbrella header "AtlasLuaSequencer.h"
+
+  export *
+  module * { export * }
+}

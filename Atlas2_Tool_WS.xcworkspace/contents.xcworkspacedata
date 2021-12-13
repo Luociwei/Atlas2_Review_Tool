@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Atlas2_Review_Tool/Atlas2_Review_Tool.xcodeproj">
+      location = "group:CwGeneralManagerFrameWork/CwGeneralManagerFrameWork.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CwGeneralManagerFrameWork/CwGeneralManagerFrameWork.xcodeproj">
+      location = "group:RedisZMQ/RedisZMQ.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Atlas2_Review_Tool/Atlas2_Review_Tool.xcodeproj">
    </FileRef>
 </Workspace>

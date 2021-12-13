@@ -9,11 +9,7 @@
 #import "AtlasLogVC.h"
 #import "ItemMode.h"
 #import "TestLogVC.h"
-//#import "RedisInterface.hpp"
 #import "ProgressBarVC.h"
-#define  cpk_zmq_addr           @"tcp://127.0.0.1:3100"
-#import "CWZMQ.h"
-#import "CWRedis.h"
 
 @interface AtlasLogVC ()
 
@@ -41,10 +37,7 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
-    
-    CWRedis *_redis;
-    
-    CWZMQ *_zmqClient;
+
  
 }
 
@@ -52,15 +45,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _redis = [[CWRedis alloc] init];
-    [_redis connect];
-    
-    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
-    _zmqClient = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100"];
-    [_zmqClient lanuchPythonFile:pyFile];
-
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
     self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
@@ -115,12 +99,13 @@
 
 - (IBAction)add_csv_click:(NSButton *)sender {
     
-    [_redis setString:@"test_item_3" value:@"0.01,0.03,0.02"];
-    int ret = [_zmqClient send:@"test_item_3"];
-
+    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
+    [appDelegate.redis setString:@"test_item_3" value:@"0.01,0.03,0.02"];
+    int ret = [appDelegate.zmqMainPy send:@"test_item_3"];
+    
     if (ret > 0)
     {
-        NSString * response = [_zmqClient read];
+        NSString * response = [appDelegate.zmqMainPy read];
         if (!response)
         {
             NSLog(@"zmq for python error");
@@ -130,28 +115,28 @@
             [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:[NSString stringWithFormat:@"app->get response from python: %@",response]];
         }
         
-//        return response;
+        //        return response;
     }
     return;
     
     
     //    [FileManager openPanel:^(NSString * _Nonnull path) {
-//    [self redis_set];
+    //    [self redis_set];
     [self removeAllItemsData];
     
     NSString *path =self.logDropView.stringValue;
     
     self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
     if (!path.length || ![FileManager cw_isFileExistAtPath:path]) {
-
+        
         [self.tableDataDelegate reloadTableViewWithData:nil];
         [Alert cw_messageBox:@"Error!!!" Information:@"Not found the file path,pls check."];
         return;
     }
-
+    
     
     NSFileManager *manager = [NSFileManager defaultManager];
-
+    
     NSMutableArray *filesArr = [[NSMutableArray alloc] init];
     
     for (NSString *filename in [manager enumeratorAtPath:path]) {
@@ -168,8 +153,8 @@
     }
     [self.progressBarVC showViewAsSheetOnViewController:self];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    
-
+        
+        
         NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
         NSMutableArray *item_mode_pass_arr=[[NSMutableArray alloc]init];
         NSMutableArray *item_mode_fail_arr=[[NSMutableArray alloc]init];
@@ -178,11 +163,11 @@
         NSInteger count_files = filesArr.count;
         for (NSString *filename in filesArr) {
             @autoreleasepool {
-       
+                
                 ItemMode *item_mode = [[ItemMode alloc]init];
                 NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
                 item_mode.sn = pathArr[0];
-
+                
                 item_mode.recordPath = [NSString stringWithFormat:@"%@/%@",path,filename];
                 //        ItemMode.s
                 NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
@@ -191,28 +176,28 @@
                 item_mode.slot = [self getSlotWithDevicePath:device_path];
                 
                 //        if (self.showSlot.state) {
-//                NSString *device_content = [FileManager cw_readFromFile:device_path];
-//                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
-//                    item_mode.slot = @"1";
-//                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
-//                    item_mode.slot = @"2";
-//                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
-//                    item_mode.slot = @"3";
-//                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
-//                    item_mode.slot = @"4";
-//                }
-//                else{
-//
-//                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
-//                        item_mode.slot = @"1";
-//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
-//                        item_mode.slot = @"2";
-//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
-//                        item_mode.slot = @"3";
-//                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
-//                        item_mode.slot = @"4";
-//                    }
-//                }
+                //                NSString *device_content = [FileManager cw_readFromFile:device_path];
+                //                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
+                //                    item_mode.slot = @"1";
+                //                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
+                //                    item_mode.slot = @"2";
+                //                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
+                //                    item_mode.slot = @"3";
+                //                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
+                //                    item_mode.slot = @"4";
+                //                }
+                //                else{
+                //
+                //                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
+                //                        item_mode.slot = @"1";
+                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
+                //                        item_mode.slot = @"2";
+                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
+                //                        item_mode.slot = @"3";
+                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
+                //                        item_mode.slot = @"4";
+                //                    }
+                //                }
                 
                 
                 item_mode.cfg = @"Unkonw";
@@ -236,7 +221,7 @@
                             }
                             
                         }
-//
+                        //
                     }
                     if (typeArr.count) {
                         if ([typeArr[0] count]>=2) {
@@ -281,19 +266,19 @@
                 
                 //        NSLog(@"%@",filename);
                 [item_mode_arr addObject:item_mode];
-//                BOOL S =self.progressBarVC.isViewLoaded;
+                //                BOOL S =self.progressBarVC.isViewLoaded;
                 if (self.progressBarVC.isActive) {
                     double v =i*1.0/count_files*100.0;
                     [self.progressBarVC setProgressBarDoubleValue:v info:item_mode.sn];
                 }else{
                     return;
                 }
-
+                
                 i = i + 1;
             }
         }
         
-
+        
         NSInteger total_count = item_mode_arr.count ? item_mode_arr.count : 0;
         NSInteger fail_count = item_mode_fail_arr.count ? item_mode_fail_arr.count : 0;
         NSInteger pass_count = item_mode_pass_arr.count ? item_mode_pass_arr.count : 0;
@@ -302,22 +287,22 @@
             rate = 100*pass_count/total_count;
         }
         
-
+        
         NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithItemModeArr:item_mode_arr];
         
         [self updateAllIWithtemsData:item_dict_arr];
         
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.progressBarVC dismisssViewOnViewController:self];
-
+            
             self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-
-//            self.btnGenerate.title = @"Generate";
+            
+            //            self.btnGenerate.title = @"Generate";
             [self reloadDataWithColumnSize:self.startTimeSort_items_data];
             [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
         });
-
+        
     });
 }
 

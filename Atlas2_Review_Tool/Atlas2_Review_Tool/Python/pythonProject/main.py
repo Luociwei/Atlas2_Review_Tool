@@ -29,20 +29,18 @@ def run():
     while True:
         try:
             print("wait for cpk client ...")
-            zmq_recv = zmqClient.recv()
+            zmq_msg = zmqClient.recv()
 
-            if len(zmq_recv) > 0:
+            if len(zmq_msg) > 0:
 
-                ret = redisClient.redis[zmq_recv]
-                print("message from cpk client:", ret)
-                zmqClient.send(ret)
-
-                print(redisClient.redis[zmq_recv])
-                table_data = redisClient.get_data_table(zmq_recv)
+                ret = redisClient.redis[zmq_msg]
+                table_data = redisClient.get_data_table(zmq_msg)
                 if len(table_data) > 0:
                     print("---get data:", table_data[0])
+                    zmqClient.send(table_data[0])
                 else:
                     print("---get data error")
+                    zmqClient.send("---get data error")
 
             else:
                 time.sleep(0.05)

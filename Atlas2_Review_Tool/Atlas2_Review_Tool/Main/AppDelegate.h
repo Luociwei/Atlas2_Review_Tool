@@ -8,9 +8,15 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import <RedisZMQ/CWZMQ.h>
+#import <RedisZMQ/CWRedis.h>
+
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+@property(strong,nonatomic)CWRedis *redis;
+
+@property(strong,nonatomic)CWZMQ *zmqMainPy;
 
 @end
 

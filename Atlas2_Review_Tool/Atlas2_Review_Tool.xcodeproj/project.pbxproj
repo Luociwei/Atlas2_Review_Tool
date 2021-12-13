@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711A34371DC3539000F5B5D2 /* Assets.xcassets */; };
 		711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711A34391DC3539000F5B5D2 /* Main.storyboard */; };
-		BA0CD94E27637E8600F5A2F8 /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */; };
-		BA0CD94F27637E8600F5A2F8 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA1D97AC263AFA310066545F /* ItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97A6263AFA310066545F /* ItemMode.m */; };
 		BA1D97AD263AFA310066545F /* AtlasLogVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97A7263AFA310066545F /* AtlasLogVC.xib */; };
-		BA1D97AF263AFA310066545F /* AtlasLogVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97AB263AFA310066545F /* AtlasLogVC.mm */; };
+		BA1D97AF263AFA310066545F /* AtlasLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97AB263AFA310066545F /* AtlasLogVC.m */; };
 		BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B3263AFADF0066545F /* WindowVC.m */; };
 		BA1D97B7263AFAE00066545F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B4263AFADF0066545F /* main.m */; };
-		BA1D97B8263AFAE00066545F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.mm */; };
+		BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97B5263AFADF0066545F /* AppDelegate.m */; };
 		BA1D97C7263AFD270066545F /* RecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D97C5263AFD270066545F /* RecordVC.m */; };
 		BA1D97C8263AFD270066545F /* RecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D97C6263AFD270066545F /* RecordVC.xib */; };
 		BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1D993D263E58B00066545F /* ScritItemMode.m */; };
@@ -25,21 +23,6 @@
 		BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA273321268235AF00C1F6F7 /* RegularVC.m */; };
 		BA273324268235AF00C1F6F7 /* RegularVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA273322268235AF00C1F6F7 /* RegularVC.xib */; };
 		BA53C59C276306CC0075FC6C /* Python in Resources */ = {isa = PBXBuildFile; fileRef = BA53C59B276306CC0075FC6C /* Python */; };
-		BA53C5EA276372A80075FC6C /* xRedisClient_lists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5DB276372A70075FC6C /* xRedisClient_lists.cpp */; };
-		BA53C5EB276372A80075FC6C /* xRedisClient_strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5DD276372A70075FC6C /* xRedisClient_strings.cpp */; };
-		BA53C5EC276372A80075FC6C /* xRedisPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5DE276372A70075FC6C /* xRedisPool.cpp */; };
-		BA53C5ED276372A80075FC6C /* xRedisClient_hashs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E0276372A70075FC6C /* xRedisClient_hashs.cpp */; };
-		BA53C5EE276372A80075FC6C /* xRedisClient_sets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E1276372A70075FC6C /* xRedisClient_sets.cpp */; };
-		BA53C5EF276372A80075FC6C /* xRedisClient_keys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E2276372A70075FC6C /* xRedisClient_keys.cpp */; };
-		BA53C5F0276372A80075FC6C /* xRedisClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E5276372A80075FC6C /* xRedisClient.cpp */; };
-		BA53C5F1276372A80075FC6C /* xRedisClient_sortedsets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E6276372A80075FC6C /* xRedisClient_sortedsets.cpp */; };
-		BA53C5F2276372A80075FC6C /* xRedisClient_connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E7276372A80075FC6C /* xRedisClient_connection.cpp */; };
-		BA53C5F3276372A80075FC6C /* xRedisClient_pubsub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E8276372A80075FC6C /* xRedisClient_pubsub.cpp */; };
-		BA53C5F4276372A80075FC6C /* xRedisClusterClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5E9276372A80075FC6C /* xRedisClusterClient.cpp */; };
-		BA53C5F62763731E0075FC6C /* libhiredis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA53C5F52763731E0075FC6C /* libhiredis.a */; };
-		BA53C5F92763732F0075FC6C /* redis-cli in Resources */ = {isa = PBXBuildFile; fileRef = BA53C5F72763732E0075FC6C /* redis-cli */; };
-		BA53C5FA2763732F0075FC6C /* redis-server in Resources */ = {isa = PBXBuildFile; fileRef = BA53C5F82763732E0075FC6C /* redis-server */; };
-		BA53C5FD276376990075FC6C /* RedisInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA53C5FB276376990075FC6C /* RedisInterface.cpp */; };
 		BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8BD72C264A5F650024B100 /* LuaFunction.m */; };
 		BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8BD72D264A5F650024B100 /* LuaFunction.xib */; };
 		BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9ACD5026C561B4004F6F72 /* RegularTabVC.m */; };
@@ -106,15 +89,10 @@
 		BAB4315225B32A38003F0AFB /* ExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB4315025B32A38003F0AFB /* ExtensionConst.m */; };
 		BAB90A6626C59827004853E2 /* LuaRegularTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = BAB90A6526C59827004853E2 /* LuaRegularTest.lua */; };
 		BAB90A6F26C689D0004853E2 /* CycleTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */; };
-		BABBFB512761B0DE000E822B /* libzmq.la in Resources */ = {isa = PBXBuildFile; fileRef = BABBFB282761B0DE000E822B /* libzmq.la */; };
-		BABBFB522761B0DE000E822B /* Publisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB292761B0DE000E822B /* Publisher.cpp */; };
-		BABBFB532761B0DE000E822B /* libzmq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBFB2A2761B0DE000E822B /* libzmq.a */; };
-		BABBFB542761B0DE000E822B /* libZMQX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBFB2C2761B0DE000E822B /* libZMQX.a */; };
-		BABBFB552761B0DE000E822B /* Subscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB2D2761B0DE000E822B /* Subscriber.cpp */; };
-		BABBFB562761B0DE000E822B /* zmqw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB2F2761B0DE000E822B /* zmqw.cpp */; };
-		BABBFB572761B0DE000E822B /* Requester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB322761B0DE000E822B /* Requester.cpp */; };
-		BABBFB582761B0DE000E822B /* Replier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB352761B0DE000E822B /* Replier.cpp */; };
-		BABBFB592761B0DE000E822B /* Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = BABBFB362761B0DE000E822B /* Client.mm */; };
+		BAB92E1727678DC70087151B /* CwGeneralManagerFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */; };
+		BAB92E1827678DC70087151B /* CwGeneralManagerFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAB92E1927678DD20087151B /* RedisZMQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB92E1427678B120087151B /* RedisZMQ.framework */; };
+		BAB92E1A27678DD30087151B /* RedisZMQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAB92E1427678B120087151B /* RedisZMQ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BABBFB982761BCA6000E822B /* PythonTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BABBFB972761BCA6000E822B /* PythonTest.py */; };
 		BAC66D3827453F8E0025A91E /* MixPing.app in Resources */ = {isa = PBXBuildFile; fileRef = BAC66D3727453F8E0025A91E /* MixPing.app */; };
 		BAC66D4B274928E70025A91E /* ProgressBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC66D49274928E70025A91E /* ProgressBarVC.m */; };
@@ -133,7 +111,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BA0CD94F27637E8600F5A2F8 /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
+				BAB92E1827678DC70087151B /* CwGeneralManagerFrameWork.framework in Embed Frameworks */,
+				BAB92E1A27678DD30087151B /* RedisZMQ.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,12 +128,12 @@
 		BA1D97A7263AFA310066545F /* AtlasLogVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasLogVC.xib; sourceTree = "<group>"; };
 		BA1D97A8263AFA310066545F /* AtlasLogVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasLogVC.h; sourceTree = "<group>"; };
 		BA1D97AA263AFA310066545F /* ItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemMode.h; sourceTree = "<group>"; };
-		BA1D97AB263AFA310066545F /* AtlasLogVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AtlasLogVC.mm; sourceTree = "<group>"; };
+		BA1D97AB263AFA310066545F /* AtlasLogVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasLogVC.m; sourceTree = "<group>"; };
 		BA1D97B1263AFADF0066545F /* WindowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowVC.h; sourceTree = "<group>"; };
 		BA1D97B2263AFADF0066545F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA1D97B3263AFADF0066545F /* WindowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVC.m; sourceTree = "<group>"; };
 		BA1D97B4263AFADF0066545F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BA1D97B5263AFADF0066545F /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		BA1D97B5263AFADF0066545F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA1D97C4263AFD270066545F /* RecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVC.h; sourceTree = "<group>"; };
 		BA1D97C5263AFD270066545F /* RecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVC.m; sourceTree = "<group>"; };
 		BA1D97C6263AFD270066545F /* RecordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordVC.xib; sourceTree = "<group>"; };
@@ -167,27 +146,6 @@
 		BA273321268235AF00C1F6F7 /* RegularVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularVC.m; sourceTree = "<group>"; };
 		BA273322268235AF00C1F6F7 /* RegularVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegularVC.xib; sourceTree = "<group>"; };
 		BA53C59B276306CC0075FC6C /* Python */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Python; sourceTree = "<group>"; };
-		BA53C5DA276372A70075FC6C /* xLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xLock.h; path = src/xLock.h; sourceTree = "<group>"; };
-		BA53C5DB276372A70075FC6C /* xRedisClient_lists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_lists.cpp; path = src/xRedisClient_lists.cpp; sourceTree = "<group>"; };
-		BA53C5DC276372A70075FC6C /* xRedisClusterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xRedisClusterClient.h; path = src/xRedisClusterClient.h; sourceTree = "<group>"; };
-		BA53C5DD276372A70075FC6C /* xRedisClient_strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_strings.cpp; path = src/xRedisClient_strings.cpp; sourceTree = "<group>"; };
-		BA53C5DE276372A70075FC6C /* xRedisPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisPool.cpp; path = src/xRedisPool.cpp; sourceTree = "<group>"; };
-		BA53C5DF276372A70075FC6C /* xRedisPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xRedisPool.h; path = src/xRedisPool.h; sourceTree = "<group>"; };
-		BA53C5E0276372A70075FC6C /* xRedisClient_hashs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_hashs.cpp; path = src/xRedisClient_hashs.cpp; sourceTree = "<group>"; };
-		BA53C5E1276372A70075FC6C /* xRedisClient_sets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_sets.cpp; path = src/xRedisClient_sets.cpp; sourceTree = "<group>"; };
-		BA53C5E2276372A70075FC6C /* xRedisClient_keys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_keys.cpp; path = src/xRedisClient_keys.cpp; sourceTree = "<group>"; };
-		BA53C5E3276372A70075FC6C /* xRedisClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xRedisClient.h; path = src/xRedisClient.h; sourceTree = "<group>"; };
-		BA53C5E4276372A80075FC6C /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hiredis.h; path = src/hiredis.h; sourceTree = "<group>"; };
-		BA53C5E5276372A80075FC6C /* xRedisClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient.cpp; path = src/xRedisClient.cpp; sourceTree = "<group>"; };
-		BA53C5E6276372A80075FC6C /* xRedisClient_sortedsets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_sortedsets.cpp; path = src/xRedisClient_sortedsets.cpp; sourceTree = "<group>"; };
-		BA53C5E7276372A80075FC6C /* xRedisClient_connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_connection.cpp; path = src/xRedisClient_connection.cpp; sourceTree = "<group>"; };
-		BA53C5E8276372A80075FC6C /* xRedisClient_pubsub.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClient_pubsub.cpp; path = src/xRedisClient_pubsub.cpp; sourceTree = "<group>"; };
-		BA53C5E9276372A80075FC6C /* xRedisClusterClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xRedisClusterClient.cpp; path = src/xRedisClusterClient.cpp; sourceTree = "<group>"; };
-		BA53C5F52763731E0075FC6C /* libhiredis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhiredis.a; path = lib/libhiredis.a; sourceTree = "<group>"; };
-		BA53C5F72763732E0075FC6C /* redis-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "redis-cli"; sourceTree = "<group>"; };
-		BA53C5F82763732E0075FC6C /* redis-server */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "redis-server"; sourceTree = "<group>"; };
-		BA53C5FB276376990075FC6C /* RedisInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RedisInterface.cpp; sourceTree = "<group>"; };
-		BA53C5FC276376990075FC6C /* RedisInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RedisInterface.hpp; sourceTree = "<group>"; };
 		BA8BD72B264A5F650024B100 /* LuaFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaFunction.h; sourceTree = "<group>"; };
 		BA8BD72C264A5F650024B100 /* LuaFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaFunction.m; sourceTree = "<group>"; };
 		BA8BD72D264A5F650024B100 /* LuaFunction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuaFunction.xib; sourceTree = "<group>"; };
@@ -322,24 +280,7 @@
 		BAB90A6526C59827004853E2 /* LuaRegularTest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LuaRegularTest.lua; sourceTree = "<group>"; };
 		BAB90A6D26C689D0004853E2 /* CycleTimeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleTimeModel.h; sourceTree = "<group>"; };
 		BAB90A6E26C689D0004853E2 /* CycleTimeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTimeModel.m; sourceTree = "<group>"; };
-		BABBFB252761B0DE000E822B /* Replier.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Replier.hpp; sourceTree = "<group>"; };
-		BABBFB262761B0DE000E822B /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		BABBFB272761B0DE000E822B /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq_utils.h; sourceTree = "<group>"; };
-		BABBFB282761B0DE000E822B /* libzmq.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libzmq.la; sourceTree = "<group>"; };
-		BABBFB292761B0DE000E822B /* Publisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Publisher.cpp; sourceTree = "<group>"; };
-		BABBFB2A2761B0DE000E822B /* libzmq.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzmq.a; sourceTree = "<group>"; };
-		BABBFB2B2761B0DE000E822B /* Requester.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Requester.hpp; sourceTree = "<group>"; };
-		BABBFB2C2761B0DE000E822B /* libZMQX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZMQX.a; sourceTree = "<group>"; };
-		BABBFB2D2761B0DE000E822B /* Subscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subscriber.cpp; sourceTree = "<group>"; };
-		BABBFB2E2761B0DE000E822B /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq.h; sourceTree = "<group>"; };
-		BABBFB2F2761B0DE000E822B /* zmqw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zmqw.cpp; sourceTree = "<group>"; };
-		BABBFB302761B0DE000E822B /* zhelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhelpers.h; sourceTree = "<group>"; };
-		BABBFB312761B0DE000E822B /* Publisher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Publisher.hpp; sourceTree = "<group>"; };
-		BABBFB322761B0DE000E822B /* Requester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Requester.cpp; sourceTree = "<group>"; };
-		BABBFB332761B0DE000E822B /* Subscriber.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Subscriber.hpp; sourceTree = "<group>"; };
-		BABBFB342761B0DE000E822B /* zmqw.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = zmqw.hpp; sourceTree = "<group>"; };
-		BABBFB352761B0DE000E822B /* Replier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Replier.cpp; sourceTree = "<group>"; };
-		BABBFB362761B0DE000E822B /* Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Client.mm; sourceTree = "<group>"; };
+		BAB92E1427678B120087151B /* RedisZMQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RedisZMQ.framework; path = ../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug/RedisZMQ.framework; sourceTree = "<group>"; };
 		BABBFB972761BCA6000E822B /* PythonTest.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PythonTest.py; sourceTree = "<group>"; };
 		BAC66D3727453F8E0025A91E /* MixPing.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = MixPing.app; sourceTree = "<group>"; };
 		BAC66D48274928E70025A91E /* ProgressBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressBarVC.h; sourceTree = "<group>"; };
@@ -352,7 +293,6 @@
 		BAC66D59274BE5B00025A91E /* TextReviewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextReviewVC.h; sourceTree = "<group>"; };
 		BAC66D5A274BE5B00025A91E /* TextReviewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextReviewVC.m; sourceTree = "<group>"; };
 		BAC66D5B274BE5B00025A91E /* TextReviewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextReviewVC.xib; sourceTree = "<group>"; };
-		BAD1B22A274E789400B2F8F3 /* CwGeneralManagerFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CwGeneralManagerFrameWork.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,10 +300,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA0CD94E27637E8600F5A2F8 /* CwGeneralManagerFrameWork.framework in Frameworks */,
-				BABBFB532761B0DE000E822B /* libzmq.a in Frameworks */,
-				BA53C5F62763731E0075FC6C /* libhiredis.a in Frameworks */,
-				BABBFB542761B0DE000E822B /* libZMQX.a in Frameworks */,
+				BAB92E1727678DC70087151B /* CwGeneralManagerFrameWork.framework in Frameworks */,
+				BAB92E1927678DD20087151B /* RedisZMQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,8 +328,6 @@
 		711A342D1DC3539000F5B5D2 /* Atlas2_Review_Tool */ = {
 			isa = PBXGroup;
 			children = (
-				BA53C59D276372430075FC6C /* Redis */,
-				BABBFB242761B0DE000E822B /* zmq */,
 				BAC66D47274928B80025A91E /* ProgressBar */,
 				BA27331F2682356800C1F6F7 /* RegularVC */,
 				BA8BD72A264A5F320024B100 /* LuaFunction */,
@@ -425,7 +361,7 @@
 			children = (
 				BA1D97C3263AFD270066545F /* TestLog */,
 				BA1D97A8263AFA310066545F /* AtlasLogVC.h */,
-				BA1D97AB263AFA310066545F /* AtlasLogVC.mm */,
+				BA1D97AB263AFA310066545F /* AtlasLogVC.m */,
 				BA1D97A7263AFA310066545F /* AtlasLogVC.xib */,
 				BA1D97AA263AFA310066545F /* ItemMode.h */,
 				BA1D97A6263AFA310066545F /* ItemMode.m */,
@@ -440,7 +376,7 @@
 				BA1D97B1263AFADF0066545F /* WindowVC.h */,
 				BA1D97B3263AFADF0066545F /* WindowVC.m */,
 				BA1D97B2263AFADF0066545F /* AppDelegate.h */,
-				BA1D97B5263AFADF0066545F /* AppDelegate.mm */,
+				BA1D97B5263AFADF0066545F /* AppDelegate.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -487,34 +423,6 @@
 				BAB90A6526C59827004853E2 /* LuaRegularTest.lua */,
 			);
 			path = RegularVC;
-			sourceTree = "<group>";
-		};
-		BA53C59D276372430075FC6C /* Redis */ = {
-			isa = PBXGroup;
-			children = (
-				BA53C5F72763732E0075FC6C /* redis-cli */,
-				BA53C5F82763732E0075FC6C /* redis-server */,
-				BA53C5F52763731E0075FC6C /* libhiredis.a */,
-				BA53C5E4276372A80075FC6C /* hiredis.h */,
-				BA53C5DA276372A70075FC6C /* xLock.h */,
-				BA53C5FB276376990075FC6C /* RedisInterface.cpp */,
-				BA53C5FC276376990075FC6C /* RedisInterface.hpp */,
-				BA53C5E7276372A80075FC6C /* xRedisClient_connection.cpp */,
-				BA53C5E0276372A70075FC6C /* xRedisClient_hashs.cpp */,
-				BA53C5E2276372A70075FC6C /* xRedisClient_keys.cpp */,
-				BA53C5DB276372A70075FC6C /* xRedisClient_lists.cpp */,
-				BA53C5E8276372A80075FC6C /* xRedisClient_pubsub.cpp */,
-				BA53C5E1276372A70075FC6C /* xRedisClient_sets.cpp */,
-				BA53C5E6276372A80075FC6C /* xRedisClient_sortedsets.cpp */,
-				BA53C5DD276372A70075FC6C /* xRedisClient_strings.cpp */,
-				BA53C5E5276372A80075FC6C /* xRedisClient.cpp */,
-				BA53C5E3276372A70075FC6C /* xRedisClient.h */,
-				BA53C5E9276372A80075FC6C /* xRedisClusterClient.cpp */,
-				BA53C5DC276372A70075FC6C /* xRedisClusterClient.h */,
-				BA53C5DE276372A70075FC6C /* xRedisPool.cpp */,
-				BA53C5DF276372A70075FC6C /* xRedisPool.h */,
-			);
-			path = Redis;
 			sourceTree = "<group>";
 		};
 		BA8BD72A264A5F320024B100 /* LuaFunction */ = {
@@ -699,35 +607,10 @@
 		BAB4314625B328C1003F0AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB92E1427678B120087151B /* RedisZMQ.framework */,
 				BAB38366275F0CCD0025CDE6 /* CwGeneralManagerFrameWork.framework */,
-				BAD1B22A274E789400B2F8F3 /* CwGeneralManagerFrameWork.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BABBFB242761B0DE000E822B /* zmq */ = {
-			isa = PBXGroup;
-			children = (
-				BABBFB252761B0DE000E822B /* Replier.hpp */,
-				BABBFB272761B0DE000E822B /* zmq_utils.h */,
-				BABBFB282761B0DE000E822B /* libzmq.la */,
-				BABBFB292761B0DE000E822B /* Publisher.cpp */,
-				BABBFB2A2761B0DE000E822B /* libzmq.a */,
-				BABBFB2B2761B0DE000E822B /* Requester.hpp */,
-				BABBFB2C2761B0DE000E822B /* libZMQX.a */,
-				BABBFB2D2761B0DE000E822B /* Subscriber.cpp */,
-				BABBFB2E2761B0DE000E822B /* zmq.h */,
-				BABBFB2F2761B0DE000E822B /* zmqw.cpp */,
-				BABBFB302761B0DE000E822B /* zhelpers.h */,
-				BABBFB312761B0DE000E822B /* Publisher.hpp */,
-				BABBFB322761B0DE000E822B /* Requester.cpp */,
-				BABBFB332761B0DE000E822B /* Subscriber.hpp */,
-				BABBFB342761B0DE000E822B /* zmqw.hpp */,
-				BABBFB352761B0DE000E822B /* Replier.cpp */,
-				BABBFB262761B0DE000E822B /* Client.h */,
-				BABBFB362761B0DE000E822B /* Client.mm */,
-			);
-			path = zmq;
 			sourceTree = "<group>";
 		};
 		BAC66D47274928B80025A91E /* ProgressBar */ = {
@@ -813,15 +696,12 @@
 				711A34381DC3539000F5B5D2 /* Assets.xcassets in Resources */,
 				BA9ACEC026C57D9E004F6F72 /* manual.css in Resources */,
 				BA1D9942263E58B10066545F /* AtlasScritVC.xib in Resources */,
-				BABBFB512761B0DE000E822B /* libzmq.la in Resources */,
 				BA9ACEC126C57D9E004F6F72 /* luac.1 in Resources */,
 				711A343B1DC3539000F5B5D2 /* Main.storyboard in Resources */,
 				BAC66D3827453F8E0025A91E /* MixPing.app in Resources */,
 				BA9ACEBF26C57D9E004F6F72 /* index.css in Resources */,
 				BAC66D5D274BE5B00025A91E /* TextReviewVC.xib in Resources */,
-				BA53C5F92763732F0075FC6C /* redis-cli in Resources */,
 				BAC66D55274BB46A0025A91E /* README.md in Resources */,
-				BA53C5FA2763732F0075FC6C /* redis-server in Resources */,
 				BA8BD72F264A5F650024B100 /* LuaFunction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,32 +713,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABBFB522761B0DE000E822B /* Publisher.cpp in Sources */,
-				BA1D97AF263AFA310066545F /* AtlasLogVC.mm in Sources */,
-				BA1D97B8263AFAE00066545F /* AppDelegate.mm in Sources */,
+				BA1D97AF263AFA310066545F /* AtlasLogVC.m in Sources */,
+				BA1D97B8263AFAE00066545F /* AppDelegate.m in Sources */,
 				BA9ACEB126C57D9E004F6F72 /* LSCOperationQueue.m in Sources */,
-				BA53C5FD276376990075FC6C /* RedisInterface.cpp in Sources */,
 				BA9ACEAF26C57D9E004F6F72 /* LSCExportMethodDescriptor.m in Sources */,
-				BA53C5F3276372A80075FC6C /* xRedisClient_pubsub.cpp in Sources */,
 				BA9ACEAC26C57D9E004F6F72 /* LSCTmpValue.m in Sources */,
 				BA9ACECA26C57D9E004F6F72 /* loadlib.c in Sources */,
 				BA9ACEAD26C57D9E004F6F72 /* LSCFunction.m in Sources */,
 				BA1D97C7263AFD270066545F /* RecordVC.m in Sources */,
 				BA9ACEE426C57D9E004F6F72 /* ldo.c in Sources */,
 				BA9ACED726C57D9E004F6F72 /* ldblib.c in Sources */,
-				BA53C5EA276372A80075FC6C /* xRedisClient_lists.cpp in Sources */,
 				BA9ACEBB26C57D9E004F6F72 /* LSCError.m in Sources */,
 				BAC66D4B274928E70025A91E /* ProgressBarVC.m in Sources */,
 				BA9ACED826C57D9E004F6F72 /* lutf8lib.c in Sources */,
-				BA53C5F4276372A80075FC6C /* xRedisClusterClient.cpp in Sources */,
-				BA53C5F0276372A80075FC6C /* xRedisClient.cpp in Sources */,
 				BAB90A6F26C689D0004853E2 /* CycleTimeModel.m in Sources */,
 				BA9ACECD26C57D9E004F6F72 /* lstrlib.c in Sources */,
 				BA1D97B6263AFAE00066545F /* WindowVC.m in Sources */,
 				BA9ACEC326C57D9E004F6F72 /* lauxlib.c in Sources */,
 				BA9ACED226C57D9E004F6F72 /* ltable.c in Sources */,
 				BA9ACED326C57D9E004F6F72 /* ldump.c in Sources */,
-				BABBFB562761B0DE000E822B /* zmqw.cpp in Sources */,
 				BA9ACECB26C57D9E004F6F72 /* lvm.c in Sources */,
 				BA9ACD5126C561B4004F6F72 /* RegularTabVC.m in Sources */,
 				BA9ACEBE26C57D9E004F6F72 /* LSCScriptController.m in Sources */,
@@ -869,36 +742,27 @@
 				BA9ACED526C57D9E004F6F72 /* lgc.c in Sources */,
 				BA9ACEB626C57D9E004F6F72 /* LSCCoroutine.m in Sources */,
 				BA9ACEB726C57D9E004F6F72 /* LSCEngineAdapter.m in Sources */,
-				BABBFB582761B0DE000E822B /* Replier.cpp in Sources */,
 				BA9ACEBA26C57D9E004F6F72 /* LSCSession.m in Sources */,
-				BABBFB592761B0DE000E822B /* Client.mm in Sources */,
 				BA9ACEE226C57D9E004F6F72 /* llex.c in Sources */,
-				BA53C5EB276372A80075FC6C /* xRedisClient_strings.cpp in Sources */,
 				BA9ACEE126C57D9E004F6F72 /* lparser.c in Sources */,
 				BA9ACEB026C57D9E004F6F72 /* LSCTuple.m in Sources */,
 				BA9ACEDD26C57D9E004F6F72 /* lbitlib.c in Sources */,
-				BABBFB572761B0DE000E822B /* Requester.cpp in Sources */,
 				BA8BD72E264A5F650024B100 /* LuaFunction.m in Sources */,
-				BA53C5EF276372A80075FC6C /* xRedisClient_keys.cpp in Sources */,
 				BA9ACECE26C57D9E004F6F72 /* linit.c in Sources */,
 				BA9ACEB326C57D9E004F6F72 /* LSCExportTypeDescriptor.m in Sources */,
 				BA9ACEBC26C57D9E004F6F72 /* LSCManagedValue.m in Sources */,
 				BA9ACEDA26C57D9E004F6F72 /* lcorolib.c in Sources */,
 				BA9ACEB826C57D9E004F6F72 /* LSCValue.m in Sources */,
 				BA1D97AC263AFA310066545F /* ItemMode.m in Sources */,
-				BABBFB552761B0DE000E822B /* Subscriber.cpp in Sources */,
 				BAC66D5C274BE5B00025A91E /* TextReviewVC.m in Sources */,
 				BA9ACEAE26C57D9E004F6F72 /* LSCContext.m in Sources */,
 				BA273323268235AF00C1F6F7 /* RegularVC.m in Sources */,
 				BA9ACEC526C57D9E004F6F72 /* lopcodes.c in Sources */,
-				BA53C5F2276372A80075FC6C /* xRedisClient_connection.cpp in Sources */,
 				BA9ACED926C57D9E004F6F72 /* lmem.c in Sources */,
 				BA1D97B7263AFAE00066545F /* main.m in Sources */,
 				BAC66D58274BD8AE0025A91E /* TestLogVC.m in Sources */,
-				BA53C5EC276372A80075FC6C /* xRedisPool.cpp in Sources */,
 				BA9ACED026C57D9E004F6F72 /* lundump.c in Sources */,
 				BA1D9943263E58B10066545F /* AtlasScritVC.m in Sources */,
-				BA53C5ED276372A80075FC6C /* xRedisClient_hashs.cpp in Sources */,
 				BA9ACEC426C57D9E004F6F72 /* liolib.c in Sources */,
 				BA9ACEBD26C57D9E004F6F72 /* LSCExportsTypeManager.m in Sources */,
 				BA1D9941263E58B10066545F /* ScritItemMode.m in Sources */,
@@ -912,13 +776,11 @@
 				BA9ACEAB26C57D9E004F6F72 /* LSCExportPropertyDescriptor.m in Sources */,
 				BA9ACEAA26C57D9E004F6F72 /* LSCConfig.m in Sources */,
 				BA9ACEE026C57D9E004F6F72 /* ldebug.c in Sources */,
-				BA53C5F1276372A80075FC6C /* xRedisClient_sortedsets.cpp in Sources */,
 				BA9ACEB226C57D9E004F6F72 /* LSCTable.m in Sources */,
 				BA9ACEDC26C57D9E004F6F72 /* ltablib.c in Sources */,
 				BA9ACEE326C57D9E004F6F72 /* ltm.c in Sources */,
 				BA9ACEC926C57D9E004F6F72 /* lmathlib.c in Sources */,
 				BA9ACEDF26C57D9E004F6F72 /* lbaselib.c in Sources */,
-				BA53C5EE276372A80075FC6C /* xRedisClient_sets.cpp in Sources */,
 				BA9ACEDE26C57D9E004F6F72 /* lapi.c in Sources */,
 				BA9ACECF26C57D9E004F6F72 /* lstring.c in Sources */,
 				BA9ACEB926C57D9E004F6F72 /* LSCPointer.m in Sources */,
@@ -1042,6 +904,9 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/Redis/lib",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/zmq",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/zmq",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/Redis/Redis/lib",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/Redis/Class",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = app.io.Atlas2_Review_Tool;
@@ -1065,6 +930,9 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/Redis/lib",
 					"$(PROJECT_DIR)/Atlas2_Review_Tool/zmq",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/zmq",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/Redis/Redis/lib",
+					"$(PROJECT_DIR)/Atlas2_Review_Tool/RedisZMQ/Redis/Class",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = app.io.Atlas2_Review_Tool;

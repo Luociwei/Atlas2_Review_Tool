@@ -261,8 +261,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "752"
-            endingLineNumber = "752"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
             landmarkName = "-doubleClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,22 +334,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4EFF6544-EE90-4B36-9EAB-B65E54A15540"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "692"
-            endingLineNumber = "692"
-            landmarkName = "-tableDataDelegate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E281F0EC-BFE0-4EC9-93F9-5486119B38CD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -373,8 +357,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "-reloadDataWithColumnSize:"
             landmarkType = "7">
          </BreakpointContent>
@@ -389,8 +373,8 @@
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "-reloadDataWithColumnSize:"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,32 +398,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "50FF829F-C6B3-43CE-825D-F56AD35DEC9B"
+            uuid = "E8E4C9D0-1122-429A-9A5E-91CDC8B2C9C6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.mm"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/Main/AppDelegate.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-Lanuch_cpk"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-applicationDidFinishLaunching:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E0FEF8E-1046-4176-B0CF-FB4DE072E2B9"
+            uuid = "D9B978C9-5914-471F-93C4-3EBEA6E9E5E2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/Main/WindowVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-windowWillClose:"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-windowDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

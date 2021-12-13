@@ -1,0 +1,95 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64-macos ]
+uuids:
+  - target:          x86_64-macos
+    value:           67D719A9-3229-3B86-85F8-152620587550
+  - target:          arm64-macos
+    value:           D0D3F607-6777-3E3A-8751-8FFBE8CD5F3B
+flags:           [ not_app_extension_safe ]
+install-name:    '/AppleInternal/Library/Frameworks/AtlasLuaSequencer.framework/Versions/A/AtlasLuaSequencer'
+exports:
+  - targets:         [ x86_64-macos ]
+    symbols:         [ __Z17luaO_pushvfstringP9lua_StatePKcP13__va_list_tag ]
+  - targets:         [ x86_64-macos, arm64-macos ]
+    symbols:         [ _ATLAS_LUA_VM_CALLBACK_MAPPING_KEY, _ATLAS_LUA_VM_CALLBACK_SET_KEY, 
+                       _ATLAS_LUA_VM_UUID_KEY, _AtlasLuaSequencerVersionNumber, _AtlasLuaSequencerVersionString, 
+                       __Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll, __Z10luaD_throwP9lua_Statei, 
+                       __Z10luaO_arithP9lua_StateiPK10lua_TValueS3_PS1_, __Z10luaT_gettmP5Table3TMSP7TString, 
+                       __Z11luaD_inctopP9lua_State, __Z11luaE_freeCIP9lua_State, 
+                       __Z11luaM_toobigP9lua_State, __Z11luaO_fb2inti, __Z11luaO_int2fbj, 
+                       __Z11luaT_callTMP9lua_StatePK10lua_TValueS3_S3_PS1_i, __Z11luaV_concatP9lua_Statei, 
+                       __Z11luaV_objlenP9lua_StateP10lua_TValuePKS1_, __Z11luaV_shiftlxx, 
+                       __Z11safer_popenPKcS0_, __Z12luaD_poscallP9lua_StateP8CallInfoP10lua_TValuei, 
+                       __Z12luaD_precallP9lua_StateP10lua_TValuei, __Z12luaE_setdebtP12global_Statel, 
+                       __Z12luaG_addinfoP9lua_StatePKcP7TStringi, __Z12luaO_chunkidPcPKcm, 
+                       __Z12luaO_str2numPKcP10lua_TValue, __Z12luaO_utf8escPcm, __Z12luaV_executeP9lua_State, 
+                       __Z13luaE_extendCIP9lua_State, __Z13luaE_shrinkCIP9lua_State, 
+                       __Z13luaG_errormsgP9lua_State, __Z13luaG_runerrorP9lua_StatePKcz, 
+                       __Z13luaM_growaux_P9lua_StatePvPimiPKc, __Z13luaM_realloc_P9lua_StatePvmm, 
+                       __Z13luaO_ceillog2j, __Z13luaO_tostringP9lua_StateP10lua_TValue, 
+                       __Z13luaT_trybinTMP9lua_StatePK10lua_TValueS3_PS1_3TMS, __Z13luaV_equalobjP9lua_StatePK10lua_TValueS3_, 
+                       __Z13luaV_finishOpP9lua_State, __Z13luaV_lessthanP9lua_StatePK10lua_TValueS3_, 
+                       __Z14luaD_growstackP9lua_Statei, __Z14luaG_traceexecP9lua_State, 
+                       __Z14luaG_typeerrorP9lua_StatePK10lua_TValuePKc, __Z14luaO_hexavaluei, 
+                       __Z14luaT_callbinTMP9lua_StatePK10lua_TValueS3_PS1_3TMS, __Z14luaV_finishgetP9lua_StatePK10lua_TValuePS1_S4_S3_, 
+                       __Z14luaV_finishsetP9lua_StatePK10lua_TValuePS1_S4_S3_, __Z14luaV_lessequalP9lua_StatePK10lua_TValueS3_, 
+                       __Z14luaV_tointegerPK10lua_TValuePxi, __Z14luaV_tonumber_PK10lua_TValuePd, 
+                       __Z15luaE_freethreadP9lua_StateS0_, __Z15luaG_opinterrorP9lua_StatePK10lua_TValueS3_PKc, 
+                       __Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_, __Z15luaG_tointerrorP9lua_StatePK10lua_TValueS3_, 
+                       __Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS, __Z15system__no_lockPKc, 
+                       __Z16ati_print_lengthPKci, __Z16luaD_callnoyieldP9lua_StateP10lua_TValuei, 
+                       __Z16luaD_shrinkstackP9lua_State, __Z16luaG_concaterrorP9lua_StatePK10lua_TValueS3_, 
+                       __Z16luaO_pushfstringP9lua_StatePKcz, __Z16luaT_callorderTMP9lua_StatePK10lua_TValueS3_3TMS, 
+                       __Z16luaT_objtypenameP9lua_StatePK10lua_TValue, __Z17luaD_reallocstackP9lua_Statei, 
+                       __Z20luaD_protectedparserP9lua_StateP3ZioPKcS4_, __Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_, 
+                       __Z22ati_print_buffer_errorPKcz, __Z8luaV_divP9lua_Statexx, 
+                       __Z8luaV_modP9lua_Statexx, __Z9luaD_callP9lua_StateP10lua_TValuei, 
+                       __Z9luaD_hookP9lua_Stateii, __Z9luaT_initP9lua_State, __Z9luaZ_fillP3Zio, 
+                       __Z9luaZ_initP9lua_StateP3ZioPFPKcS0_PvPmES5_, __Z9luaZ_readP3ZioPvm, 
+                       ___atiAnyTypeLabel, ___atiArgTypeLabel, ___atiGetSelectorLabel, 
+                       ___atiPackedReturnType, ___atiProtocolLabel, ___atiVargTypeLabel, 
+                       _allowedClasses, _checkConstants, _checkFunctionImpl, _deserializePluginInfo, 
+                       _isAllowedClass, _isAllowedObject, _luaL_addlstring, _luaL_addstring, 
+                       _luaL_addvalue, _luaL_argerror, _luaL_atlas_traceback, _luaL_buffinit, 
+                       _luaL_buffinitsize, _luaL_callmeta, _luaL_checkany, _luaL_checkinteger, 
+                       _luaL_checklstring, _luaL_checknumber, _luaL_checkoption, 
+                       _luaL_checkstack, _luaL_checktype, _luaL_checkudata, _luaL_checkversion_, 
+                       _luaL_error, _luaL_execresult, _luaL_fileresult, _luaL_getmetafield, 
+                       _luaL_getsubtable, _luaL_gsub, _luaL_len, _luaL_loadbufferx, 
+                       _luaL_loadfilex, _luaL_loadstring, _luaL_newmetatable, _luaL_newstate, 
+                       _luaL_openlibs, _luaL_optinteger, _luaL_optlstring, _luaL_optnumber, 
+                       _luaL_prepbuffsize, _luaL_pushresult, _luaL_pushresultsize, 
+                       _luaL_ref, _luaL_requiref, _luaL_setfuncs, _luaL_setmetatable, 
+                       _luaL_testudata, _luaL_tolstring, _luaL_traceback, _luaL_unref, 
+                       _luaL_where, _luaO_nilobject_, _luaT_typenames_, _lua_absindex, 
+                       _lua_arith, _lua_atpanic, _lua_callk, _lua_checkstack, _lua_close, 
+                       _lua_compare, _lua_concat, _lua_copy, _lua_createtable, _lua_dump, 
+                       _lua_error, _lua_gc, _lua_getallocf, _lua_getfield, _lua_getglobal, 
+                       _lua_gethook, _lua_gethookcount, _lua_gethookmask, _lua_geti, 
+                       _lua_getinfo, _lua_getlocal, _lua_getmetatable, _lua_getstack, 
+                       _lua_gettable, _lua_gettop, _lua_getupvalue, _lua_getuservalue, 
+                       _lua_ident, _lua_iscfunction, _lua_isinteger, _lua_isnumber, 
+                       _lua_isstring, _lua_isuserdata, _lua_isyieldable, _lua_len, 
+                       _lua_load, _lua_newstate, _lua_newthread, _lua_newuserdata, 
+                       _lua_next, _lua_pcallk, _lua_pushboolean, _lua_pushcclosure, 
+                       _lua_pushfstring, _lua_pushinteger, _lua_pushlightuserdata, 
+                       _lua_pushlstring, _lua_pushnil, _lua_pushnumber, _lua_pushstring, 
+                       _lua_pushthread, _lua_pushvalue, _lua_pushvfstring, _lua_rawequal, 
+                       _lua_rawget, _lua_rawgeti, _lua_rawgetp, _lua_rawlen, _lua_rawset, 
+                       _lua_rawseti, _lua_rawsetp, _lua_resume, _lua_rotate, _lua_setallocf, 
+                       _lua_setfield, _lua_setglobal, _lua_sethook, _lua_seti, _lua_setlocal, 
+                       _lua_setmetatable, _lua_settable, _lua_settop, _lua_setupvalue, 
+                       _lua_setuservalue, _lua_status, _lua_stringtonumber, _lua_toboolean, 
+                       _lua_tocfunction, _lua_tointegerx, _lua_tolstring, _lua_tonumberx, 
+                       _lua_topointer, _lua_tothread, _lua_touserdata, _lua_type, 
+                       _lua_typename, _lua_upvalueid, _lua_upvaluejoin, _lua_version, 
+                       _lua_xmove, _lua_yieldk, _luaopen_base, _luaopen_bit32, _luaopen_coroutine, 
+                       _luaopen_debug, _luaopen_io, _luaopen_math, _luaopen_os, _luaopen_package, 
+                       _luaopen_string, _luaopen_table, _luaopen_utf8, _patternMatchesArgument, 
+                       _serializePluginInfo ]
+    objc-classes:    [ ATIDebugInfo, ATIDebugVM, ATILuaVMDebugManager, ATKLuaCallback, 
+                       ATKLuaPlugin, ATKLuaVM ]
+  - targets:         [ arm64-macos ]
+    symbols:         [ __Z17luaO_pushvfstringP9lua_StatePKcPc ]
+...

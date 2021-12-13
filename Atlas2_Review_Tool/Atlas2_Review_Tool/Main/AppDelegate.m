@@ -10,8 +10,7 @@
 #import "AppDelegate.h"
 #import "WindowVC.h"
 //#define  cpk_zmq_addr           @"tcp://127.0.0.1:3100"
-#import "CWZMQ.h"
-#import "CWRedis.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,26 +20,20 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.test = @"sss";
 
-    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
-    NSString *log =appDelegate.test;
-    NSLog(@"-----%@",log);
-//    NSApp.windows.firstObject.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
-    // Insert code here to initialize your application
-//    NSString * record_path = @"/Users/ciweiluo/Downloads/ALL_LOG/DLX1383000K1KXX11/20210922_18-40-16.651-D0E083/system/device.log";
-//    NSString *logPath = record_path.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent;
-//    NSLog(@"11");
-    
     
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
 //    NSApp.windows.firstObject.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     // Insert code here to initialize your application
-//    NSString * record_path = @"/Users/ciweiluo/Downloads/ALL_LOG/DLX1383000K1KXX11/20210922_18-40-16.651-D0E083/system/device.log";
-//    NSString *logPath = record_path.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent;
-//    NSLog(@"11");
+    
+    self.redis = [[CWRedis alloc] init];
+    [self.redis connect];
+    
+    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
+    self.zmqMainPy = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100" pythonFile:pyFile];
     
     
 }
