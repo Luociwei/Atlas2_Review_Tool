@@ -22,7 +22,7 @@
     // Do view setup here.
 //    self.ProgressBar.doubleValue = 10;
     
-    [self setProgressBarDoubleValue:0 info:@"Pls wait!"];
+    [self setProgressBarPercentValue:0 info:@"Pls wait!"];
 }
 
 
@@ -31,11 +31,12 @@
 }
 
 
--(void)setProgressBarDoubleValue:(float)doubleVaule info:(NSString *)info{
+-(void)setProgressBarPercentValue:(float)percent info:(NSString *)info{
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    double doubleVaule = (double) percent*100.0;
         dispatch_async(dispatch_get_main_queue(), ^{
             if (doubleVaule>0) {
-                _ProgressBar.doubleValue = (double)doubleVaule;
+                _ProgressBar.doubleValue = doubleVaule;
                 
             }
             if (info.length) {

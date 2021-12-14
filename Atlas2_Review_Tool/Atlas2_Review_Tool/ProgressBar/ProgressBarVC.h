@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProgressBarVC : PresentViewController
--(void)setProgressBarDoubleValue:(float)doubleVaule info:(NSString *)info;
+-(void)setProgressBarPercentValue:(float)percent info:(NSString *)info;
 @end
 
 NS_ASSUME_NONNULL_END

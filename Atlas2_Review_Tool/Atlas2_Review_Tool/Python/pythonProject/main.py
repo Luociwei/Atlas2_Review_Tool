@@ -7,16 +7,16 @@ import re
 import time
 import os
 
-from cwPackage import cwRedis
-from cwPackage import cwZmqSocket
+from cwpackage import cwredis
+from cwpackage import cwzmq
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print("BASE_DIR:", BASE_DIR)
 # sys.path.insert(0,BASE_DIR+'/site-packages/')
 
 
-zmqClient = cwZmqSocket.ZmqClient("tcp://127.0.0.1:3100")
-redisClient = cwRedis.RedisClient()
+zmqClient = cwzmq.ZmqClient("tcp://127.0.0.1:3100")
+redisClient = cwredis.RedisClient()
 
 
 # def print_hi(name) :
@@ -25,10 +25,34 @@ redisClient = cwRedis.RedisClient()
 #
 
 
+def run1():
+    while True:
+        try:
+            print("wait for zmq client ...")
+            zmq_msg = zmqClient.recv()
+
+            if len(zmq_msg) > 0:
+
+                ret = redisClient.redis[zmq_msg]
+                table_data = redisClient.get_data_table(zmq_msg)
+                if len(table_data) > 0:
+                    print("---get data:", table_data[0])
+                    zmqClient.send(table_data[0])
+                else:
+                    print("---get data error")
+                    zmqClient.send("---get data error")
+
+            else:
+                time.sleep(0.05)
+
+        except Exception as error:
+            print('error:', error)
+
+
 def run():
     while True:
         try:
-            print("wait for cpk client ...")
+            print("wait for zmq client ...")
             zmq_msg = zmqClient.recv()
 
             if len(zmq_msg) > 0:

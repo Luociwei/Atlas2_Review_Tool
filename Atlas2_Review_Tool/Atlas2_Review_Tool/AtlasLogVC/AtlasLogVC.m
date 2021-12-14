@@ -37,11 +37,7 @@
 
 @implementation AtlasLogVC{
     NSString *dfuLogPath;
-
- 
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,9 +115,7 @@
     }
     return;
     
-    
-    //    [FileManager openPanel:^(NSString * _Nonnull path) {
-    //    [self redis_set];
+  
     [self removeAllItemsData];
     
     NSString *path =self.logDropView.stringValue;
@@ -174,31 +168,6 @@
                 
                 NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
                 item_mode.slot = [self getSlotWithDevicePath:device_path];
-                
-                //        if (self.showSlot.state) {
-                //                NSString *device_content = [FileManager cw_readFromFile:device_path];
-                //                if ([device_content containsString:@"group0.G=1:S=slot1]"]||[device_content containsString:@"group0.Device_slot1"]) {
-                //                    item_mode.slot = @"1";
-                //                }else if ([device_content containsString:@"group0.G=1:S=slot2]"]||[device_content containsString:@"group0.Device_slot2"]) {
-                //                    item_mode.slot = @"2";
-                //                }else if ([device_content containsString:@"group0.G=1:S=slot3]"]||[device_content containsString:@"group0.Device_slot3"]) {
-                //                    item_mode.slot = @"3";
-                //                }else if ([device_content containsString:@"group0.G=1:S=slot4]"]||[device_content containsString:@"group0.Device_slot4"]) {
-                //                    item_mode.slot = @"4";
-                //                }
-                //                else{
-                //
-                //                    if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH1"]]) {
-                //                        item_mode.slot = @"1";
-                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH2"]]){
-                //                        item_mode.slot = @"2";
-                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH3"]]){
-                //                        item_mode.slot = @"3";
-                //                    }else if ([FileManager cw_isFileExistAtPath:[userFile stringByAppendingPathComponent:@"RPC_CH4"]]){
-                //                        item_mode.slot = @"4";
-                //                    }
-                //                }
-                
                 
                 item_mode.cfg = @"Unkonw";
                 item_mode.broadType = @"Unkonw";
@@ -268,8 +237,8 @@
                 [item_mode_arr addObject:item_mode];
                 //                BOOL S =self.progressBarVC.isViewLoaded;
                 if (self.progressBarVC.isActive) {
-                    double v =i*1.0/count_files*100.0;
-                    [self.progressBarVC setProgressBarDoubleValue:v info:item_mode.sn];
+                    
+                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
                 }else{
                     return;
                 }
