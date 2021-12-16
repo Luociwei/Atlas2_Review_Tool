@@ -7,6 +7,7 @@
 //
 
 #import "WindowVC.h"
+#import "AppDelegate.h"
 #import "AtlasLogVC.h"
 
 #import "AtlasScritVC.h"
@@ -141,6 +142,11 @@
 //}
 
 
+-(void)windowWillClose:(NSNotification *)notification{
+    [CWRedis shutDown];
+    [CWZMQ shutdown];
+    [super windowWillClose:notification];
+}
 
 - (void)windowDidLoad {
     [super windowDidLoad];

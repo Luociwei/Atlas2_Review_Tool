@@ -21,7 +21,7 @@
 
 -(void)setSubSubTestName:(NSString *)subSubTestName{
     if (subSubTestName.length && [subSubTestName containsString:@"subsubtestname"]) {
-        NSDictionary *dict = [FileManager cw_serializationWithJsonString:subSubTestName];
+        NSDictionary *dict = [subSubTestName cw_jsonStringUnserialize];
         
         if ([dict objectForKey:@"subsubtestname"]) {
             _subSubTestName =[dict objectForKey:@"subsubtestname"];

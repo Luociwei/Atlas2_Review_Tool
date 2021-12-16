@@ -30,7 +30,7 @@
     
     self.redis = [[CWRedis alloc] init];
     [self.redis connect];
-    
+
     NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
     NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
     self.zmqMainPy = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100" pythonFile:pyFile];
@@ -41,8 +41,7 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     
     // Insert code here to tear down your application
-    [CWRedis shutDown];
-    [CWZMQ shutdown];
+
 
 }
 

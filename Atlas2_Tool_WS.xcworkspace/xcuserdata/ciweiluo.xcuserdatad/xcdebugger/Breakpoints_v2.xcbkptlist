@@ -414,16 +414,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D9B978C9-5914-471F-93C4-3EBEA6E9E5E2"
+            uuid = "47F9D417-CECD-43BD-AD5B-4FEF758F2B87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/Main/AppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-applicationWillTerminate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "448B5D34-1B8B-4F3B-AC28-64AE91298967"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/Main/WindowVC.m"
+            filePath = "Atlas2_Review_Tool/Atlas2_Review_Tool/AtlasLogVC/AtlasLogVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-windowDidLoad"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-generate_py"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -164,46 +164,57 @@
     [mutStr appendString:@"\n"];
     return (NSString *)mutStr;
 }
++ (NSString *)cw_jsonSerialize:(id)obj{
+    return [self cw_jsonSerialize:obj isWritingPrinted:NO];
+}
 
+//将字典转换成json格式字符串,是否含\n这些符号
++ (NSString *)cw_jsonSerialize:(id)obj isWritingPrinted:(BOOL)isWritingPrinted{
 
-+(id)cw_getDataWithJosnFile:(NSString *)configfile
+    if (![obj isKindOfClass:[NSDictionary class]] || ![NSJSONSerialization isValidJSONObject:obj] || ![obj isKindOfClass:[NSArray class]]) {
+
+        return nil;
+
+    }
+//    NSJSONWritingPrettyPrinted
+    NSJSONWritingOptions option = isWritingPrinted ? NSJSONWritingPrettyPrinted : 0;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:option error:nil];
+
+    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    return strJson;
+
+}
+
+// JSON字符串转化为字典
+-(id)cw_jsonStringUnserialize
+{
+    if (!self.length) {
+        return nil;
+    }
+    
+    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                             options:NSJSONReadingMutableContainers
+                                               error:&err];
+    if(err)
+    {
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"json解析失败：%@",err]];
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
+}
+
+-(id)cw_jsonFileUnserialize
 {
     //NSString *configfile = [[NSBundle mainBundle] pathForResource:@"EEEECode" ofType:@"json"];
-    NSString* items = [NSString stringWithContentsOfFile:configfile encoding:NSUTF8StringEncoding error:nil];
-    NSData *data= [items dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = nil;
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    return jsonObject;
+    NSString* content = [NSString stringWithContentsOfFile:self encoding:NSUTF8StringEncoding error:nil];
+    return [content cw_jsonStringUnserialize];
 }
 
-+(id)cw_getDataWithPathForResource:(NSString *)fileName
-{
-    
-    NSArray *array = nil;
-    if ([fileName containsString:@"."]) {
-        array = [fileName componentsSeparatedByString:@"."];
-        if (array.count!=2) {
-//            [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
-            NSLog(@"wrong file name");
-            return @"";
-        }
-    }else{
-//        [Alert cw_RemindException:@"Error" Information:@"wrong file name"];
-        NSLog(@"wrong file name");
-        return @"";
-    }
-    NSString *name = array[0];
-    NSString *type = array[1];
-    id data=nil;
-    NSString *configfile = [[NSBundle mainBundle] pathForResource:name ofType:type];
-    if ([type isEqualToString:@".txt"]|| [type containsString:@".plist"] || [type containsString:@".csv"]) {
-        
-    }else if ([type containsString:@".json"]){
-        data=[self cw_getDataWithJosnFile:configfile];
-    }
-    
-    return data;
-}
+
 
 +(NSString *)cw_getResourcePath{
     return [[NSBundle mainBundle] resourcePath];
@@ -336,33 +347,6 @@
     return [dateFormatter stringFromDate:date];
 }
 
-+ (NSString *)cw_dictionaryToJSONString:(NSDictionary *)dictionary
-
-{
-    NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //    NSString *jsonTemp = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    //    NSString *jsonResult = [jsonTemp stringByReplacingOccurrencesOfString:@" " withString:@""];
-    return jsonString;
-}
-
-
-+ (NSString *)cw_arrayToJSONString:(NSArray *)array
-
-{
-    NSError *error = nil;
-    //    NSMutableArray *muArray = [NSMutableArray array];
-    //    for (NSString *userId in array) {
-    //        [muArray addObject:[NSString stringWithFormat:@"\"%@\"", userId]];
-    //    }
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //    NSString *jsonTemp = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    //    NSString *jsonResult = [jsonTemp stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    NSLog(@"json array is: %@", jsonResult);
-    return jsonString;
-}
 
 -(unsigned char)cw_stringToHex{
     NSInteger len = self.length;

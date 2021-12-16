@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)cw_deleteSpecialCharacter:(NSString *)chargcter;
 
 +(NSString *)cw_returnJoinStringWithArray:(NSArray *)array;
-
++(id)cw_unSerializeWithJosnFile:(NSString *)configfile;
 
 -(NSArray *)cw_componentsSeparatedByString:(NSString *)separate;
 -(NSString *)cw_getSubstringSeparate:(NSString *)separate index:(NSInteger)index;
@@ -59,8 +59,16 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)cw_stringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat;
 
 +(NSDate *)cw_getDateFrom:(NSString *)dateStr dateFormat:(NSString *)dateFormat;
-+ (NSString *)cw_dictionaryToJSONString:(NSDictionary *)dictionary;
-+ (NSString *)cw_arrayToJSONString:(NSArray *)array;
+
+
++ (NSString *)cw_jsonSerialize:(id)obj;
+
++ (NSString *)cw_jsonSerialize:(id)obj isWritingPrinted:(BOOL)isWritingPrinted;
+
+// JSON字符串转化为字典
+-(id)cw_jsonStringUnserialize;
+
+-(id)cw_jsonFileUnserialize;
 
 
 //进制转换
