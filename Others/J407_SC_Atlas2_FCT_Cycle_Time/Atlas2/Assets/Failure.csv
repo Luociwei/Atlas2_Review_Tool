@@ -1,2 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition,Notes
-FA_ResetAll,Tech:resetXavier,,,,,,"{""subsubtestname"":""Fixture_Reset"",""record"":""NO""}",,,
