@@ -201,7 +201,7 @@
     if(err)
     {
 //        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"json解析失败：%@",err]];
-        NSLog(@"json解析失败：%@",err);
+        NSLog(@"json解析失败--string:%@--error:%@",self,err);
         return nil;
     }
     return dic;

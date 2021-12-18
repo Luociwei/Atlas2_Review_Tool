@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,strong)NSMutableArray<SnVauleMode *> *SnVauleArray;
 -(NSString *)getVauleWithKey:(NSString *)key;
 +(NSMutableArray *)getDicArrayWithItemModeArr:(NSArray *)item_mode_arr;
++(NSMutableArray *)getDicArrayWithPyArr:(NSArray *)item_mode_arr;
 @end
 
 NS_ASSUME_NONNULL_END

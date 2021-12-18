@@ -6,6 +6,7 @@
 
 from cw_package import cw_common as common
 import os
+import csv
 
 
 def get_user_dir_path(records_file_path):
@@ -58,6 +59,28 @@ def get_cfg_broadType(records_file_path):
     return result_list
 
 
+def get_fail_item(records_file_path):
+    with open(records_file_path, 'r') as f:
+        items_list = csv.reader(f)
+        title_count = 17
+        status_index = 12
+        fail_total = ''
+        index = 0
+        for item_list in items_list:
+            if index == 0:
+                title_count = len(item_list)
+                status_index = item_list.index('status')
+            else:
+                if title_count == len(item_list):
+                    if item_list[status_index].upper() == 'FAIL':
+                        item_fail_list = item_list[2] + '-' + item_list[3] + '-' + item_list[4] + ';'
+                        fail_total = fail_total + item_fail_list
+
+            index = index + 1
+        # print ('fail_total:{0})'.format(fail_total))
+        return fail_total
+
+
 class ItemMode(object):
     def __init__(self):
         self.index = 0
@@ -77,19 +100,33 @@ class ItemMode(object):
 
         item_dict = {
 
-            'index': self.index,
-            'sn': self.sn,
-            'slot': self.slot,
-            'cfg': self.cfg,
-            'broadType': self.broadType,
-            'subDirName': self.subDirName,
-            'startTime': self.startTime,
-            'endTime': self.endTime,
+            'Index': self.index,
+            'Sn': self.sn,
+            'SubDirName': self.subDirName,
+            'Slot': self.slot,
+            'CFG': self.cfg,
+            'BroadType': self.broadType,
+            'SubDirName': self.subDirName,
+            'StartTime': self.startTime,
+            'EndTime': self.endTime,
+            'TestTime(s)': self.testTime,
             'recordPath': self.recordPath,
-            'failList': self.failList
+            'FailList ↑↓': self.failList
         }
 
         return item_dict
+
+    def get_mode(self, records_file_path, log_path):
+        new_records_file_path = records_file_path.replace(log_path, '')
+        split_list = new_records_file_path.split(r'/')
+        self.sn = split_list[1]
+        self.subDirName = split_list[2]
+        self.recordPath = records_file_path
+        self.slot = get_slot(records_file_path)
+        dict = get_cfg_broadType(records_file_path)
+        self.cfg = dict['cfg']
+        self.broadType = dict['boardType']
+        self.failList = get_fail_item(records_file_path)
 
 
 def generate_click(log_path):
@@ -106,14 +143,17 @@ def generate_click(log_path):
     item_dict_arr = []
     for records_file_path in records_path_list:
         item_mode = ItemMode()
-        records_path_split_list = records_file_path.split(r'/')
+        new_records_file_path = records_file_path.replace(log_path, '')
+        split_list = new_records_file_path.split(r'/')
         item_mode.index = index
-        item_mode.sn = records_path_split_list[0]
+        item_mode.sn = split_list[1]
+        item_mode.subDirName = split_list[2]
         item_mode.recordPath = records_file_path
         item_mode.slot = get_slot(records_file_path)
         dict = get_cfg_broadType(records_file_path)
         item_mode.cfg = dict['cfg']
         item_mode.broadType = dict['boardType']
+        item_mode.failList = get_fail_item(records_file_path)
 
         index = index + 1
         item_dict_arr.append(item_mode.get_dict())
@@ -122,9 +162,10 @@ def generate_click(log_path):
 
 
 if __name__ == '__main__':
-    pass
-
-    # generate_click('/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/Atlas2_Tool_0504/unit-archive')
+    # pass
+    # path = '/Users/ciweiluo/Desktop/records.csv'
+    # get_fail_item(path)
+    generate_click('/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/TestLog/unit-archive')
     # log_path = '/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/Atlas2_Tool_0504/unit-archive/DLX1133006S0NC419/20210417_0-33-14.413-F2C24C/system/device.log'
     # get_slot(log_path)
     # get_cfg_broadType(log_path)

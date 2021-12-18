@@ -143,6 +143,22 @@
 //-(void)ge
 
 
++(NSMutableArray *)getDicArrayWithPyArr:(NSArray *)py_arr{
+    NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
+ 
+    for (NSDictionary *pyDict in py_arr) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:pyDict];
+        [dict setObject:[NSNumber numberWithInteger:1035] forKey:key_test_time_s];
+        [dict setObject:@(1) forKey:key_is_fail];
+        
+        [dict setObject:[NSImage imageNamed:NSImageNameFolder] forKey:id_record];
+        [tableData_dic addObject:dict];
+        
+    }
+    return tableData_dic;
+}
+
+
 +(NSMutableArray *)getDicArrayWithItemModeArr:(NSArray *)item_mode_arr{
     NSMutableArray *tableData_dic = [[NSMutableArray alloc]init];
  

@@ -30,6 +30,15 @@ def delete_last_path_component(path, level):
     return file_path
 
 
+def is_contain_all_in_string(string, keyword_arr):
+    result = True
+    for keyword in keyword_arr:
+        if keyword.lower() not in string.lower():
+            result = False
+            break
+    return result
+
+
 def is_contain_in_string(string, keyword_arr):
     result = False
     for keyword in keyword_arr:

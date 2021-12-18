@@ -1,5 +1,0 @@
-TestName,Technology,Disable,Production,Audit,Thread,Policy,Loop,Sample,SOF,Condition,Notes
-GeneralAction_7,Fixture,,Y,,,,,,,testFail == TRUE,"set LED Red on"
-GeneralAction_6,Fixture,,Y,,,,,,,testFail != TRUE,"set LED Green on"
-GetRpcServerLog,Common,,Y,,,,,,,testFail == TRUE,
-addLogToInsight,Common,,Y,,,,,,,,

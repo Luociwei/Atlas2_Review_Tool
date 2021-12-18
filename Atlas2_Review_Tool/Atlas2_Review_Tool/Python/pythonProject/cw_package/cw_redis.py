@@ -4,9 +4,12 @@
 # @Author: Ci-wei
 # @File  : cwRedis.py
 import re
+import json
+import time
 
 try:
     import redis
+
 except Exception as e:
     print('import redis error:', e)
 
@@ -27,13 +30,86 @@ def is_number(s):
     return False
 
 
+def is_contain_all_in_string(string, keyword_arr):
+    result = True
+    for keyword in keyword_arr:
+        if keyword.lower() not in string.lower():
+            result = False
+            break
+    return result
+
+
 class RedisClient(object):
     def __init__(self):
         self.redis = redis.Redis(host='localhost', port=6379, decode_responses=True)
         # self.redis = client
-        self.redis.set('is_connect', 'yes')  # 设置 name 对应的值
-        print(self.redis.get('is_connect'))  # 取出键 name 对应的值
-        print(type(self.redis.get('is_connect')))  # 查看类型
+        self.set('is_connect', 'yes')  # 设置 name 对应的值
+        print(self.get('is_connect'))  # 取出键 name 对应的值
+        # print(type(self.get('is_connect')))  # 查看类型
+
+    def get(self, key_string):
+        if type(key_string) != type(''):
+            error_mes = 'Error:the key_name inputted must be string!!!'
+            print (error_mes)
+            return error_mes
+        if len(key_string) == 0:
+            error_mes = 'Error:the key_name inputted is null!!!'
+            print (error_mes)
+            return error_mes
+
+        recv = self.redis.get(key_string)
+        is_json_str = is_contain_all_in_string(recv, ['[', ']']) or is_contain_all_in_string(recv, ['{', '}'])
+
+        if not is_json_str:  # is not a json string
+            return recv
+        try:
+            json_recv = json.loads(recv)
+            if type(json_recv) == type([]) or type(json_recv) == type({}):
+                recv = json_recv
+        except Exception as result:
+            print(result)
+        else:
+            pass
+        finally:
+            return recv
+
+    def get_loading(self):
+        return self.get('loading')
+
+    def set_loading(self, message, percent):
+        loading_message_dict = {
+            'message': message,
+            'percent': percent
+        }
+        return self.set('loading', loading_message_dict)
+
+    def set(self, key_string, value):
+
+        if type(key_string) != type(''):
+            print ('the key_name inputted must be string!!!')
+            return False
+        b = type(value) == type('') or type(value) == type([]) or type(value) == type({})
+        if not b:
+            print ('the value inputted must be string or list or dict!!!')
+            return False
+
+        if len(key_string) == 0:
+            error_mes = 'Error:the key_name inputted is null!!!'
+            print (error_mes)
+            return False
+        b_result = True
+        try:
+            if len(value):
+                new_value = value
+                if type(value) == type([]) or type(value) == type({}):
+                    new_value = json.dumps(value)
+                self.redis.set(key_string, new_value)
+        except Exception as err:
+            print(err)
+        else:
+            b_result = False
+        finally:
+            return b_result
 
     def get_data_table(self, key):
         tb = self.redis.get(key)
@@ -59,5 +135,12 @@ class RedisClient(object):
 
 if __name__ == '__main__':
     client = RedisClient()
-    client.redis.set("item1", "0.01,0.03,0.02\n0.02,0.03,0.01")
-    client.get_data_table("item1")
+
+    # client.set_loading('1222', 0.22)
+    # client.get_loading()
+    # time.sleep(1)
+    if client.set('test', 0.111):
+        ret = client.get('test')
+        print ('ret:', type(ret))
+    # client.redis.set("item1", "0.01,0.03,0.02\n0.02,0.03,0.01")
+    # client.get_data_table("item1")

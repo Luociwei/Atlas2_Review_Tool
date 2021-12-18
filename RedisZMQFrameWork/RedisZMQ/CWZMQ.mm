@@ -78,7 +78,7 @@
     
     
     NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString * launchPath = [resourcePath stringByAppendingString:@"/Python/Py2.7_Env/pythonProject/bin/python2.7"];
+    NSString * launchPath = [resourcePath stringByAppendingString:@"/Python/NewEnv/pythonProject/bin/python2.7"];
     
     NSString * arg = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
     NSString *logCmd = @"ps -ef |grep -i python |grep -i main.py |grep -v grep|awk '{print $2}' | xargs kill -9";

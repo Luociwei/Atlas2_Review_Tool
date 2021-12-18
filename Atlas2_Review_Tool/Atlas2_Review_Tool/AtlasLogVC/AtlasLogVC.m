@@ -108,177 +108,70 @@
 
     if (ret > 0)
     {
-        NSString * response = [appDelegate.zmqMainPy read];
-        NSArray *jsonArr = [response cw_jsonStringUnserialize];
-        if (!response)
-        {
-            NSLog(@"zmq for python error");
-//            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:@"zmq for python error"];
-        }else{
-            NSLog(@"app->get response from python: %@",response);
-//            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:[NSString stringWithFormat:@"app->get response from python: %@",response]];
-        }
-
-        //        return response;
-    }
-
-    return;
-    if (!path.length || ![FileManager cw_isFileExistAtPath:path]) {
-        
-        [self.tableDataDelegate reloadTableViewWithData:nil];
-        [Alert cw_messageBox:@"Error!!!" Information:@"Not found the file path,pls check."];
-        return;
-    }
-    
-    
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    NSMutableArray *filesArr = [[NSMutableArray alloc] init];
-//    NSArray *allPathArr =[manager enumeratorAtPath:path];
-    
-    for (NSString *filename in [manager enumeratorAtPath:path]) {
-        
-        if ([filename containsString:@"system/records.csv"]) {
-            [filesArr addObject:filename];
-        }
-    }
-    //[FileManager cw_findPathWithfFileName:@"system/records.csv" dirPath:path deepFind:YES];
-    if (filesArr.count < 1) {
-        [self.tableDataDelegate reloadTableViewWithData:nil];
-        [Alert cw_messageBox:@"Error!!!" Information:@"Not found the records.csv file,pls check."];
-        return;
-    }
-    
-    
-//    [self.progressBarVC showViewAsSheetOnViewController:self];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        
-        NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
-        NSMutableArray *item_mode_pass_arr=[[NSMutableArray alloc]init];
-        NSMutableArray *item_mode_fail_arr=[[NSMutableArray alloc]init];
-        NSInteger i = 1;
-        CSVParser *csv = [[CSVParser alloc]init];
-        NSInteger count_files = filesArr.count;
-        for (NSString *filename in filesArr) {
-            @autoreleasepool {
+        dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+            int i = 1;
+            while (1) {
                 
-                ItemMode *item_mode = [[ItemMode alloc]init];
-                NSArray *pathArr = [filename cw_componentsSeparatedByString:@"/"];
-                item_mode.sn = pathArr[0];
+                NSString *redis_ret = [appDelegate.redis get:@"loading"];
+                if ([redis_ret containsString:@"finish"]) {
+                    break;
+                }
+                NSDictionary *loadingDict = [redis_ret cw_jsonStringUnserialize];
                 
-                item_mode.recordPath = [NSString stringWithFormat:@"%@/%@",path,filename];
-                //        ItemMode.s
-                NSString *userFile = [item_mode.recordPath.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"user"];
-                
-                NSString*device_path =[NSString stringWithFormat:@"%@/device.log",item_mode.recordPath.stringByDeletingLastPathComponent];
-                item_mode.slot = [self getSlotWithDevicePath:device_path];
-                
-                item_mode.cfg = @"Unknown";
-                item_mode.broadType = @"Unknown";
-                NSArray *uartLogFiles = [FileManager cw_findPathWithfFileName:@".log" dirPath:userFile deepFind:NO];
-                if (uartLogFiles.count) {
-                    NSString *uartLogPath = uartLogFiles[0];
-                    NSString *uartLogContent = [FileManager cw_readFromFile:uartLogPath];
-                    NSArray *typeArr = [uartLogContent cw_regularWithPattern:@"boot, Board\\s+(.+\\))"];
-                    NSArray *cfgArr = [uartLogContent cw_regularWithPattern:@"syscfg print CFG#\\s*[\\d/\\s:.]+([A-Z0-9-_]+)\n"];
-                    if (cfgArr.count) {
-                        if ([cfgArr[0] count]>=2) {
-                            item_mode.cfg = cfgArr[0][1];
-                        }
-                        
-                    }else{
-                        cfgArr = [uartLogContent cw_regularWithPattern:@"CFG#[\\sValue]*:\\s+(.+)"];
-                        if (cfgArr.count) {
-                            if ([cfgArr[0] count]>=2) {
-                                item_mode.cfg = cfgArr[0][1];
-                            }
-                            
-                        }
-                        //
+                NSLog(@"redis_ret:%@---%d--",redis_ret,i);
+       
+                if (loadingDict) {
+                    NSString *mes = [loadingDict objectForKey:@"message"];
+                    double per = [[loadingDict objectForKey:@"percent"] doubleValue];
+                    NSLog(@"mes:%@--percent:%d",mes,per);
+                    if (per == 1) {
+                        break;
                     }
-                    if (typeArr.count) {
-                        if ([typeArr[0] count]>=2) {
-                            item_mode.broadType = typeArr[0][1];
-                        }
-                        
-                    }
-                    
+//                    if ([index isEqualToString:@"22"]) {
+//                        break;;
+//                    }
                     
                 }
-                
-                NSString *recordPath = [path stringByAppendingPathComponent:filename];
-                //        NSString *recordContent = [FileManager cw_readFromFile:recordPath];
-                
-                NSArray *csvArray = nil;
-                if ([csv openFile:recordPath]) {
-                    csvArray = [csv parseFile];
-                }
-                NSMutableString *failList = [NSMutableString stringWithString:@""];
-                NSEnumerator *enumer=[csvArray objectEnumerator];
-                NSArray *itemInfo;
-                while (itemInfo=[enumer nextObject]) {
-                    //            NSLog(@"%@----%@",itemInfo,[NSThread currentThread]);
-                    if (itemInfo.count<=12) {
-                        continue;
-                    }
-                    if ([itemInfo[12] isEqualToString:@"FAIL"]) {
-                        NSString *fail_item = [NSString stringWithFormat:@"%@-%@-%@;",itemInfo[2],itemInfo[3],itemInfo[4]];
-                        [failList appendString:fail_item];
-                        
-                    }
-                    
-                }
-                
-                item_mode.failList = failList;
-                if (failList.length) {
-                    [item_mode_fail_arr addObject:item_mode];
-                }else{
-                    [item_mode_pass_arr addObject:item_mode];
-                }
-                item_mode.index=i;
-                
-                //        NSLog(@"%@",filename);
-                [item_mode_arr addObject:item_mode];
-                //                BOOL S =self.progressBarVC.isViewLoaded;
-                if (self.progressBarVC.isActive) {
-                    
-                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
-                }else{
-                    return;
-                }
+                [NSThread sleepForTimeInterval:0.05];
                 
                 i = i + 1;
+
+     
             }
-        }
-        
-        
-        NSInteger total_count = item_mode_arr.count ? item_mode_arr.count : 0;
-        NSInteger fail_count = item_mode_fail_arr.count ? item_mode_fail_arr.count : 0;
-        NSInteger pass_count = item_mode_pass_arr.count ? item_mode_pass_arr.count : 0;
-        NSInteger rate = 0;
-        if (total_count>0 ) {
-            rate = 100*pass_count/total_count;
-        }
-        
-        
-        NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithItemModeArr:item_mode_arr];
-        
-        [self updateAllIWithtemsData:item_dict_arr];
-        
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.progressBarVC dismisssViewOnViewController:self];
-            
-            self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-            
-            //            self.btnGenerate.title = @"Generate";
-            [self reloadDataWithColumnSize:self.startTimeSort_items_data];
-            [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
         });
+
+        NSString * response = [appDelegate.zmqMainPy read];
+        NSLog(@"1");
+//
+//        if (!response)
+//        {
+//            NSLog(@"zmq for python error");
+//            return;
+////            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:@"zmq for python error"];
+//        }else{
+//            NSLog(@"app->get response from python: %@",response);
+//            if ([response.lowercaseString containsString:@"error!!!"]) {
+//                return;
+//            }
+//            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:[NSString stringWithFormat:@"app->get response from python: %@",response]];
+        }
         
-    });
+//        NSArray *jsonArr = [response cw_jsonStringUnserialize];
+       // NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithPyArr:jsonArr];
+        
+//        [self updateAllIWithtemsData:item_dict_arr];
+//
+//        [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self reloadDataWithColumnSize:self.fail_items_data];
+//            [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
+//        });
+
+//    }
+
 }
+
+
 -(void)generate_oc{
     
     [self removeAllItemsData];
@@ -314,8 +207,8 @@
     }
     
     
-    [self.progressBarVC showViewAsSheetOnViewController:self];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//    [self.progressBarVC showViewAsSheetOnViewController:self];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         
         NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
@@ -405,12 +298,12 @@
                 //        NSLog(@"%@",filename);
                 [item_mode_arr addObject:item_mode];
                 //                BOOL S =self.progressBarVC.isViewLoaded;
-                if (self.progressBarVC.isActive) {
-                    
-                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
-                }else{
-                    return;
-                }
+//                if (self.progressBarVC.isActive) {
+//
+//                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
+//                }else{
+//                    return;
+//                }
                 
                 i = i + 1;
             }
@@ -432,7 +325,7 @@
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.progressBarVC dismisssViewOnViewController:self];
+//            [self.progressBarVC dismisssViewOnViewController:self];
             
             self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
             
@@ -441,12 +334,15 @@
             [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
         });
         
-    });
+//    });
 }
 
 - (IBAction)add_csv_click:(NSButton *)sender {
-//    [self generate_oc];
-    [self generate_py];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        [self generate_oc];
+        [self generate_py];
+//    });
+
 }
 
 -(void)reloadDataWithColumnSize:(NSArray *)data{
