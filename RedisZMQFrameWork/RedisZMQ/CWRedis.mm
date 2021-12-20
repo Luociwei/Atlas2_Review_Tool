@@ -97,8 +97,9 @@
     return isConnected;
 }
 
--(void)setString:(NSString *)key value:(NSString *)value{
-    myRedis->SetString(key.UTF8String, value.UTF8String);
+-(BOOL)setString:(NSString *)key value:(NSString *)value{
+    BOOL b = myRedis->SetString(key.UTF8String, value.UTF8String);
+    return b;
 }
 -(NSString *)get:(NSString *)key{
     

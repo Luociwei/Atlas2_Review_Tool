@@ -162,10 +162,11 @@ def generate_click(log_path):
 
 
 if __name__ == '__main__':
-    # pass
+
+    pass
     # path = '/Users/ciweiluo/Desktop/records.csv'
     # get_fail_item(path)
-    generate_click('/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/TestLog/unit-archive')
+    # generate_click('/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/TestLog/unit-archive')
     # log_path = '/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/Atlas2_Tool_0504/unit-archive/DLX1133006S0NC419/20210417_0-33-14.413-F2C24C/system/device.log'
     # get_slot(log_path)
     # get_cfg_broadType(log_path)

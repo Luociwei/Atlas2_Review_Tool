@@ -47,41 +47,8 @@ class RedisClient(object):
         print(self.get('is_connect'))  # 取出键 name 对应的值
         # print(type(self.get('is_connect')))  # 查看类型
 
-    def get(self, key_string):
-        if type(key_string) != type(''):
-            error_mes = 'Error:the key_name inputted must be string!!!'
-            print (error_mes)
-            return error_mes
-        if len(key_string) == 0:
-            error_mes = 'Error:the key_name inputted is null!!!'
-            print (error_mes)
-            return error_mes
-
-        recv = self.redis.get(key_string)
-        is_json_str = is_contain_all_in_string(recv, ['[', ']']) or is_contain_all_in_string(recv, ['{', '}'])
-
-        if not is_json_str:  # is not a json string
-            return recv
-        try:
-            json_recv = json.loads(recv)
-            if type(json_recv) == type([]) or type(json_recv) == type({}):
-                recv = json_recv
-        except Exception as result:
-            print(result)
-        else:
-            pass
-        finally:
-            return recv
-
-    def get_loading(self):
-        return self.get('loading')
-
-    def set_loading(self, message, percent):
-        loading_message_dict = {
-            'message': message,
-            'percent': percent
-        }
-        return self.set('loading', loading_message_dict)
+    def flushdb(self):
+        return self.redis.flushdb()
 
     def set(self, key_string, value):
 
@@ -110,6 +77,54 @@ class RedisClient(object):
             b_result = False
         finally:
             return b_result
+
+    def get(self, key_string):
+        if type(key_string) != type(''):
+            error_mes = 'Error:the key_name inputted must be string!!!'
+            print (error_mes)
+            return error_mes
+        if len(key_string) == 0:
+            error_mes = 'Error:the key_name inputted is null!!!'
+            print (error_mes)
+            return error_mes
+
+        recv = self.redis.get(key_string)
+        is_json_str = is_contain_all_in_string(recv, ['[', ']']) or is_contain_all_in_string(recv, ['{', '}'])
+
+        if not is_json_str:  # is not a json string
+            return recv
+        try:
+            json_recv = json.loads(recv)
+            if type(json_recv) == type([]) or type(json_recv) == type({}):
+                recv = json_recv
+        except Exception as result:
+            print(result)
+        else:
+            pass
+        finally:
+            return recv
+
+    def get_common(self):
+        return self.get('common')
+
+    def set_common(self, data_title, data_info):
+        if not len(data_title):
+            data_title = ''
+        if not len(data_info):
+            data_info = ''
+
+        message_dict = {
+            'title': data_title,
+            'info': data_info,
+
+        }
+        return self.set('common', message_dict)
+
+    def set_common_warning(self, data_info):
+        return self.set_common('warning', data_info)
+
+    def set_common_loading(self, data_info):
+        return self.set_common('loading', data_info)
 
     def get_data_table(self, key):
         tb = self.redis.get(key)

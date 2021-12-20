@@ -105,34 +105,40 @@
 //    [appDelegate.redis setString:@"test_item_3" value:@"0.01,0.03,0.02"];
 
     int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
+    
 
     if (ret > 0)
     {
         dispatch_sync(dispatch_get_global_queue(0, 0), ^{
             int i = 1;
+            [NSThread sleepForTimeInterval:0.5];
             while (1) {
-                
-                NSString *redis_ret = [appDelegate.redis get:@"loading"];
-                if ([redis_ret containsString:@"finish"]) {
-                    break;
-                }
+                [NSThread sleepForTimeInterval:0.01];
+                NSString *redis_ret = [appDelegate.redis get:@"common"];
                 NSDictionary *loadingDict = [redis_ret cw_jsonStringUnserialize];
                 
-                NSLog(@"redis_ret:%@---%d--",redis_ret,i);
-       
                 if (loadingDict) {
-                    NSString *mes = [loadingDict objectForKey:@"message"];
-                    double per = [[loadingDict objectForKey:@"percent"] doubleValue];
-                    NSLog(@"mes:%@--percent:%d",mes,per);
-                    if (per == 1) {
-                        break;
-                    }
-//                    if ([index isEqualToString:@"22"]) {
-//                        break;;
-//                    }
                     
+                    NSString *title = [loadingDict objectForKey:@"title"];
+                    NSArray *infoArr = [loadingDict objectForKey:@"info"];
+                    if ([title isEqualToString:@"warning"]) {
+                        NSString *name = infoArr[0];
+                        NSString *mes = infoArr[1];
+                        NSLog(@"mes:%@",mes);
+                        break;
+                        
+                    }else if ([title isEqualToString:@"loading"]){
+            
+                        NSString *mes = infoArr[0];
+                        double per = [infoArr[1] doubleValue];
+                        NSLog(@"mes:%@--percent:%f",mes,per);
+                        if (per == 1) {
+                            break;
+                        }
+                    }
+                
                 }
-                [NSThread sleepForTimeInterval:0.05];
+                
                 
                 i = i + 1;
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CWRedis : NSObject
 +(void)shutDown;
 -(BOOL)connect;
--(void)setString:(NSString *)key value:(NSString *)value;
+-(BOOL)setString:(NSString *)key value:(NSString *)value;
 -(NSString *)get:(NSString *)key;
 
 @end
