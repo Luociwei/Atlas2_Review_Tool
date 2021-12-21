@@ -26,6 +26,10 @@
 }
 
 
+-(void)viewWillAppear{
+    [self setProgressBarPercentValue:0 info:@"Pls wait!"];
+}
+
 - (IBAction)cancel:(NSButton *)sender {
     [self close];
 }

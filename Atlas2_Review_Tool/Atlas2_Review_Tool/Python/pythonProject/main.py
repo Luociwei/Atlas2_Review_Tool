@@ -72,8 +72,8 @@ def run():
 
                         index = index + 1
 
-                        redis_client.set_common_loading([item_mode.sn, index*1.0/len(records_path_list)])
-                        time.sleep(2)
+                        redis_client.set_common_loading([item_mode.sn, str(index*1.0/len(records_path_list))])
+                        # time.sleep(2)
                         if index == len(records_path_list):
                             time.sleep(0.5)
 

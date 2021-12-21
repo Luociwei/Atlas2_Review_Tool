@@ -41,29 +41,43 @@
 }
 
 -(void)dismisssViewOnViewController:(NSViewController *)vc{
-    [vc dismissViewController:self];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [vc dismissViewController:self];
+        
+    });
     
 }
 
 -(void)showViewOnViewController:(NSViewController *)vc{
-    _mainVc = vc;
-    [vc presentViewControllerAsModalWindow:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _mainVc = vc;
+        [vc presentViewControllerAsModalWindow:self];
+        
+    });
+
    // [vc presentViewControllerAsSheet:self];
 
 }
 -(void)showViewAsSheetOnViewController:(NSViewController *)vc{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _mainVc = vc;
+        [vc presentViewControllerAsSheet:self];
+        
+    });
     
-    _mainVc = vc;
-    [vc presentViewControllerAsSheet:self];
+    
 }
 //- (void)windowWillClose:(NSNotification *)notification {
 //    [self close];
 //}
 
 -(void)close{
-    self.isActive = NO;
-    [_mainVc dismissViewController:self];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.isActive = NO;
+        [_mainVc dismissViewController:self];
+        
+    });
     
 }
 
