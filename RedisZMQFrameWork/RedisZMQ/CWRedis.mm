@@ -17,6 +17,14 @@
     RedisInterface *myRedis;
 }
 
++(void)flushall{
+    NSString *file_cli = [[[[NSBundle bundleForClass:[self class]] resourcePath] stringByAppendingPathComponent:@"redis-cli"] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+      file_cli = [file_cli stringByReplacingOccurrencesOfString:@"(" withString:@"\\("];
+      file_cli = [file_cli stringByReplacingOccurrencesOfString:@")" withString:@"\\)"];
+    NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
+    for (int i=0; i<3; i++)
+    system([cli_Path UTF8String]);
+}
 
 +(void)shutDown
 {
@@ -24,7 +32,7 @@
       file_cli = [file_cli stringByReplacingOccurrencesOfString:@"(" withString:@"\\("];
       file_cli = [file_cli stringByReplacingOccurrencesOfString:@")" withString:@"\\)"];
     NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
-    for (int i=0; i<5; i++)
+    for (int i=0; i<3; i++)
     system([cli_Path UTF8String]);
     
      NSString *cli_shutdown = [NSString stringWithFormat:@"%@ -p 6379 shutdown",file_cli];
@@ -52,12 +60,12 @@
     file_cli = [file_cli stringByReplacingOccurrencesOfString:@"(" withString:@"\\("];
     file_cli = [file_cli stringByReplacingOccurrencesOfString:@")" withString:@"\\)"];
     
-    NSString *cli_shutdown = [NSString stringWithFormat:@"%@ -p 6379 shutdown",file_cli];
-    system([cli_shutdown UTF8String]);
-    
-    [NSThread sleepForTimeInterval:0.2];
-    system([cli_shutdown UTF8String]);
-    [NSThread sleepForTimeInterval:0.4];
+//    NSString *cli_shutdown = [NSString stringWithFormat:@"%@ -p 6379 shutdown",file_cli];
+//    system([cli_shutdown UTF8String]);
+//    
+//    [NSThread sleepForTimeInterval:0.2];
+//    system([cli_shutdown UTF8String]);
+//    [NSThread sleepForTimeInterval:0.4];
     
     NSString *killRedis = @"ps -ef |grep -i redis-server |grep -v grep|awk '{print $2}' |xargs kill -9";
     system([killRedis UTF8String]);
@@ -73,15 +81,15 @@
     file = [file stringByReplacingOccurrencesOfString:@")" withString:@"\\)"];
     system([file UTF8String]);
     
-    NSString *cli_cmd1 = [NSString stringWithFormat:@"%@ config set stop-writes-on-bgsave-error no",file_cli];
-    system([cli_cmd1 UTF8String]);
-    
-    NSString *cli_cmd2 = [NSString stringWithFormat:@"%@ config set stop-writes-on-bgsave-error no",file_cli];
-    system([cli_cmd2 UTF8String]);
+//    NSString *cli_cmd1 = [NSString stringWithFormat:@"%@ config set stop-writes-on-bgsave-error no",file_cli];
+//    system([cli_cmd1 UTF8String]);
+//
+//    NSString *cli_cmd2 = [NSString stringWithFormat:@"%@ config set stop-writes-on-bgsave-error no",file_cli];
+//    system([cli_cmd2 UTF8String]);
     
     [NSThread sleepForTimeInterval:0.2];
     NSString *cli_Path = [NSString stringWithFormat:@"%@ flushall",file_cli];
-    for (int i=0; i<2; i++)
+    for (int i=0; i<3; i++)
         system([cli_Path UTF8String]);
     
 }
@@ -105,24 +113,24 @@
     NSString *valueStr = @"";
     if ([value isKindOfClass:[NSString class]]) {
         valueStr = (NSString *)value;
-
-
+        
+        
     }else if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]){
-       valueStr = [self jsonSerialize:value];
-     
+        valueStr = [self jsonSerialize:value];
+        
     }else{
         valueStr = [NSString stringWithFormat:@"%@",value];
         
     }
     if (valueStr.length) {
         BOOL b = myRedis->SetString(key.UTF8String, valueStr.UTF8String);
-    return b;
+        return b;
     }else{
         NSLog(@"func:redis.setString--the value inputted is null!!!");
         return NO;
-}
+    }
     
-
+    
 }
 
 -(id)get:(NSString *)key{

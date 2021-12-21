@@ -99,7 +99,27 @@
     return 0;
 }
 
+-(BOOL)send:(id)msg{
+    BOOL b_result = NO;
 
+    if([msg isKindOfClass:[NSString class]]){
+        NSString *msg_str = [NSString stringWithString:msg];
+        b_result = [self sendString:msg_str];
+
+    } else if ([msg isKindOfClass:[NSArray class]] || [msg isKindOfClass:[NSDictionary class]]) {
+        
+        NSString *valueStr = [self jsonSerialize:msg];
+        b_result = [self sendString:valueStr];
+        
+    }
+    else{
+        NSString *msg_str = [NSString stringWithFormat:@"%@",msg];
+        b_result = [self sendString:msg_str];
+    }
+
+    return b_result;
+
+}
 
 -(BOOL)sendString:(NSString *)msg{
     int r = [zmqClient SendCmd:msg];
@@ -107,7 +127,7 @@
 }
 
 -(NSString *)read{
-	return [self read:100*1024];
+	return [self read:1000*1024];
 }
 
 -(NSString *)read:(NSInteger)size{
@@ -135,10 +155,10 @@
     [dict setObject:name forKey:@"name"];
     [dict setObject:event forKey:@"event"];
     [dict setObject:params forKey:@"params"];
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingFragmentsAllowed error:nil];
-    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"sendMessage:%@",strJson);
-    return [self sendString:strJson];
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingFragmentsAllowed error:nil];
+//    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    NSLog(@"sendMessage:%@",strJson);
+    return [self send:dict];
 }
 //将字典转换成json格式字符串,是否含\n这些符号
 - (NSString *)jsonSerialize:(id)obj{

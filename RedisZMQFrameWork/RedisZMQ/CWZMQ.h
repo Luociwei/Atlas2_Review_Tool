@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)shutdown;
 -(instancetype)initWithURL:(NSString *)url pythonFile:(NSString *)filePath;
 -(instancetype)initWithURL:(NSString *)url pythonFile:(NSString *)filePath launchPath:(NSString *)launchPath;
--(BOOL)sendString:(NSString *)msg;
+//-(BOOL)sendString:(NSString *)msg;
+-(BOOL)send:(id)msg;//NSString/NSArrar/NSDict
 -(NSString *)read:(NSInteger)size;
 -(NSString *)read;
 //-(NSString *)sendRead:(NSString *)msg;

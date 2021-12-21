@@ -26,7 +26,12 @@
 }
 
 
--(void)viewWillAppear{
+-(void)viewDidAppear{
+    [super viewDidAppear];
+    [self setProgressBarPercentValue:0 info:@"Pls wait!"];
+}
+-(void)viewWillDisappear{
+    [super viewWillDisappear];
     [self setProgressBarPercentValue:0 info:@"Pls wait!"];
 }
 

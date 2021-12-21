@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.progressBarVC =[[ProgressBarVC alloc]init];
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
     self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
     self.labelCount.stringValue = @"Test Total Count:0   Fail Count:0   Pass Count:0   rate:0";
@@ -96,12 +97,14 @@
 -(void)generate_py{
     
     [self removeAllItemsData];
+    [CWRedis flushall];
     
     self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
     
     NSString *path =self.logDropView.stringValue;
     
     AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
+    
     int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
     
     if (ret > 0)
@@ -115,7 +118,7 @@
             while (true) {
                 i = i+1;
                 [NSThread sleepForTimeInterval:0.05];
-//                NSString *redis_ret = [appDelegate.redis get:@"common"];
+                //                NSString *redis_ret = [appDelegate.redis get:@"common"];
                 NSDictionary *loadingDict =(NSDictionary *)[appDelegate.redis get:@"common"];
                 
                 if (loadingDict) {
@@ -134,33 +137,30 @@
                         NSString *mes = infoArr[0];
                         float per = [infoArr[1] floatValue];
                         NSLog(@"mes:%@--percent:%f",mes,per);
-//
-                            if (!isShow) {
-                                isShow = YES;
-
-                                    [self.progressBarVC showViewAsSheetOnViewController:self];
+                        //
+                        if (!isShow) {
+                            isShow = YES;
+                            
+                            [self.progressBarVC showViewAsSheetOnViewController:self];
+                            
+                        }else{
+                            if (self.progressBarVC.isActive) {
                                 
-                       
-                            }else{
-                                if (self.progressBarVC.isActive) {
-                                    
-                                    [self.progressBarVC setProgressBarPercentValue:per info:mes];
-  
-                                }
+                                [self.progressBarVC setProgressBarPercentValue:per info:mes];
+                                
                             }
-                            
-                            if (per >= 1) {
-
-                                    [self.progressBarVC close];
-
-                                break;
-                              
-                         
-                            }
-                            
-//                        });
+                        }
                         
- 
+                        if (per >= 1) {
+                            [NSThread sleepForTimeInterval:0.5];
+                            
+                            [self.progressBarVC close];
+                            
+                            break;
+                            
+                            
+                        }
+                        
                     }
                     
                 }
@@ -172,75 +172,18 @@
             if ([response isKindOfClass:[NSArray class]]) {
                 NSLog(@"1");
             }else if ([response isKindOfClass:[NSString class]]){
-//                                return;
+                //                                return;
             }
             
         });
         
-
+        
         
     }
 }
 
 
--(void)generate_py1{
-    [self removeAllItemsData];
-    
-    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-    
-    NSString *path =self.logDropView.stringValue;
-    
-    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
-    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
-    
-    if (ret>0){
-        
-        [self.progressBarVC showViewAsSheetOnViewController:self];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            
-            int i = 0;
-            while (1) {
-                [NSThread sleepForTimeInterval:0.1];
-                NSDictionary *loadingDict =(NSDictionary *)[appDelegate.redis get:@"common"];
-                NSArray *infoArr = [loadingDict objectForKey:@"info"];
-                NSString *mes = infoArr[0];
-                float per = [infoArr[1] floatValue];
-                NSLog(@"mes:%@--percent:%f",mes,per);
-                
-                if (self.progressBarVC.isActive) {
-                    
-                    NSString *mes = [NSString stringWithFormat:@"ssssss%d",i];
-                    [self.progressBarVC setProgressBarPercentValue:i*1.0/20 info:mes];
-                }else{
-//                    return;
-                }
-                if (per==1) {
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.progressBarVC dismisssViewOnViewController:self];
-                        
-                    });
-                    break;
-                }
-                
-                
-                i = i + 1;
-            }
-            
-            
-            id response = [appDelegate.zmqMainPy read];
-            
-            if ([response isKindOfClass:[NSArray class]]) {
-                NSLog(@"1");
-            }
-            
-            
-            
-        });
-        
-    }
-}
+
 
 - (IBAction)add_csv_click:(NSButton *)sender {
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -250,7 +193,7 @@
 
 }
 
--(void)generate_oc1{
+-(void)generate_oc{
     
     [self removeAllItemsData];
     
@@ -653,12 +596,12 @@
     return _testLogVC;
 }
 
--(ProgressBarVC *)progressBarVC{
-    if (!_progressBarVC) {
-        _progressBarVC =[[ProgressBarVC alloc]init];
-    }
-    return _progressBarVC;
-}
+//-(ProgressBarVC *)progressBarVC{
+//    if (!_progressBarVC) {
+//        _progressBarVC =[[ProgressBarVC alloc]init];
+//    }
+//    return _progressBarVC;
+//}
 
 -(TableDataDelegate *)tableDataDelegate{
     if (!_tableDataDelegate) {

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)connect;
 -(BOOL)setString:(NSString *)key value:(NSString *)value;
 -(id)get:(NSString *)key;
-
++(void)flushall;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -30,7 +30,6 @@
 		BAB92DF0276784600087151B /* xRedisClient_connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB92DB8276784600087151B /* xRedisClient_connection.cpp */; };
 		BAB92DF1276784600087151B /* xRedisClient_lists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB92DB9276784600087151B /* xRedisClient_lists.cpp */; };
 		BAB92DF2276784600087151B /* redis-check-rdb in Resources */ = {isa = PBXBuildFile; fileRef = BAB92DBB276784600087151B /* redis-check-rdb */; };
-		BAB92DF3276784600087151B /* dump.rdb in Resources */ = {isa = PBXBuildFile; fileRef = BAB92DBC276784600087151B /* dump.rdb */; };
 		BAB92DF4276784600087151B /* redis-server in Resources */ = {isa = PBXBuildFile; fileRef = BAB92DBD276784600087151B /* redis-server */; };
 		BAB92DF5276784600087151B /* redis-cli in Resources */ = {isa = PBXBuildFile; fileRef = BAB92DBE276784600087151B /* redis-cli */; };
 		BAB92DF6276784600087151B /* runtest-cluster in Resources */ = {isa = PBXBuildFile; fileRef = BAB92DBF276784600087151B /* runtest-cluster */; };
@@ -102,7 +101,6 @@
 		BAB92DB8276784600087151B /* xRedisClient_connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xRedisClient_connection.cpp; sourceTree = "<group>"; };
 		BAB92DB9276784600087151B /* xRedisClient_lists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xRedisClient_lists.cpp; sourceTree = "<group>"; };
 		BAB92DBB276784600087151B /* redis-check-rdb */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "redis-check-rdb"; sourceTree = "<group>"; };
-		BAB92DBC276784600087151B /* dump.rdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = dump.rdb; sourceTree = "<group>"; };
 		BAB92DBD276784600087151B /* redis-server */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "redis-server"; sourceTree = "<group>"; };
 		BAB92DBE276784600087151B /* redis-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "redis-cli"; sourceTree = "<group>"; };
 		BAB92DBF276784600087151B /* runtest-cluster */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "runtest-cluster"; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				BAB92DBB276784600087151B /* redis-check-rdb */,
-				BAB92DBC276784600087151B /* dump.rdb */,
 				BAB92DBD276784600087151B /* redis-server */,
 				BAB92DBE276784600087151B /* redis-cli */,
 				BAB92DBF276784600087151B /* runtest-cluster */,
@@ -372,7 +369,7 @@
 				Base,
 			);
 			mainGroup = 77595F9A24BA0D330054A909;
-			productRefGroup = 77595F9A24BA0D330054A909 /* Products */;
+			productRefGroup = 77595F9A24BA0D330054A909;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -388,7 +385,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB92DF7276784600087151B /* redis-check-aof in Resources */,
-				BAB92DF3276784600087151B /* dump.rdb in Resources */,
 				BAB92DFC276784600087151B /* redis-benchmark in Resources */,
 				BAB92DFE276784600087151B /* runtest in Resources */,
 				BAB92DF6276784600087151B /* runtest-cluster in Resources */,
