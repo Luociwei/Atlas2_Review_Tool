@@ -10,15 +10,13 @@ from atlaslog_package import atlas_log
 
 is_debug = 0
 if is_debug:
-    dict = {
+    test_str = {
         'name': 'AtlasLog',
         'event': 'GenerateClick',
-        'params': ["/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/Atlas2_Tool_0504/unit-archive"]
+        'params': ["/Users/ciweiluo/Desktop/Louis/GitHub/Atlas2_Tool_WS/TestLog/unit-archive"]
     }
-    test_str = json.dumps(dict)
 
-else:
-    redis_client = cw_redis.RedisClient()
+redis_client = cw_redis.RedisClient()
 
 zmqClient = cw_zmq.ZmqClient("tcp://127.0.0.1:3100")
 
@@ -75,6 +73,7 @@ def run():
                         index = index + 1
 
                         redis_client.set_common_loading([item_mode.sn, index*1.0/len(records_path_list)])
+                        time.sleep(2)
                         if index == len(records_path_list):
                             time.sleep(0.5)
 

@@ -53,6 +53,7 @@
 
 }
 -(void)showViewAsSheetOnViewController:(NSViewController *)vc{
+    
     _mainVc = vc;
     [vc presentViewControllerAsSheet:self];
 }

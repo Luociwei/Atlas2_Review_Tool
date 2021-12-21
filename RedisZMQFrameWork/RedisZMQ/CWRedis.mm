@@ -97,14 +97,90 @@
     return isConnected;
 }
 
--(BOOL)setString:(NSString *)key value:(NSString *)value{
-    BOOL b = myRedis->SetString(key.UTF8String, value.UTF8String);
+-(BOOL)setString:(NSString *)key value:(id)value{
+    if (!key.length) {
+        NSLog(@"func:redis.setString--the key_name inputted is null!!!");
+        return NO;
+    }
+    NSString *valueStr = @"";
+    if ([value isKindOfClass:[NSString class]]) {
+        valueStr = (NSString *)value;
+
+
+    }else if ([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]){
+       valueStr = [self jsonSerialize:value];
+     
+    }else{
+        valueStr = [NSString stringWithFormat:@"%@",value];
+        
+    }
+    if (valueStr.length) {
+        BOOL b = myRedis->SetString(key.UTF8String, valueStr.UTF8String);
     return b;
+    }else{
+        NSLog(@"func:redis.setString--the value inputted is null!!!");
+        return NO;
 }
--(NSString *)get:(NSString *)key{
     
+
+}
+
+-(id)get:(NSString *)key{
+    if (!key.length) {
+        NSLog(@"func:redis.get--the key_name inputted must be string!!!");
+        return nil;
+    }
     const char *ret = myRedis->GetString(key.UTF8String);
-    return [NSString stringWithUTF8String:ret];
+    NSString *retStr = [NSString stringWithUTF8String:ret];
+    if (([retStr containsString:@"["]&&[retStr containsString:@"]"])||([retStr containsString:@"{"]&&[retStr containsString:@"}"])) {
+        
+        return [self jsonStringUnserialize:retStr];
+    }else{
+        return retStr;
+    }
+    
+}
+//将字典转换成json格式字符串,是否含\n这些符号
+- (NSString *)jsonSerialize:(id)obj{
+    
+    //    BOOL isArrar =[obj isKindOfClass:[NSArray class]];
+    //    BOOL isDict =[obj isKindOfClass:[NSDictionary class]];
+    BOOL isValidJSONObject =[NSJSONSerialization isValidJSONObject:obj];
+    
+    if (!isValidJSONObject) {
+        NSLog(@"%@", [NSString stringWithFormat:@"obj:%@--isValidJSONObject",obj]);
+        return nil;
+        
+    }
+    //    NSJSONWritingPrettyPrinted
+    //    NSJSONWritingOptions option = isWritingPrinted ? NSJSONWritingPrettyPrinted : 0;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:0 error:nil];
+    
+    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return strJson;
+    
+}
+
+// JSON字符串转化为字典
+-(id)jsonStringUnserialize:(NSString *)str
+{
+    if (!str.length) {
+        return nil;
+    }
+    
+    NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                             options:NSJSONReadingMutableContainers
+                                               error:&err];
+    if(err)
+    {
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"json解析失败：%@",err]];
+        NSLog(@"json解析失败--string:%@--error:%@",self,err);
+        return nil;
+    }
+    return dic;
 }
 
 

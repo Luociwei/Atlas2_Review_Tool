@@ -102,44 +102,28 @@
 
 
 -(BOOL)sendString:(NSString *)msg{
-    return [zmqClient SendCmd:msg] > 0;
+    int r = [zmqClient SendCmd:msg];
+    return r > 0;
 }
 
 -(NSString *)read{
-    NSString * response = [zmqClient RecvRquest];
-    return response;
-//    NSMutableString *mutResponse = [[NSMutableString alloc] init];
-//    while (1) {
-//
-//        NSString * response = [zmqClient RecvRquest];
-//        if (response.length) {
-//            [mutResponse appendString:response];
-//            [NSThread sleepForTimeInterval:0.05];
-//        }else{
-//            break;;
-//        }
-//    }
-    
-    
-//    return mutResponse;
+	return [self read:100*1024];
 }
 
 -(NSString *)read:(NSInteger)size{
     if (size<=0) {
         size = 1024;
     }
-    NSString * response = [zmqClient RecvRquest:size];
-    return response;
+    NSString * retStr = [zmqClient RecvRquest:size];
+    
+    if (([retStr containsString:@"["]&&[retStr containsString:@"]"])||([retStr containsString:@"{"]&&[retStr containsString:@"}"])) {
+        
+        return [self jsonStringUnserialize:retStr];
+    }else{
+        return retStr;
+    }
 }
 
-//-(NSString *)sendRead:(NSString *)msg{
-//    if ([self sendString:msg]) {
-//        NSString * response = [self read:1024];
-//        return response.length ? response : @"";
-//    }else{
-//        return @"";
-//    }
-//}
 
 +(void)shutdown{
     NSString *logCmd = @"ps -ef |grep -i python |grep -i main.py |grep -v grep|awk '{print $2}' | xargs kill -9";
@@ -155,6 +139,48 @@
     NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"sendMessage:%@",strJson);
     return [self sendString:strJson];
+}
+//将字典转换成json格式字符串,是否含\n这些符号
+- (NSString *)jsonSerialize:(id)obj{
+
+//    BOOL isArrar =[obj isKindOfClass:[NSArray class]];
+//    BOOL isDict =[obj isKindOfClass:[NSDictionary class]];
+    BOOL isValidJSONObject =[NSJSONSerialization isValidJSONObject:obj];
+    
+    if (!isValidJSONObject) {
+        NSLog(@"%@", [NSString stringWithFormat:@"obj:%@--isValidJSONObject",obj]);
+        return nil;
+
+    }
+//    NSJSONWritingPrettyPrinted
+//    NSJSONWritingOptions option = isWritingPrinted ? NSJSONWritingPrettyPrinted : 0;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingFragmentsAllowed error:nil];
+
+    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    return strJson;
+
+}
+
+// JSON字符串转化为字典
+-(id)jsonStringUnserialize:(NSString *)str
+{
+    if (!str.length) {
+        return nil;
+    }
+    
+    NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                             options:NSJSONReadingMutableContainers
+                                               error:&err];
+    if(err)
+    {
+//        [Alert cw_RemindException:@"Error" Information:[NSString stringWithFormat:@"json解析失败：%@",err]];
+        NSLog(@"json解析失败--string:%@--error:%@",self,err);
+        return nil;
+    }
+    return dic;
 }
 
 @end

@@ -171,8 +171,12 @@
 //将字典转换成json格式字符串,是否含\n这些符号
 + (NSString *)cw_jsonSerialize:(id)obj isWritingPrinted:(BOOL)isWritingPrinted{
 
-    if (![obj isKindOfClass:[NSDictionary class]] || ![NSJSONSerialization isValidJSONObject:obj] || ![obj isKindOfClass:[NSArray class]]) {
+    //    BOOL isArrar =[obj isKindOfClass:[NSArray class]];
+    //    BOOL isDict =[obj isKindOfClass:[NSDictionary class]];
+    BOOL isValidJSONObject =[NSJSONSerialization isValidJSONObject:obj];
 
+    if (!isValidJSONObject) {
+        NSLog(@"%@", [NSString stringWithFormat:@"obj:%@--isValidJSONObject",obj]);
         return nil;
 
     }

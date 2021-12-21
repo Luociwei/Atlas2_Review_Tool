@@ -101,84 +101,138 @@
     
     NSString *path =self.logDropView.stringValue;
     
-    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
-//    [appDelegate.redis setString:@"test_item_3" value:@"0.01,0.03,0.02"];
+//    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
 
-    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
-    
+
+//    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
+    int ret = 1;
 
     if (ret > 0)
     {
-        dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-            int i = 1;
-            [NSThread sleepForTimeInterval:0.5];
-            while (1) {
-                [NSThread sleepForTimeInterval:0.01];
-                NSString *redis_ret = [appDelegate.redis get:@"common"];
-                NSDictionary *loadingDict = [redis_ret cw_jsonStringUnserialize];
-                
-                if (loadingDict) {
-                    
-                    NSString *title = [loadingDict objectForKey:@"title"];
-                    NSArray *infoArr = [loadingDict objectForKey:@"info"];
-                    if ([title isEqualToString:@"warning"]) {
-                        NSString *name = infoArr[0];
-                        NSString *mes = infoArr[1];
-                        NSLog(@"mes:%@",mes);
-                        break;
-                        
-                    }else if ([title isEqualToString:@"loading"]){
+        [self.progressBarVC showViewAsSheetOnViewController:self];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
-                        NSString *mes = infoArr[0];
-                        double per = [infoArr[1] doubleValue];
-                        NSLog(@"mes:%@--percent:%f",mes,per);
-                        if (per == 1) {
-                            break;
-                        }
-                    }
+            [NSThread sleepForTimeInterval:0.5];
+            BOOL isShow = NO;
+            int i =0;
+            while (i<=20) {
+                i = i+1;
+                [NSThread sleepForTimeInterval:2];
+                //                NSString *redis_ret = [appDelegate.redis get:@"common"];
+//                NSDictionary *loadingDict =(NSDictionary *)[appDelegate.redis get:@"common"];
+                
+//                if (loadingDict) {
+                    
+//                    NSString *title = [loadingDict objectForKey:@"title"];
+//                    NSArray *infoArr = [loadingDict objectForKey:@"info"];
+//                    if ([title isEqualToString:@"warning"] && (infoArr.count >=2)) {
+//
+//                        NSString *name = infoArr[0];
+//                        NSString *mes = infoArr[1];
+//                        NSLog(@"name:%@---mes:%@",name,mes);
+//                        break;
+//
+//                    }else if ([title isEqualToString:@"loading"]){
+//
+//                        NSString *mes = infoArr[0];
+//                        float per = [infoArr[1] floatValue];
+                        NSString *mes = [NSString stringWithFormat:@"ssssss%d",i];
+                        float per = 1.0*i/20;
+//                        if (!isShow) {
+//                            isShow = YES;
+////                            [self.progressBarVC showViewAsSheetOnViewController:self];
+//                        }else{
+                            if (self.progressBarVC.isActive) {
+                                NSLog(@"mes:%@--percent:%f",mes,per);
+                                [self.progressBarVC setProgressBarPercentValue:1.0*i/20 info:mes];
+                            }else{
+                                break;;
+                            }
+//                        }
+   
+                    
+//                        if (per == 1) {
+//                            break;
+//                        }
+//                    }
                 
                 }
                 
-                
-                i = i + 1;
-
-     
-            }
+//            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.progressBarVC dismisssViewOnViewController:self];
+            });
         });
 
-        NSString * response = [appDelegate.zmqMainPy read];
-        NSLog(@"1");
-//
-//        if (!response)
-//        {
-//            NSLog(@"zmq for python error");
+//        id response = [appDelegate.zmqMainPy read];
+
+//        if ([response isKindOfClass:[NSArray class]]) {
+//        NSLog(@"1");
+//        }else if ([response isKindOfClass:[NSString class]]){
 //            return;
-////            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:@"zmq for python error"];
-//        }else{
-//            NSLog(@"app->get response from python: %@",response);
-//            if ([response.lowercaseString containsString:@"error!!!"]) {
-//                return;
-//            }
-//            [FileManager cw_writeToFile:@"/Users/ciweiluo/Desktop/test.txt" content:[NSString stringWithFormat:@"app->get response from python: %@",response]];
-        }
+//        }
         
-//        NSArray *jsonArr = [response cw_jsonStringUnserialize];
-       // NSMutableArray *item_dict_arr =[ItemMode getDicArrayWithPyArr:jsonArr];
-        
-//        [self updateAllIWithtemsData:item_dict_arr];
-//
-//        [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self reloadDataWithColumnSize:self.fail_items_data];
-//            [self.tableDataDelegate reloadTableViewWithData:self.fail_items_data];
-//        });
-
-//    }
-
+    }
 }
 
 
--(void)generate_oc{
+-(void)generate_py1{
+    [self removeAllItemsData];
+    
+    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
+    
+    NSString *path =self.logDropView.stringValue;
+    
+//    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
+
+
+//    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
+    int ret = 1;
+
+    if (ret>0){
+
+    [self.progressBarVC showViewAsSheetOnViewController:self];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        
+        int i = 0;
+        while (i<=20) {
+           
+                
+            [NSThread sleepForTimeInterval:1];
+                if (self.progressBarVC.isActive) {
+                    
+                    NSString *mes = [NSString stringWithFormat:@"ssssss%d",i];
+                    [self.progressBarVC setProgressBarPercentValue:i*1.0/20 info:mes];
+                }else{
+                    return;
+                }
+                
+                i = i + 1;
+            }
+        
+        
+        
+   
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressBarVC dismisssViewOnViewController:self];
+
+        });
+        
+    });
+        
+    }
+}
+
+- (IBAction)add_csv_click:(NSButton *)sender {
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self generate_py];
+//        [self generate_py];
+//    });
+
+}
+
+-(void)generate_oc1{
     
     [self removeAllItemsData];
     
@@ -213,8 +267,8 @@
     }
     
     
-//    [self.progressBarVC showViewAsSheetOnViewController:self];
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    [self.progressBarVC showViewAsSheetOnViewController:self];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         
         NSMutableArray *item_mode_arr = [[NSMutableArray alloc]init];
@@ -304,12 +358,12 @@
                 //        NSLog(@"%@",filename);
                 [item_mode_arr addObject:item_mode];
                 //                BOOL S =self.progressBarVC.isViewLoaded;
-//                if (self.progressBarVC.isActive) {
-//
-//                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
-//                }else{
-//                    return;
-//                }
+                if (self.progressBarVC.isActive) {
+
+                    [self.progressBarVC setProgressBarPercentValue:i*1.0/count_files info:item_mode.sn];
+                }else{
+                    return;
+                }
                 
                 i = i + 1;
             }
@@ -331,7 +385,7 @@
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.progressBarVC dismisssViewOnViewController:self];
+            [self.progressBarVC dismisssViewOnViewController:self];
             
             self.labelCount.stringValue = [NSString stringWithFormat:@"Test Total Count:%ld   Fail Count:%ld   Pass Count:%ld   rate:%ld%%",(long)total_count,(long)fail_count,(long)pass_count,(long)rate];//@"Test Total Count:0 Fail Count:0 Pass Count:0"
             
@@ -340,17 +394,8 @@
             [self.tableDataDelegate reloadTableViewWithData:self.startTimeSort_items_data];
         });
         
-//    });
+    });
 }
-
-- (IBAction)add_csv_click:(NSButton *)sender {
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        [self generate_oc];
-        [self generate_py];
-//    });
-
-}
-
 -(void)reloadDataWithColumnSize:(NSArray *)data{
     if (!data.count) {
         return;

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)shutDown;
 -(BOOL)connect;
 -(BOOL)setString:(NSString *)key value:(NSString *)value;
--(NSString *)get:(NSString *)key;
+-(id)get:(NSString *)key;
 
 @end
 
