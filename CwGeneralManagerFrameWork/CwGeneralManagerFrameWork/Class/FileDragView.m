@@ -81,7 +81,7 @@
         
         if(numberOfFiles>0)
         {
-            NSString *filePath = [files objectAtIndex:0];
+//            NSString *filePath = [files objectAtIndex:0];
             
             //if(self.delegate){
                // [self.delegate didFinishDragWithFile:filePath];

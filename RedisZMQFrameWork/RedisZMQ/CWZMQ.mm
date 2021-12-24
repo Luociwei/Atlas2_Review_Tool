@@ -27,7 +27,7 @@
     if (self == [super init]) {
         zmqClient = [[Client alloc] init];   // connect CPK zmq for PythonTest.py
         [zmqClient CreateRPC:url withSubscriber:nil];
-        [zmqClient setTimeout:20*1000];
+        [zmqClient setTimeout:10*1000];
     }
     
     return self;
@@ -38,7 +38,7 @@
     if (self == [super init]) {
         zmqClient = [[Client alloc] init];   // connect CPK zmq for PythonTest.py
         [zmqClient CreateRPC:url withSubscriber:nil];
-        [zmqClient setTimeout:20*1000];
+        [zmqClient setTimeout:10*1000];
         
         [self lanuchPythonFile:filePath];
     }

@@ -528,8 +528,8 @@ NSString * const TableViewDragDataTypeName  = @"TableViewDragDataTypeName";
 - (IBAction)buttonChick:(id)sender {
     NSButton *button = (NSButton *)sender;
 //    NSLog(@"Form checkBoxChick=%ld",button.state);
-    NSInteger col = [self.owner columnForView:button];
-    NSString *identifier = self.owner.tableColumns[col].identifier;
+//    NSInteger col = [self.owner columnForView:button];
+//    NSString *identifier = self.owner.tableColumns[col].identifier;
     NSInteger row = button.tag;
     NSMutableDictionary *data = [self itemOfRow:row];
 

@@ -14,9 +14,9 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property(strong,nonatomic)CWRedis *redis;
-
-@property(strong,nonatomic)CWZMQ *zmqMainPy;
+//@property(strong,nonatomic)CWRedis *redis;
+//
+//@property(strong,nonatomic)CWZMQ *zmqMainPy;
 
 @end
 

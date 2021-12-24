@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.progressBarVC =[[ProgressBarVC alloc]init];
     NSString *slot_path =[[NSBundle mainBundle] pathForResource:@"SlotRegular.plist" ofType:nil];
     self.slotDic = [[NSDictionary alloc]initWithContentsOfFile:slot_path];
@@ -94,100 +95,103 @@
     return slot;
 }
 
--(void)generate_py{
-    
-    [self removeAllItemsData];
-    [CWRedis flushall];
-    
-    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
-    
-    NSString *path =self.logDropView.stringValue;
-    
-    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
-    
-    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
-    
-    if (ret > 0)
-    {
-        BOOL __block isShow = NO;
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            [NSThread sleepForTimeInterval:0.1];
-            
-            int i =0;
-            while (true) {
-                i = i+1;
-                [NSThread sleepForTimeInterval:0.05];
-                //                NSString *redis_ret = [appDelegate.redis get:@"common"];
-                NSDictionary *loadingDict =(NSDictionary *)[appDelegate.redis get:@"common"];
-                
-                if (loadingDict) {
-                    
-                    NSString *title = [loadingDict objectForKey:@"title"];
-                    NSArray *infoArr = [loadingDict objectForKey:@"info"];
-                    if ([title isEqualToString:@"warning"] && (infoArr.count >=2)) {
-                        
-                        NSString *name = infoArr[0];
-                        NSString *mes = infoArr[1];
-                        NSLog(@"name:%@---mes:%@",name,mes);
-                        break;
-                        
-                    }else if ([title isEqualToString:@"loading"]){
-                        
-                        NSString *mes = infoArr[0];
-                        float per = [infoArr[1] floatValue];
-                        NSLog(@"mes:%@--percent:%f",mes,per);
-                        //
-                        if (!isShow) {
-                            isShow = YES;
-                            
-                            [self.progressBarVC showViewAsSheetOnViewController:self];
-                            
-                        }else{
-                            if (self.progressBarVC.isActive) {
-                                
-                                [self.progressBarVC setProgressBarPercentValue:per info:mes];
-                                
-                            }
-                        }
-                        
-                        if (per >= 1) {
-                            [NSThread sleepForTimeInterval:0.5];
-                            
-                            [self.progressBarVC close];
-                            
-                            break;
-                            
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
-            
-            id response = [appDelegate.zmqMainPy read];
-            
-            if ([response isKindOfClass:[NSArray class]]) {
-                NSLog(@"1");
-            }else if ([response isKindOfClass:[NSString class]]){
-                //                                return;
-            }
-            
-        });
-        
-        
-        
-    }
-}
+
+
+//-(void)generate_py{
+//    
+//    [self removeAllItemsData];
+//    [CWRedis flushall];
+//    
+//    self.labelCount.stringValue = @"";//@"Test Total Count:0 Fail Count:0 Pass Count:0"
+//    
+//    NSString *path =self.logDropView.stringValue;
+//    
+//    AppDelegate * appDelegate = (AppDelegate*)[NSApplication sharedApplication].delegate;
+//    
+//    int ret = [appDelegate.zmqMainPy sendMessage:self.title event:@"GenerateClick" params:@[path]];
+//    
+//    if (ret > 0)
+//    {
+//        BOOL __block isShow = NO;
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//            [NSThread sleepForTimeInterval:0.1];
+//
+//            int i =0;
+//            while (true) {
+//                i = i+1;
+//                [NSThread sleepForTimeInterval:0.05];
+//                //                NSString *redis_ret = [appDelegate.redis get:@"common"];
+//                NSDictionary *loadingDict =(NSDictionary *)[appDelegate.redis get:@"common"];
+//
+//                if (loadingDict) {
+//
+//                    NSString *title = [loadingDict objectForKey:@"title"];
+//                    NSArray *infoArr = [loadingDict objectForKey:@"info"];
+//                    if ([title isEqualToString:@"warning"] && (infoArr.count >=2)) {
+//
+//                        NSString *name = infoArr[0];
+//                        NSString *mes = infoArr[1];
+//                        NSLog(@"name:%@---mes:%@",name,mes);
+//                        break;
+//
+//                    }else if ([title isEqualToString:@"loading"]){
+//
+//                        NSString *mes = infoArr[0];
+//                        float per = [infoArr[1] floatValue];
+//                        NSLog(@"mes:%@--percent:%f",mes,per);
+//                        //
+//                        if (!isShow) {
+//                            isShow = YES;
+//
+//                            [self.progressBarVC showViewAsSheetOnViewController:self];
+//
+//                        }else{
+//                            if (self.progressBarVC.isActive) {
+//
+//                                [self.progressBarVC setProgressBarPercentValue:per info:mes];
+//
+//                            }
+//                        }
+//
+//                        if (per >= 1) {
+//                            [NSThread sleepForTimeInterval:0.5];
+//
+//                            [self.progressBarVC close];
+//
+//                            break;
+//
+//
+//                        }
+//
+//                    }
+//
+//                }
+//
+//            }
+//
+//            id response = [appDelegate.zmqMainPy read];
+//
+//            if ([response isKindOfClass:[NSArray class]]) {
+//                NSLog(@"1");
+//            }else if ([response isKindOfClass:[NSString class]]){
+//                //                                return;
+//            }
+//
+//        });
+//
+//
+//
+//    }
+//}
 
 
 
 
 - (IBAction)add_csv_click:(NSButton *)sender {
+    [self generate_oc];
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [self generate_py];
+//        [self generate_py];
 //        [self generate_py];
 //    });
 

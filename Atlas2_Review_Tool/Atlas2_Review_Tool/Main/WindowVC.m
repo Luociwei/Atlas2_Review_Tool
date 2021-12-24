@@ -143,8 +143,8 @@
 
 
 -(void)windowWillClose:(NSNotification *)notification{
-    [CWRedis shutDown];
-    [CWZMQ shutdown];
+//    [CWRedis shutDown];
+//    [CWZMQ shutdown];
     [super windowWillClose:notification];
 }
 

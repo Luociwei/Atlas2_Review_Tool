@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)cw_deleteSpecialCharacter:(NSString *)chargcter;
 
 +(NSString *)cw_returnJoinStringWithArray:(NSArray *)array;
-+(id)cw_unSerializeWithJosnFile:(NSString *)configfile;
+
 
 -(NSArray *)cw_componentsSeparatedByString:(NSString *)separate;
 -(NSString *)cw_getSubstringSeparate:(NSString *)separate index:(NSInteger)index;

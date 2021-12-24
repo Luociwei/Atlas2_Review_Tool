@@ -28,13 +28,13 @@
 //    NSApp.windows.firstObject.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     // Insert code here to initialize your application
     
-    self.redis = [[CWRedis alloc] init];
-    [self.redis connect];
-
-    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
-    self.zmqMainPy = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100" pythonFile:pyFile];
-    
+//    self.redis = [[CWRedis alloc] init];
+//    [self.redis connect];
+//
+//    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+//    NSString * pyFile = [resourcePath stringByAppendingPathComponent:@"/Python/pythonProject/main.py"];
+//    self.zmqMainPy = [[CWZMQ alloc]initWithURL:@"tcp://127.0.0.1:3100" pythonFile:pyFile];
+//
     
 }
 
