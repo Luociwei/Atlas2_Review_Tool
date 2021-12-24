@@ -1,7 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
-BT_Firmware_Load-Diags,Common:sendCmdAndCreateRecord,,,,5,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_ON"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"bluetooth --on",,
-,Common:sendCmdAndCreateRecord,,,,5,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_Load_Firmware"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"bluetooth --load_firmware",,
-,Common:sendCmdAndCreateRecord,,,(BT_Properties_resp),5,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_Properties"", ""expect"": ""OK"",""passnoshow"":""YES"",""dutPluginName"":""dimension_dut""}",,,"bluetooth --properties",,
-,Common:regexParseString,,(BT_Properties_resp),[BT_FIRMWARE],,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_Firmware_Version"", ""attribute"": ""BT_FIRMWARE"",""pattern"": ""firmware-filename:\\s+\""([0-9A-Za-z-_.]+)\""""}",,,,,
-,Common:versionCompare,,"[WIFI_MODULE],[BT_FIRMWARE]",,,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_Compare"",""compareKey"":""BT FW"",""passnoshow"":""YES""}",,,,,
-,Common:sendCmdAndCreateRecord,,,,5,,"{""subtestname"":""Firmware_Load-Diags"",""subsubtestname"": ""BT_OFF"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"bluetooth --off",,

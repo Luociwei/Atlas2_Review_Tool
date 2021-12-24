@@ -1,9 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
-Stockholm-General_Test,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SH_ON"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"stockholm --on",,
-,Common:delay,,,,,,"{""subsubtestname"": ""DELAY_2000MS"", ""delay"": 2000}",,,,,
-,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SH_INIT"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"stockholm --init",,
-,Common:sendCmdAndCreateRecord,,,,30,,"{""subsubtestname"": ""SH_Load_Firmware"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"stockholm --download_fw mfg",,
-,Common:sendCmdAndCreateRecord,,,(SH_Properties_resp),5,,"{""subsubtestname"": ""SH_Properties"",""passnoshow"":""YES"",""dutPluginName"":""dimension_dut""}",,,"stockholm --properties",,
-,Common:regexParseString,,(SH_Properties_resp),[SH_FIRMWARE],,,"{""subsubtestname"": ""SH_Firmware_Version"", ""attribute"": ""SH_FIRMWARE"",""pattern"": ""firmware-version:\\s+(0x[A-Z0-9]+)""}",,,,,
-,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SH_Loopback_20"", ""expect"": ""PASS"",""dutPluginName"":""dimension_dut""}",,,"stockholm --loopback 20",,
-,Common:sendCmdAndCreateRecord,,,,5,,"{""subsubtestname"": ""SH_OFF"", ""expect"": ""OK"",""dutPluginName"":""dimension_dut""}",,,"stockholm --off",,

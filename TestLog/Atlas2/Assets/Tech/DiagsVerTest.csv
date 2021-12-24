@@ -1,2 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,ExitEarly,SetPoison,Commands,FA,Condition
-DiagsVerTest,Tech:DiagsVerTest,,,,30,,"{""subsubtestname"": ""diags ver test""}",,,,,

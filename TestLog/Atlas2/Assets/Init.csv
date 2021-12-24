@@ -1,9 +1,0 @@
-TestName,TestActions,Disable,Input,Output,Timeout,Retries,AdditionalParameters,Commands,Condition
-getScannedSN,Common:getSNFromInteractiveView,,,[sn],,,,,
-SetDeviceIndex,Common:setDeviceIndex,,,[systemIndex],,,,,
-dataReportSetup,Common:dataReportSetup,,,,,,,,
-MLB_Type_Init,Common:returnUnsetString,,,{mlb_type},,,,,
-accel_selftest_result_init,Common:returnUnsetString,,,{accel_selftest_result},,,,,
-siteInfo,Common:getSiteFromGHJson,,,{SITE},,,,,
-globalVarTest1,M:setVariable,,Red,[TMColor],,,,,
-,M:createBinaryRecord,Y,TRUE,,,,"{""subsubtestname"": ""Set globalvariable TMColor""}",,
